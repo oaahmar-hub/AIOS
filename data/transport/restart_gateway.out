@@ -1,0 +1,1 @@
+{"ts": 1782240060492, "event": "gateway_start", "host": "127.0.0.1", "port": 9010, "openai_endpoint": "https://hshglobaldubai.app.n8n.cloud/webhook/wa-simple-openai-reply-v4", "relationship_assignment_strategy": "manual_then_contextual", "stress_relationship_overrides": 0}

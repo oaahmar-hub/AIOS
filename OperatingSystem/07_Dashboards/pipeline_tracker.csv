@@ -1,0 +1,2 @@
+id,date_in,type,client,contact,source,area,project,unit,beds,budget_or_price_aed,stage,probability,next_action,next_action_date,owner_agent,permit_no,crm_rec_id,notes
+L001,2026-06-23,buyer,EXAMPLE - 2BR Yas Island,whatsapp,PF,Yas Island,,,2,2000000,Qualified,40,Send shortlist + offer viewing,2026-06-25,A02,,rec8LMkWke6uX8Oti,Seeded from existing live-proof lead; replace with live data

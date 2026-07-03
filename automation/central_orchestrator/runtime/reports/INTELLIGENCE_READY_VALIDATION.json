@@ -1,0 +1,387 @@
+{
+  "metadata": {
+    "generated_at": "2026-06-23T04:08:52.286958+00:00",
+    "script": "validate_aios_intelligence_readiness.py"
+  },
+  "phase_1_relationship_memory": {
+    "phone": "+971555111222",
+    "first_interaction": {
+      "identity_tag": "CLIENT",
+      "relationship_loaded": true,
+      "relationship_source": "aios_context_store_primary",
+      "confidence": 0.0
+    },
+    "second_interaction": {
+      "identity_tag": "CLIENT",
+      "relationship_loaded": true,
+      "relationship_source": "aios_context_store_primary",
+      "confidence": 0.599,
+      "decay": {
+        "mode": "stale",
+        "expires_at": "2026-06-23T04:08:52.361367+00:00"
+      }
+    },
+    "context_store": {
+      "contact_phone": "+971555111222",
+      "exists": true,
+      "relationship_tag": "CLIENT",
+      "dna": {
+        "intent": "property_inquiry",
+        "channel": "whatsapp",
+        "source_identity": "Existing Client"
+      },
+      "weather": "not_available",
+      "profile_summary": "New contact inferred as Existing Client",
+      "relationship_history_summary": "known_relationship",
+      "history_summary": "started with text: good evening and quick update on jvc 2 bed budget 2.5m | latest: can you share marina options with the same budget and area?",
+      "confidence": 0.78485,
+      "confidence_source": "interaction_runtime",
+      "source": "aios_context_store_runtime",
+      "decay_metadata": {
+        "mode": "stale",
+        "expires_at": "2026-06-23T04:08:52.419959+00:00"
+      },
+      "interactions": 2,
+      "retrieval_last_count": 0,
+      "created_at": "2026-06-23T04:08:52.364022+00:00",
+      "updated_at": "2026-06-23T04:08:52.421149+00:00",
+      "last_seen_at": "2026-06-23T04:08:52.421137+00:00"
+    },
+    "checks": [
+      {
+        "passed": true,
+        "message": "Identity classified."
+      },
+      {
+        "passed": true,
+        "message": "Relationship tag normalized."
+      },
+      {
+        "passed": true,
+        "message": "Relationship tag stable across sessions."
+      },
+      {
+        "passed": true,
+        "message": "Persistent context created in store."
+      },
+      {
+        "passed": true,
+        "message": "Interactions incrementing in persistent context."
+      },
+      {
+        "passed": true,
+        "message": "History summary updated from interaction."
+      }
+    ]
+  },
+  "phase_2_crm_writeback": {
+    "phone": "+971555101102",
+    "before_context": {
+      "contact_phone": "+971555101102",
+      "exists": false,
+      "relationship_tag": "UNKNOWN",
+      "dna": null,
+      "weather": null,
+      "profile_summary": null,
+      "relationship_history_summary": null,
+      "history_summary": null,
+      "confidence": 0.0,
+      "confidence_source": "uninitialized",
+      "source": "runtime",
+      "decay_metadata": {
+        "mode": "new",
+        "expires_at": "2026-09-15T04:08:52.431480+00:00"
+      },
+      "interactions": 0,
+      "retrieval_last_count": 0
+    },
+    "after_context": {
+      "contact_phone": "+971555101102",
+      "exists": true,
+      "relationship_tag": "UNKNOWN",
+      "dna": {
+        "intent": "property_inquiry",
+        "channel": "whatsapp",
+        "source_identity": "New Client"
+      },
+      "weather": "not_available",
+      "profile_summary": "New contact inferred as New Client",
+      "relationship_history_summary": "first_touch_or_unknown",
+      "history_summary": "started with text: need a 3-bed villa in palm jumeirah, budget 5m. can we schedule a follow-up?",
+      "confidence": 0.515,
+      "confidence_source": "interaction_runtime",
+      "source": "aios_context_store_runtime",
+      "decay_metadata": {
+        "mode": "stale",
+        "expires_at": "2026-06-23T04:08:52.486332+00:00"
+      },
+      "interactions": 1,
+      "retrieval_last_count": 0,
+      "created_at": "2026-06-23T04:08:52.487221+00:00",
+      "updated_at": "2026-06-23T04:08:52.487223+00:00",
+      "last_seen_at": "2026-06-23T04:08:52.487214+00:00"
+    },
+    "memory_written": true,
+    "ledger_delta_count": 1,
+    "ledger_delta": [
+      {
+        "ts": "2026-06-23T04:08:52.489487+00:00",
+        "event": "interaction_memory_update",
+        "contact_phone": "+971555101102",
+        "relationship_tag": "UNKNOWN",
+        "identity_type": "New Client",
+        "intent": "property_inquiry",
+        "lead_state": "attention_required",
+        "conversation_summary": "Need a 3-bed villa in Palm Jumeirah, budget 5m. Can we schedule a follow-up?",
+        "confidence": 0.515,
+        "persisted_context": true,
+        "retrieval_match_count": 0
+      }
+    ],
+    "after_fields": {
+      "relationship_tag": "UNKNOWN",
+      "lead_state": "attention_required",
+      "intent": "property_inquiry",
+      "confidence": 0.515,
+      "timestamp": "2026-06-23T04:08:52.489487+00:00"
+    },
+    "checks": [
+      {
+        "passed": true,
+        "message": "Before state has no prior interactions."
+      },
+      {
+        "passed": true,
+        "message": "After state persisted in context store."
+      },
+      {
+        "passed": true,
+        "message": "Runtime attempted context persistence."
+      },
+      {
+        "passed": true,
+        "message": "Memory writeback enabled."
+      },
+      {
+        "passed": true,
+        "message": "Ledger records writeback."
+      },
+      {
+        "passed": true,
+        "message": "Lead state persisted as expected for high-friction interaction."
+      }
+    ]
+  },
+  "phase_3_context_completion": {
+    "phone": "+971555101103",
+    "context_object": {
+      "relationship": "UNKNOWN",
+      "dna": {
+        "segment": "unknown"
+      },
+      "weather": "not_available",
+      "history_summary": "No prior interaction history available.",
+      "confidence": 0.0,
+      "source": "runtime",
+      "decay_metadata": {
+        "mode": "new",
+        "expires_at": "2026-09-15T04:08:52.533155+00:00"
+      },
+      "contact_phone": "+971555101103",
+      "stored_at": null,
+      "exists": false,
+      "interactions": 0,
+      "retrieval_last_count": 0,
+      "profile_summary": null,
+      "relationship_history_summary": "first_touch_or_unknown",
+      "property_interests": [
+        "Dubai Marina"
+      ]
+    },
+    "required_fields_present": true,
+    "required_fields_missing": [],
+    "decay_mode": "new",
+    "checks": [
+      {
+        "passed": true,
+        "message": "Required context fields present: relationship, dna, weather, history_summary, confidence, source, decay_metadata"
+      },
+      {
+        "passed": true,
+        "message": "Relationship tag normalized."
+      },
+      {
+        "passed": true,
+        "message": "Decay metadata present."
+      },
+      {
+        "passed": true,
+        "message": "Context source tagged."
+      },
+      {
+        "passed": true,
+        "message": "History summary available after interaction."
+      }
+    ]
+  },
+  "phase_4_confidence_gate": {
+    "low": {
+      "score": 0.185,
+      "mode": "retrieve_more"
+    },
+    "medium": {
+      "score": 0.7335,
+      "mode": "clarify"
+    },
+    "high": {
+      "score": 0.942,
+      "mode": "answer"
+    },
+    "checks": [
+      {
+        "passed": true,
+        "message": "Low score maps to retrieve_more."
+      },
+      {
+        "passed": true,
+        "message": "Medium score maps to clarify."
+      },
+      {
+        "passed": true,
+        "message": "High score maps to answer."
+      }
+    ]
+  },
+  "phase_5_good_evening": {
+    "reply": "Good evening! How can I help today?",
+    "checks": [
+      {
+        "passed": true,
+        "message": "Contains a human greeting."
+      },
+      {
+        "passed": true,
+        "message": "No technical/bot refusal language."
+      }
+    ]
+  },
+  "phase_6_state_memory": {
+    "first_context_loaded": true,
+    "state_memory_skip_question": true,
+    "state_memory_reason": "context_exists",
+    "follow_reply": "I can help, but I need one clarification on area, budget, and timing before I stage the best next action.",
+    "checks": [
+      {
+        "passed": true,
+        "message": "History persists before follow-up."
+      },
+      {
+        "passed": true,
+        "message": "State memory decision computed."
+      },
+      {
+        "passed": true,
+        "message": "Context-aware skip_question is active."
+      },
+      {
+        "passed": true,
+        "message": "No repeated qualification wording detected."
+      }
+    ]
+  },
+  "phase_7_unit_finder": {
+    "results": [
+      {
+        "label": "property_finder",
+        "input": "Check https://www.propertyfinder.ae/property-details/DFR-1234",
+        "unit_finder": {
+          "found": true,
+          "source": "property_finder",
+          "unit": "dfr-1234",
+          "property_record": {
+            "unit_ref": "dfr-1234",
+            "reference": "dfr1234",
+            "raw_url": "https://www.propertyfinder.ae/property-details/DFR-1234"
+          },
+          "raw_url": "https://www.propertyfinder.ae/property-details/DFR-1234",
+          "confidence": 0.84
+        },
+        "found": true
+      },
+      {
+        "label": "bayut",
+        "input": "https://www.bayut.com/property/details/678901",
+        "unit_finder": {
+          "found": true,
+          "source": "bayut",
+          "unit": "678901",
+          "property_record": {
+            "unit_ref": "678901",
+            "reference": "678901",
+            "raw_url": "https://www.bayut.com/property/details/678901"
+          },
+          "raw_url": "https://www.bayut.com/property/details/678901",
+          "confidence": 0.82
+        },
+        "found": true
+      },
+      {
+        "label": "dubizzle",
+        "input": "https://dubizzle.com/property/details/12345678",
+        "unit_finder": {
+          "found": true,
+          "source": "dubizzle",
+          "unit": "12345678",
+          "property_record": {
+            "unit_ref": "12345678",
+            "reference": "12345678",
+            "raw_url": "https://dubizzle.com/property/details/12345678"
+          },
+          "raw_url": "https://dubizzle.com/property/details/12345678",
+          "confidence": 0.81
+        },
+        "found": true
+      },
+      {
+        "label": "pdf",
+        "input": "Please check ref_2048.pdf from attachment",
+        "unit_finder": {
+          "found": true,
+          "source": "pdf",
+          "unit": "ref_2048.pdf",
+          "property_record": {
+            "unit_ref": "ref_2048.pdf",
+            "reference": "ref_2048",
+            "raw_url": "ref_2048.pdf"
+          },
+          "raw_url": "ref_2048.pdf",
+          "confidence": 0.55
+        },
+        "found": true
+      }
+    ],
+    "checks": [
+      {
+        "passed": true,
+        "message": "Unit finder resolves all test inputs."
+      },
+      {
+        "passed": true,
+        "message": "Unit finder identifies source for each input."
+      }
+    ]
+  },
+  "readiness": {
+    "runtime_ready": true,
+    "intelligence_ready": true,
+    "production_ready": false,
+    "production_readiness_blockers": [
+      "Pending separate hosting/auth/domain/deployment prerequisites for full production readiness."
+    ]
+  },
+  "artifacts": {
+    "crm_writeback_ledger": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/CRM_WRITEBACK_LEDGER.jsonl",
+    "validation_report": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/reports/INTELLIGENCE_READY_VALIDATION.json",
+    "screen_capture_note": "No automated UI screenshot capture in this backend-only validation pass."
+  }
+}

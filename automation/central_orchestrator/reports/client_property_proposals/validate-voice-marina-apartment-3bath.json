@@ -1,0 +1,531 @@
+{
+  "generated_at": "2026-06-26T19:21:49.944143+00:00",
+  "case": {
+    "case_id": "need-a-2-bedroom-3-bathroom-apartment-in-dubai-marina-under-3500000",
+    "client_name": "Confidential Client",
+    "client_request": "Need a 2 bedroom 3 bathroom apartment in Dubai Marina under 3500000",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8350ffa5e2a8__087b9ca4-8909-4a11-87c5-d09e398312dd.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - Need a 2 bedroom 3 bathroom apartment in Dubai Marina under 3500000",
+  "executive_pitch": "The strongest option today is Sea View | Huge Layout | Furnished | Upgraded because it gives the best balance of location fit, operational readiness, and alignment with the residential move. The secondary play is 20% Below Market Price | Spacious 2BR | Skyview, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Full Palm View | Fendi Layout | High ROI as the strongest aligned option based on the current brief. Keep Sea View | Huge Layout | Furnished | Upgraded as the alternative and 20% Below Market Price | Spacious 2BR | Skyview as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Sea View | Huge Layout | Furnished | Upgraded",
+      "area": "Ocean Heights, Dubai Marina, Dubai",
+      "building": "Ocean Heights, Dubai Marina, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-ocean-heights-84894360.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-dubai-marina.html",
+        "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-ocean-heights-84894360.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "apartment",
+      "price_aed": 2200000,
+      "price_term": "sell",
+      "size_sqft": 1565,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Ocean Heights, Dubai Marina, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/PZEZJ286HYNQQQ71GP7MSJDGZ8/747276e5-7194-4b7c-9525-84e61b252184/668x452.jpg",
+      "bedrooms": "2",
+      "bathrooms": "3",
+      "reference": "1038401677055",
+      "gross_yield_percent": 6.1,
+      "suitability_score": 100.0,
+      "investment_score": 42.0,
+      "combined_score": 83.8,
+      "constraint_fit": {
+        "bedroom_match": true,
+        "bathroom_match": true,
+        "furnishing_match": null,
+        "readiness_match": null,
+        "within_budget": true,
+        "requested_size_sqft": {
+          "min": null,
+          "max": null,
+          "target": null
+        },
+        "target_size_range_sqft": [
+          1000.0,
+          1600.0
+        ]
+      },
+      "entry_psf_aed": 1405.75,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "3-bathroom layout matches the request",
+        "size is aligned with the target brief range of 1,000-1,600 sqft",
+        "fits within the AED 3,500,000 budget"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 100.0,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "3-bathroom layout matches the request",
+        "size is aligned with the target brief range of 1,000-1,600 sqft",
+        "fits within the AED 3,500,000 budget"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 1,406/sqft",
+        "estimated gross yield around 6.1%"
+      ],
+      "why_this_property": [
+        "Direct match for the requested Dubai Marina location.",
+        "Exact Dubai Marina location.",
+        "Apartment format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Ocean+Heights%2C+Dubai+Marina%2C+Dubai",
+      "rank": 1
+    },
+    {
+      "title": "20% Below Market Price | Spacious 2BR | Skyview",
+      "area": "Skyview Tower, Dubai Marina, Dubai",
+      "building": "Skyview Tower, Dubai Marina, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-skyview-tower-104695182.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-dubai-marina.html",
+        "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-skyview-tower-104695182.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "apartment",
+      "price_aed": 2399000,
+      "price_term": "sell",
+      "size_sqft": 1606,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Skyview Tower, Dubai Marina, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/XHTZ5058SW6Z5JCJG41X36J3BG/29ce085e-551e-455d-a64b-ed2702a21d5c/668x452.jpg?v=672ad6f3bd8eb133c5b0dfc1cbbcd01f",
+      "bedrooms": "2",
+      "bathrooms": "3",
+      "reference": "LZZ-R-AP8840",
+      "gross_yield_percent": 6.1,
+      "suitability_score": 100.0,
+      "investment_score": 42.0,
+      "combined_score": 83.8,
+      "constraint_fit": {
+        "bedroom_match": true,
+        "bathroom_match": true,
+        "furnishing_match": null,
+        "readiness_match": null,
+        "within_budget": true,
+        "requested_size_sqft": {
+          "min": null,
+          "max": null,
+          "target": null
+        },
+        "target_size_range_sqft": [
+          1000.0,
+          1600.0
+        ]
+      },
+      "entry_psf_aed": 1493.77,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "3-bathroom layout matches the request",
+        "size is above the target range but gives extra layout flexibility",
+        "fits within the AED 3,500,000 budget"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 100.0,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "3-bathroom layout matches the request",
+        "size is above the target range but gives extra layout flexibility",
+        "fits within the AED 3,500,000 budget"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 1,494/sqft",
+        "estimated gross yield around 6.1%"
+      ],
+      "why_this_property": [
+        "Direct match for the requested Dubai Marina location.",
+        "Exact Dubai Marina location.",
+        "Apartment format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Skyview+Tower%2C+Dubai+Marina%2C+Dubai",
+      "rank": 2
+    },
+    {
+      "title": "Full Palm View | Fendi Layout | High ROI",
+      "area": "Damac Heights, Dubai Marina, Dubai",
+      "building": "Damac Heights, Dubai Marina, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-damac-heights-107279115.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-dubai-marina.html",
+        "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-damac-heights-107279115.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "apartment",
+      "price_aed": 3050000,
+      "price_term": "sell",
+      "size_sqft": 1328,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Damac Heights, Dubai Marina, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/MRKGZDN4S8DHB16AQ4R4332R54/e8f2e2c2-d96e-48fe-b078-451375046fef/668x452.jpg?v=da0fb1b23f88436980d748aeeb336e60",
+      "bedrooms": "2",
+      "bathrooms": "3",
+      "reference": "MCC-S-74948",
+      "gross_yield_percent": 6.1,
+      "suitability_score": 100.0,
+      "investment_score": 42.0,
+      "combined_score": 83.8,
+      "constraint_fit": {
+        "bedroom_match": true,
+        "bathroom_match": true,
+        "furnishing_match": null,
+        "readiness_match": null,
+        "within_budget": true,
+        "requested_size_sqft": {
+          "min": null,
+          "max": null,
+          "target": null
+        },
+        "target_size_range_sqft": [
+          1000.0,
+          1600.0
+        ]
+      },
+      "entry_psf_aed": 2296.69,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "3-bathroom layout matches the request",
+        "size is aligned with the target brief range of 1,000-1,600 sqft",
+        "fits within the AED 3,500,000 budget"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 100.0,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "3-bathroom layout matches the request",
+        "size is aligned with the target brief range of 1,000-1,600 sqft",
+        "fits within the AED 3,500,000 budget"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 2,297/sqft",
+        "estimated gross yield around 6.1%"
+      ],
+      "why_this_property": [
+        "Direct match for the requested Dubai Marina location.",
+        "Exact Dubai Marina location.",
+        "Apartment format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Damac+Heights%2C+Dubai+Marina%2C+Dubai",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Shortlist should compare capital entry, delivery timeline, and future demand ramp-up.",
+    "Residential comparisons should weigh layout efficiency, building quality, and lifestyle access alongside entry price.",
+    "Property Finder area range currently shows 1.3M - 14.8M.",
+    "Property Finder average asking price is 1.2M, with change of 6.6%.",
+    "Average asking price per sqft is 2.6K, with change of 9.6%.",
+    "Reported rental yield signal is 6.1%."
+  ],
+  "compliance_gates": [
+    "Lease or purchase terms, building rules, and community restrictions must match the intended occupancy plan.",
+    "Service charges, parking allocation, and handover condition should be verified before commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 178 rows matching the area signal 'dubai marina'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "Property master database contains 1 raw rows linked to dubai marina.",
+    "AIOS acquisition index recovered 178 internal source assets tied to dubai marina.",
+    "Internal source mix: 116 jpg, 62 xlsx."
+  ],
+  "internal_inventory_matches": [
+    {
+      "project": "0a7db0a7-e771-4ae7-849b-55ba41ec9109.xlsx",
+      "area": "Dubai Marina",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Data Uae Pak Last",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/2336611a73fd__Data_Uae_Pak_Last__Update__2336611a73.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "0e691bc5-7001-4fba-9a03-1bda4bc0ba5b.xlsx",
+      "area": "Dubai Marina",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Data Uae Pak Last",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/8c774e2e12e0__Data_Uae_Pak_Last__Property_s Type__8c774e2e12.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "0ee9350f-edd9-4f22-b9b1-fcf1f67332c4.xlsx",
+      "area": "Abu Dhabi; Dubai Marina; Saadiyat",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Data Uae Pak Last",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/84046debe0fd__980c20fb-2253-4a08-a29f-c82a788725c7.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Downtown; Dubai Marina; Palm Jebel Ali; Palm Jumeirah",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/030bcceacfad__264e19e9-2524-4943-8a85-fc4411a041d9.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Binghatti; Damac; Danube; Ellington; Oxford Terraces; Sadaf; Sobha; Tiger",
+      "area": "Abu Dhabi; Ajman; Dubai Marina; JVC; Jumeirah; Jumeirah Village; Ras Al Khaimah; Sharjah",
+      "developer": "Binghatti",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/c4f26d9e7e0c__JVC.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Dubai Marina; Palm Jebel Ali; Palm Jumeirah",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/c04590d66106__2DON_MOHAMED_REDHA_-DEYAAR_DEVELOPMENT__PROJECT__c04590d661.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Aldar",
+      "area": "Dubai Marina",
+      "developer": "Aldar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Data Uae Pak Last",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/d5250e55cf97__Data_Uae_Pak_Last__Property_s Type__d5250e55cf.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "37fbd610-5ec9-42c3-ab5a-2d043e127b49.xlsx",
+      "area": "Abu Dhabi; Dubai Marina",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Data Uae Pak Last",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/adb11d326b08__c76169e4-af03-493d-88d9-2cbc96463f99.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    }
+  ],
+  "internal_market_snapshot": {
+    "match_count": 178,
+    "asset_match_count": 8,
+    "file_type_counts": {
+      "xlsx": 62,
+      "jpg": 116
+    },
+    "top_projects": [
+      "Deyaar",
+      "Binghatti; Damac; Danube; Ellington; Oxford Terraces; Sadaf; Sobha; Tiger",
+      "Aldar",
+      "Azizi",
+      "Damac",
+      "Binghatti"
+    ],
+    "source_groups": [
+      "Data Uae Pak Last",
+      "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT",
+      "Binghatti (DARIA) - HSH",
+      "Vetn Stuff"
+    ]
+  },
+  "next_steps": [
+    "Confirm live availability, rent or sale terms, and current landlord or seller expectations before client send.",
+    "Collect floor plan, exact built-up area, parking details, and building or community rules for the shortlisted options.",
+    "Verify service charges, maintenance condition, and move-in timeline before presenting the lead recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Property Finder - 2 bedroom Apartment search in Dubai Marina",
+      "url": "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-dubai-marina.html",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Apartments for Sale in Dubai Marina",
+      "url": "https://www.bayut.com/for-sale/apartments/dubai/dubai-marina/",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "Need a 2 bedroom 3 bathroom apartment in Dubai Marina under 3500000",
+    "source_mode": "voice",
+    "area": "dubai marina",
+    "use_case": "apartment",
+    "property_preference": "apartment",
+    "bedroom_preference": "2",
+    "bathroom_preference": "3",
+    "furnishing_preference": "",
+    "readiness_preference": "",
+    "intent": "buy",
+    "source_url": "",
+    "max_price_aed": 3500000.0,
+    "min_size_sqft": 0.0,
+    "max_size_sqft": 0.0,
+    "target_size_sqft": 0.0
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 178,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8350ffa5e2a8__087b9ca4-8909-4a11-87c5-d09e398312dd.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/aabc0378c5b4__90a1c059-529a-4230-afb7-4397935e0b4c.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/aabc0378c5b4__90a1c059-529a-4230-afb7-4397935e0b4c.jpg"
+      ]
+    },
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Property_Master_Database.sqlite",
+      "matched_rows": 1
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "READY FOR AGENT REVIEW BEFORE CLIENT SEND",
+    "review_notes": [
+      "Residential shortlist still needs building-rule, condition, and move-in verification before client send."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-3bath.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-3bath.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-3bath.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-3bath.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T19:21:49.956021+00:00",
+    "request_profile": {
+      "raw_request": "Need a 2 bedroom 3 bathroom apartment in Dubai Marina under 3500000",
+      "source_mode": "voice",
+      "area": "dubai marina",
+      "use_case": "apartment",
+      "property_preference": "apartment",
+      "bedroom_preference": "2",
+      "bathroom_preference": "3",
+      "furnishing_preference": "",
+      "readiness_preference": "",
+      "intent": "buy",
+      "source_url": "",
+      "max_price_aed": 3500000.0,
+      "min_size_sqft": 0.0,
+      "max_size_sqft": 0.0,
+      "target_size_sqft": 0.0
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": false,
+      "internal_evidence_rows": 2
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/validate-voice-marina-apartment-3bath.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

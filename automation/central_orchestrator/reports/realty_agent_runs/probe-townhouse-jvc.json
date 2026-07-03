@@ -1,0 +1,424 @@
+{
+  "generated_at": "2026-06-26T18:04:56.384406+00:00",
+  "case": {
+    "case_id": "need-a-townhouse-in-jvc",
+    "client_name": "Confidential Client",
+    "client_request": "Need a townhouse in JVC",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/2cfe2c87a3ff__75a07fa0-2c6b-4acd-8f3e-90e0349bd8d5.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - Need a townhouse in JVC",
+  "executive_pitch": "The strongest option today is Vacant | Full Park View | Motivated Seller because it gives the best balance of location fit, operational readiness, and alignment with the residential move. The secondary play is Premium Villa | Big Layout | Iris Park, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Vacant | Full Park View | Motivated Seller as the strongest aligned option based on the current brief. Keep Premium Villa | Big Layout | Iris Park as the alternative and Fully Upgraded|Private Elevator|Vacant as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Vacant | Full Park View | Motivated Seller",
+      "area": "Las Casas, District 12, Jumeirah Village Circle, Dubai",
+      "building": "Las Casas, District 12, Jumeirah Village Circle, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-jumeirah-village-circle-district-12-las-casas-97389129.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/townhouses-for-sale-jumeirah-village-circle.html",
+        "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-jumeirah-village-circle-district-12-las-casas-97389129.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "townhouse",
+      "price_aed": 2880000,
+      "price_term": "sell",
+      "size_sqft": 1228,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Las Casas, District 12, Jumeirah Village Circle, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/A11T0K4SKKKXYAW26VNPR0EDHM/b28ae457-9106-48b0-8223-0882066592a6/668x452.jpg?v=6a3f1cef99a0b65706ee9998fb3a6da7",
+      "bedrooms": "3",
+      "bathrooms": "4",
+      "reference": "RL-221880",
+      "suitability_score": 70.8,
+      "investment_score": 30.0,
+      "combined_score": 59.4,
+      "entry_psf_aed": 2345.28,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "townhouse format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 70.8,
+      "clinic_strengths": [
+        "townhouse format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 2,345/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Las+Casas%2C+District+12%2C+Jumeirah+Village+Circle%2C+Dubai",
+      "rank": 1
+    },
+    {
+      "title": "Premium Villa | Big Layout | Iris Park",
+      "area": "Iris Park, District 15, Jumeirah Village Circle, Dubai",
+      "building": "Iris Park, District 15, Jumeirah Village Circle, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-jumeirah-village-circle-district-15-iris-park-2P5jio7WHXE.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/townhouses-for-sale-jumeirah-village-circle.html",
+        "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-jumeirah-village-circle-district-15-iris-park-2P5jio7WHXE.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "townhouse",
+      "price_aed": 3500000,
+      "price_term": "sell",
+      "size_sqft": 1349,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Iris Park, District 15, Jumeirah Village Circle, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/SCYY9KFEF67HQXE630MBXGYP2W/25f433d4-2f3b-4c6b-a43a-eef4b4692f5b/668x452.jpg",
+      "bedrooms": "4",
+      "bathrooms": "5",
+      "reference": "Portal-AT-401606",
+      "suitability_score": 70.0,
+      "investment_score": 30.0,
+      "combined_score": 58.8,
+      "entry_psf_aed": 2594.51,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "townhouse format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 70.0,
+      "clinic_strengths": [
+        "townhouse format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 2,595/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Iris+Park%2C+District+15%2C+Jumeirah+Village+Circle%2C+Dubai",
+      "rank": 2
+    },
+    {
+      "title": "Fully Upgraded|Private Elevator|Vacant",
+      "area": "Marwa Homes 2, District 13, Jumeirah Village Circle, Dubai",
+      "building": "Marwa Homes 2, District 13, Jumeirah Village Circle, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-jumeirah-village-circle-district-13-marwa-homes-2-91810024.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/townhouses-for-sale-jumeirah-village-circle.html",
+        "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-jumeirah-village-circle-district-13-marwa-homes-2-91810024.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "townhouse",
+      "price_aed": 3150000,
+      "price_term": "sell",
+      "size_sqft": 1707,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Marwa Homes 2, District 13, Jumeirah Village Circle, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/24W4821DBEM4P21E6FHBY5AEAR/5a10c759-c7cc-4bba-a1e8-d1e2e6a39bdc/668x452.jpg",
+      "bedrooms": "4",
+      "bathrooms": "5",
+      "reference": "RL-219146",
+      "suitability_score": 66.4,
+      "investment_score": 30.0,
+      "combined_score": 56.2,
+      "entry_psf_aed": 1845.34,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "townhouse format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 66.4,
+      "clinic_strengths": [
+        "townhouse format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 1,845/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Marwa+Homes+2%2C+District+13%2C+Jumeirah+Village+Circle%2C+Dubai",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Shortlist should compare capital entry, delivery timeline, and future demand ramp-up.",
+    "Residential comparisons should weigh layout efficiency, building quality, and lifestyle access alongside entry price.",
+    "Property Finder area range currently shows 2.1M - 5.5M.",
+    "Property Finder average asking price is 1.9M, with change of 12.8%.",
+    "Average asking price per sqft is 999.82, with change of 8.4%."
+  ],
+  "compliance_gates": [
+    "Lease or purchase terms, building rules, and community restrictions must match the intended occupancy plan.",
+    "Service charges, parking allocation, and handover condition should be verified before commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 225 rows matching the area signal 'jvc'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "Property master database contains 119625 raw rows linked to jvc.",
+    "AIOS acquisition index recovered 225 internal source assets tied to jvc.",
+    "Internal source mix: 163 jpg, 52 xlsx, 7 pdf, 2 csv."
+  ],
+  "internal_inventory_matches": [
+    {
+      "project": "Binghatti; Deyaar; HSH",
+      "area": "Downtown; JVC; Jumeirah; Jumeirah Village; Yas Island",
+      "developer": "Binghatti",
+      "bedrooms": "",
+      "property_type": "csv",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/csv/f2eb9a025dd1__KnowledgeBase_Master_Catalog.csv",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Binghatti",
+      "area": "Al Wasl; Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim",
+      "developer": "Binghatti",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "UAE COMMERCIAL ONLY Rent - Sale",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/a5b90df1a532__UAE_COMMERCIAL_ONLY_Rent_-_Sale__TILAL BINGHATTI__a5b90df1a5.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Binghatti",
+      "area": "Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim",
+      "developer": "Binghatti",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Binghatti (DARIA) - HSH",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/d6f85a913d2f__Binghatti_DARIA_-_HSH__TILAL BINGHATTI__d6f85a913d.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "120450cf-c49b-479d-8359-ab84c139ad4a.pdf",
+      "area": "Jvc",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "pdf",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Home Sweet Home 🤝 Tasmeer Indigo (JVC)",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/pdf/0637d73e96e0__120450cf-c49b-479d-8359-ab84c139ad4a.pdf",
+      "score": 75.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "2b3698d1-3ea9-49e3-aa13-67ffcc3d4db9.pdf",
+      "area": "Jvc",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "pdf",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Home Sweet Home 🤝 Tasmeer Indigo (JVC)",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/pdf/879f9deedd65__2b3698d1-3ea9-49e3-aa13-67ffcc3d4db9.pdf",
+      "score": 75.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "31df1387-73de-482e-b9cd-ae559ec6568e.pdf",
+      "area": "JVC",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "pdf",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Azizi/Best Brokers 🤍",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/pdf/28d3393118bd__31df1387-73de-482e-b9cd-ae559ec6568e.pdf",
+      "score": 75.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "e1954aed-d586-4b55-940d-14f7e87fc229.pdf",
+      "area": "JVC",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "pdf",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "PANTHEON - HSH",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/pdf/776a6a91575a__e1954aed-d586-4b55-940d-14f7e87fc229.pdf",
+      "score": 75.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "f436761f-8ec6-4798-87f9-6cfd61c98a55.pdf",
+      "area": "JVC",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "pdf",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Azizi/Best Brokers 🤍",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/pdf/7006867ed608__f436761f-8ec6-4798-87f9-6cfd61c98a55.pdf",
+      "score": 75.0,
+      "signal_type": "internal_asset"
+    }
+  ],
+  "internal_market_snapshot": {
+    "match_count": 225,
+    "asset_match_count": 8,
+    "file_type_counts": {
+      "csv": 2,
+      "xlsx": 52,
+      "pdf": 7,
+      "jpg": 163,
+      "txt": 1
+    },
+    "top_projects": [
+      "Binghatti; Deyaar; HSH",
+      "Binghatti",
+      "Tiger; Tiger Sky Tower",
+      "Binghatti; Damac; Danube; Ellington; Oxford Terraces; Sadaf; Sobha; Tiger",
+      "Binghatti; HSH",
+      "HSH; Object1"
+    ],
+    "source_groups": [
+      "UAE COMMERCIAL ONLY Rent - Sale",
+      "Binghatti (DARIA) - HSH",
+      "Home Sweet Home 🤝 Tasmeer Indigo (JVC)",
+      "Azizi/Best Brokers 🤍"
+    ]
+  },
+  "next_steps": [
+    "Confirm live availability, rent or sale terms, and current landlord or seller expectations before client send.",
+    "Collect floor plan, exact built-up area, parking details, and building or community rules for the shortlisted options.",
+    "Verify service charges, maintenance condition, and move-in timeline before presenting the lead recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Property Finder - Townhouse search in Jvc",
+      "url": "https://www.propertyfinder.ae/en/buy/dubai/townhouses-for-sale-jumeirah-village-circle.html",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "Need a townhouse in JVC",
+    "source_mode": "text",
+    "area": "jvc",
+    "use_case": "townhouse",
+    "property_preference": "townhouse",
+    "bedroom_preference": "",
+    "intent": "buy",
+    "source_url": ""
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 225,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/2cfe2c87a3ff__75a07fa0-2c6b-4acd-8f3e-90e0349bd8d5.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/362c6e8f38d7__e4e1014f-16be-4765-8650-f2565c993a03.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/0491bb58ba56__97218a8c-3e55-4b01-be2c-bbf541e46b0b.jpg"
+      ]
+    },
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Property_Master_Database.sqlite",
+      "matched_rows": 119625
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "READY FOR AGENT REVIEW BEFORE CLIENT SEND",
+    "review_notes": [
+      "Residential shortlist still needs building-rule, condition, and move-in verification before client send."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/probe-townhouse-jvc.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/probe-townhouse-jvc.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/probe-townhouse-jvc.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/probe-townhouse-jvc.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T18:04:56.386357+00:00",
+    "request_profile": {
+      "raw_request": "Need a townhouse in JVC",
+      "source_mode": "text",
+      "area": "jvc",
+      "use_case": "townhouse",
+      "property_preference": "townhouse",
+      "bedroom_preference": "",
+      "intent": "buy",
+      "source_url": ""
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": false,
+      "internal_evidence_rows": 2
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/probe-townhouse-jvc.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

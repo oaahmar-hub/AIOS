@@ -1,0 +1,234 @@
+{
+  "passed": 25,
+  "total": 25,
+  "results": [
+    {
+      "test": "social_correction",
+      "pass": true,
+      "detail": {
+        "message": "this is Salwa",
+        "category": "correction",
+        "meaning": "none"
+      }
+    },
+    {
+      "test": "social_emoji_laugh",
+      "pass": true,
+      "detail": {
+        "message": "😂",
+        "category": "emoji_reaction",
+        "meaning": "laughing_or_light_embarrassment"
+      }
+    },
+    {
+      "test": "social_emoji_ok",
+      "pass": true,
+      "detail": {
+        "message": "👍",
+        "category": "emoji_reaction",
+        "meaning": "acknowledgement_or_approval"
+      }
+    },
+    {
+      "test": "social_emoji_fire",
+      "pass": true,
+      "detail": {
+        "message": "🔥",
+        "category": "emoji_reaction",
+        "meaning": "approval_or_excitement"
+      }
+    },
+    {
+      "test": "social_banter",
+      "pass": true,
+      "detail": {
+        "message": "يسعد صباحك يا ملك",
+        "category": "banter",
+        "meaning": "none"
+      }
+    },
+    {
+      "test": "social_misunderstanding",
+      "pass": true,
+      "detail": {
+        "message": "you misunderstood me",
+        "category": "misunderstanding",
+        "meaning": "none"
+      }
+    },
+    {
+      "test": "correction_not_property",
+      "pass": true,
+      "detail": {
+        "intent": "correction",
+        "social": {
+          "category": "correction",
+          "emoji": [],
+          "emoji_meaning": "none",
+          "is_correction": true,
+          "is_joke": false,
+          "is_sarcasm": false,
+          "is_teasing_or_banter": false,
+          "is_misunderstanding": false,
+          "response_hint": "Acknowledge correction and continue from corrected context. Do not treat as property inquiry.",
+          "history_relevant": true
+        }
+      }
+    },
+    {
+      "test": "permission_owner_names",
+      "pass": true,
+      "detail": {
+        "decision": "refuse_safe",
+        "forbidden": [
+          "owner_details"
+        ]
+      }
+    },
+    {
+      "test": "permission_owner_phones",
+      "pass": true,
+      "detail": {
+        "decision": "refuse_safe",
+        "forbidden": [
+          "owner_contacts"
+        ]
+      }
+    },
+    {
+      "test": "permission_owner_emails",
+      "pass": true,
+      "detail": {
+        "decision": "refuse_safe",
+        "forbidden": [
+          "owner_contacts",
+          "owner_details"
+        ]
+      }
+    },
+    {
+      "test": "permission_internal_notes",
+      "pass": true,
+      "detail": {
+        "decision": "refuse_safe",
+        "forbidden": [
+          "internal_notes"
+        ]
+      }
+    },
+    {
+      "test": "permission_internal_crm",
+      "pass": true,
+      "detail": {
+        "decision": "refuse_safe",
+        "forbidden": [
+          "internal_crm"
+        ]
+      }
+    },
+    {
+      "test": "permission_internal_commissions",
+      "pass": true,
+      "detail": {
+        "decision": "refuse_safe",
+        "forbidden": [
+          "internal_commissions"
+        ]
+      }
+    },
+    {
+      "test": "permission_confidential_documents",
+      "pass": true,
+      "detail": {
+        "decision": "refuse_safe",
+        "forbidden": [
+          "private_documents"
+        ]
+      }
+    },
+    {
+      "test": "personality_Friend",
+      "pass": true,
+      "detail": {
+        "relationship": "Friend",
+        "tone": "Warm, familiar, Arabic/Gulf-Levant when natural."
+      }
+    },
+    {
+      "test": "personality_New Client",
+      "pass": true,
+      "detail": {
+        "relationship": "New Client",
+        "tone": "Welcoming but not robotic; confident and helpful."
+      }
+    },
+    {
+      "test": "personality_Agent",
+      "pass": true,
+      "detail": {
+        "relationship": "Agent",
+        "tone": "Fast, direct, market-aware."
+      }
+    },
+    {
+      "test": "personality_Staff",
+      "pass": true,
+      "detail": {
+        "relationship": "Staff",
+        "tone": "Internal, concise, execution-focused."
+      }
+    },
+    {
+      "test": "correction_reply",
+      "pass": true,
+      "detail": {
+        "out": "Got it, corrected.",
+        "expected": "Got it, corrected.",
+        "intent": "correction",
+        "social": "correction"
+      }
+    },
+    {
+      "test": "emoji_reply",
+      "pass": true,
+      "detail": {
+        "out": "تمام.",
+        "expected": "تمام.",
+        "intent": "emoji_reaction",
+        "social": "emoji_reaction"
+      }
+    },
+    {
+      "test": "property_action_first",
+      "pass": true,
+      "detail": {
+        "out": "Got it — I’ll check the best options and send you the shortlist.",
+        "expected": "Got it — I’ll check the best options and send you the shortlist.",
+        "intent": "property",
+        "social": "business_or_general"
+      }
+    },
+    {
+      "test": "website_eye_load_sequence",
+      "pass": true,
+      "detail": "eye markup/animation present"
+    },
+    {
+      "test": "website_mobile_responsive",
+      "pass": true,
+      "detail": "responsive media query and viewport present"
+    },
+    {
+      "test": "pwa_readiness",
+      "pass": true,
+      "detail": "manifest and service worker present"
+    },
+    {
+      "test": "performance_static_shell",
+      "pass": true,
+      "detail": {
+        "index_bytes": 7562
+      }
+    }
+  ]
+}

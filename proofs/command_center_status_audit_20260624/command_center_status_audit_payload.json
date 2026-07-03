@@ -1,0 +1,65 @@
+{
+  "url": "http://127.0.0.1:8799/AIOS-DASHBOARD.html?status_audit=1",
+  "screenshot": "/Users/hassanka/Downloads/AIOS/proofs/command_center_status_audit_20260624/command_center_status_audit.png",
+  "console_errors": [],
+  "dom": {
+    "title": "AIOS \u2014 Business Operating System | Omar",
+    "cards": [
+      {
+        "label": "Runtime Ready",
+        "value": "Ready",
+        "meta": "python3 automation/central_orchestrator/runtime/aios_runtime.py start",
+        "className": "readiness-card ready"
+      },
+      {
+        "label": "Intelligence Ready",
+        "value": "Ready",
+        "meta": "local_integrated_answer_brain_ready",
+        "className": "readiness-card ready"
+      },
+      {
+        "label": "Production Ready",
+        "value": "100%",
+        "meta": "No runtime blockers reported",
+        "className": "readiness-card ready"
+      },
+      {
+        "label": "WhatsApp Status",
+        "value": "Ready",
+        "meta": "provider_gateway_contract_ready",
+        "className": "readiness-card partial"
+      },
+      {
+        "label": "Knowledge Base",
+        "value": "Ready",
+        "meta": "local_knowledge_retrieval_runtime_ready",
+        "className": "readiness-card ready"
+      },
+      {
+        "label": "Unit Finder",
+        "value": "Partial",
+        "meta": "URL extraction ready; exact unit completion still 0/50",
+        "className": "readiness-card partial"
+      },
+      {
+        "label": "CRM Status",
+        "value": "Ready",
+        "meta": "writeback_contract_ready",
+        "className": "readiness-card partial"
+      },
+      {
+        "label": "API Connection",
+        "value": "Local Data",
+        "meta": "Set AIOS_API_BASE_URL to probe live API",
+        "className": "readiness-card partial"
+      }
+    ],
+    "links": [
+      {
+        "text": "Runtime Status",
+        "href": "AIOS-RUNTIME-STATUS.html"
+      }
+    ],
+    "bodyText": "AIOS\nLiving Company Intelligence\nOmar\nWednesday, 24 June 2026\nWebsite\nCommand Center\nRuntime Status\nMobile Console\nEye\nMission Control\nSearch\nProperty\nModules\nPipeline\nNOC Tracker\nDaily Planner\nFinance\nKnowledge Base\nRoadmap\nAudio Off\nAIOS \u00b7 LIVING COMPANY INTELLIGENCE\nAIOS\nBusiness Operating System\nRun\nSearch Everything\nFind Property\nRun Operations\nOpen Documents\nCreate Content\nDaily Briefing\nExecutive\nArchitect\nOperator\nAnalyst\nCreator\nEnter Mission Control"
+  }
+}

@@ -1,0 +1,7 @@
+id,name,type,owner_agent,status,priority,next_action,due_date,blocked_by,linked,updated
+P001,Activate Airtable CRM write-back,Build,A01,blocked,high,Supply Airtable API key + base/table IDs,2026-06-30,B1,deployment/,2026-06-23
+P002,Build URL→unit bridge dataset for resolver,Build,A12,blocked,high,Source PF listing→unit mapping (export or licensed feed),2026-07-07,B4,KnowledgeBase/resolver/,2026-06-23
+P003,Seed pipeline tracker from live CRM,Build,A02,active,medium,Pull current leads/listings into pipeline_tracker.csv,2026-06-27,,07_Dashboards/pipeline_tracker.csv,2026-06-23
+P004,First live daily briefing run,Build,A01,active,high,Run WF10 against live Calendar/Gmail/Airtable,2026-06-24,,02_Workflows/WF10_Daily_CEO_Briefing.md,2026-06-23
+P005,Deploy hosted backend to Railway,Build,A01,active,high,Install Railway CLI then follow SOP10: login+up+domain with required auth/origin vars then wire webhook+frontend,2026-06-27,B6,OperatingSystem/03_SOPs/SOP10_Backend_Deploy_Railway.md,2026-06-23
+P006,Backend security hardening (fail-closed auth+trace+body cap),Build,A01,done,high,Done+verified 2026-06-23; webhook secret still provider-dependent,2026-06-23,,deployment/hosted-backend/app.py,2026-06-23

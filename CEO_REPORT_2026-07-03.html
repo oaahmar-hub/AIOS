@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIOS — CEO Report (Morning Update)</title>
+  <style>
+    :root { --bg: #0b0c10; --card: #1f2833; --text: #c5c6c7; --heading: #66fcf1; --muted: #45a29e; --border: #45a29e33; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 760px; margin: 0 auto; padding: 40px 24px; }
+    h1 { color: var(--heading); font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    h2 { color: var(--heading); font-size: 1.25rem; margin-top: 32px; text-transform: uppercase; letter-spacing: 0.05em; }
+    h3 { color: var(--muted); font-size: 1.05rem; margin-top: 24px; }
+    strong { color: #fff; }
+    ul, ol { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    a { color: var(--heading); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: 0; border-top: 1px solid var(--border); margin: 28px 0; }
+    .meta { color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; }
+    .footer { color: var(--muted); font-size: 0.85rem; margin-top: 40px; }
+    .done { color: #66fcf1; }
+    .warn { color: #f5c518; }
+    .block { color: #ff6b6b; }
+    code { background: var(--card); padding: 2px 6px; border-radius: 4px; color: var(--heading); }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); }
+    th { color: var(--heading); }
+  </style>
+</head>
+<body>
+  <h1>AIOS — CEO Report (Morning Update)</h1>
+  <div class="meta">
+    <strong>Date:</strong> 2026-07-03<br>
+    <strong>Product:</strong> HSH AI OS — AI-powered real estate business operating system<br>
+    <strong>Owner:</strong> Omar Ahmar (o.a.ahmar@gmail.com)<br>
+    <strong>Prepared by:</strong> Cascade, Lead Autonomous Engineer
+  </div>
+  <hr>
+
+  <h2>Feature</h2>
+  <p>AIOS</p>
+
+  <h2>Purpose</h2>
+  <p>Build a premium business operating system for HSH, not a normal CRM, chatbot, or dashboard.</p>
+
+  <h2>User Benefit</h2>
+  <p>One system receives requests, understands who the user is, decides what is allowed, retrieves the right knowledge, responds in Omar’s style, and stages the next action.</p>
+
+  <h2>What the Project Is</h2>
+  <ul>
+    <li>a business operating system</li>
+    <li>a command center</li>
+    <li>a decision platform</li>
+    <li>an intelligence layer across property, operations, documents, CRM, and follow-up</li>
+  </ul>
+
+  <h2>What We Are Building</h2>
+  <ul>
+    <li>Unified inbound flow for WhatsApp, web, mobile, Gmail, and future channels</li>
+    <li>Relationship + identity detection across Airtable CRM</li>
+    <li>Centralized permission runtime</li>
+    <li>Unified memory and retrieval layer</li>
+    <li>Omar personality response layer</li>
+    <li>Command center / Eye experience</li>
+    <li>Action staging for tasks, follow-ups, documents, and workflows</li>
+    <li>n8n lead intake + AI draft reply automation</li>
+    <li>Autonomous unit intelligence (Property Finder, Bayut, WhatsApp agent links)</li>
+    <li>Marketing automation triggered by identified inventory</li>
+    <li>Cross-platform sync into SQLite/Railway with full audit logging</li>
+  </ul>
+
+  <h2>Current Technology Stack</h2>
+  <ul>
+    <li><strong>Backend:</strong> Python (80+ runtime modules)</li>
+    <li><strong>Frontend:</strong> HTML/CSS/JS static pages + React/Vite scaffold</li>
+    <li><strong>Data layer:</strong> SQLite property database, Airtable CRM</li>
+    <li><strong>AI:</strong> Claude (Anthropic API)</li>
+    <li><strong>Automation:</strong> n8n workflows</li>
+    <li><strong>WhatsApp:</strong> Wasender gateway, hosted webhook on Railway</li>
+    <li><strong>Deployment:</strong> Docker + Railway</li>
+    <li><strong>App style:</strong> web platform with PWA support</li>
+  </ul>
+
+  <h2>Current Status</h2>
+  <ul>
+    <li><span class="done">✅</span> Backend runtime live on Railway</li>
+    <li><span class="done">✅</span> <code>/api/health</code> returning 200, runtime 100% ready</li>
+    <li><span class="done">✅</span> Airtable, Wasender, n8n connected</li>
+    <li><span class="done">✅</span> Cascade appointed as Lead Autonomous Engineer under HSH LIFE FOREVER protocol</li>
+    <li><span class="done">✅</span> Architecture mapped; top 3 unit-retrieval bottlenecks identified</li>
+    <li><span class="done">✅</span> <strong>Autonomous unit-intelligence ingestion framework built</strong> (overnight progress)
+      <ul>
+        <li>URL parsers for Property Finder, Bayut, Dubizzle</li>
+        <li>WhatsApp message link / property-clue extractor</li>
+        <li>SQLite staging database with audit logging</li>
+        <li>Ingestion queue for WhatsApp, manual, and portal feeds</li>
+        <li>Bridge enrichment engine matching against resolver DB</li>
+        <li>End-to-end pipeline tested and working</li>
+      </ul>
+    </li>
+    <li><span class="warn">🟡</span> WhatsApp webhook verification still 403 (verify token not configured)</li>
+    <li><span class="warn">🟡</span> Static frontend not deployed to public domain</li>
+    <li><span class="warn">🟡</span> React/Vite scaffold still empty</li>
+    <li><span class="block">🔴</span> No live portal scraping yet (by design — awaiting approval and data feeds)</li>
+    <li><span class="block">🔴</span> Unit bridge data still sparse: 0 direct URL→unit rows, 4.3% exact rows</li>
+  </ul>
+
+  <h2>Main Goal</h2>
+  <p>When someone opens AIOS, they should feel they entered the operating system of a modern company.</p>
+
+  <h2>Overnight Progress (Jul 2 → Jul 3)</h2>
+  <table>
+    <tr><th>Deliverable</th><th>Location</th><th>Status</th></tr>
+    <tr><td>URL parser</td><td><code>automation/unit_intelligence/runtime/url_parser.py</code></td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>WhatsApp extractor</td><td><code>automation/unit_intelligence/runtime/whatsapp_extractor.py</code></td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>Staging DB</td><td><code>automation/unit_intelligence/runtime/staging_db.py</code></td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>Ingestion queue</td><td><code>automation/unit_intelligence/runtime/ingestion_queue.py</code></td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>Bridge enrichment</td><td><code>automation/unit_intelligence/runtime/bridge_enrichment.py</code></td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>End-to-end test</td><td>Local test DB</td><td><span class="done">✅ Resolved a URL to a resolver record</span></td></tr>
+  </table>
+
+  <h2>Next 3 Priorities</h2>
+  <ol>
+    <li><strong>Wire ingestion framework into AIOS Live API</strong> — expose <code>/api/unit/ingest</code> and <code>/api/property/resolve</code>.</li>
+    <li><strong>Build Property Finder / Bayut adapter stubs</strong> — ready to accept approved data feeds or export files.</li>
+    <li><strong>Fix WhatsApp webhook verification</strong> — requires <code>AIOS_WHATSAPP_VERIFY_TOKEN</code> in Railway.</li>
+  </ol>
+
+  <h2>Blockers Owned by Omar</h2>
+  <ul>
+    <li>Set <code>AIOS_WHATSAPP_VERIFY_TOKEN</code> in Railway and switch Wasender webhook URL.</li>
+    <li>Approve frontend domain deploy and start Meta Business verification.</li>
+    <li>Provide authorized portal data feeds or exports (Property Finder / Bayut / CRM) to enrich the unit bridge dataset.</li>
+  </ul>
+
+  <h2>Top 3 Unit-Retrieval Bottlenecks</h2>
+  <ol>
+    <li><strong>Missing public URL → exact unit bridge dataset.</strong> 221 URLs exist, 0 direct URL+unit rows.</li>
+    <li><strong>Sparse hard-identifier coverage.</strong> Truth Bridge Quality score: 52.8/100; only 4.3% exact rows.</li>
+    <li><strong>No autonomous acquisition pipeline.</strong> Now addressed with the new ingestion framework, but it still needs live data feeds and approval to run against portals.</li>
+  </ol>
+
+  <hr>
+  <p class="footer">Lead engineer: Cascade | Protocol: HSH LIFE FOREVER</p>
+</body>
+</html>

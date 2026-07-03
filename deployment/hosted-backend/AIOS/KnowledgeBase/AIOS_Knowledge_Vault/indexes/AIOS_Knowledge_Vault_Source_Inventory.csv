@@ -1,0 +1,6 @@
+Source ID,Source Type,File Name,Notes
+SE-1781463574619,session-export,session-export-1781463574619.zip,Early AIOS build session with core architecture and approvals output
+SE-1781624654680,session-export,session-export-1781624654680.zip,"Main AIOS build session with workflows, agents, knowledge base, and WhatsApp canon"
+SE-1781624671403,session-export,session-export-1781624671403.zip,"Duplicate export of the main AIOS build session, retained for verification"
+SE-1781624720423,session-export,session-export-1781624720423.zip,Morning brief / planner session with CRM and task system context
+AIOS-OPENER,text,AIOS_ALL_CHATS_OPENER.txt,Canonical AIOS opening instructions and operating rules

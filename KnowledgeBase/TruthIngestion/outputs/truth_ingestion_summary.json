@@ -1,0 +1,245 @@
+{
+  "generated_at": "2026-06-27T02:46:08+00:00",
+  "classification": "PARTIAL",
+  "indexed_sources": [
+    "Active Listings.xlsx",
+    "Listings.xlsx",
+    "Listings (1).xlsx",
+    "BAYUT OVER ALL LEAD.xlsx",
+    "Secondary Listings LINKS EXCEL.xlsx",
+    "Dubai_brokers",
+    "Bitrix24/raw",
+    "Runtime Memory Ledger"
+  ],
+  "rows_imported": 912,
+  "source_status_rows": [
+    {
+      "priority": "1",
+      "source": "Active Listings.xlsx",
+      "available": "YES",
+      "imported_rows": "16",
+      "exact_bridge": "0",
+      "partial_bridge": "0",
+      "candidate_bridge": "0",
+      "invalid_bridge": "16",
+      "resolver_links": "0",
+      "notes": "units=16"
+    },
+    {
+      "priority": "2",
+      "source": "Listings.xlsx",
+      "available": "YES",
+      "imported_rows": "17",
+      "exact_bridge": "0",
+      "partial_bridge": "17",
+      "candidate_bridge": "0",
+      "invalid_bridge": "0",
+      "resolver_links": "0",
+      "notes": "listing_ids=17; broker_refs=17"
+    },
+    {
+      "priority": "3",
+      "source": "Listings (1).xlsx",
+      "available": "YES",
+      "imported_rows": "124",
+      "exact_bridge": "42",
+      "partial_bridge": "82",
+      "candidate_bridge": "0",
+      "invalid_bridge": "0",
+      "resolver_links": "0",
+      "notes": "listing_ids=124; broker_refs=124; permits=42; units=16"
+    },
+    {
+      "priority": "4",
+      "source": "BAYUT OVER ALL LEAD.xlsx",
+      "available": "YES",
+      "imported_rows": "855",
+      "exact_bridge": "0",
+      "partial_bridge": "746",
+      "candidate_bridge": "0",
+      "invalid_bridge": "109",
+      "resolver_links": "12",
+      "notes": "urls=575; listing_ids=746; broker_refs=703; resolver_links=12"
+    },
+    {
+      "priority": "5",
+      "source": "Secondary Listings LINKS EXCEL.xlsx",
+      "available": "YES",
+      "imported_rows": "34",
+      "exact_bridge": "0",
+      "partial_bridge": "33",
+      "candidate_bridge": "0",
+      "invalid_bridge": "1",
+      "resolver_links": "3",
+      "notes": "urls=33; listing_ids=33; resolver_links=3"
+    },
+    {
+      "priority": "6",
+      "source": "Dubai_brokers",
+      "available": "YES",
+      "imported_rows": "95",
+      "exact_bridge": "0",
+      "partial_bridge": "0",
+      "candidate_bridge": "0",
+      "invalid_bridge": "95",
+      "resolver_links": "0",
+      "notes": "units=87"
+    },
+    {
+      "priority": "7",
+      "source": "Bitrix24/raw",
+      "available": "YES",
+      "imported_rows": "0",
+      "exact_bridge": "0",
+      "partial_bridge": "0",
+      "candidate_bridge": "0",
+      "invalid_bridge": "0",
+      "resolver_links": "0",
+      "notes": "available but no bridge-usable rows detected"
+    },
+    {
+      "priority": "8",
+      "source": "Runtime Memory Ledger",
+      "available": "YES",
+      "imported_rows": "0",
+      "exact_bridge": "0",
+      "partial_bridge": "0",
+      "candidate_bridge": "0",
+      "invalid_bridge": "0",
+      "resolver_links": "0",
+      "notes": "available but no bridge-usable rows detected"
+    }
+  ],
+  "before_summary": {
+    "generated_at": "2026-06-26T23:32:04+00:00",
+    "resolver_records": 26166,
+    "canonical_properties": 83,
+    "source_observations": 26166,
+    "bridge_rows": 332,
+    "verification_queue": 233,
+    "verification_state_counts": {
+      "LIKELY": 20,
+      "POSSIBLE": 48,
+      "UNRESOLVED": 14,
+      "VERIFIED_STRUCTURAL": 1
+    },
+    "bridge_status_counts": {
+      "exact_bridge": 12,
+      "invalid_bridge": 110,
+      "partial_bridge": 1,
+      "waiting_for_data": 209
+    },
+    "owner_contact_cpid_count": 61,
+    "public_listing_cpid_count": 1
+  },
+  "after_summary": {
+    "generated_at": "2026-06-27T02:46:06+00:00",
+    "resolver_records": 26166,
+    "canonical_properties": 83,
+    "source_observations": 26166,
+    "bridge_rows": 1244,
+    "verification_queue": 606,
+    "verification_state_counts": {
+      "LIKELY": 20,
+      "POSSIBLE": 48,
+      "UNRESOLVED": 14,
+      "VERIFIED_STRUCTURAL": 1
+    },
+    "bridge_status_counts": {
+      "exact_bridge": 54,
+      "invalid_bridge": 186,
+      "partial_bridge": 795,
+      "waiting_for_data": 209
+    },
+    "owner_contact_cpid_count": 61,
+    "public_listing_cpid_count": 1
+  },
+  "before_manifest": {
+    "engine": "AIOS Modular Bridge Engine",
+    "strategies": [
+      "direct_url_to_unit",
+      "listing_reference_to_unit",
+      "broker_reference_to_unit",
+      "permit_to_unit",
+      "property_number_to_unit",
+      "plot_land_to_unit",
+      "ai_similarity_candidate_matching"
+    ],
+    "current_data_counts": {
+      "records": 26166,
+      "unit_records": 24357,
+      "url_records": 221,
+      "listing_reference_records": 220,
+      "permit_records": 15,
+      "property_number_records": 149,
+      "plot_land_records": 317
+    },
+    "bridge_investigation_summary": {
+      "records_scanned": 89585,
+      "url_rows_found": 790,
+      "unique_listing_urls_found": 221,
+      "direct_url_plus_unit_rows": 0,
+      "direct_url_plus_identifier_rows_without_unit_link": 196,
+      "direct_exact_url_to_unit_rows": 0,
+      "combined_bridge_paths": 0,
+      "combined_exact_url_count_supported": 0,
+      "outputs": {
+        "source_inventory_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/bridge_source_inventory.csv",
+        "candidate_evidence_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/bridge_candidate_evidence.csv",
+        "combined_paths_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/combined_bridge_paths.csv",
+        "report_md": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/BRIDGE_DATA_INVESTIGATION_REPORT.md"
+      },
+      "normalized_decision": "freeze_deterministic_url_to_unit_bridge_only",
+      "unit_finder_state": "extensible_through_modular_bridge_engine",
+      "superseded_recommendation": "permanently_freeze_url_mapping_until_bridge_data"
+    }
+  },
+  "after_manifest": {
+    "engine": "AIOS Modular Bridge Engine",
+    "strategies": [
+      "direct_url_to_unit",
+      "listing_reference_to_unit",
+      "broker_reference_to_unit",
+      "permit_to_unit",
+      "property_number_to_unit",
+      "plot_land_to_unit",
+      "ai_similarity_candidate_matching"
+    ],
+    "current_data_counts": {
+      "records": 26166,
+      "unit_records": 24357,
+      "url_records": 221,
+      "listing_reference_records": 220,
+      "permit_records": 15,
+      "property_number_records": 149,
+      "plot_land_records": 317
+    },
+    "bridge_investigation_summary": {
+      "records_scanned": 89585,
+      "url_rows_found": 790,
+      "unique_listing_urls_found": 221,
+      "direct_url_plus_unit_rows": 0,
+      "direct_url_plus_identifier_rows_without_unit_link": 196,
+      "direct_exact_url_to_unit_rows": 0,
+      "combined_bridge_paths": 0,
+      "combined_exact_url_count_supported": 0,
+      "outputs": {
+        "source_inventory_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/bridge_source_inventory.csv",
+        "candidate_evidence_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/bridge_candidate_evidence.csv",
+        "combined_paths_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/combined_bridge_paths.csv",
+        "report_md": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/BRIDGE_DATA_INVESTIGATION_REPORT.md"
+      },
+      "normalized_decision": "freeze_deterministic_url_to_unit_bridge_only",
+      "unit_finder_state": "extensible_through_modular_bridge_engine",
+      "superseded_recommendation": "permanently_freeze_url_mapping_until_bridge_data"
+    }
+  },
+  "evidence": {
+    "normalized_rows_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/TruthIngestion/outputs/truth_ingestion_normalized_bridge_rows.csv",
+    "source_status_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/TruthIngestion/outputs/truth_ingestion_source_status.csv",
+    "report_md": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/TruthIngestion/outputs/TRUTH_INGESTION_REPORT.md",
+    "bridge_export_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/bridge_records_export.csv",
+    "property_graph_summary": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/PropertyGraph/property_graph_summary.json",
+    "bridge_engine_manifest": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeEngine/bridge_engine_manifest.json"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "pass": true,
+  "errors": [],
+  "runtime_status_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/AIOS_RUNTIME_STATUS.json",
+  "dashboard_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-DASHBOARD.html",
+  "runtime_truth": {
+    "runtime_ready_percent": 100,
+    "runtime_ready": true,
+    "production_deployment": "pending",
+    "public_beta_ready": false,
+    "production_ready_percent": 0,
+    "production_status": "deployment_pending",
+    "production_blockers": [
+      "Temporary tunnel must be replaced with permanent backend/frontend hosting and domain.",
+      "Connect WhatsApp provider to hosted runtime and run live hosted test.",
+      "Public beta gate must pass after permanent host, domain, auth, and WhatsApp provider are live."
+    ]
+  },
+  "source_evidence": {
+    "launch_public_beta_ready": false,
+    "launch_production_deployment": "pending",
+    "hosted_passed": false,
+    "hosted_checks": "19/20",
+    "hosted_production_beta_ready": false
+  },
+  "checks": {
+    "runtime_ready_percent_100": true,
+    "runtime_ready_true": true,
+    "production_deployment_pending": true,
+    "public_beta_ready_false": true,
+    "production_ready_percent_zero": true,
+    "production_status_pending": true,
+    "production_blockers_present": true,
+    "launch_public_beta_false": true,
+    "hosted_passed_false": true,
+    "dashboard_uses_runtime_ready_percent": true,
+    "dashboard_production_live_gate": true,
+    "dashboard_production_pending_value": true,
+    "dashboard_production_partial_state": true
+  },
+  "final_visible_expectation": {
+    "Runtime Ready": "Ready",
+    "Production Ready": "Pending",
+    "Production Card State": "partial"
+  }
+}

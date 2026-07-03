@@ -1,0 +1,129 @@
+{
+  "report": "WHATSAPP_DELIVERY_FINAL_PROOF_2026-06-24",
+  "created_utc": "2026-06-24T08:21:34Z",
+  "classification": "PASS",
+  "scope": "WhatsApp delivery proof only",
+  "code_changes": false,
+  "jid_logic_changed": false,
+  "old_message": {
+    "msgId": 58101969,
+    "local_gateway_log": {
+      "path": "/Users/hassanka/Downloads/AIOS/data/transport/simple_whatsapp_gateway.log.jsonl",
+      "line": 59,
+      "http_status": 200,
+      "initial_provider_status": "in_progress",
+      "jid": "971501900771"
+    },
+    "provider_status_check": {
+      "checked_utc": "2026-06-24T08:21:34Z",
+      "endpoint": "GET https://www.wasenderapi.com/api/messages/58101969/info",
+      "http_status": 200,
+      "success": true,
+      "remoteJid": "971501900771@s.whatsapp.net",
+      "provider_message_id": "3EB06FA0FAC75BA1A171ED",
+      "status_code": 2,
+      "status_label": "SENT",
+      "messageTimestamp": "1782242916"
+    },
+    "final_delivery_state": "SENT"
+  },
+  "new_controlled_test": {
+    "target": "971501900771",
+    "message": "AIOS delivery proof test. No action needed.",
+    "send_attempt": {
+      "timestamp_utc": "2026-06-24T08:21:06Z",
+      "endpoint": "POST https://www.wasenderapi.com/api/send-message",
+      "http_status": 200,
+      "success": true,
+      "msgId": 58224349,
+      "jid": "971501900771",
+      "initial_provider_status": "in_progress"
+    },
+    "provider_status_check": {
+      "checked_utc": "2026-06-24T08:21:34Z",
+      "endpoint": "GET https://www.wasenderapi.com/api/messages/58224349/info",
+      "http_status": 200,
+      "success": true,
+      "remoteJid": "971501900771@s.whatsapp.net",
+      "provider_message_id": "3EB0CFBD411FB41C924C34",
+      "status_code": 3,
+      "status_label": "DELIVERED",
+      "messageTimestamp": "1782289272"
+    },
+    "final_delivery_state": "DELIVERED"
+  },
+  "webhook_status": {
+    "configured_public_url_from_transport_status": "https://specification-accompanying-adjustable-defined.trycloudflare.com/webhook/whatsapp/simple",
+    "public_webhook_reachable": false,
+    "public_webhook_error": "Could not resolve host: specification-accompanying-adjustable-defined.trycloudflare.com",
+    "local_gateway_health_reachable": true,
+    "local_gateway_health_response": {
+      "http_status": 200,
+      "body": {
+        "ok": true,
+        "service": "simple-whatsapp-openai-gateway"
+      }
+    },
+    "delivery_webhook_found": false,
+    "delivery_event_logged": false,
+    "callback_route_exists": true,
+    "callback_route": "/webhook/whatsapp/simple",
+    "delivery_events_supported_by_provider": true,
+    "provider_status_event": "messages.update",
+    "provider_status_code_map_used": {
+      "0": "ERROR",
+      "1": "PENDING",
+      "2": "SENT",
+      "3": "DELIVERED",
+      "4": "READ",
+      "5": "PLAYED"
+    },
+    "provider_docs": [
+      "https://wasenderapi.com/api-docs/webhooks/webhook-message-update",
+      "https://wasenderapi.com/api-docs/messages/get-message-info"
+    ]
+  },
+  "log_search": {
+    "searched_terms": [
+      "58101969",
+      "58224349",
+      "delivered",
+      "sent",
+      "read",
+      "failed",
+      "delivery",
+      "status_update",
+      "message_status"
+    ],
+    "matches": [
+      {
+        "path": "/Users/hassanka/Downloads/AIOS/data/transport/simple_whatsapp_gateway.log.jsonl",
+        "line": 58,
+        "event": "whatsapp_send_attempt",
+        "evidence": "original_target=971501900771@c.us provider_target=971501900771"
+      },
+      {
+        "path": "/Users/hassanka/Downloads/AIOS/data/transport/simple_whatsapp_gateway.log.jsonl",
+        "line": 59,
+        "event": "whatsapp_outbound",
+        "evidence": "status=200 msgId=58101969 provider_status=in_progress"
+      },
+      {
+        "path": "/Users/hassanka/Downloads/AIOS/data/transport/simple_whatsapp_gateway.log.jsonl",
+        "line": 139,
+        "event": "whatsapp_send_attempt",
+        "evidence": "controlled test target 971595009876 tried raw number"
+      },
+      {
+        "path": "/Users/hassanka/Downloads/AIOS/data/transport/simple_whatsapp_gateway.log.jsonl",
+        "line": 142,
+        "event": "gateway_error",
+        "evidence": "controlled target 971595009876 rejected by provider with HTTP 422 invalid WhatsApp JID"
+      }
+    ],
+    "final_status_event_in_local_webhook_logs": false
+  },
+  "final_delivery_state": "DELIVERED",
+  "pass_condition_met_by": "Provider message info endpoint returned status_code=3 DELIVERED for new controlled msgId 58224349 and status_code=2 SENT for old msgId 58101969.",
+  "remaining_blocker": "Public delivery webhook tunnel is not reachable, so callback-based proof is still absent. Provider API proof is sufficient for PASS under this mission's rules."
+}

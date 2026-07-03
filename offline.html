@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#090A0B">
+<link rel="icon" href="/assets/aios-icon-192.png" type="image/png">
+<title>AIOS Offline</title>
+<style>
+  :root { color-scheme: dark; --bg:#090A0B; --text:#F5F7FA; --muted:#A5A9B5; --gold:#D8C28A; --green:#18E0A2; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at 50% 30%, rgba(24,224,162,.26), transparent 30%),
+      linear-gradient(90deg, transparent 12%, rgba(24,224,162,.09) 48%, rgba(216,194,138,.05) 52%, transparent 88%),
+      radial-gradient(circle at 50% 60%, rgba(216,194,138,.18), transparent 34%),
+      var(--bg);
+  }
+  .shell { width: min(560px, 100%); text-align: center; overflow: hidden; }
+  .eye {
+    width: 220px;
+    aspect-ratio: 1;
+    margin: 0 auto 26px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%, #020303 0 13%, transparent 14%),
+      radial-gradient(circle at 50% 50%, rgba(24,224,162,.92), transparent 29%),
+      linear-gradient(90deg, transparent 18%, rgba(24,224,162,.28) 48%, rgba(245,247,250,.12) 50%, rgba(24,224,162,.22) 52%, transparent 82%),
+      radial-gradient(circle at 50% 50%, rgba(216,194,138,.38), transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(245,247,250,.06), transparent 70%);
+    box-shadow: 0 0 92px rgba(24,224,162,.30), inset 0 0 88px rgba(24,224,162,.16), inset 0 0 80px rgba(216,194,138,.13);
+    animation: breathe 4.6s ease-in-out infinite;
+  }
+  h1 { max-width: 100%; font-size: clamp(32px, 12vw, 56px); line-height: .95; letter-spacing: 0; text-transform: uppercase; }
+  p { color: var(--muted); margin: 18px auto 0; max-width: min(260px, calc(100vw - 112px)); font-size: 14px; }
+  a { display: inline-block; margin-top: 24px; color: var(--text); text-decoration: none; border: 1px solid rgba(216,194,138,.36); border-radius: 8px; padding: 11px 14px; background: rgba(216,194,138,.12); }
+  @keyframes breathe { 0%,100% { transform: scale(.985); filter: brightness(.9); } 50% { transform: scale(1.015); filter: brightness(1.18); } }
+</style>
+</head>
+<body>
+  <main class="shell">
+    <div class="eye" aria-hidden="true"></div>
+    <h1>AIOS<br>Offline</h1>
+    <p>Cached screens remain available. Live runtime decisions resume when the connection returns.</p>
+    <a href="/AIOS-MOBILE-APP.html">Open Cached Console</a>
+  </main>
+</body>
+</html>

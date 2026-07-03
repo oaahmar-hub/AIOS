@@ -1,0 +1,560 @@
+{
+  "generated_at": "2026-06-26T19:37:14.507981+00:00",
+  "case": {
+    "case_id": "need-an-office-in-business-bay-with-parking-under-180000",
+    "client_name": "Confidential Client",
+    "client_request": "Need an office in Business Bay with parking under 180000",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/6782eda674c9__86e02c8d-ccf1-4274-84ea-47d789a4faa7.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - Need an office in Business Bay with parking under 180000",
+  "executive_pitch": "The strongest option today is Fitted Office with Parking | Business Bay because it gives the best balance of location fit, operational readiness, and alignment with the office setup. The secondary play is Fully Furnished | High Floor | Grade A, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Fitted Office with Parking | Business Bay as the strongest aligned option based on the current brief. Keep Fully Furnished | High Floor | Grade A as the alternative and Spacious Fitted Office in Business Bay as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Fitted Office with Parking | Business Bay",
+      "area": "The Citadel Tower, Business Bay, Dubai",
+      "building": "The Citadel Tower, Business Bay, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-business-bay-the-citadel-tower-105977060.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-business-bay-the-citadel-tower-105977060.html"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "office",
+      "price_aed": 170000,
+      "price_term": "yearly",
+      "size_sqft": 887,
+      "availability": "live_listing_page",
+      "delivery_timeline": "Current public listing page",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder listing extracted directly from a property page.",
+      "pros": [
+        "Live public listing extracted directly from Property Finder property page."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "The Citadel Tower, Business Bay, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/RN9Y6HZVCGQ60R32KHRBM608A4/cff7e0ef-9419-4c13-b2ad-96224e8d07a5/668x452.jpg?v=53c8750bfe8a10e505275b0966ad6a10",
+      "bedrooms": "",
+      "bathrooms": "1",
+      "reference": "RN9Y6HZVCGQ60R32KHRBM608A4",
+      "developer": "Robin Johnson Real Estate L.L.C",
+      "suitability_score": 100.0,
+      "investment_score": 38.0,
+      "combined_score": 82.6,
+      "constraint_fit": {
+        "bedroom_match": null,
+        "bathroom_match": null,
+        "view_match": null,
+        "floor_match": null,
+        "parking_match": true,
+        "furnishing_match": null,
+        "readiness_match": null,
+        "within_budget": true,
+        "requested_size_sqft": {
+          "min": null,
+          "max": null,
+          "target": null
+        },
+        "target_size_range_sqft": [
+          700.0,
+          1800.0
+        ]
+      },
+      "constraint_match_priority": 1,
+      "entry_psf_aed": 191.66,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "parking provision matches the request",
+        "size is aligned with the target brief range of 700-1,800 sqft",
+        "fits within the AED 180,000 budget"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 100.0,
+      "clinic_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "parking provision matches the request",
+        "size is aligned with the target brief range of 700-1,800 sqft",
+        "fits within the AED 180,000 budget"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "entry price around AED 192/sqft",
+        "developer: Robin Johnson Real Estate L.L.C"
+      ],
+      "why_this_property": [
+        "Direct match for the requested Business Bay location.",
+        "Exact Business Bay location.",
+        "Office format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Citadel+Tower%2C+Business+Bay%2C+Dubai",
+      "rank": 1
+    },
+    {
+      "title": "Fully Furnished | High Floor | Grade A",
+      "area": "The Burlington, Business Bay, Dubai",
+      "building": "The Burlington, Business Bay, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-business-bay-the-burlington-106866048.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-business-bay-the-burlington-106866048.html"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "office",
+      "price_aed": 175000,
+      "price_term": "yearly",
+      "size_sqft": 660,
+      "availability": "live_listing_page",
+      "delivery_timeline": "Current public listing page",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder listing extracted directly from a property page.",
+      "pros": [
+        "Live public listing extracted directly from Property Finder property page."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "The Burlington, Business Bay, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/ARMJVX6X3W56EEYRPE7WA6447W/cda5e6cc-12da-4b6a-9c9c-9d9fb0512286/668x452.jpg?v=b6d9efda64aedc926e3f465fa211ba27",
+      "bedrooms": "",
+      "bathrooms": "none",
+      "reference": "RL-226926",
+      "developer": "White & Co Real Estate",
+      "suitability_score": 92.2,
+      "investment_score": 38.0,
+      "combined_score": 77.0,
+      "constraint_fit": {
+        "bedroom_match": null,
+        "bathroom_match": null,
+        "view_match": null,
+        "floor_match": null,
+        "parking_match": false,
+        "furnishing_match": null,
+        "readiness_match": null,
+        "within_budget": true,
+        "requested_size_sqft": {
+          "min": null,
+          "max": null,
+          "target": null
+        },
+        "target_size_range_sqft": [
+          700.0,
+          1800.0
+        ]
+      },
+      "constraint_match_priority": 0,
+      "entry_psf_aed": 265.15,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "fits within the AED 180,000 budget"
+      ],
+      "recommendation_risks": [
+        "parking availability still needs confirmation against the request",
+        "size is slightly below the target brief range of 700-1,800 sqft",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 92.2,
+      "clinic_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "fits within the AED 180,000 budget"
+      ],
+      "clinic_risks": [
+        "parking availability still needs confirmation against the request",
+        "size is slightly below the target brief range of 700-1,800 sqft",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "entry price around AED 265/sqft",
+        "developer: White & Co Real Estate"
+      ],
+      "why_this_property": [
+        "Direct match for the requested Business Bay location.",
+        "Exact Business Bay location.",
+        "Office format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Burlington%2C+Business+Bay%2C+Dubai",
+      "rank": 2
+    },
+    {
+      "title": "Spacious Fitted Office in Business Bay",
+      "area": "XL Tower, Business Bay, Dubai",
+      "building": "XL Tower, Business Bay, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-business-bay-xl-tower-105992828.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-business-bay-xl-tower-105992828.html"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "office",
+      "price_aed": 190000,
+      "price_term": "yearly",
+      "size_sqft": 940,
+      "availability": "live_listing_page",
+      "delivery_timeline": "Current public listing page",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder listing extracted directly from a property page.",
+      "pros": [
+        "Live public listing extracted directly from Property Finder property page."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "XL Tower, Business Bay, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/JFWY5CDFJ6E12JF5EHQ1P1968C/f0d03d06-a917-4bae-8679-ceef574c738c/668x452.jpg?v=dc69f7f5793641438272a9b70e79c677",
+      "bedrooms": "",
+      "bathrooms": "1",
+      "reference": "JFWY5CDFJ6E12JF5EHQ1P1968C",
+      "developer": "Robin Johnson Real Estate L.L.C",
+      "suitability_score": 76.5,
+      "investment_score": 38.0,
+      "combined_score": 65.7,
+      "constraint_fit": {
+        "bedroom_match": null,
+        "bathroom_match": null,
+        "view_match": null,
+        "floor_match": null,
+        "parking_match": false,
+        "furnishing_match": null,
+        "readiness_match": null,
+        "within_budget": false,
+        "requested_size_sqft": {
+          "min": null,
+          "max": null,
+          "target": null
+        },
+        "target_size_range_sqft": [
+          700.0,
+          1800.0
+        ]
+      },
+      "constraint_match_priority": 0,
+      "entry_psf_aed": 202.13,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "size is aligned with the target brief range of 700-1,800 sqft"
+      ],
+      "recommendation_risks": [
+        "parking availability still needs confirmation against the request",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation",
+        "exceeds the AED 180,000 budget by AED 10,000"
+      ],
+      "clinic_fit_score": 76.5,
+      "clinic_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "size is aligned with the target brief range of 700-1,800 sqft"
+      ],
+      "clinic_risks": [
+        "parking availability still needs confirmation against the request",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation",
+        "exceeds the AED 180,000 budget by AED 10,000"
+      ],
+      "investment_notes": [
+        "entry price around AED 202/sqft",
+        "developer: Robin Johnson Real Estate L.L.C"
+      ],
+      "why_this_property": [
+        "Direct match for the requested Business Bay location.",
+        "Exact Business Bay location.",
+        "Office format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=XL+Tower%2C+Business+Bay%2C+Dubai",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Immediate-launch value depends on occupancy readiness, fit-out burden, and permit certainty.",
+    "Commercial comparisons should weigh use alignment, launch speed, and operational friction before brand polish.",
+    "Curated direct Property Finder listing pages were used because area-level commercial search routing is incomplete for this market."
+  ],
+  "compliance_gates": [
+    "Usage, fit-out, and authority approvals must match the target business activity before deal commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 159 rows matching the area signal 'business bay'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "Property master database contains 322 raw rows linked to business bay.",
+    "AIOS acquisition index recovered 159 internal source assets tied to business bay.",
+    "Internal source mix: 125 jpg, 34 xlsx."
+  ],
+  "internal_inventory_matches": [
+    {
+      "project": "Binghatti",
+      "area": "Al Wasl; Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim",
+      "developer": "Binghatti",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "UAE COMMERCIAL ONLY Rent - Sale",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/a5b90df1a532__UAE_COMMERCIAL_ONLY_Rent_-_Sale__TILAL BINGHATTI__a5b90df1a5.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Binghatti",
+      "area": "Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim",
+      "developer": "Binghatti",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Binghatti (DARIA) - HSH",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/d6f85a913d2f__Binghatti_DARIA_-_HSH__TILAL BINGHATTI__d6f85a913d.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Tiger; Tiger Sky Tower",
+      "area": "Ajman; Business Bay; Dubai Land; JVC; JVT; Motor City; Reem Island; Sharjah",
+      "developer": "Tiger",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "TIGER - HOME SWEET HOME REAL ESTATE",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/6d3d8840a8ec__TIGER_-_HOME_SWEET_HOME_REAL_ESTATE__Unit Number__6d3d8840a8.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Downtown",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/3a044a48d22a__2DON_MOHAMED_REDHA_-DEYAAR_DEVELOPMENT__TOWER__3a044a48d2.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Downtown; Dubai Marina; Palm Jebel Ali; Palm Jumeirah",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/030bcceacfad__264e19e9-2524-4943-8a85-fc4411a041d9.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Tiger; Tiger Sky Tower",
+      "area": "Ajman; Business Bay; Dubai Land; JVC; JVT; Motor City; Reem Island; Sharjah",
+      "developer": "Tiger",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "TIGER - HOME SWEET HOME REAL ESTATE",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/00f31cc5798c__TIGER_-_HOME_SWEET_HOME_REAL_ESTATE__Unit Number__00f31cc579.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Dubai Marina; Palm Jebel Ali; Palm Jumeirah",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/c04590d66106__2DON_MOHAMED_REDHA_-DEYAAR_DEVELOPMENT__PROJECT__c04590d661.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Tiger; Tiger Sky Tower",
+      "area": "Ajman; Business Bay; Dubai Land; JVC; JVT; Motor City; Reem Island; Sharjah",
+      "developer": "Tiger",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "TIGER - HOME SWEET HOME REAL ESTATE",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/14b554a9a510__TIGER_-_HOME_SWEET_HOME_REAL_ESTATE__Unit Number__14b554a9a5.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    }
+  ],
+  "internal_market_snapshot": {
+    "match_count": 159,
+    "asset_match_count": 8,
+    "file_type_counts": {
+      "xlsx": 34,
+      "jpg": 125
+    },
+    "top_projects": [
+      "Binghatti",
+      "Tiger; Tiger Sky Tower",
+      "Deyaar",
+      "Binghatti; HSH",
+      "HSH; Tiger; Tiger Sky Tower",
+      "Omniyat"
+    ],
+    "source_groups": [
+      "UAE COMMERCIAL ONLY Rent - Sale",
+      "Binghatti (DARIA) - HSH",
+      "TIGER - HOME SWEET HOME REAL ESTATE",
+      "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT"
+    ]
+  },
+  "next_steps": [
+    "Confirm exact live availability and current commercial terms before client send.",
+    "Collect floor plan, service-charge, fit-out, and authority-use information for the shortlisted options.",
+    "Run final approval and risk review before presenting the recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Property Finder curated direct listing",
+      "url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-business-bay-the-burlington-106866048.html",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Property Finder curated direct listing",
+      "url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-business-bay-xl-tower-105992828.html",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Property Finder curated direct listing",
+      "url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-business-bay-the-citadel-tower-105977060.html",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Offices for Rent in Business Bay",
+      "url": "https://www.bayut.com/to-rent/offices/dubai/business-bay/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Commercial Properties for Rent in Business Bay",
+      "url": "https://www.bayut.com/to-rent/commercial/dubai/business-bay/",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "Need an office in Business Bay with parking under 180000",
+    "source_mode": "text",
+    "area": "business bay",
+    "use_case": "office",
+    "property_preference": "office",
+    "bedroom_preference": "",
+    "bathroom_preference": "",
+    "view_preference": "",
+    "floor_preference": "",
+    "parking_preference": "required",
+    "furnishing_preference": "",
+    "readiness_preference": "",
+    "intent": "business_setup",
+    "source_url": "",
+    "max_price_aed": 180000.0,
+    "min_size_sqft": 0.0,
+    "max_size_sqft": 0.0,
+    "target_size_sqft": 0.0
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 159,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/6782eda674c9__86e02c8d-ccf1-4274-84ea-47d789a4faa7.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/6782eda674c9__86e02c8d-ccf1-4274-84ea-47d789a4faa7.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/10aa44eba155__fba8f665-6720-4eb7-9138-7cd3c7cef12d.jpg"
+      ]
+    },
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Property_Master_Database.sqlite",
+      "matched_rows": 322
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "READY FOR AGENT REVIEW BEFORE CLIENT SEND",
+    "review_notes": [
+      "Lead option Fitted Office with Parking | Business Bay still requires written use and approval confirmation."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-with-parking.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-with-parking.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-with-parking.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-with-parking.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T19:37:14.509514+00:00",
+    "request_profile": {
+      "raw_request": "Need an office in Business Bay with parking under 180000",
+      "source_mode": "text",
+      "area": "business bay",
+      "use_case": "office",
+      "property_preference": "office",
+      "bedroom_preference": "",
+      "bathroom_preference": "",
+      "view_preference": "",
+      "floor_preference": "",
+      "parking_preference": "required",
+      "furnishing_preference": "",
+      "readiness_preference": "",
+      "intent": "business_setup",
+      "source_url": "",
+      "max_price_aed": 180000.0,
+      "min_size_sqft": 0.0,
+      "max_size_sqft": 0.0,
+      "target_size_sqft": 0.0
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": false,
+      "internal_evidence_rows": 2
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/validate-text-office-business-bay-with-parking.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-06-23T17:58:18.874087+00:00",
+  "sender": "971595001234",
+  "request_input": {
+    "text": "Need 1BR for rent in DAMAC Hills, tell me next step.",
+    "reply": "Got it. I can shortlist a few options now and send them to you.",
+    "api_ok": true
+  },
+  "human_identity_feedback": {
+    "before_count_global": 2,
+    "after_count_global": 2,
+    "before_count_sender": 0,
+    "after_count_sender": 0,
+    "delta_global": 0,
+    "before_feedback_event_sample": {
+      "ts": "2026-06-23T17:57:36.676809Z",
+      "event_type": "negotiation",
+      "emotion": "neutral",
+      "outcome": "casual_greeting",
+      "impact": "general",
+      "future_relevance": "continue",
+      "quality_score": 0.4775,
+      "source": "feedback",
+      "raw": "Budget 900k",
+      "sender": "971501900771",
+      "outcome_label": "pending",
+      "outcome_confidence": 0.35,
+      "impact_level": "unknown",
+      "feedback_notes": "Outcome not yet known; pending user response"
+    },
+    "after_feedback_event_sample": null
+  },
+  "source": "feedback"
+}

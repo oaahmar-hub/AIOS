@@ -1,0 +1,13 @@
+{
+  "date": "2026-06-25",
+  "classification": "BLOCKED_MISSING_REQUIRED_DOCUMENTS",
+  "score": 28,
+  "matched_files": 628,
+  "hard_blockers": [
+    "Consultant trade license",
+    "Gas undertaking",
+    "Combined CAD DWG/DXF",
+    "Topographical survey PDF/CAD",
+    "Signed / stamped final package"
+  ]
+}

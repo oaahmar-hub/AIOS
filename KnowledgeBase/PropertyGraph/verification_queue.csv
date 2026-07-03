@@ -1,0 +1,607 @@
+queue_type,cpid,resolver_record_id,reason,severity,recommended_action,source_file
+quarantine_review,CPID-UNIT-cdb0134984698a6d,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx
+cpid_review,CPID-LAND-77800826,,public_listing_without_hard_identifier,high,collect broker reference or property/permit/plot/unit bridge,WhatsApp ChatStorage.sqlite
+quarantine_review,CPID-LAND-77800826,,non_listing_public_url | polluted_property_number | polluted_property_number;non_listing_public_url,medium,validate polluted or noisy source row before reuse,WhatsApp ChatStorage.sqlite
+cpid_review,CPID-HASH-145b74c162883715,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__ac9a52ed89.xlsx
+quarantine_review,CPID-HASH-145b74c162883715,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__3014__ac9a52ed89.xlsx
+cpid_review,CPID-HASH-42cb6231a76983a2,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__39097fe6b2.xlsx
+quarantine_review,CPID-HASH-42cb6231a76983a2,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__3014__39097fe6b2.xlsx
+cpid_review,CPID-HASH-50f33a7652741d77,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__69038f24c0.xlsx
+quarantine_review,CPID-HASH-50f33a7652741d77,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__3014__69038f24c0.xlsx
+cpid_review,CPID-HASH-5e5cadff258bfbae,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__6ea2d12d01.xlsx
+quarantine_review,CPID-HASH-5e5cadff258bfbae,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__3014__6ea2d12d01.xlsx
+cpid_review,CPID-HASH-62c5896d63bac13c,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__ccd1445561.xlsx
+quarantine_review,CPID-HASH-62c5896d63bac13c,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__3014__ccd1445561.xlsx
+cpid_review,CPID-HASH-d99bf1e0a276ce04,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__abd925a1c4.xlsx
+quarantine_review,CPID-HASH-d99bf1e0a276ce04,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__3014__abd925a1c4.xlsx
+cpid_review,CPID-HASH-aa80e32e5df82496,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,0a61877f-b2fb-451b-91ff-81bb026cd696.xlsx
+cpid_review,CPID-HASH-c4696bc33af4ff0e,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__73fd58f1-9853-4763-b3d6-5b415324a9b9__e3b118dc75.xlsx
+quarantine_review,CPID-HASH-c4696bc33af4ff0e,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__73fd58f1-9853-4763-b3d6-5b415324a9b9__e3b118dc75.xlsx
+cpid_review,CPID-HASH-cbef39b54c75bac1,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,HSHObject1__2556cb9f-0ebc-435f-b39e-31d3b5caa0ab__7f6e6a6f90.xlsx
+cpid_review,CPID-HASH-e352a045df73ae37,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,HSHObject1__796fbdde-e69f-4e78-86a9-2fd67eb95fe9__e498504c3f.xlsx
+cpid_review,CPID-HASH-03a46c0915da67ea,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,HSHObject1__ab20a7e9-9ee0-4f16-910a-3e6399317a74__dda2658d56.xlsx
+cpid_review,CPID-HASH-35b1a7e2b4653cfe,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,HSHObject1__c75a4a95-8a72-4b3a-bcea-32c7aac38024__b5bf281258.xlsx
+cpid_review,CPID-HASH-04d241afe704c0ee,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,HSHObject1__959b678a-988e-408b-a57d-babfe21eb212__95811baa6f.xlsx
+cpid_review,CPID-HASH-66b9c55a31c5cb7d,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,HSHObject1__45fcbb03-9f46-4197-8505-b9f33fd29510__77f9127278.xlsx
+cpid_review,CPID-HASH-700d4340937a195d,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,HSHObject1__560cff45-bedb-4011-8704-774f0fa8b694__44fa2f752a.xlsx
+cpid_review,CPID-HASH-bd8f077574e7ae3e,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,HSHObject1__ac274d9d-4683-43a4-b87f-76dc917c79d1__e2699bf54d.xlsx
+cpid_review,CPID-HASH-0f1f1d77abe198a6,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__99c58ae4-60ae-474d-a525-c21e51b57e4c__b17701f8c6.xlsx
+cpid_review,CPID-HASH-6079daa17b56d6ff,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Sylvana Availability__cdd11f415b.xlsx
+cpid_review,CPID-HASH-63e21f538d6c76a3,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Sylvana Availability__4748b80daa.xlsx
+cpid_review,CPID-HASH-641a18ef96f5c33a,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Sylvana Availability__cfc92026de.xlsx
+cpid_review,CPID-HASH-e750c7ec8699c040,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Sylvana Availability__7d1436514b.xlsx
+cpid_review,CPID-HASH-ebcb3aab42a8ea4d,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Sylvana Availability__b5bc12621c.xlsx
+cpid_review,CPID-HASH-6ef19f2265bbeeb1,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,TIGER_-_HOME_SWEET_HOME_REAL_ESTATE__Handover: Q2 2029__f378ebf74c.xlsx
+cpid_review,CPID-HASH-0a212feca5d65292,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__63a16b8deb.xlsx
+quarantine_review,CPID-HASH-0a212feca5d65292,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__63a16b8deb.xlsx
+cpid_review,CPID-HASH-17a39eff1f1ecc5f,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__071a5a6811.xlsx
+quarantine_review,CPID-HASH-17a39eff1f1ecc5f,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__071a5a6811.xlsx
+cpid_review,CPID-HASH-371afef1702ba947,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__9e8cbfbd-4be2-43fa-8d80-c75925f2e7aa__4fa2fc5adc.xlsx
+quarantine_review,CPID-HASH-371afef1702ba947,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__9e8cbfbd-4be2-43fa-8d80-c75925f2e7aa__4fa2fc5adc.xlsx
+cpid_review,CPID-HASH-5dcbd0c83816a8c3,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DIVA HANDING OVER Q4 2024__fcd5c43bb3.xlsx
+quarantine_review,CPID-HASH-5dcbd0c83816a8c3,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DIVA HANDING OVER Q4 2024__fcd5c43bb3.xlsx
+cpid_review,CPID-HASH-7ce580e4a30510ea,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__12d44572ad.xlsx
+quarantine_review,CPID-HASH-7ce580e4a30510ea,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__12d44572ad.xlsx
+cpid_review,CPID-HASH-89c9df9d251a762a,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__d89418de99.xlsx
+quarantine_review,CPID-HASH-89c9df9d251a762a,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__d89418de99.xlsx
+cpid_review,CPID-HASH-c98e851390ddc824,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__8b17644d10.xlsx
+quarantine_review,CPID-HASH-c98e851390ddc824,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__8b17644d10.xlsx
+cpid_review,CPID-HASH-11705b81fab3f50a,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Monte Napoleone MNGT Units__f40c97c1dc.xlsx
+cpid_review,CPID-HASH-26a2892a3744d1a1,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Monte Napoleone MNGT Units__72c00ef10b.xlsx
+cpid_review,CPID-HASH-46632b09f63e9a34,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Monte Napoleone MNGT Units__7850b32b27.xlsx
+cpid_review,CPID-HASH-480aa3bd306b298c,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__bffd36ca-3cf8-4eba-82c3-ff850628f3c4__c8a5536e02.xlsx
+cpid_review,CPID-HASH-eff0cd5c29346436,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Monte Napoleone MNGT Units__274dd0842b.xlsx
+cpid_review,CPID-HASH-f8315ce755569263,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Monte Napoleone MNGT Units__d46f8387c9.xlsx
+cpid_review,CPID-HASH-1f30fb045fd75fc0,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Reportage Oceana__2e842da7d0.xlsx
+quarantine_review,CPID-HASH-1f30fb045fd75fc0,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__Reportage Oceana__2e842da7d0.xlsx
+cpid_review,CPID-HASH-51e07f0a237ed47f,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Reportage Oceana__ac20f4467c.xlsx
+quarantine_review,CPID-HASH-51e07f0a237ed47f,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__Reportage Oceana__ac20f4467c.xlsx
+cpid_review,CPID-HASH-e5bbe13df88de338,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__Reportage Oceana__a076884ead.xlsx
+quarantine_review,CPID-HASH-e5bbe13df88de338,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__Reportage Oceana__a076884ead.xlsx
+cpid_review,CPID-HASH-236b107721ca3243,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__ac9a52ed89.xlsx
+cpid_review,CPID-HASH-3e53e23017bd0f81,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__ccd1445561.xlsx
+cpid_review,CPID-HASH-492c774908bad15c,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__6ea2d12d01.xlsx
+cpid_review,CPID-HASH-8d7a927eef7a3796,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,KnowledgeBase_Master_Catalog.csv
+cpid_review,CPID-HASH-9fb60d1017b545f6,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__39097fe6b2.xlsx
+cpid_review,CPID-HASH-a21233e35abd8951,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__69038f24c0.xlsx
+cpid_review,CPID-HASH-a775dbb39eaadeb4,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__abd925a1c4.xlsx
+cpid_review,CPID-HASH-14a98d55c7a369c7,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,796ebc88-9ecb-4559-87a1-e237fd01229f.xlsx
+cpid_review,CPID-HASH-b9a8ad1432ae7299,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,brand-assets-files.txt
+quarantine_review,CPID-HASH-b9a8ad1432ae7299,,polluted_property_number;no_resolver_signal,medium,validate polluted or noisy source row before reuse,brand-assets-files.txt
+cpid_review,CPID-HASH-edee1f0134bbe05c,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__REPORTAGE HEIGHTS 1 - B__68cb7f0e5e.xlsx
+quarantine_review,CPID-HASH-edee1f0134bbe05c,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__REPORTAGE HEIGHTS 1 - B__68cb7f0e5e.xlsx
+cpid_review,CPID-LAND-p038,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Data_Uae_Pak_Last__Property`s Type__4dd7ad70cb.xlsx
+cpid_review,CPID-PLOT-100,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Data_Uae_Pak_Last__Area sqft__0256c24bc1.xlsx
+cpid_review,CPID-PLOT-581,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Tiger Sky Tower-3902TigerContract document.pdf
+cpid_review,CPID-HASH-31ad1d0de9fbcc64,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DUBAI HILLS AVAILABILITY__902f581911.xlsx
+quarantine_review,CPID-HASH-31ad1d0de9fbcc64,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DUBAI HILLS AVAILABILITY__902f581911.xlsx
+cpid_review,CPID-HASH-4518921d16d95da1,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DUBAI HILLS AVAILABILITY__90b740e669.xlsx
+quarantine_review,CPID-HASH-4518921d16d95da1,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DUBAI HILLS AVAILABILITY__90b740e669.xlsx
+cpid_review,CPID-HASH-580d0486a182d0a5,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DUBAI HILLS AVAILABILITY__042e594ad2.xlsx
+quarantine_review,CPID-HASH-580d0486a182d0a5,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DUBAI HILLS AVAILABILITY__042e594ad2.xlsx
+cpid_review,CPID-HASH-6395444149f6ecbf,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__ffd5c26e-49da-4c91-b603-c0b42a2332e4__7bb0933451.xlsx
+quarantine_review,CPID-HASH-6395444149f6ecbf,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__ffd5c26e-49da-4c91-b603-c0b42a2332e4__7bb0933451.xlsx
+cpid_review,CPID-HASH-a1d806017ae5aa78,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DUBAI HILLS AVAILABILITY__da8db8e57d.xlsx
+quarantine_review,CPID-HASH-a1d806017ae5aa78,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DUBAI HILLS AVAILABILITY__da8db8e57d.xlsx
+cpid_review,CPID-HASH-ccd95e366cf71015,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DUBAI HILLS AVAILABILITY__d160d26d64.xlsx
+quarantine_review,CPID-HASH-ccd95e366cf71015,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DUBAI HILLS AVAILABILITY__d160d26d64.xlsx
+cpid_review,CPID-HASH-d2a88a01f39a274d,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__DUBAI HILLS AVAILABILITY__7f03fbbd4c.xlsx
+quarantine_review,CPID-HASH-d2a88a01f39a274d,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__DUBAI HILLS AVAILABILITY__7f03fbbd4c.xlsx
+cpid_review,CPID-PROP-pjpvp018,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf
+quarantine_review,CPID-PROP-pjpvp018,,polluted_property_number,medium,validate polluted or noisy source row before reuse,Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf
+cpid_review,CPID-LAND-120,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,6f1e3efe-637f-455e-9cc5-0d642d2242f3.xlsx
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Contract F - Plot 18- Palm Crown - New (1).pdf
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Contract F - Plot 18- Palm Crown - New (1).pdf
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Tiger Sky Tower-3902TigerContract document.pdf
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",cpalmd (1).pdf
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Palm_Jumeirah_Nakheel_updated.pdf
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Plot-18_PJ-P-VP-018_REV-01_FINAL_Nakheel_Submission.pdf
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Palm_Jumeirah_Nakheel_Submission_Package_RevB_final.pdf
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",extracted_text.txt
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",rev01_text.txt
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",KnowledgeBase_Master_Catalog.csv
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Data_Uae_Pak_Last__Property`s Type__4dd7ad70cb.xlsx
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Data_Uae_Pak_Last__Area sqft__0256c24bc1.xlsx
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Reportage_Inventory__3014__69038f24c0.xlsx
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Reportage_Inventory__3014__ac9a52ed89.xlsx
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Reportage_Inventory__3014__39097fe6b2.xlsx
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Reportage_Inventory__3014__abd925a1c4.xlsx
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Reportage_Inventory__3014__6ea2d12d01.xlsx
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Reportage_Inventory__3014__ccd1445561.xlsx
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",Nakheel_Approval_QA_Report.pdf
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",brand-assets-files.txt
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",6f1e3efe-637f-455e-9cc5-0d642d2242f3.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Monte Napoleone MNGT Units__274dd0842b.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Monte Napoleone MNGT Units__72c00ef10b.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Monte Napoleone MNGT Units__7850b32b27.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Monte Napoleone MNGT Units__d46f8387c9.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Monte Napoleone MNGT Units__f40c97c1dc.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted","Reportage_Inventory__REPORTAGE RESIDENCES (Lahore, Pakistan)__14752b3dd3.xlsx"
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted","Reportage_Inventory__REPORTAGE RESIDENCES (Lahore, Pakistan)__253edbf7f5.xlsx"
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted","Reportage_Inventory__REPORTAGE RESIDENCES (Lahore, Pakistan)__42b186a499.xlsx"
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted","Reportage_Inventory__REPORTAGE RESIDENCES (Lahore, Pakistan)__cad2d349e7.xlsx"
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__REPORTAGE RESIDENCES Lahore Pakistan__0b8e327b3f.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,HSHObject1__2556cb9f-0ebc-435f-b39e-31d3b5caa0ab__7f6e6a6f90.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,HSHObject1__45fcbb03-9f46-4197-8505-b9f33fd29510__77f9127278.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,HSHObject1__560cff45-bedb-4011-8704-774f0fa8b694__44fa2f752a.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,HSHObject1__796fbdde-e69f-4e78-86a9-2fd67eb95fe9__e498504c3f.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,HSHObject1__959b678a-988e-408b-a57d-babfe21eb212__95811baa6f.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,HSHObject1__ab20a7e9-9ee0-4f16-910a-3e6399317a74__dda2658d56.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,HSHObject1__ac274d9d-4683-43a4-b87f-76dc917c79d1__e2699bf54d.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,HSHObject1__c75a4a95-8a72-4b3a-bcea-32c7aac38024__b5bf281258.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__3014__39097fe6b2.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__3014__39097fe6b2.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__3014__69038f24c0.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__3014__69038f24c0.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__3014__6ea2d12d01.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__3014__6ea2d12d01.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__3014__abd925a1c4.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__3014__abd925a1c4.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__3014__ac9a52ed89.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__3014__ac9a52ed89.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__3014__ccd1445561.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__3014__ccd1445561.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__73fd58f1-9853-4763-b3d6-5b415324a9b9__e3b118dc75.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__73fd58f1-9853-4763-b3d6-5b415324a9b9__e3b118dc75.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__99c58ae4-60ae-474d-a525-c21e51b57e4c__b17701f8c6.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__9e8cbfbd-4be2-43fa-8d80-c75925f2e7aa__4fa2fc5adc.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__9e8cbfbd-4be2-43fa-8d80-c75925f2e7aa__4fa2fc5adc.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__bffd36ca-3cf8-4eba-82c3-ff850628f3c4__c8a5536e02.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__071a5a6811.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__071a5a6811.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__12d44572ad.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__12d44572ad.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__63a16b8deb.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__63a16b8deb.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__8b17644d10.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__8b17644d10.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__d89418de99.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DIVA (HANDING OVER Q4 2024)__d89418de99.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DIVA HANDING OVER Q4 2024__fcd5c43bb3.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DIVA HANDING OVER Q4 2024__fcd5c43bb3.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__042e594ad2.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__042e594ad2.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DUBAI HILLS AVAILABILITY__042e594ad2.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__7f03fbbd4c.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__7f03fbbd4c.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DUBAI HILLS AVAILABILITY__7f03fbbd4c.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__902f581911.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__902f581911.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DUBAI HILLS AVAILABILITY__902f581911.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__90b740e669.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__90b740e669.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DUBAI HILLS AVAILABILITY__90b740e669.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__d160d26d64.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__d160d26d64.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DUBAI HILLS AVAILABILITY__d160d26d64.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__da8db8e57d.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__DUBAI HILLS AVAILABILITY__da8db8e57d.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__DUBAI HILLS AVAILABILITY__da8db8e57d.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__ffd5c26e-49da-4c91-b603-c0b42a2332e4__7bb0933451.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__ffd5c26e-49da-4c91-b603-c0b42a2332e4__7bb0933451.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__ffd5c26e-49da-4c91-b603-c0b42a2332e4__7bb0933451.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__REPORTAGE HEIGHTS 1 - B__68cb7f0e5e.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__REPORTAGE HEIGHTS 1 - B__68cb7f0e5e.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Reportage Oceana__2e842da7d0.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Reportage Oceana__2e842da7d0.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Reportage Oceana__2e842da7d0.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Reportage Oceana__a076884ead.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Reportage Oceana__a076884ead.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Reportage Oceana__a076884ead.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Reportage Oceana__ac20f4467c.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Reportage Oceana__ac20f4467c.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Reportage Oceana__ac20f4467c.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Sylvana Availability__4748b80daa.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Sylvana Availability__7d1436514b.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Sylvana Availability__b5bc12621c.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Sylvana Availability__cdd11f415b.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Sylvana Availability__cfc92026de.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Verdana 1 Residence PROJECT__0eb45bb535.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__0eb45bb535.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__0eb45bb535.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Verdana 1 Residence PROJECT__17b2459ef2.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__17b2459ef2.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__17b2459ef2.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Verdana 1 Residence PROJECT__428f07ab6a.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__428f07ab6a.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__428f07ab6a.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Verdana 1 Residence PROJECT__8fe5287c9a.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__8fe5287c9a.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__8fe5287c9a.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Verdana 1 Residence PROJECT__91d41643da.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__91d41643da.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__91d41643da.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Verdana 1 Residence PROJECT__b1536af67d.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__b1536af67d.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__b1536af67d.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Verdana 1 Residence PROJECT__b508ce282b.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__b508ce282b.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__b508ce282b.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",Reportage_Inventory__Verdana 1 Residence PROJECT__e3d53f8a25.xlsx
+unresolved_resolver_record,,,has project/building text but unit not resolved,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__e3d53f8a25.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,Reportage_Inventory__Verdana 1 Residence PROJECT__e3d53f8a25.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",TIGER_-_HOME_SWEET_HOME_REAL_ESTATE__Handover: Q2 2029__f378ebf74c.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,cross record completion via same source file + project + source/ID anchors,TIGER_-_HOME_SWEET_HOME_REAL_ESTATE__Handover: Q2 2029__f378ebf74c.xlsx
+unresolved_resolver_record,,,owner/contact-only signals with missing unit/building,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",6572232c-d933-4c78-a2e8-29671dac7ca7.xlsx
+unresolved_resolver_record,,,near-duplicate signature rows detected,medium,"complete against matching identifier + source file/project records only, keep contact fields restricted",796ebc88-9ecb-4559-87a1-e237fd01229f.xlsx
+unresolved_resolver_record,,,listing link only,medium,listing ID + slug token match against resolved groups,WhatsApp ChatStorage.sqlite
+unresolved_resolver_record,,,identifier present but no matching complete record in extracted set,medium,"exact id match against complete records, then size/bedroom fuzzy fallback",WhatsApp ChatStorage.sqlite
+bridge_gap,CPID-HASH-01171dc81b8c44bc,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-013169329cc82104,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-01a483e224ce90fe,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-01e9fcf8daf103b7,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-03e98bfb604d664d,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-060aece6934d17ae,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-079161cd68067009,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-089d487c85575642,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-096000bd84189a9b,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0a1402d021853f0c,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0aafdb4c7898f1ca,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0c3bdf93ec1d69ba,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-0c3d76833795b432,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0c69aa74847ac3ae,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0da19afeaaf189d7,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0e5929f454c21f91,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-0f71a8b549fe4081,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-1234fa2568bdf8f7,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-12d094f692a43445,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1310122c6bd3f546,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-15ed1bc71e25c0a2,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-18c4fd8aecc6e03d,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-19cd8d0eeaaa44ef,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-1a489e8c98598425,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1bb4229bfb0f711e,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1c9d8910e34e87c6,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1cb8a2c6db431227,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1cf2d80961686037,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-1d5592940625beca,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-1fe23c9d2dec75ae,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-218f669143ad1d97,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-21a9387c4dd5f611,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-2350ba8ece01f7f8,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-250f3d4645fa22dc,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2527ab7a2a14d90f,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2601190740caa90e,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-262b449fdc5b4571,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-268f8b6c2838697f,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2795694e67c802f6,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2a0463cdd11ddaf0,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2ee40f2e8564847c,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2f4d9a939d4dbb66,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-3079ec57196ca60b,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-35efca4316e4fce4,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-397d29bc0c16d3b4,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-3b7cd83d75bf9e43,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-3b9046b9df13a8ff,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-3c432e6b38940300,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-3e2123e925a56415,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-3ebdb8d8f328ed64,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-3f83edbbb3c56ef3,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-40a37c01e236c1b9,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-419ccd5de4cb902c,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-435815380ce3ebb5,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-4516c41be3a6b211,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-46fb56d62ac7c226,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-47f2d48a624f76fc,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-4a6817fedb1f91b0,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-4d357fd5df3415cf,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-4ec9badeca0d4214,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-4ed7cd39fa92742a,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-514b1be760902fca,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-51548dfd7922ab69,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5485259f350d5042,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-54c884a1e3473e91,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-55ab48aff49ec8ab,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-57844a1f813a035a,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5934b942c6448adb,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5bf88771e9d562b4,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-5d3b47f43e59fe15,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5e4c15c92587c894,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-5fa48595ef9bba13,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-60af21e348c769e3,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-621d48a6f7a36c2d,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-624858988cb5ea8f,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-636b7154db3fb4c3,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-644c7ad10433e89e,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-6451fb560716c0cb,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-66240ac1d7511057,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-6a11b1b284a9e8d8,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-6a2d0395b12ebd69,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-6adb88b0ff0e4f99,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-6b6c247ebed8fff1,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-6f42a726859afd3c,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-6fdab50c7edd75fe,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-70a89590c6a3901a,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-7114d5bce75f0b18,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-74f9169e5e7be91b,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-7662285327a1b5a8,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-773848ed22132e0f,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-7757bf4827f2bd20,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-77a3b1aa37dfd21b,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-79d90e7108786991,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-7a372d103cc27dae,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-7b628198ab6b9f58,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-7c792b4575d44b12,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-7cfbc16c3d1ad359,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-810bbd5dfb2c50af,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-8246cd5956080372,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-82b0ba8d984834b5,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8358d968ffcc3ae6,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-85df066589b087bc,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8b002ec023325fbc,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8b2c3536aba073cf,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8c3bedb2c2341f7e,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8c4803109ee66b4c,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8c5dc0fa704b4748,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8d6970f947632c1d,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-8e2e9269a14eb03d,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-91fada3ce6a81f92,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-92a7ad9ca5ea5f65,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-93826c05e2aa2405,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-9454cf20d4fe060a,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-96a35522fd4d1505,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9721b821980121d0,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-98718dc1413b2537,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-9bc3f201daa1d811,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9dc7c5a50753a06d,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-9debb5c2eb268a67,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9dfd14a3145a917c,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-9fb37042e8f52b02,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-a0527e45e669fa81,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-a1d323b231675331,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-a34730d49aaf95fb,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-a5e64e1dfe6236c5,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-a6aae07ad39878f8,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-a7cd1f975683c617,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-a8709031334e1094,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-a88eb8e83538c2bb,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-abb7e00e6c27e9c9,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-abe101dc8ba33348,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-acf6f376baba12aa,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-adc4e4593f26b3c9,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b3066fa45c179fd9,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b3c8d4e4c27506fd,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b6759ecf82477f7a,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b778ad5f71b3b737,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-b7e9313c12f48f38,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-b860546db8a39a7b,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-b99ea797186fc6f0,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-bb56070a9dc890ae,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-bcfd9b5921fbdd51,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-bdbe51a00b422a3a,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-c0dac941717710c0,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-c1d44c5e3aa75bad,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-c2163c7536614db4,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-c2bc526034a81f42,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-c54d8a0ebbac0544,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-c93b95e98ec66c51,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-cc0064fd2c5720d7,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-cd90fab19688d839,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-cdc9c7e3df802d00,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ceb6c96b24c735ba,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-d2efbf4530a7cb7d,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-d30a596249aecc26,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-d60192fd1a7760f9,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-dba8a1e30ec4979f,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-dce5776e878144de,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-dd60ce5cc7c068e3,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-dd8d990d30e197cf,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-de545ddef1d929b7,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-de8fd20e0b1d94e2,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-e00227f325056dff,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e38654c461210b98,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-e5c9271a1fb7319d,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-e7089a8da7d120a5,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-e8aba0558b2f4599,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-ea22c03b29a5eaad,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ea48c5f572b5a64c,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-eca297306106dd95,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-ecb1e7e81655e6e2,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-ee3ef2272c177196,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ee7fb84423437669,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ef2696a30c26e9e5,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-f0325346d16a459a,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-f1201194e250f4fe,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f19c8a6af1f93826,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f286f081a76e835b,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f2e60ba576cf5618,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-f37c2da2f2437934,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f5c2413e0ac69652,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f6b4ccfb785b40ca,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f8faad1b2d3020f7,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",Listings (1).xlsx
+bridge_gap,CPID-HASH-fcb32abe34e89e47,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-LAND-77800826,,hard_property_identifier,medium,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-bfd5ccee21de3dfd,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f92524273411b63a,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9e9b9a715f243644,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-af7125d02a105abb,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2c0cfb5fe28ab0cf,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-bbd4a93706f97785,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-373f20b015bbbb49,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b6e3bf7cf05241bd,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-a57085f809753a51,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-c6a30c82345e1cc1,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-983ecbe5c9f0fa95,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-57142b841067ffb5,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-c9f2ee8d1a80af4b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9b9aeb73b8e4e17d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-709ceed72f403123,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9af83b47a02123f2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-cae9782f04bbbbff,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f5149f3920bc6118,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0e2d3b39df82bafa,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-03ce5f03f039f43e,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8e6400d5b7b1c909,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9f0bffb889c70657,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e4592c9219e7c1a2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-87f0263a51ebcec6,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-344bfc455e689d36,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5482e2e75e890c13,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-adb0284ce7a8d3a6,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-4bca7279fff13a0d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-6f8b584098f8e6a0,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-75c1a5b7feea250d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ac72712b3ec99cb3,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-648c0674adb2fc5f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5d19e565642cfc71,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-3ad39892d302b00f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-14f44e6e4d7943ad,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-edca841c7d6f936b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-c9a11918390f033b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-08ad5a18d2c39b38,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8dc7c0e608e87455,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2433e8a4c123aef8,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0badf643277c6471,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-60fa73599c4aa744,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-38ce04e294f4737b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ad5d4dd80f597bc0,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-6af9b193b727fe84,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2f7a33fd159f1611,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-7cd3c3c089316d4b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-3d224bc01e4ee7c5,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-cccb43905ab5480d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9cc893f33e406892,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-7c79f6f69cf572b3,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-4214b7d68d28a31b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ba4dc78be7d5d5de,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-d78701704a9ffd4b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8b73d7a5df0a1f1f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b00750a889f22ac7,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-d93ddf273ce1cbe7,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-acf28a46a963cdf3,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-acb64094cac5fa8d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-bdf8a28ec386bd44,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e45dc1b1f41c043f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-47e0352bd7f0d4e2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-912a6bba574910d6,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-772b0be53dfca659,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e446ae2fb35208e5,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-d1e703a88192ac37,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0e0fbbeb825f2d91,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-90d4d7c5b5536c1b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-eab4a120754aedf3,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2f671cc35210e58d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9c7c4f66a4ebf446,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5f7df07b880e050c,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-4ee0c38b9d5d5fd1,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0ce6c3c6a2db32bd,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f3d718262c9a115d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-131115faf0aaae15,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-87a8a621a6c465da,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-d3bb036f0486b119,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5a9c367320e793e1,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-84b2c0326096f2fc,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-f952f3428366a23c,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-fbb4dc86afdd448f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b27575099c3e1370,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-a0ae26896bf1c908,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-7261f2220abe4d7d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-77bd65f1cf496253,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-398971d657ffa795,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-087a1f920c9318e3,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1aa17b093794d084,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1d8bde66d33a9b0f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-08c035d2a075b0b3,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-eaa328386d4499bf,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-c5854b867f4eb940,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ae8ec017395dcf83,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-8f6ac42d1147bed7,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-429fd57ac12309fc,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-3af05df753d14115,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-323a4749f5d9abe3,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-60220df415f48fc2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-aa4f2ed9683c0fd2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ce18d9d56e933cf2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e84409e64e866f9f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b215512146423125,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-86f909381508db19,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5a1747ce173447fc,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-7c1af88557ad1f7b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2d39690df26c4582,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b833a832013861e4,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e952599cc37565af,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-6a3bf5b4f900e957,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-834fc026c929b2c8,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-76896671cbc86e7b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b21e79bb2d53b6f0,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1fdcef72ad242b18,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ebefb970e59f3c4d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-66ab99a9391e4e6c,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-3e0067886da7fab2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-4e883b4ca16112bb,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-7e8c0c937e1e82d2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-c755492fac203e99,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e73d3d8dcc9b70bd,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-bb007d54c58b713c,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ddd103b952192e16,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1d89d13ca2f02d34,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ef17f362ac161a9b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b0c2eb066935ad30,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e9dc223838c7016a,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-905b177e47463349,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-4cb196b23986ebd8,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-92e53f489234693e,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-cea471b4bf420072,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-113ce48352ea22a6,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-da2f3222f20b6d53,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-344ffebc01e04293,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-5e580626fe3c713a,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-b89402213a3403bc,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-c3af366db0094168,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2bb68dcd2cfc54e2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-476ccaa63eeff191,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-273722a64a01d4c7,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-97b915614878bc0d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-9bb3423403f7c9c8,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-0428b4c36c14b3c6,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-64445584a8216b9b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-15d883f31aa7b3bf,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-da903e2ec9dce8b9,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ea4752463eece702,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-dae9b650e047ea2f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-249dd8e6fc7f1a15,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ae4b34db05480c06,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-1fbcd5977bef6b7d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-cd9d0d95b311a03a,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e89b423955c51636,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-a91642ba0d61e3e2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-df037d124e8bc555,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-e824d79805abf073,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-2242c1f97e79dc85,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",BAYUT OVER ALL LEAD.xlsx
+bridge_gap,CPID-HASH-ada804ae36a57ad8,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-709af3eb9803f265,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-LAND-77800826,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-eb6afd97690daf27,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-e7fc5206fe776bd3,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-0d482748b5fcd5f0,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-5779d64712bcf9bd,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-24deb333b55f790f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-5fccc7daf4f469b2,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-4aa2974b884086d4,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-a9f8933d8ed24d13,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-ddd269d2a1a6cba9,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-2cba5ad44a58912f,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-e0ec1e7f94dacfa1,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-216203287e95eb34,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-4094fb915c388c84,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-a8d533a21960827b,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-5b36d32d2a5a7372,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-053edf1956d0cd1d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-01837c1daa731df8,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-519de840594c4bfe,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-92cdf90e7950bb16,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-62f0145ac557d786,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-648844edbae1eadd,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-1515248e35587d42,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-c348b5e7e65a91a7,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-72f69eab48aede7c,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-bd6c6b4e50dac0fe,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-4d5bf82e433a5006,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-b5c43a94421b9b0d,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-HASH-79090646569afe85,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",Secondary Listings LINKS EXCEL.xlsx
+bridge_gap,CPID-LAND-77800826,,hard_property_identifier,high,"obtain listing reference, broker reference, or hard property identifier",WhatsApp ChatStorage.sqlite
+bridge_gap,CPID-LAND-77800826,,cpid_link,high,"obtain listing reference, broker reference, or hard property identifier",WhatsApp ChatStorage.sqlite

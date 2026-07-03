@@ -1,0 +1,13 @@
+# Keep the image lean — exclude junk, but NOT the AIOS knowledge package the router needs.
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/.DS_Store
+**/.git/
+**/.gitignore
+**/*.log
+**/.pytest_cache/
+**/node_modules/
+render.yaml
+README.md
+RAILWAY_DEPLOY.md

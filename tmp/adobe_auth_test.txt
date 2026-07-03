@@ -1,0 +1,2 @@
+AIOS Adobe Acrobat auth test.
+No private or client data.

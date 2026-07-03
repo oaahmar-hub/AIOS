@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-06-23T17:58:18.875624+00:00",
+  "sender": "971595001234",
+  "before_quality": null,
+  "after_quality": null,
+  "source_feedback_count_before": 0,
+  "source_feedback_count_after": 0,
+  "updated_logic_file": "/tmp/aios_evidence_led_runtime_data/20260623T175717Z/transport/human_identity_events.jsonl",
+  "local_learning_action": "build_human_identity_feedback",
+  "outcome_label": null,
+  "outcome_confidence": null,
+  "impact_level": null,
+  "did_best_version_score_update": false,
+  "updated_without_duplication": true,
+  "local_quality_rule": "pending outcomes should not blind-upgrade; quality=0.4775 is below 0.5 baseline",
+  "status": "FAIL"
+}

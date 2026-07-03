@@ -1,0 +1,47 @@
+[
+  {
+    "key": "dashboard_entry",
+    "ok": true,
+    "error": "",
+    "html_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-DASHBOARD.html",
+    "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/website_app_review_20260623/dashboard_entry.png",
+    "title": "AIOS — Business Operating System | Omar",
+    "text_preview": "text failed: Locator.inner_text: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"body\")\n"
+  },
+  {
+    "key": "command_center",
+    "ok": true,
+    "error": "",
+    "html_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-DASHBOARD.html",
+    "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/website_app_review_20260623/command_center.png",
+    "title": "AIOS — Business Operating System | Omar",
+    "text_preview": "AIOS\nLiving Company Intelligence\nOmar\nTuesday, 23 June 2026\nEye\nMission Control\nSearch\nProperty\nModules\nPipeline\nNOC Tracker\nDaily Planner\nFinance\nKnowledge Base\nRoadmap\nAIOS Command Center\nGD CORE INTELLIGENCE\nOne brain for every lead, task, document, channel, and decision.\nAIOS routes WhatsApp, Gmail, calendar, Drive, client intelligence, operations, and content requests through one controlled operating layer with Omar approval gates for sensitive actions.\n1\ncentral router\n9\nhealth surfaces\n0\n"
+  },
+  {
+    "key": "mobile_app_home",
+    "ok": true,
+    "error": "",
+    "html_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-MOBILE-APP.html",
+    "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/website_app_review_20260623/mobile_app_home.png",
+    "title": "AIOS Mobile Command Console",
+    "text_preview": "AIOS\nMobile Operating Console\nLocal\nIDLE · EXECUTIVE\nAIOS\nOperating Console\nSearch\nProperty\nOps\nVoice\nEXECUTIVE CONTROL\nRun HSH from the phone.\n0\nrecords\n0\ntasks\n0\napprovals\nRun\nProperty Search\nLead Search\nOperations Assistant\nDocuments\nVoice Command\nVoice Command\nReady for local command note\nHold\nSYSTEM HEALTH\nlive local\nbrain\nrouter\ncrm\ndatabase\nwhatsapp\ncalendar\ngmail\ndrive\nfollow up\ncontent factory\nNOTIFICATIONS\n0\nNo notifications\nLocal activity appears here.\nHome\nSearch\nWork\nComms\nOps"
+  },
+  {
+    "key": "runtime_status",
+    "ok": true,
+    "error": "",
+    "html_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-RUNTIME-STATUS.html",
+    "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/website_app_review_20260623/runtime_status.png",
+    "title": "AIOS Runtime Status",
+    "text_preview": "AIOS Runtime\nOne launchable system: API, router, permission, personality, knowledge, health.\nAPI Base Not Set\nStatus\nLOCAL\nAPI Status\nLOCAL\nProduction Ready\n0%\nIntelligence Ready\nCHECK\nStart Command\npython3 automation/central_orchestrator/runtime/aios_runtime.py start\nHealth Endpoint\n/api/health"
+  },
+  {
+    "key": "current_best_candidate_front_door",
+    "ok": true,
+    "error": "",
+    "html_path": "/Users/hassanka/Downloads/AIOS/deployment/web-platform/index.html",
+    "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/website_app_review_20260623/current_best_candidate_front_door.png",
+    "title": "AIOS Command Center",
+    "text_preview": "∞\nAIOS Command Center\nHSH Global Dubai · The Eye · Operating System Layer\nBackend unknown\nPrivate Runtime\nPrivate Beta\nMission Control\nProperty · Operations · WhatsApp · Memory\nOperate the company from one surface.\n\nAIOS brings property intelligence, operating memory, workflow control, and runtime visibility into one command flow. The system should feel immediate, quiet, and decisive.\n\nRun Command\nFind Property\nDaily Briefing\nCheck Follow-ups\nSearch Operations\nCOMMAND OUTPUT\nWaiting for runtime\n"
+  }
+]

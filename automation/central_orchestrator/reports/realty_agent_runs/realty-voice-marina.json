@@ -1,0 +1,267 @@
+{
+  "generated_at": "2026-06-26T17:25:26.306335+00:00",
+  "case": {
+    "case_id": "need-a-2-bedroom-apartment-in-dubai-marina-under-2000000",
+    "client_name": "Confidential Client",
+    "client_request": "Need a 2 bedroom apartment in Dubai Marina under 2000000",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8350ffa5e2a8__087b9ca4-8909-4a11-87c5-d09e398312dd.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - Need a 2 bedroom apartment in Dubai Marina under 2000000",
+  "executive_pitch": "The strongest option today is Primary Apartment Option - Dubai Marina because it gives the best balance of location fit, operational readiness, and alignment with the residential move. The secondary play is Value-Oriented Apartment Alternative - Dubai Marina, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Primary Apartment Option - Dubai Marina as the strongest aligned option based on the current brief. Keep Value-Oriented Apartment Alternative - Dubai Marina as the alternative and Scale-Up / Flagship Apartment Option - Dubai Marina as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Primary Apartment Option - Dubai Marina",
+      "commercial_mode": "discovery",
+      "price_aed": 0,
+      "property_type": "apartment",
+      "size_sqft": 0,
+      "building": "Dubai Marina",
+      "area": "Dubai Marina",
+      "developer": "",
+      "availability": "market_search_required",
+      "delivery_timeline": "Pending live listing confirmation",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "unknown",
+      "summary": "Primary candidate archetype created from the request profile when direct listing extraction is incomplete.",
+      "pros": [
+        "Aligned to the request area and inferred property type."
+      ],
+      "cons": [
+        "Live listing specifics still need enrichment."
+      ],
+      "source_url": "",
+      "source_links": [],
+      "map_query": "Dubai Marina",
+      "suitability_score": 48.0,
+      "investment_score": 0.0,
+      "combined_score": 34.6,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct"
+      ],
+      "clinic_fit_score": 48.0,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct"
+      ],
+      "investment_notes": [],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+Marina",
+      "rank": 1
+    },
+    {
+      "title": "Value-Oriented Apartment Alternative - Dubai Marina",
+      "commercial_mode": "discovery",
+      "price_aed": 0,
+      "property_type": "apartment",
+      "size_sqft": 0,
+      "building": "Dubai Marina",
+      "area": "Dubai Marina",
+      "developer": "",
+      "availability": "market_search_required",
+      "delivery_timeline": "Pending live listing confirmation",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "unknown",
+      "summary": "Secondary archetype optimized for lower entry or lower risk.",
+      "pros": [
+        "Useful for comparing entry strategy against the primary option."
+      ],
+      "cons": [
+        "Needs live listing enrichment before client commitment."
+      ],
+      "source_url": "",
+      "source_links": [],
+      "map_query": "Dubai Marina",
+      "suitability_score": 48.0,
+      "investment_score": 0.0,
+      "combined_score": 34.6,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct"
+      ],
+      "clinic_fit_score": 48.0,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct"
+      ],
+      "investment_notes": [],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+Marina",
+      "rank": 2
+    },
+    {
+      "title": "Scale-Up / Flagship Apartment Option - Dubai Marina",
+      "commercial_mode": "discovery",
+      "price_aed": 0,
+      "property_type": "apartment",
+      "size_sqft": 0,
+      "building": "Dubai Marina",
+      "area": "Dubai Marina",
+      "developer": "",
+      "availability": "market_search_required",
+      "delivery_timeline": "Pending live listing confirmation",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "unknown",
+      "summary": "Third archetype intended for clients who want a flagship or future-scale position.",
+      "pros": [
+        "Lets the proposal compare short-term practicality against long-term ambition."
+      ],
+      "cons": [
+        "Needs live listing enrichment before client commitment."
+      ],
+      "source_url": "",
+      "source_links": [],
+      "map_query": "Dubai Marina",
+      "suitability_score": 48.0,
+      "investment_score": 0.0,
+      "combined_score": 34.6,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct"
+      ],
+      "clinic_fit_score": 48.0,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct"
+      ],
+      "investment_notes": [],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+Marina",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Residential comparisons should weigh layout efficiency, building quality, and lifestyle access alongside entry price."
+  ],
+  "compliance_gates": [
+    "Lease or purchase terms, building rules, and community restrictions must match the intended occupancy plan.",
+    "Service charges, parking allocation, and handover condition should be verified before commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 178 rows matching the area signal 'dubai marina'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "Property master database contains 1 raw rows linked to dubai marina."
+  ],
+  "internal_inventory_matches": [],
+  "internal_market_snapshot": {
+    "match_count": 0,
+    "priced_match_count": 0,
+    "median_price_aed": 0,
+    "min_price_aed": 0,
+    "max_price_aed": 0,
+    "top_projects": [],
+    "property_types": []
+  },
+  "next_steps": [
+    "Confirm live availability, rent or sale terms, and current landlord or seller expectations before client send.",
+    "Collect floor plan, exact built-up area, parking details, and building or community rules for the shortlisted options.",
+    "Verify service charges, maintenance condition, and move-in timeline before presenting the lead recommendation as execution-ready."
+  ],
+  "source_register": [],
+  "request_profile": {
+    "raw_request": "Need a 2 bedroom apartment in Dubai Marina under 2000000",
+    "source_mode": "voice",
+    "area": "dubai marina",
+    "use_case": "apartment",
+    "property_preference": "apartment",
+    "bedroom_preference": "2",
+    "intent": "discovery",
+    "source_url": ""
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 178,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8350ffa5e2a8__087b9ca4-8909-4a11-87c5-d09e398312dd.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/aabc0378c5b4__90a1c059-529a-4230-afb7-4397935e0b4c.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/aabc0378c5b4__90a1c059-529a-4230-afb7-4397935e0b4c.jpg"
+      ]
+    },
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Property_Master_Database.sqlite",
+      "matched_rows": 1
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "READY FOR AGENT REVIEW BEFORE CLIENT SEND",
+    "review_notes": [
+      "Lead option Primary Apartment Option - Dubai Marina still needs live pricing confirmation.",
+      "One or more shortlisted options still lack full area or layout detail.",
+      "Residential shortlist still needs building-rule, condition, and move-in verification before client send."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-voice-marina.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-voice-marina.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-voice-marina.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-voice-marina.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T17:25:26.316987+00:00",
+    "request_profile": {
+      "raw_request": "Need a 2 bedroom apartment in Dubai Marina under 2000000",
+      "source_mode": "voice",
+      "area": "dubai marina",
+      "use_case": "apartment",
+      "property_preference": "apartment",
+      "bedroom_preference": "2",
+      "intent": "discovery",
+      "source_url": ""
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": false,
+      "internal_evidence_rows": 2
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/realty-voice-marina.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "971555000101": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "relationship": "New Client",
+    "source": "stored",
+    "updated_at_ms": 1782155641993
+  },
+  "971555000102": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "relationship": "Friend",
+    "source": "stored",
+    "updated_at_ms": 1782155644252
+  },
+  "971555000103": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "relationship": "New Client",
+    "source": "stored",
+    "updated_at_ms": 1782155646167
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "generated_at": "2026-06-26T18:08:26.510692+00:00",
+  "case": {
+    "case_id": "need-an-office-in-business-bay",
+    "client_name": "Confidential Client",
+    "client_request": "Need an office in Business Bay",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/6782eda674c9__86e02c8d-ccf1-4274-84ea-47d789a4faa7.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - Need an office in Business Bay",
+  "executive_pitch": "The strongest option today is Offices for Rent in Business Bay because it gives the best balance of location fit, operational readiness, and alignment with the office setup. The secondary play is Commercial Properties for Rent in Business Bay, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Offices for Rent in Business Bay as the strongest aligned option based on the current brief. Keep Commercial Properties for Rent in Business Bay as the alternative and Internal Signal - Binghatti as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Offices for Rent in Business Bay",
+      "area": "Business Bay",
+      "building": "Business Bay",
+      "source_url": "https://www.bayut.com/to-rent/offices/dubai/business-bay/",
+      "source_links": [
+        "https://www.bayut.com/to-rent/offices/dubai/business-bay/"
+      ],
+      "commercial_mode": "business_setup",
+      "property_type": "office",
+      "price_aed": 0,
+      "size_sqft": 0,
+      "availability": "public_source_route",
+      "delivery_timeline": "Live public source route",
+      "launch_mode": "current",
+      "footfall_profile": "medium",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "high",
+      "summary": "Public listing route identified, but structured listing extraction still needs browser-level or provider-level enrichment for exact property metrics.",
+      "pros": [
+        "Live public source route aligned to the request market.",
+        "Usable for manual review and next-pass listing extraction."
+      ],
+      "cons": [
+        "Exact unit-level metrics are not yet extracted from this source route.",
+        "Client-facing commitment still needs live listing-level confirmation."
+      ],
+      "map_query": "Business Bay",
+      "suitability_score": 69.0,
+      "investment_score": 0.0,
+      "combined_score": 49.7,
+      "entry_psf_aed": null,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "layout and positioning align well with the office setup"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 69.0,
+      "clinic_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "layout and positioning align well with the office setup"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Business+Bay",
+      "rank": 1
+    },
+    {
+      "title": "Commercial Properties for Rent in Business Bay",
+      "area": "Business Bay",
+      "building": "Business Bay",
+      "source_url": "https://www.bayut.com/to-rent/commercial/dubai/business-bay/",
+      "source_links": [
+        "https://www.bayut.com/to-rent/commercial/dubai/business-bay/"
+      ],
+      "commercial_mode": "business_setup",
+      "property_type": "office",
+      "price_aed": 0,
+      "size_sqft": 0,
+      "availability": "public_source_route",
+      "delivery_timeline": "Live public source route",
+      "launch_mode": "current",
+      "footfall_profile": "medium",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "high",
+      "summary": "Public listing route identified, but structured listing extraction still needs browser-level or provider-level enrichment for exact property metrics.",
+      "pros": [
+        "Live public source route aligned to the request market.",
+        "Usable for manual review and next-pass listing extraction."
+      ],
+      "cons": [
+        "Exact unit-level metrics are not yet extracted from this source route.",
+        "Client-facing commitment still needs live listing-level confirmation."
+      ],
+      "map_query": "Business Bay",
+      "suitability_score": 69.0,
+      "investment_score": 0.0,
+      "combined_score": 49.7,
+      "entry_psf_aed": null,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "layout and positioning align well with the office setup"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 69.0,
+      "clinic_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile",
+        "layout and positioning align well with the office setup"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Business+Bay",
+      "rank": 2
+    },
+    {
+      "title": "Internal Signal - Binghatti",
+      "commercial_mode": "business_setup",
+      "price_aed": 0,
+      "price_term": "",
+      "property_type": "office",
+      "size_sqft": 0,
+      "building": "Binghatti",
+      "area": "Al Wasl; Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim",
+      "developer": "Binghatti",
+      "availability": "internal_xlsx_signal",
+      "delivery_timeline": "Internal acquisition evidence",
+      "launch_mode": "internal",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Internal XLSX acquisition tagged to Al Wasl; Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim from UAE COMMERCIAL ONLY Rent - Sale.",
+      "pros": [
+        "Recovered from AIOS internal acquisition index.",
+        "Source channel: UAE COMMERCIAL ONLY Rent - Sale",
+        "File type: XLSX"
+      ],
+      "cons": [
+        "This is an internal evidence signal, not a fully structured live listing."
+      ],
+      "source_url": "",
+      "source_links": [],
+      "map_query": "Al Wasl; Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim",
+      "internal_source_file": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/a5b90df1a532__UAE_COMMERCIAL_ONLY_Rent_-_Sale__TILAL BINGHATTI__a5b90df1a5.xlsx",
+      "internal_source_group": "UAE COMMERCIAL ONLY Rent - Sale",
+      "internal_match_score": 90.0,
+      "suitability_score": 58.0,
+      "investment_score": 8.0,
+      "combined_score": 44.0,
+      "entry_psf_aed": null,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 58.0,
+      "clinic_strengths": [
+        "exact Business Bay location",
+        "office format matches the request profile"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "developer: Binghatti"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Al+Wasl%3B+Business+Bay%3B+Creek+Harbour%3B+Downtown%3B+Dubai+Festival+City%3B+JVC%3B+JVT%3B+Motor+City%3B+Umm+Suqeim",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Immediate-launch value depends on occupancy readiness, fit-out burden, and permit certainty.",
+    "Commercial comparisons should weigh use alignment, launch speed, and operational friction before brand polish."
+  ],
+  "compliance_gates": [
+    "Usage, fit-out, and authority approvals must match the target business activity before deal commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 159 rows matching the area signal 'business bay'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "Property master database contains 322 raw rows linked to business bay.",
+    "AIOS acquisition index recovered 159 internal source assets tied to business bay.",
+    "Internal source mix: 125 jpg, 34 xlsx."
+  ],
+  "internal_inventory_matches": [
+    {
+      "project": "Binghatti",
+      "area": "Al Wasl; Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim",
+      "developer": "Binghatti",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "UAE COMMERCIAL ONLY Rent - Sale",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/a5b90df1a532__UAE_COMMERCIAL_ONLY_Rent_-_Sale__TILAL BINGHATTI__a5b90df1a5.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Binghatti",
+      "area": "Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim",
+      "developer": "Binghatti",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Binghatti (DARIA) - HSH",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/d6f85a913d2f__Binghatti_DARIA_-_HSH__TILAL BINGHATTI__d6f85a913d.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Tiger; Tiger Sky Tower",
+      "area": "Ajman; Business Bay; Dubai Land; JVC; JVT; Motor City; Reem Island; Sharjah",
+      "developer": "Tiger",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "TIGER - HOME SWEET HOME REAL ESTATE",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/6d3d8840a8ec__TIGER_-_HOME_SWEET_HOME_REAL_ESTATE__Unit Number__6d3d8840a8.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Downtown",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/3a044a48d22a__2DON_MOHAMED_REDHA_-DEYAAR_DEVELOPMENT__TOWER__3a044a48d2.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Downtown; Dubai Marina; Palm Jebel Ali; Palm Jumeirah",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/030bcceacfad__264e19e9-2524-4943-8a85-fc4411a041d9.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Tiger; Tiger Sky Tower",
+      "area": "Ajman; Business Bay; Dubai Land; JVC; JVT; Motor City; Reem Island; Sharjah",
+      "developer": "Tiger",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "TIGER - HOME SWEET HOME REAL ESTATE",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/00f31cc5798c__TIGER_-_HOME_SWEET_HOME_REAL_ESTATE__Unit Number__00f31cc579.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Dubai Marina; Palm Jebel Ali; Palm Jumeirah",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/c04590d66106__2DON_MOHAMED_REDHA_-DEYAAR_DEVELOPMENT__PROJECT__c04590d661.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Tiger; Tiger Sky Tower",
+      "area": "Ajman; Business Bay; Dubai Land; JVC; JVT; Motor City; Reem Island; Sharjah",
+      "developer": "Tiger",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "TIGER - HOME SWEET HOME REAL ESTATE",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/14b554a9a510__TIGER_-_HOME_SWEET_HOME_REAL_ESTATE__Unit Number__14b554a9a5.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    }
+  ],
+  "internal_market_snapshot": {
+    "match_count": 159,
+    "asset_match_count": 8,
+    "file_type_counts": {
+      "xlsx": 34,
+      "jpg": 125
+    },
+    "top_projects": [
+      "Binghatti",
+      "Tiger; Tiger Sky Tower",
+      "Deyaar",
+      "Binghatti; HSH",
+      "HSH; Tiger; Tiger Sky Tower",
+      "Omniyat"
+    ],
+    "source_groups": [
+      "UAE COMMERCIAL ONLY Rent - Sale",
+      "Binghatti (DARIA) - HSH",
+      "TIGER - HOME SWEET HOME REAL ESTATE",
+      "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT"
+    ]
+  },
+  "next_steps": [
+    "Confirm exact live availability and current commercial terms before client send.",
+    "Collect floor plan, service-charge, fit-out, and authority-use information for the shortlisted options.",
+    "Run final approval and risk review before presenting the recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Bayut - Offices for Rent in Business Bay",
+      "url": "https://www.bayut.com/to-rent/offices/dubai/business-bay/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Commercial Properties for Rent in Business Bay",
+      "url": "https://www.bayut.com/to-rent/commercial/dubai/business-bay/",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "Need an office in Business Bay",
+    "source_mode": "text",
+    "area": "business bay",
+    "use_case": "office",
+    "property_preference": "office",
+    "bedroom_preference": "",
+    "intent": "business_setup",
+    "source_url": ""
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 159,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/6782eda674c9__86e02c8d-ccf1-4274-84ea-47d789a4faa7.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/6782eda674c9__86e02c8d-ccf1-4274-84ea-47d789a4faa7.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/10aa44eba155__fba8f665-6720-4eb7-9138-7cd3c7cef12d.jpg"
+      ]
+    },
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Property_Master_Database.sqlite",
+      "matched_rows": 322
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "CONDITIONAL: resolve review notes before client send",
+    "review_notes": [
+      "Lead option Offices for Rent in Business Bay still requires written use and approval confirmation.",
+      "Lead option Offices for Rent in Business Bay still needs live pricing confirmation.",
+      "One or more shortlisted options still lack full area or layout detail."
+    ]
+  }
+}

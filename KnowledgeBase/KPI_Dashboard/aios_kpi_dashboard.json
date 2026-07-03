@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-06-27T04:09:32+00:00",
+  "metrics": {
+    "Truth Health": {
+      "score": 56.19,
+      "bottleneck": "Public listing rows still rarely carry same-row unit number, property number, or permit number.",
+      "improvement": "BAYUT OVER ALL LEAD.xlsx: highest volume of URL/listing-id/broker-reference rows; needs same-row or linked permit/property/unit enrichment.",
+      "notes": {
+        "truth_bridge_quality_score": 48.28,
+        "exact_bridge_pct": 3.37,
+        "high_confidence_pct": 5.77,
+        "bridge_rows": 1244.0
+      },
+      "trend": "BASELINE",
+      "label": "PARTIAL"
+    },
+    "Memory Health": {
+      "score": 75.0,
+      "bottleneck": "Runtime memory ledger is present but not producing structured trusted memory rows.",
+      "improvement": "Convert runtime memory and Bitrix raw history into structured, source-linked memory packets with entity-level provenance.",
+      "notes": {
+        "control_state": "RUNNING",
+        "vault_sources": 5,
+        "operations_corpus_rows": 42,
+        "canonical_inventory_rows": 2495,
+        "runtime_memory_rows": 0,
+        "bitrix_memory_rows": 0
+      },
+      "trend": "BASELINE",
+      "label": "STABLE"
+    },
+    "Knowledge Health": {
+      "score": 84.38,
+      "bottleneck": "Knowledge provenance is concentrated in a small set of explicit vault sources relative to the wider canonical corpus.",
+      "improvement": "Expand source-indexed Knowledge Vault ingestion and attach stronger provenance links from canonical files into reusable case/playbook knowledge.",
+      "notes": {
+        "vault_sources": 5,
+        "operations_downloaded": 42,
+        "operations_total": 42,
+        "canonical_inventory_rows": 2495,
+        "case_library_files": 6,
+        "playbook_files": 7
+      },
+      "trend": "BASELINE",
+      "label": "STRONG"
+    },
+    "Decision Health": {
+      "score": 57.22,
+      "bottleneck": "identifier present but no matching complete record:379",
+      "improvement": "Promote exact bridge sources into canonical property links and reduce the verification queue by resolving bridge rows with hard identifiers.",
+      "notes": {
+        "high_confidence_rate_pct": 28.99,
+        "verification_queue": 606.0,
+        "truth_bridge_quality_score": 48.28,
+        "public_listing_cpid_count": 1.0
+      },
+      "trend": "BASELINE",
+      "label": "PARTIAL"
+    }
+  },
+  "ceo_summary": {
+    "strongest_metric": "Knowledge Health",
+    "weakest_metric": "Truth Health"
+  },
+  "evidence": {
+    "truth_quality": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/TruthIngestion/outputs/truth_bridge_quality_summary.json",
+    "truth_ingestion": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/TruthIngestion/outputs/truth_ingestion_summary.json",
+    "property_graph": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/PropertyGraph/property_graph_summary.json",
+    "resolver_run_summary": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/run_summary.json",
+    "history_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/KPI_Dashboard/aios_kpi_history.csv"
+  }
+}

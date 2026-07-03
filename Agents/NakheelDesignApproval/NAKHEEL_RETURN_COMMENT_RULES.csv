@@ -1,0 +1,11 @@
+rule_id,requirement,severity,validation
+NAK-001,Application type must match return path: Design Approval Re-submission Without Nonstandard unless nonstandard change is explicit.,HIGH,Portal field plus latest issued master developer rejection/NOC present.
+NAK-002,Latest issued master developer return or rejection must be uploaded for resubmission.,HIGH,File slot mapped to latest Nakheel return/rejection PDF.
+NAK-003,Covering or reply letter must respond to returned comments and reference PJ-P-VP-018 and REC/PJ-VP-018/REV-01/2026.,HIGH,"Text extraction contains plot, revision, and comment response language."
+NAK-004,Appointment letter must authorize the consultant/contractor and not be a draft/admin preview.,HIGH,"Owner, consultant, date, and signature/stamp placeholders or executed copies verified."
+NAK-005,Drawings must be split by portal slots and not replaced by a general signing/admin pack.,HIGH,"Each slot file title matches drawing title: cover sheet, setting layout, floor plans, elevations, sections, boundary wall, topographical survey, combined PDF."
+NAK-006,Swimming pool undertaking and discharge-system drawing must exist where pool/discharge applies.,HIGH,Undertaking text plus signed/stamped owner and consultant fields; drawing shows discharge/drainage system if applicable.
+NAK-007,Gas connection undertaking must be uploaded when mandatory portal slot is marked with an asterisk.,HIGH,"Dedicated signed gas undertaking PDF present, not buried only inside a master pack unless portal accepts combined support."
+NAK-008,"Evaluation sheet must be filled, signed, and under 5 MB for the portal slot.",HIGH,PDF title/content contains evaluation sheet and extracted project data.
+NAK-009,Portal file size limits must be respected: 5 MB and 20 MB slots.,HIGH,Index size_bytes compared to slot limit.
+NAK-010,"No preview, draft, outbound email, signing coordination, or internal admin file should be uploaded as authority submission content.",MEDIUM,Filename and PDF text negative keyword scan.

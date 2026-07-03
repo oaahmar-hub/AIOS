@@ -1,0 +1,120 @@
+{
+  "generated_at": "2026-06-23T20:09:39.672135+00:00",
+  "status": "LIVE",
+  "items": [
+    {
+      "key": "website_home",
+      "label": "Website Home Page",
+      "html_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-WEBSITE.html",
+      "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/navigation_bridge_20260624/website_home.png",
+      "title": "AIOS | Home Sweet Home Operating System",
+      "final_url": "file:///Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-WEBSITE.html",
+      "text_preview": "A\nAIOS\nHome Sweet Home OS\nWebsite\nCommand Center\nRuntime Status\nMobile Console\nIntelligence\nPlatform\nCommand\nLaunch\nRuntime Status\nMobile Console\nCommand Center\nBusiness Operating System. The command layer for Home Sweet Home.\nLIVING COMPANY INTELLIGENCE\nDASHBOARDS ARE DEAD\n\nAIOS is the operating presence behind Home Sweet Home: property intelligence, operations, client pipeline, knowledge, follow-up, content, and executive control in one living system.\n\nOpen Command Center\nOpen Mobile Console\nView Platform\n0\nindexed records\n0\nworkflow controls\n0\nstaged actions\n0\napproval gates\nAIOS CONTROL LAYER\nLocal-first operating platform\nLocal\nRun\nbrain",
+      "image_size": [
+        1440,
+        1100
+      ],
+      "mean_rgb": [
+        41.45,
+        61.08,
+        47.84
+      ],
+      "unique_64px_sample": 2817
+    },
+    {
+      "key": "dashboard",
+      "label": "Dashboard / Eye Entry",
+      "html_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-DASHBOARD.html",
+      "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/navigation_bridge_20260624/dashboard.png",
+      "title": "AIOS — Business Operating System | Omar",
+      "final_url": "file:///Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-DASHBOARD.html",
+      "text_preview": "AIOS\nLiving Company Intelligence\nOmar\nWednesday, 24 June 2026\nAudio Off\nAIOS · LIVING COMPANY INTELLIGENCE\nAIOS\nBusiness Operating System\nRun\nSearch Everything\nFind Property\nRun Operations\nOpen Documents\nCreate Content\nDaily Briefing\nExecutive\nArchitect\nOperator\nAnalyst\nCreator\nEnter Mission Control",
+      "image_size": [
+        1440,
+        1100
+      ],
+      "mean_rgb": [
+        26.23,
+        45.79,
+        33.3
+      ],
+      "unique_64px_sample": 2816
+    },
+    {
+      "key": "command_center",
+      "label": "Command Center",
+      "html_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-DASHBOARD.html",
+      "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/navigation_bridge_20260624/command_center.png",
+      "title": "AIOS — Business Operating System | Omar",
+      "final_url": "file:///Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-DASHBOARD.html",
+      "text_preview": "AIOS\nLiving Company Intelligence\nOmar\nWednesday, 24 June 2026\nWebsite\nCommand Center\nRuntime Status\nMobile Console\nEye\nMission Control\nSearch\nProperty\nModules\nPipeline\nNOC Tracker\nDaily Planner\nFinance\nKnowledge Base\nRoadmap\nAIOS Command Center\nGD CORE INTELLIGENCE\nOne brain for every lead, task, document, channel, and decision.\nAIOS routes WhatsApp, Gmail, calendar, Drive, client intelligence, operations, and content requests through one controlled operating layer with Omar approval gates for sensitive actions.\n1\ncentral router\n9\nhealth surfaces\n0\nexternal side effects in local mode\nSYSTEM HEALTH\nLocal Router Online\nBrain\nRouter\nClient Intel",
+      "image_size": [
+        1440,
+        1100
+      ],
+      "mean_rgb": [
+        26.78,
+        32.56,
+        30.23
+      ],
+      "unique_64px_sample": 1323
+    },
+    {
+      "key": "mobile_app_home",
+      "label": "Mobile App Home Screen",
+      "html_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-MOBILE-APP.html",
+      "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/navigation_bridge_20260624/mobile_app_home.png",
+      "title": "AIOS Mobile Command Console",
+      "final_url": "file:///Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-MOBILE-APP.html",
+      "text_preview": "AIOS\nMobile Operating Console\nLocal\nWebsite\nCommand Center\nRuntime Status\nMobile Console\nIDLE · EXECUTIVE\nAIOS\nOperating Console\nSearch\nProperty\nOps\nVoice\nEXECUTIVE CONTROL\nRun HSH from the phone.\n0\nrecords\n0\ntasks\n0\napprovals\nRun\nProperty Search\nLead Search\nOperations Assistant\nDocuments\nVoice Command\nVoice Command\nReady for local command note\nHold\nSYSTEM HEALTH\nlive local\nbrain\nrouter\ncrm\ndatabase\nwhatsapp\ncalendar\ngmail\ndrive\nfollow up\ncontent factory\nNOTIFICATIONS\n0\nNo notifications\nLocal activity appears here.\nHome\nSearch\nWork\nComms\nOps",
+      "image_size": [
+        390,
+        844
+      ],
+      "mean_rgb": [
+        20.33,
+        29.9,
+        22.52
+      ],
+      "unique_64px_sample": 2003
+    },
+    {
+      "key": "runtime_status",
+      "label": "Runtime Status Screen",
+      "html_path": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-RUNTIME-STATUS.html",
+      "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/navigation_bridge_20260624/runtime_status.png",
+      "title": "AIOS Runtime Status",
+      "final_url": "file:///Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-RUNTIME-STATUS.html",
+      "text_preview": "Website\nCommand Center\nRuntime Status\nMobile Console\nAIOS Runtime\nOne launchable system: API, router, permission, personality, knowledge, health.\nAPI Base Not Set\nStatus\nLOCAL\nAPI Status\nLOCAL\nProduction Ready\n0%\nIntelligence Ready\nCHECK\nStart Command\npython3 automation/central_orchestrator/runtime/aios_runtime.py start\nHealth Endpoint\n/api/health",
+      "image_size": [
+        1440,
+        1000
+      ],
+      "mean_rgb": [
+        14.26,
+        16.96,
+        17.28
+      ],
+      "unique_64px_sample": 593
+    },
+    {
+      "key": "index_redirect",
+      "label": "Deployment Index Redirect",
+      "html_path": "/Users/hassanka/Downloads/AIOS/deployment/web-platform/index.html",
+      "screenshot_path": "/Users/hassanka/Downloads/AIOS/proofs/navigation_bridge_20260624/index_redirect.png",
+      "title": "AIOS | Home Sweet Home Operating System",
+      "final_url": "file:///Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-WEBSITE.html",
+      "text_preview": "A\nAIOS\nHome Sweet Home OS\nWebsite\nCommand Center\nRuntime Status\nMobile Console\nIntelligence\nPlatform\nCommand\nLaunch\nRuntime Status\nMobile Console\nCommand Center\nBusiness Operating System. The command layer for Home Sweet Home.\nLIVING COMPANY INTELLIGENCE\nDASHBOARDS ARE DEAD\n\nAIOS is the operating presence behind Home Sweet Home: property intelligence, operations, client pipeline, knowledge, follow-up, content, and executive control in one living system.\n\nOpen Command Center\nOpen Mobile Console\nView Platform\n0\nindexed records\n0\nworkflow controls\n0\nstaged actions\n0\napproval gates\nAIOS CONTROL LAYER\nLocal-first operating platform\nLocal\nRun\nbrain",
+      "image_size": [
+        1440,
+        1000
+      ],
+      "mean_rgb": [
+        43.41,
+        64.5,
+        50.17
+      ],
+      "unique_64px_sample": 2759
+    }
+  ]
+}

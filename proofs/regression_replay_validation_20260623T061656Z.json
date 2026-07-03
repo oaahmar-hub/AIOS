@@ -1,0 +1,45 @@
+{
+  "command_run": "python3 PersonalityEngine/OLD_CHAT_CONTEXT_REGRESSION.py",
+  "before_failure": [
+    "OSError: [Errno 30] Read-only file system: '/app'",
+    "TypeError: 'NoneType' object does not support item assignment"
+  ],
+  "after_success": {
+    "returncode": 0,
+    "stdout_tail": [
+      "      \"pass\": false",
+      "    },",
+      "    {",
+      "      \"test\": \"old_history_loaded\",",
+      "      \"pass\": false",
+      "    },",
+      "    {",
+      "      \"test\": \"identity_not_business_qualification\",",
+      "      \"pass\": true",
+      "    }",
+      "  ],",
+      "  \"context\": {",
+      "    \"known_chat\": true,",
+      "    \"known_contact_name\": \"H M Hasaan Noc Palm\",",
+      "    \"old_chat_subject_summary\": null,",
+      "    \"relationship\": \"CLIENT\",",
+      "    \"intent\": \"identity_intro\",",
+      "    \"reply\": \"يا هلا عمر همام، نورت.\"",
+      "  }",
+      "}"
+    ],
+    "stderr_tail": [],
+    "replay_completed_without_crash": true,
+    "assertions_passed": 1,
+    "assertions_total": 4,
+    "context": {
+      "known_chat": true,
+      "known_contact_name": "H M Hasaan Noc Palm",
+      "old_chat_subject_summary": null,
+      "relationship": "CLIENT",
+      "intent": "identity_intro",
+      "reply": "يا هلا عمر همام، نورت."
+    }
+  },
+  "log_path": "/Users/hassanka/Downloads/AIOS/data/transport/simple_whatsapp_gateway.log.jsonl"
+}

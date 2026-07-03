@@ -1,0 +1,304 @@
+{
+  "generated_at": "2026-06-26T16:59:44.749625+00:00",
+  "case": {
+    "case_id": "to-rent-offices-dubai-dubai-south",
+    "client_name": "Confidential Client",
+    "client_request": "to rent offices dubai dubai south",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - to rent offices dubai dubai south",
+  "executive_pitch": "The strongest option today is Bright | Fully Fitted Space | Partitioned because it gives the best balance of location fit, operational readiness, and alignment with the office setup. The secondary play is Modern Office in Dubai South Business Park, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Bright | Fully Fitted Space | Partitioned as the strongest aligned option based on the current brief. Keep Modern Office in Dubai South Business Park as the alternative and To Rent Offices Dubai Dubai South as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Bright | Fully Fitted Space | Partitioned",
+      "commercial_mode": "rent",
+      "price_aed": 350000,
+      "price_term": "yearly",
+      "property_type": "office",
+      "size_sqft": 2490,
+      "building": "Dubai South Business Park B3, The Avenue, Logistics City",
+      "area": "Dubai South, Dubai",
+      "developer": "Dubai South",
+      "availability": "ready",
+      "delivery_timeline": "Current public rent listing",
+      "payment_plan": "lease",
+      "launch_mode": "immediate",
+      "footfall_profile": "medium",
+      "parking_profile": "strong",
+      "license_fit": "needs_confirmation",
+      "fit_label": "high",
+      "summary": "Best immediate fitted office path based on the current Dubai South office market evidence.",
+      "pros": [
+        "Fitted office stock reduces launch friction.",
+        "Business Park positioning supports airport, free-zone, and logistics connectivity."
+      ],
+      "cons": [
+        "Use approval still needs to match the final business activity."
+      ],
+      "source_url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/logistics-city/",
+      "source_links": [
+        "https://www.bayut.com/to-rent/offices/dubai/dubai-south/logistics-city/",
+        "https://www.dubaisouth.ae/en/work/commercial-property/offices"
+      ],
+      "map_query": "Dubai South Business Park B3 Logistics City Dubai South",
+      "suitability_score": 100.0,
+      "investment_score": 50.0,
+      "combined_score": 86.0,
+      "entry_psf_aed": 140.56,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile",
+        "size supports flexible layout planning",
+        "supports faster launch timeline",
+        "layout and positioning align well with the office setup",
+        "parking supports repeat visits and daily operations"
+      ],
+      "recommendation_risks": [
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 100.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile",
+        "size supports flexible layout planning",
+        "supports faster launch timeline",
+        "layout and positioning align well with the office setup",
+        "parking supports repeat visits and daily operations"
+      ],
+      "clinic_risks": [
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "entry price around AED 141/sqft",
+        "payment plan lease",
+        "developer: Dubai South"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+South+Business+Park+B3+Logistics+City+Dubai+South",
+      "rank": 1
+    },
+    {
+      "title": "Modern Office in Dubai South Business Park",
+      "commercial_mode": "rent",
+      "price_aed": 0,
+      "property_type": "office",
+      "size_sqft": 1500,
+      "building": "Dubai South Business Park",
+      "area": "Dubai South, Dubai",
+      "developer": "Dubai South",
+      "availability": "live_public_listing",
+      "delivery_timeline": "Current public rent listing",
+      "payment_plan": "lease",
+      "launch_mode": "current",
+      "footfall_profile": "medium",
+      "parking_profile": "strong",
+      "license_fit": "needs_confirmation",
+      "fit_label": "high",
+      "summary": "Smaller business-park office route for clients who want a lower-entry Dubai South operational base.",
+      "pros": [
+        "More compact entry size than large-floor office stock.",
+        "Business Park cluster has repeated public office supply."
+      ],
+      "cons": [
+        "Exact pricing and fit-out scope must be rechecked live."
+      ],
+      "source_url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-dubai-south-dubai-world-central-business-park-97364276.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-dubai-south-dubai-world-central-business-park-97364276.html",
+        "https://www.bayut.com/to-rent/offices/dubai/dubai-south/"
+      ],
+      "map_query": "Dubai South Business Park Dubai South",
+      "suitability_score": 90.5,
+      "investment_score": 20.0,
+      "combined_score": 70.8,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile",
+        "size supports flexible layout planning",
+        "layout and positioning align well with the office setup",
+        "parking supports repeat visits and daily operations"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 90.5,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile",
+        "size supports flexible layout planning",
+        "layout and positioning align well with the office setup",
+        "parking supports repeat visits and daily operations"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "payment plan lease",
+        "developer: Dubai South"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+South+Business+Park+Dubai+South",
+      "rank": 2
+    },
+    {
+      "title": "To Rent Offices Dubai Dubai South",
+      "area": "Dubai South",
+      "building": "To Rent Offices Dubai Dubai South",
+      "source_url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/",
+      "source_links": [
+        "https://www.bayut.com/to-rent/offices/dubai/dubai-south/"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "office",
+      "price_aed": 0,
+      "size_sqft": 0,
+      "availability": "url_supplied",
+      "delivery_timeline": "Depends on live listing details",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Candidate generated from the supplied listing/search URL context when exact structured listing fields are not directly exposed.",
+      "pros": [
+        "Accepts direct Bayut/Property Finder style URLs as input."
+      ],
+      "cons": [
+        "Exact listing metrics may require a richer provider or authenticated browser session."
+      ],
+      "map_query": "dubai south",
+      "suitability_score": 58.0,
+      "investment_score": 0.0,
+      "combined_score": 41.8,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile"
+      ],
+      "recommendation_risks": [
+        "small footprint may compress layout flexibility",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 58.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile"
+      ],
+      "clinic_risks": [
+        "small footprint may compress layout flexibility",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=dubai+south",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Dubai South is being positioned around airport, free zone, logistics, and mixed-use residential growth.",
+    "Immediate-launch value depends on occupancy readiness, fit-out burden, and permit certainty.",
+    "Commercial comparisons should weigh use alignment, launch speed, and operational friction before brand polish."
+  ],
+  "compliance_gates": [
+    "Usage, fit-out, and authority approvals must match the target business activity before deal commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 29 rows matching the area signal 'dubai south'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels."
+  ],
+  "next_steps": [
+    "Confirm exact live availability and current commercial terms before client send.",
+    "Collect floor plan, service-charge, fit-out, and authority-use information for the shortlisted options.",
+    "Run final approval and risk review before presenting the recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Bayut - Offices for Rent in Dubai South",
+      "url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Offices for Rent in Logistics City",
+      "url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/logistics-city/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Property Finder - Office Space for Rent in Dubai South Business Park",
+      "url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-dubai-south-dubai-world-central-business-park-97364276.html",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Commercial Properties for Rent in Dubai South",
+      "url": "https://www.bayut.com/to-rent/commercial/dubai/dubai-south/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Dubai South - Office Space in Dubai South | Free Zone Offices & Business Park",
+      "url": "https://www.dubaisouth.ae/en/work/commercial-property/offices",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "to rent offices dubai dubai south",
+    "source_mode": "url",
+    "area": "dubai south",
+    "use_case": "office",
+    "property_preference": "office",
+    "intent": "rent",
+    "source_url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/"
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 29,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8152f8d531d5__0b6d5056-6676-49bd-95d3-8aa95b9e9645.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/9a67a30158f8__45f01248-d6bd-4073-bfd8-929c2ac71298.jpg"
+      ]
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "CONDITIONAL: resolve review notes before client send",
+    "review_notes": [
+      "Lead option Bright | Fully Fitted Space | Partitioned still requires written use and approval confirmation.",
+      "One or more shortlisted options still lack full area or layout detail.",
+      "URL-context fallback is present in the shortlist; enrich with direct listing extraction before client send."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-url-bayut-dubai-south-offices.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-url-bayut-dubai-south-offices.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-url-bayut-dubai-south-offices.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-url-bayut-dubai-south-offices.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T16:59:44.753076+00:00",
+    "request_profile": {
+      "raw_request": "to rent offices dubai dubai south",
+      "source_mode": "url",
+      "area": "dubai south",
+      "use_case": "office",
+      "property_preference": "office",
+      "intent": "rent",
+      "source_url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/"
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": true,
+      "internal_evidence_rows": 1
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/generic-url-bayut-dubai-south-offices.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

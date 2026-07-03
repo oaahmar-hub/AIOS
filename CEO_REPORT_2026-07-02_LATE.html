@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIOS — CEO Report (Late Update)</title>
+  <style>
+    :root { --bg: #0b0c10; --card: #1f2833; --text: #c5c6c7; --heading: #66fcf1; --muted: #45a29e; --border: #45a29e33; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 760px; margin: 0 auto; padding: 40px 24px; }
+    h1 { color: var(--heading); font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    h2 { color: var(--heading); font-size: 1.25rem; margin-top: 32px; text-transform: uppercase; letter-spacing: 0.05em; }
+    strong { color: #fff; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    a { color: var(--heading); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: 0; border-top: 1px solid var(--border); margin: 28px 0; }
+    .meta { color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; }
+    .done { color: #66fcf1; }
+    .warn { color: #f5c518; }
+    .block { color: #ff6b6b; }
+    .footer { color: var(--muted); font-size: 0.85rem; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <h1>AIOS — CEO Report (Late Update)</h1>
+  <div class="meta">
+    <strong>Date:</strong> 2026-07-02<br>
+    <strong>Product:</strong> HSH AI OS — AI-powered real estate business operating system<br>
+    <strong>Owner:</strong> Omar Ahmar (o.a.ahmar@gmail.com)<br>
+    <strong>Prepared by:</strong> Cascade, Lead Autonomous Engineer
+  </div>
+  <hr>
+
+  <h2>Feature</h2>
+  <p>AIOS</p>
+
+  <h2>Purpose</h2>
+  <p>Build a premium business operating system for HSH, not a normal CRM, chatbot, or dashboard.</p>
+
+  <h2>User Benefit</h2>
+  <p>One system receives requests, understands who the user is, decides what is allowed, retrieves the right knowledge, responds in Omar’s style, and stages the next action.</p>
+
+  <h2>What the Project Is</h2>
+  <p>AIOS is mainly:</p>
+  <ul>
+    <li>a business operating system</li>
+    <li>a command center</li>
+    <li>a decision platform</li>
+    <li>an intelligence layer across property, operations, documents, CRM, and follow-up</li>
+  </ul>
+
+  <h2>What We Are Building</h2>
+  <ul>
+    <li>Unified inbound flow for WhatsApp, web, mobile, Gmail, and future channels</li>
+    <li>Relationship + identity detection across Airtable CRM</li>
+    <li>Centralized permission runtime (who can do what)</li>
+    <li>Unified memory and retrieval layer across property data and knowledge assets</li>
+    <li>Omar personality response layer</li>
+    <li>Command center / Eye experience</li>
+    <li>Action staging for tasks, follow-ups, documents, and workflows</li>
+    <li>n8n lead intake + AI draft reply automation</li>
+    <li>Autonomous unit intelligence (Property Finder, Bayut, WhatsApp agent links)</li>
+    <li>Marketing automation triggered by identified inventory</li>
+    <li>Cross-platform sync into SQLite/Railway with full audit logging</li>
+  </ul>
+
+  <h2>Current Technology Stack</h2>
+  <ul>
+    <li><strong>Backend:</strong> Python (80+ runtime modules)</li>
+    <li><strong>Frontend:</strong> HTML/CSS/JS static pages + React/Vite scaffold</li>
+    <li><strong>Data layer:</strong> SQLite property database, Airtable CRM</li>
+    <li><strong>AI:</strong> Claude (Anthropic API)</li>
+    <li><strong>Automation:</strong> n8n workflows</li>
+    <li><strong>WhatsApp:</strong> Wasender gateway, hosted webhook on Railway</li>
+    <li><strong>Deployment:</strong> Docker + Railway</li>
+    <li><strong>App style:</strong> web platform with PWA support</li>
+  </ul>
+
+  <h2>Current Status</h2>
+  <ul>
+    <li><span class="done">✅</span> Backend runtime live on Railway: <a href="https://aios-runtime-production.up.railway.app">https://aios-runtime-production.up.railway.app</a></li>
+    <li><span class="done">✅</span> <code>/api/health</code> returning 200, runtime 100% ready</li>
+    <li><span class="done">✅</span> Auth credentials generated and deployed</li>
+    <li><span class="done">✅</span> Airtable PAT rotated and wired to Railway</li>
+    <li><span class="done">✅</span> Airtable table IDs connected (Leads, Contacts, Comms)</li>
+    <li><span class="done">✅</span> Wasender API key set in Railway</li>
+    <li><span class="done">✅</span> n8n lead intake workflow built and fully connected</li>
+    <li><span class="done">✅</span> Cascade appointed as Lead Autonomous Engineer under HSH LIFE FOREVER protocol</li>
+    <li><span class="done">✅</span> Architecture mapped; top 3 unit-retrieval bottlenecks identified</li>
+    <li><span class="warn">🟡</span> WhatsApp hosted webhook route exists but verification returns 403 — verify token not set</li>
+    <li><span class="warn">🟡</span> <code>web-platform/</code> static frontend ready but not deployed to a public domain</li>
+    <li><span class="warn">🟡</span> React/Vite frontend scaffold exists but has no code</li>
+    <li><span class="warn">🟡</span> Unit Finder resolver is PARTIAL: 24,357 unit-bearing records, but URL→exact unit is not yet reliable</li>
+    <li><span class="block">🔴</span> Public domain not attached (<code>aios.hshglobaldubai.com</code> planned)</li>
+    <li><span class="block">🔴</span> Meta Business verification for WhatsApp not started</li>
+    <li><span class="block">🔴</span> Google Drive / Google Calendar not connected</li>
+    <li><span class="block">🔴</span> No autonomous ingestion pipeline for Property Finder / Bayut / WhatsApp listing links</li>
+    <li><span class="block">🔴</span> Unit bridge data is sparse: 0 direct URL→unit rows, only 4.3% exact bridge rows</li>
+  </ul>
+
+  <h2>Main Goal</h2>
+  <p>When someone opens AIOS, they should feel they entered the operating system of a modern company.</p>
+
+  <h2>Next 3 Priorities</h2>
+  <ol>
+    <li><strong>Build the autonomous unit-intelligence ingestion layer</strong> so Property Finder, Bayut, and WhatsApp agent links can feed the bridge dataset and resolve to exact units.</li>
+    <li><strong>Fix WhatsApp webhook verification</strong> so Wasender can cut over to the hosted Railway URL.</li>
+    <li><strong>Deploy the static frontend</strong> to Vercel/Cloudflare and attach the custom domain.</li>
+  </ol>
+
+  <h2>Blockers Owned by Omar</h2>
+  <ul>
+    <li>Approve frontend domain deploy (A3).</li>
+    <li>Start Meta Business verification for WhatsApp production tier.</li>
+    <li>Switch Wasender webhook URL to the hosted Railway endpoint once verification is fixed.</li>
+    <li>Provide authorized portal data feeds or exports (Property Finder / Bayut / CRM) to enrich the unit bridge dataset.</li>
+  </ul>
+
+  <h2>Top 3 Unit-Retrieval Bottlenecks (New Findings)</h2>
+  <ol>
+    <li><strong>Missing public URL → exact unit bridge dataset.</strong> 221 URLs exist, but 0 direct URL+unit rows. URL-only inputs can only return likely candidates.</li>
+    <li><strong>Sparse hard-identifier coverage.</strong> Truth Bridge Quality score is 52.8/100; only 4.3% exact rows. 711 rows lack hard property identifiers.</li>
+    <li><strong>No autonomous acquisition pipeline.</strong> Unit Finder is currently a static resolver. Live scraping/polling and continuous ingestion do not exist yet.</li>
+  </ol>
+
+  <hr>
+  <p class="footer">Lead engineer: Cascade | Protocol: HSH LIFE FOREVER</p>
+</body>
+</html>

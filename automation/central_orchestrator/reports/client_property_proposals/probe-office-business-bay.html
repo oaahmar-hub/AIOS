@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIOS Realty Proposal - Need an office in Business Bay</title>
+  <style>
+    :root {
+      --bg: #f3efe6;
+      --ink: #171411;
+      --muted: #6d645a;
+      --line: rgba(23,20,17,0.12);
+      --paper: rgba(255,255,255,0.82);
+      --accent: #8a5a2f;
+      --accent-2: #24413d;
+      --shadow: 0 22px 60px rgba(32, 24, 16, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(138,90,47,0.18), transparent 28%),
+        linear-gradient(180deg, #f8f4ec 0%, var(--bg) 100%);
+    }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 40px 24px 72px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: end;
+      padding: 34px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.82), rgba(250,244,236,0.68));
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    h1 { margin: 0 0 10px; font-size: 54px; line-height: 0.95; }
+    .lede { color: var(--muted); font-size: 19px; line-height: 1.6; }
+    .hero-image img {
+      width: 100%;
+      border-radius: 20px;
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+    .hero-image p { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+    .candidate-image { margin: -24px -24px 18px; }
+    .candidate-image img {
+      width: calc(100% + 48px);
+      margin-left: -24px;
+      margin-right: -24px;
+      border-radius: 24px 24px 0 0;
+      display: block;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .panel, .candidate {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    .panel { padding: 24px; }
+    .panel h3, .candidate h3 { margin: 0 0 10px; font-size: 28px; }
+    .panel ul, .candidate ul { margin: 0; padding-left: 18px; line-height: 1.6; }
+    .candidate {
+      padding: 28px;
+      margin-top: 20px;
+    }
+    .candidate-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+    }
+    .score-pill {
+      min-width: 74px;
+      text-align: center;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .meta, .summary { color: var(--muted); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .stats div {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+    }
+    .stats span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .stats strong { font-size: 18px; }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .subblock {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+    }
+    .subblock h4 { margin: 0 0 10px; font-size: 16px; }
+    .actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .actions a {
+      text-decoration: none;
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 1px;
+    }
+    .section-title {
+      margin: 34px 0 12px;
+      font-size: 34px;
+    }
+    @media (max-width: 900px) {
+      .hero, .grid, .split, .stats { grid-template-columns: 1fr; }
+      h1 { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">AIOS Premium Property Proposal</div>
+        <h1>AIOS Realty Proposal - Need an office in Business Bay</h1>
+        <p class="lede">The strongest option today is Offices for Rent in Business Bay because it gives the best balance of location fit, operational readiness, and alignment with the office setup. The secondary play is Commercial Properties for Rent in Business Bay, which is stronger as a medium-term alternative than as the immediate lead recommendation.</p>
+        <p class="lede">Client brief: Need an office in Business Bay</p>
+        <p class="lede">Request focus: office setup</p>
+      </div>
+      <div class='hero-image'><img src='file:///Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/6782eda674c9__86e02c8d-ccf1-4274-84ea-47d789a4faa7.jpg' alt='Dubai South internal inventory context image'><p>Internal AIOS Dubai South image context.</p></div>
+    </section>
+
+    <div class="grid">
+      <section class="panel">
+        <h3>Market Why</h3>
+        <ul><li>Immediate-launch value depends on occupancy readiness, fit-out burden, and permit certainty.</li><li>Commercial comparisons should weigh use alignment, launch speed, and operational friction before brand polish.</li></ul>
+      </section>
+      <section class="panel">
+        <h3>Compliance Gates</h3>
+        <ul><li>Usage, fit-out, and authority approvals must match the target business activity before deal commitment.</li></ul>
+      </section>
+      <section class="panel">
+        <h3>Source Register</h3>
+        <ul><li><a href='https://www.bayut.com/to-rent/offices/dubai/business-bay/'>Bayut - Offices for Rent in Business Bay</a> · June 26, 2026</li><li><a href='https://www.bayut.com/to-rent/commercial/dubai/business-bay/'>Bayut - Commercial Properties for Rent in Business Bay</a> · June 26, 2026</li></ul>
+      </section>
+    </div>
+
+    <h2 class="section-title">Top Recommendations</h2>
+    
+    <section class="candidate">
+      
+      <div class="candidate-top">
+        <div>
+          <div class="eyebrow">Rank #1</div>
+          <h3>Offices for Rent in Business Bay</h3>
+          <p class="meta">Business Bay · Business Bay</p>
+        </div>
+        <div class="score-pill">49.7</div>
+      </div>
+      <div class="stats">
+        <div><span>Price</span><strong>TBC</strong></div>
+        <div><span>Type</span><strong>office</strong></div>
+        <div><span>Area</span><strong> sqft</strong></div>
+        <div><span>Handover</span><strong>Live public source route</strong></div>
+        <div><span>ROI / Yield</span><strong>TBC</strong></div>
+      </div>
+      <p class="summary">Public listing route identified, but structured listing extraction still needs browser-level or provider-level enrichment for exact property metrics.</p>
+      <div class="split">
+        <div class="subblock">
+          <h4>Why This Property</h4>
+          <ul><li>Live public source route aligned to the request market.</li><li>Usable for manual review and next-pass listing extraction.</li></ul>
+        </div>
+        <div class="subblock">
+          <h4>Risks / Watchouts</h4>
+          <ul><li>Exact unit-level metrics are not yet extracted from this source route.</li><li>Client-facing commitment still needs live listing-level confirmation.</li></ul>
+        </div>
+      </div>
+      
+      <div class="subblock">
+        <h4>Source Links</h4>
+        <ul><li><a href='https://www.bayut.com/to-rent/offices/dubai/business-bay/'>https://www.bayut.com/to-rent/offices/dubai/business-bay/</a></li></ul>
+      </div>
+      <div class="actions">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Business+Bay">Open Map</a>
+        <a href="https://www.bayut.com/to-rent/offices/dubai/business-bay/">Open Listing</a>
+      </div>
+    </section>
+    
+    <section class="candidate">
+      
+      <div class="candidate-top">
+        <div>
+          <div class="eyebrow">Rank #2</div>
+          <h3>Commercial Properties for Rent in Business Bay</h3>
+          <p class="meta">Business Bay · Business Bay</p>
+        </div>
+        <div class="score-pill">49.7</div>
+      </div>
+      <div class="stats">
+        <div><span>Price</span><strong>TBC</strong></div>
+        <div><span>Type</span><strong>office</strong></div>
+        <div><span>Area</span><strong> sqft</strong></div>
+        <div><span>Handover</span><strong>Live public source route</strong></div>
+        <div><span>ROI / Yield</span><strong>TBC</strong></div>
+      </div>
+      <p class="summary">Public listing route identified, but structured listing extraction still needs browser-level or provider-level enrichment for exact property metrics.</p>
+      <div class="split">
+        <div class="subblock">
+          <h4>Why This Property</h4>
+          <ul><li>Live public source route aligned to the request market.</li><li>Usable for manual review and next-pass listing extraction.</li></ul>
+        </div>
+        <div class="subblock">
+          <h4>Risks / Watchouts</h4>
+          <ul><li>Exact unit-level metrics are not yet extracted from this source route.</li><li>Client-facing commitment still needs live listing-level confirmation.</li></ul>
+        </div>
+      </div>
+      
+      <div class="subblock">
+        <h4>Source Links</h4>
+        <ul><li><a href='https://www.bayut.com/to-rent/commercial/dubai/business-bay/'>https://www.bayut.com/to-rent/commercial/dubai/business-bay/</a></li></ul>
+      </div>
+      <div class="actions">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Business+Bay">Open Map</a>
+        <a href="https://www.bayut.com/to-rent/commercial/dubai/business-bay/">Open Listing</a>
+      </div>
+    </section>
+    
+    <section class="candidate">
+      
+      <div class="candidate-top">
+        <div>
+          <div class="eyebrow">Rank #3</div>
+          <h3>Internal Signal - Binghatti</h3>
+          <p class="meta">Binghatti · Al Wasl; Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim</p>
+        </div>
+        <div class="score-pill">44.0</div>
+      </div>
+      <div class="stats">
+        <div><span>Price</span><strong>TBC</strong></div>
+        <div><span>Type</span><strong>office</strong></div>
+        <div><span>Area</span><strong> sqft</strong></div>
+        <div><span>Handover</span><strong>Internal acquisition evidence</strong></div>
+        <div><span>ROI / Yield</span><strong>TBC</strong></div>
+      </div>
+      <p class="summary">Internal XLSX acquisition tagged to Al Wasl; Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim from UAE COMMERCIAL ONLY Rent - Sale.</p>
+      <div class="split">
+        <div class="subblock">
+          <h4>Why This Property</h4>
+          <ul><li>Recovered from AIOS internal acquisition index.</li><li>Source channel: UAE COMMERCIAL ONLY Rent - Sale</li><li>File type: XLSX</li></ul>
+        </div>
+        <div class="subblock">
+          <h4>Risks / Watchouts</h4>
+          <ul><li>This is an internal evidence signal, not a fully structured live listing.</li></ul>
+        </div>
+      </div>
+      <div class='subblock'><h4>ROI / Investment Case</h4><ul><li>developer: Binghatti</li></ul></div>
+      <div class="subblock">
+        <h4>Source Links</h4>
+        <ul></ul>
+      </div>
+      <div class="actions">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Al+Wasl%3B+Business+Bay%3B+Creek+Harbour%3B+Downtown%3B+Dubai+Festival+City%3B+JVC%3B+JVT%3B+Motor+City%3B+Umm+Suqeim">Open Map</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Al+Wasl%3B+Business+Bay%3B+Creek+Harbour%3B+Downtown%3B+Dubai+Festival+City%3B+JVC%3B+JVT%3B+Motor+City%3B+Umm+Suqeim">Open Listing</a>
+      </div>
+    </section>
+    
+
+    <div class="grid">
+      <section class="panel">
+        <h3>Sales Pitch</h3>
+        <p class="lede">Lead with Offices for Rent in Business Bay as the strongest aligned option based on the current brief. Keep Commercial Properties for Rent in Business Bay as the alternative and Internal Signal - Binghatti as the fallback while approvals, pricing, and fit-out scope are verified.</p>
+      </section>
+      <section class="panel">
+        <h3>Next Steps</h3>
+        <ul><li>Confirm exact live availability and current commercial terms before client send.</li><li>Collect floor plan, service-charge, fit-out, and authority-use information for the shortlisted options.</li><li>Run final approval and risk review before presenting the recommendation as execution-ready.</li></ul>
+      </section>
+      <section class="panel">
+        <h3>Internal Evidence</h3>
+        <ul><li>AIOS acquisition index contains 159 rows matching the area signal &#x27;business bay&#x27;.</li><li>Internal AIOS media evidence includes area-matched image records from broker/inventory channels.</li><li>Property master database contains 322 raw rows linked to business bay.</li><li>AIOS acquisition index recovered 159 internal source assets tied to business bay.</li><li>Internal source mix: 125 jpg, 34 xlsx.</li></ul>
+      </section>
+      <section class="panel">
+        <h3>Internal Market Snapshot</h3>
+        <ul><li>Internal matches: 159</li><li>Top internal projects: Binghatti, Tiger; Tiger Sky Tower, Deyaar, Binghatti; HSH, HSH; Tiger; Tiger Sky Tower, Omniyat</li></ul>
+      </section>
+      <section class="panel">
+        <h3>Internal Inventory Matches</h3>
+        <ul><li>Binghatti · Al Wasl; Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim · xlsx · TBC · score 90.0</li><li>Binghatti · Business Bay; Creek Harbour; Downtown; Dubai Festival City; JVC; JVT; Motor City; Umm Suqeim · xlsx · TBC · score 90.0</li><li>Tiger; Tiger Sky Tower · Ajman; Business Bay; Dubai Land; JVC; JVT; Motor City; Reem Island; Sharjah · xlsx · TBC · score 70.0</li><li>Deyaar · Business Bay; Downtown · xlsx · TBC · score 70.0</li><li>Deyaar · Business Bay; Downtown; Dubai Marina; Palm Jebel Ali; Palm Jumeirah · xlsx · TBC · score 70.0</li><li>Tiger; Tiger Sky Tower · Ajman; Business Bay; Dubai Land; JVC; JVT; Motor City; Reem Island; Sharjah · xlsx · TBC · score 70.0</li></ul>
+      </section>
+      <section class="panel">
+        <h3>Agent Review</h3>
+        <p class="lede">CONDITIONAL: resolve review notes before client send</p>
+        <ul><li>Lead option Offices for Rent in Business Bay still requires written use and approval confirmation.</li><li>Lead option Offices for Rent in Business Bay still needs live pricing confirmation.</li><li>One or more shortlisted options still lack full area or layout detail.</li></ul>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

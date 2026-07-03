@@ -1,0 +1,8 @@
+area,status,evidence
+foundation_documents,PASS,"manuals, policies, standards, templates created under AIOS/00_FOUNDATION"
+canonical_inventory,PASS,2495 indexed files
+pdf_extraction,PARTIAL,483 PDFs attempted; scanned/image PDFs may have NO_TEXT
+duplicate_detection,PASS,437 duplicate hash groups indexed
+nakheel_agent,PASS,PJ-P-VP-018 golden checks generated
+property_engine,PARTIAL,property DB and resolver assets indexed; URL bridge remains known gap
+system_classification,PARTIAL,integrated modules usable but not fully production-live

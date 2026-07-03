@@ -1,0 +1,287 @@
+{
+  "generated_at": "2026-06-26T17:10:29.001246+00:00",
+  "case": {
+    "case_id": "need-a-2-bedroom-apartment-in-dubai-marina-for-rent",
+    "client_name": "Confidential Client",
+    "client_request": "Need a 2 bedroom apartment in Dubai Marina for rent.",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8350ffa5e2a8__087b9ca4-8909-4a11-87c5-d09e398312dd.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - Need a 2 bedroom apartment in Dubai Marina for rent.",
+  "executive_pitch": "The strongest option today is Multiple Options|Community Specialist |Marina View because it gives the best balance of location fit, operational readiness, and alignment with the residential move. The secondary play is Upgraded | Palm View | Hot Tub | Flexible Cheques, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Multiple Options|Community Specialist |Marina View as the strongest aligned option based on the current brief. Keep Upgraded | Palm View | Hot Tub | Flexible Cheques as the alternative and FULL MARINA VIEW - HIGH FLOOR - PREFECT CONDITION as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Multiple Options|Community Specialist |Marina View",
+      "area": "Marina Gate 2, Marina Gate, Dubai Marina, Dubai",
+      "building": "Marina Gate 2, Marina Gate, Dubai Marina, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-dubai-marina-marina-gate-marina-gate-2-100860021.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/rent/dubai/2-bedroom-apartments-for-rent-dubai-marina.html",
+        "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-dubai-marina-marina-gate-marina-gate-2-100860021.html"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "apartment",
+      "price_aed": 189999,
+      "price_term": "yearly",
+      "size_sqft": 1231,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Marina Gate 2, Marina Gate, Dubai Marina, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/1EBXD39AQPQYX9X0B4BEXPX7BR/2e089316-7edb-498e-a04f-aec13da3ed9a/668x452.jpg?v=01ec9ce32b7485b795a8c7d832ef68cd",
+      "bedrooms": "2",
+      "bathrooms": "2",
+      "reference": "1EBXD39AQPQYX9X0B4BEXPX7BR",
+      "suitability_score": 90.8,
+      "investment_score": 30.0,
+      "combined_score": 73.8,
+      "entry_psf_aed": 154.35,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 90.8,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 154/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Marina+Gate+2%2C+Marina+Gate%2C+Dubai+Marina%2C+Dubai",
+      "rank": 1
+    },
+    {
+      "title": "Upgraded | Palm View | Hot Tub | Flexible Cheques",
+      "area": "Ocean Heights, Dubai Marina, Dubai",
+      "building": "Ocean Heights, Dubai Marina, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-dubai-marina-ocean-heights-107726697.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/rent/dubai/2-bedroom-apartments-for-rent-dubai-marina.html",
+        "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-dubai-marina-ocean-heights-107726697.html"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "apartment",
+      "price_aed": 160000,
+      "price_term": "yearly",
+      "size_sqft": 1382,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Ocean Heights, Dubai Marina, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/TQ33RDZ088MWWWGK7RCYVZGNQ0/f1ca9b33-c278-481d-97d4-0e4121dc083e/668x452.jpg?v=0f42af66ea8e3021677a3851d345e76b",
+      "bedrooms": "2",
+      "bathrooms": "2",
+      "reference": "PB-R-13906-8",
+      "suitability_score": 89.7,
+      "investment_score": 30.0,
+      "combined_score": 73.0,
+      "entry_psf_aed": 115.77,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 89.7,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 116/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Ocean+Heights%2C+Dubai+Marina%2C+Dubai",
+      "rank": 2
+    },
+    {
+      "title": "FULL MARINA VIEW - HIGH FLOOR - PREFECT CONDITION",
+      "area": "Continental Tower, Dubai Marina, Dubai",
+      "building": "Continental Tower, Dubai Marina, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-dubai-marina-continental-tower-95710445.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/rent/dubai/2-bedroom-apartments-for-rent-dubai-marina.html",
+        "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-dubai-marina-continental-tower-95710445.html"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "apartment",
+      "price_aed": 107000,
+      "price_term": "yearly",
+      "size_sqft": 1396,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Continental Tower, Dubai Marina, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/AM00CW04WT5TPGZ74E5KWBNNJ0/9284c5dd-0ce2-4fe0-b139-6e0253737c66/668x452.jpg",
+      "bedrooms": "2",
+      "bathrooms": "4",
+      "reference": "AM00CW04WT5TPGZ74E5KWBNNJ0",
+      "suitability_score": 89.5,
+      "investment_score": 30.0,
+      "combined_score": 72.9,
+      "entry_psf_aed": 76.65,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 89.5,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 77/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Continental+Tower%2C+Dubai+Marina%2C+Dubai",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Immediate-launch value depends on occupancy readiness, fit-out burden, and permit certainty.",
+    "Residential comparisons should weigh layout efficiency, building quality, and lifestyle access alongside entry price.",
+    "Property Finder area range currently shows 80K - 949.9K.",
+    "Property Finder average asking price is 87.1K, with change of 20.0%.",
+    "Average asking price per sqft is 160.26, with change of 21.9%.",
+    "Reported rental yield signal is 6.1%."
+  ],
+  "compliance_gates": [
+    "Lease or purchase terms, building rules, and community restrictions must match the intended occupancy plan.",
+    "Service charges, parking allocation, and handover condition should be verified before commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 178 rows matching the area signal 'dubai marina'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "Property master database contains 1 raw rows linked to dubai marina."
+  ],
+  "next_steps": [
+    "Confirm live availability, rent or sale terms, and current landlord or seller expectations before client send.",
+    "Collect floor plan, exact built-up area, parking details, and building or community rules for the shortlisted options.",
+    "Verify service charges, maintenance condition, and move-in timeline before presenting the lead recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Property Finder - 2 bedroom Apartment search in Dubai Marina",
+      "url": "https://www.propertyfinder.ae/en/rent/dubai/2-bedroom-apartments-for-rent-dubai-marina.html",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "Need a 2 bedroom apartment in Dubai Marina for rent.",
+    "source_mode": "text",
+    "area": "dubai marina",
+    "use_case": "apartment",
+    "property_preference": "apartment",
+    "bedroom_preference": "2",
+    "intent": "rent",
+    "source_url": ""
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 178,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8350ffa5e2a8__087b9ca4-8909-4a11-87c5-d09e398312dd.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/aabc0378c5b4__90a1c059-529a-4230-afb7-4397935e0b4c.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/aabc0378c5b4__90a1c059-529a-4230-afb7-4397935e0b4c.jpg"
+      ]
+    },
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Property_Master_Database.sqlite",
+      "matched_rows": 1
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "READY FOR AGENT REVIEW BEFORE CLIENT SEND",
+    "review_notes": [
+      "Residential shortlist still needs building-rule, condition, and move-in verification before client send."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-text-dubai-marina-apartment.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-text-dubai-marina-apartment.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-text-dubai-marina-apartment.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-text-dubai-marina-apartment.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T17:10:29.002789+00:00",
+    "request_profile": {
+      "raw_request": "Need a 2 bedroom apartment in Dubai Marina for rent.",
+      "source_mode": "text",
+      "area": "dubai marina",
+      "use_case": "apartment",
+      "property_preference": "apartment",
+      "bedroom_preference": "2",
+      "intent": "rent",
+      "source_url": ""
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": false,
+      "internal_evidence_rows": 2
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/generic-text-dubai-marina-apartment.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

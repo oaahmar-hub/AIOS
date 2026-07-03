@@ -1,0 +1,149 @@
+{
+  "passed": 6,
+  "total": 6,
+  "results": [
+    {
+      "test": "dxb_group_detected_as_group_access",
+      "pass": true,
+      "detail": {
+        "intent": "group_access",
+        "judgment": {
+          "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+          "next_action": "verify_group_access",
+          "expected_next": "agent_group_onboarding_no_fake_action",
+          "ask_allowed": false,
+          "stop_qualifying": true,
+          "escalation": "none",
+          "signals": {
+            "has_area": false,
+            "has_property_type": false,
+            "has_budget": false,
+            "has_process_word": false,
+            "has_developer": false,
+            "prior_property_context": false,
+            "active_history": true
+          },
+          "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+        },
+        "reply": "Sohaib, noted — you mean the DXB secondary/agent group. I’ll review and add if suitable."
+      }
+    },
+    {
+      "test": "both_groups_no_display_name_loop",
+      "pass": true,
+      "detail": {
+        "intent": "group_access",
+        "judgment": {
+          "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+          "next_action": "verify_group_access",
+          "expected_next": "agent_group_onboarding_no_fake_action",
+          "ask_allowed": false,
+          "stop_qualifying": true,
+          "escalation": "none",
+          "signals": {
+            "has_area": false,
+            "has_property_type": false,
+            "has_budget": false,
+            "has_process_word": false,
+            "has_developer": false,
+            "prior_property_context": false,
+            "active_history": true
+          },
+          "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+        },
+        "reply": "Sohaib, noted — both groups. I’ll review and add the right way; your WhatsApp name is enough."
+      }
+    },
+    {
+      "test": "share_context_agent_group_quality",
+      "pass": true,
+      "detail": {
+        "intent": "group_access",
+        "judgment": {
+          "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+          "next_action": "verify_group_access",
+          "expected_next": "agent_group_onboarding_no_fake_action",
+          "ask_allowed": false,
+          "stop_qualifying": true,
+          "escalation": "none",
+          "signals": {
+            "has_area": false,
+            "has_property_type": true,
+            "has_budget": false,
+            "has_process_word": false,
+            "has_developer": false,
+            "prior_property_context": false,
+            "active_history": true
+          },
+          "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+        },
+        "reply": "Good, that fits the secondary group. Keep it serious: clean units, real inquiries, no spam."
+      }
+    },
+    {
+      "test": "display_name_correction_contextual",
+      "pass": true,
+      "detail": {
+        "intent": "correction",
+        "judgment": {
+          "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+          "next_action": "verify_group_access",
+          "expected_next": "agent_group_onboarding_no_fake_action",
+          "ask_allowed": false,
+          "stop_qualifying": true,
+          "escalation": "none",
+          "signals": {
+            "has_area": false,
+            "has_property_type": false,
+            "has_budget": false,
+            "has_process_word": false,
+            "has_developer": false,
+            "prior_property_context": true,
+            "active_history": true
+          },
+          "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+        },
+        "reply": "No issue, WhatsApp name is enough."
+      }
+    },
+    {
+      "test": "phone_add_person_not_greeting",
+      "pass": true,
+      "detail": {
+        "intent": "group_access",
+        "judgment": {
+          "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+          "next_action": "verify_group_access",
+          "expected_next": "agent_group_onboarding_no_fake_action",
+          "ask_allowed": false,
+          "stop_qualifying": true,
+          "escalation": "none",
+          "signals": {
+            "has_area": false,
+            "has_property_type": false,
+            "has_budget": true,
+            "has_process_word": false,
+            "has_developer": false,
+            "prior_property_context": true,
+            "active_history": true
+          },
+          "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+        },
+        "reply": "Received the number. Which company is he with? I’ll review before adding so we keep the group clean."
+      }
+    },
+    {
+      "test": "no_fake_group_completion_claims",
+      "pass": true,
+      "detail": {
+        "replies": [
+          "Sohaib, noted — you mean the DXB secondary/agent group. I’ll review and add if suitable.",
+          "Sohaib, noted — both groups. I’ll review and add the right way; your WhatsApp name is enough.",
+          "Good, that fits the secondary group. Keep it serious: clean units, real inquiries, no spam.",
+          "No issue, WhatsApp name is enough.",
+          "Received the number. Which company is he with? I’ll review before adding so we keep the group clean."
+        ]
+      }
+    }
+  ]
+}

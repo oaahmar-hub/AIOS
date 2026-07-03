@@ -1,0 +1,355 @@
+{
+  "generated_at": "2026-06-26T17:25:26.944298+00:00",
+  "case": {
+    "case_id": "i-want-a-veterinary-clinic-in-dubai-south",
+    "client_name": "Confidential Client",
+    "client_request": "I want a veterinary clinic in Dubai South",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg"
+  },
+  "proposal_title": "Dubai South Veterinary Clinic Proposal - Confidential Client",
+  "executive_pitch": "The strongest option today is 5% Discount | VAT Waiver | 30/70 Payment Plan | Direct From Developer because it gives the best balance of location fit, operational readiness, and alignment with the veterinary clinic launch. The secondary play is Bright | Fully Fitted Space | Partitioned, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with 5% Discount | VAT Waiver | 30/70 Payment Plan | Direct From Developer as the strongest clinic-fit launch option. Keep Bright | Fully Fitted Space | Partitioned as the lower-entry long-term alternative and Premium Retail Space | Great ROI | Flexible Plan | Dubai South as the immediate operations fallback if the client prioritizes opening speed over frontage.",
+  "top_candidates": [
+    {
+      "title": "5% Discount | VAT Waiver | 30/70 Payment Plan | Direct From Developer",
+      "commercial_mode": "sale",
+      "price_aed": 5550000,
+      "property_type": "shop",
+      "size_sqft": 1502,
+      "building": "Azizi Venice 14",
+      "area": "Azizi Venice, Dubai South, Dubai",
+      "developer": "Azizi Developments",
+      "availability": "off-plan",
+      "delivery_timeline": "Handover Q2 2026",
+      "payment_plan": "30/70",
+      "launch_mode": "near-term",
+      "footfall_profile": "high",
+      "parking_profile": "strong",
+      "license_fit": "probable",
+      "clinic_fit": "high",
+      "summary": "Best flagship retail play for a branded veterinary clinic with visible frontage, customer access, and room for treatment flow.",
+      "pros": [
+        "Retail frontage is the cleanest format for a client-facing veterinary clinic.",
+        "1,502 sqft can support reception, consult rooms, treatment, waiting, pharmacy, and grooming add-ons.",
+        "Near-term handover gives a credible launch path without waiting for 2027-2028 stock."
+      ],
+      "cons": [
+        "Higher capital commitment than the office fallback.",
+        "Still requires fit-out and approval lead time before trading."
+      ],
+      "source_url": "https://www.bayut.com/for-sale/shops/dubai/dubai-south/azizi-venice/",
+      "source_links": [
+        "https://www.bayut.com/for-sale/shops/dubai/dubai-south/azizi-venice/",
+        "https://www.bayut.com/property-market-analysis/transactions/sale/shops/dubai/dubai-south/azizi-venice/azizi-venice-14/"
+      ],
+      "map_query": "Azizi Venice 14 Dubai South Dubai",
+      "suitability_score": 100.0,
+      "investment_score": 58.0,
+      "combined_score": 88.2,
+      "entry_psf_aed": 3695.07,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "shop format matches the request profile",
+        "size supports flexible layout planning",
+        "near-term handover window",
+        "layout and positioning align well with the veterinary clinic launch",
+        "high catchment and customer-access potential",
+        "parking supports repeat visits and daily operations"
+      ],
+      "recommendation_risks": [],
+      "clinic_fit_score": 100.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "shop format matches the request profile",
+        "size supports flexible layout planning",
+        "near-term handover window",
+        "layout and positioning align well with the veterinary clinic launch",
+        "high catchment and customer-access potential",
+        "parking supports repeat visits and daily operations"
+      ],
+      "clinic_risks": [],
+      "investment_notes": [
+        "entry price around AED 3,695/sqft",
+        "earlier handover than most Dubai South off-plan retail stock",
+        "payment plan 30/70",
+        "developer: Azizi Developments"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Azizi+Venice+14+Dubai+South+Dubai",
+      "rank": 1
+    },
+    {
+      "title": "Bright | Fully Fitted Space | Partitioned",
+      "commercial_mode": "rent",
+      "price_aed": 350000,
+      "price_term": "yearly",
+      "property_type": "office",
+      "size_sqft": 2490,
+      "building": "Dubai South Business Park B3, The Avenue, Logistics City",
+      "area": "Dubai South, Dubai",
+      "developer": "Dubai South",
+      "availability": "ready",
+      "delivery_timeline": "Immediate occupancy",
+      "payment_plan": "lease",
+      "launch_mode": "immediate",
+      "footfall_profile": "medium",
+      "parking_profile": "strong",
+      "license_fit": "needs_confirmation",
+      "clinic_fit": "medium",
+      "summary": "Best immediate operating option if the client wants to open in 2026 rather than wait for off-plan delivery.",
+      "pros": [
+        "Fastest route to launch because the space is already fitted and partitioned.",
+        "Large floor plate can absorb reception, consultation rooms, treatment, staff, and storage.",
+        "Business Park positioning benefits from airport, port, and free-zone connectivity."
+      ],
+      "cons": [
+        "Office classification means clinical use needs stricter approval confirmation.",
+        "Stronger operationally than as a storefront brand play."
+      ],
+      "source_url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/",
+      "source_links": [
+        "https://www.bayut.com/to-rent/offices/dubai/dubai-south/",
+        "https://www.dubaisouth.ae/en/work/commercial-property/offices"
+      ],
+      "map_query": "Dubai South Business Park B3 The Avenue Logistics City Dubai South",
+      "suitability_score": 100.0,
+      "investment_score": 50.0,
+      "combined_score": 86.0,
+      "entry_psf_aed": 140.56,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile",
+        "size supports flexible layout planning",
+        "supports faster launch timeline",
+        "parking supports repeat visits and daily operations"
+      ],
+      "recommendation_risks": [
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 100.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile",
+        "size supports flexible layout planning",
+        "supports faster launch timeline",
+        "parking supports repeat visits and daily operations"
+      ],
+      "clinic_risks": [
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "entry price around AED 141/sqft",
+        "payment plan lease",
+        "developer: Dubai South"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+South+Business+Park+B3+The+Avenue+Logistics+City+Dubai+South",
+      "rank": 2
+    },
+    {
+      "title": "Premium Retail Space | Great ROI | Flexible Plan | Dubai South",
+      "commercial_mode": "sale",
+      "price_aed": 4500000,
+      "property_type": "shop",
+      "size_sqft": 1237,
+      "building": "Enre Residence by Imtiaz",
+      "area": "Residential District, Dubai South, Dubai",
+      "developer": "Imtiaz Developments",
+      "availability": "off-plan",
+      "delivery_timeline": "Handover Q1 2028",
+      "payment_plan": "60/40",
+      "launch_mode": "future",
+      "footfall_profile": "high",
+      "parking_profile": "strong",
+      "license_fit": "probable",
+      "clinic_fit": "high",
+      "summary": "Balanced long-term retail option on size versus entry ticket, but with a slower revenue start because of later handover.",
+      "pros": [
+        "1,237 sqft is efficient for a compact neighborhood clinic.",
+        "Lower capital outlay than the larger Azizi Venice flagship while staying in exact Dubai South catchment.",
+        "Residential District context aligns with repeat local pet-owner demand."
+      ],
+      "cons": [
+        "Later handover delays revenue compared with the top-ranked option.",
+        "Longer wait means more exposure to delivery timing."
+      ],
+      "source_url": "https://www.bayut.com/for-sale/shops/dubai/dubai-south/residential-district/",
+      "source_links": [
+        "https://www.bayut.com/for-sale/shops/dubai/dubai-south/residential-district/",
+        "https://www.bayut.com/for-sale/off-plan/commercial/dubai/dubai-south/"
+      ],
+      "map_query": "Enre Residence by Imtiaz Residential District Dubai South",
+      "suitability_score": 100.0,
+      "investment_score": 50.0,
+      "combined_score": 86.0,
+      "entry_psf_aed": 3637.83,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "shop format matches the request profile",
+        "size supports flexible layout planning",
+        "layout and positioning align well with the veterinary clinic launch",
+        "high catchment and customer-access potential",
+        "parking supports repeat visits and daily operations"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 100.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "shop format matches the request profile",
+        "size supports flexible layout planning",
+        "layout and positioning align well with the veterinary clinic launch",
+        "high catchment and customer-access potential",
+        "parking supports repeat visits and daily operations"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 3,638/sqft",
+        "longer wait but deeper community build-out potential",
+        "payment plan 60/40",
+        "developer: Imtiaz Developments"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Enre+Residence+by+Imtiaz+Residential+District+Dubai+South",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Dubai South remains a strategic growth corridor tied to Al Maktoum International Airport, free zone business setup, and mixed-use expansion.",
+    "Dubai South officially positions Business Park offices around airport, port, and free-zone access.",
+    "Dubai South public communications confirm Residential District amenities that support recurring neighborhood demand."
+  ],
+  "compliance_gates": [
+    "MOCCAE issues the veterinary establishment license through the official service directory.",
+    "Ministerial Resolution No. 34 of 2026 requires the relevant business license before a veterinary establishment can be created.",
+    "Ministerial Resolution No. 27 of 2026 sets health and technical requirements for veterinary establishments.",
+    "Dubai Municipality Veterinary Services Section remains a practical local coordination touchpoint."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 29 rows matching the area signal 'dubai south'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels."
+  ],
+  "internal_inventory_matches": [],
+  "internal_market_snapshot": {
+    "match_count": 0,
+    "priced_match_count": 0,
+    "median_price_aed": 0,
+    "min_price_aed": 0,
+    "max_price_aed": 0,
+    "top_projects": [],
+    "property_types": []
+  },
+  "next_steps": [
+    "Confirm allowed veterinary-clinic use against the specific unit category before commercial commitment.",
+    "Request floor plans, service-charge exposure, fit-out manual, and parking allocation for the top two options.",
+    "Sequence approvals: business license, MOCCAE veterinary establishment path, municipality technical approvals, and Civil Defence fit-out scope.",
+    "Prepare negotiation plan: reservation/payment-plan strategy for retail or lease strategy for the office fallback."
+  ],
+  "source_register": [
+    {
+      "label": "Bayut - Offices for Rent in Dubai South",
+      "url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Shops for Sale in Residential District, Dubai South",
+      "url": "https://www.bayut.com/for-sale/shops/dubai/dubai-south/residential-district/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Shops for Sale in Azizi Venice",
+      "url": "https://www.bayut.com/for-sale/shops/dubai/dubai-south/azizi-venice/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Dubai South - Office Space in Dubai South | Free Zone Offices & Business Park",
+      "url": "https://www.dubaisouth.ae/en/work/commercial-property/offices",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Dubai South newsroom - residential district amenities and resident scale",
+      "url": "https://www.dubaisouth.ae/en/newsroom/dubai-south-launches-south-square-sells-out-first-tower-within-three-hours",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "MOCCAE service directory - Issue a Veterinary Establishment License",
+      "url": "https://site.moccae.gov.ae/en/our-services/service-directory.aspx?DisableResponsive=1&mainCategory=272%3FmainCategory%3D272&subCategory=284",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "MOCCAE - Ministerial Resolution No. 34 of 2026",
+      "url": "https://moccae.gov.ae/assets/download/74f65cf7/Ministerial%20Resolution%20No.%2034%20of%202026%20.pdf.aspx",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "MOCCAE - Ministerial Resolution No. 27 of 2026",
+      "url": "https://moccae.gov.ae/assets/download/561a85a6/Ministerial%20Resolution%20No.%2027%20of%202026%20Concerning%20the%20Health%20and%20Technical%20Requirements%20for%20Veterinary%20Establishments%20.pdf.aspx",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Commercial Properties for Rent in Dubai South",
+      "url": "https://www.bayut.com/to-rent/commercial/dubai/dubai-south/",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "I want a veterinary clinic in Dubai South",
+    "source_mode": "text",
+    "area": "dubai south",
+    "use_case": "veterinary_clinic",
+    "property_preference": "commercial",
+    "bedroom_preference": "",
+    "intent": "business_setup",
+    "source_url": ""
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 29,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8152f8d531d5__0b6d5056-6676-49bd-95d3-8aa95b9e9645.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/9a67a30158f8__45f01248-d6bd-4073-bfd8-929c2ac71298.jpg"
+      ]
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "READY FOR AGENT REVIEW BEFORE CLIENT SEND",
+    "review_notes": [
+      "Sector-specific licensing and fit-out constraints remain a gating item before execution."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-vet-internal-market.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-vet-internal-market.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-vet-internal-market.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-vet-internal-market.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T17:25:26.947045+00:00",
+    "request_profile": {
+      "raw_request": "I want a veterinary clinic in Dubai South",
+      "source_mode": "text",
+      "area": "dubai south",
+      "use_case": "veterinary_clinic",
+      "property_preference": "commercial",
+      "bedroom_preference": "",
+      "intent": "business_setup",
+      "source_url": ""
+    },
+    "provider_summary": {
+      "strategy_used": true,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": false,
+      "internal_evidence_rows": 1
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/realty-vet-internal-market.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

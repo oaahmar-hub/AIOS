@@ -1,0 +1,40 @@
+{
+  "engine": "AIOS Modular Bridge Engine",
+  "strategies": [
+    "direct_url_to_unit",
+    "listing_reference_to_unit",
+    "broker_reference_to_unit",
+    "permit_to_unit",
+    "property_number_to_unit",
+    "plot_land_to_unit",
+    "ai_similarity_candidate_matching"
+  ],
+  "current_data_counts": {
+    "records": 26166,
+    "unit_records": 24357,
+    "url_records": 221,
+    "listing_reference_records": 220,
+    "permit_records": 15,
+    "property_number_records": 149,
+    "plot_land_records": 317
+  },
+  "bridge_investigation_summary": {
+    "records_scanned": 89585,
+    "url_rows_found": 790,
+    "unique_listing_urls_found": 221,
+    "direct_url_plus_unit_rows": 0,
+    "direct_url_plus_identifier_rows_without_unit_link": 196,
+    "direct_exact_url_to_unit_rows": 0,
+    "combined_bridge_paths": 0,
+    "combined_exact_url_count_supported": 0,
+    "outputs": {
+      "source_inventory_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/bridge_source_inventory.csv",
+      "candidate_evidence_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/bridge_candidate_evidence.csv",
+      "combined_paths_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/combined_bridge_paths.csv",
+      "report_md": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/BridgeInvestigation/BRIDGE_DATA_INVESTIGATION_REPORT.md"
+    },
+    "normalized_decision": "freeze_deterministic_url_to_unit_bridge_only",
+    "unit_finder_state": "extensible_through_modular_bridge_engine",
+    "superseded_recommendation": "permanently_freeze_url_mapping_until_bridge_data"
+  }
+}

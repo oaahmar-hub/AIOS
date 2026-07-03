@@ -1,0 +1,48 @@
+{
+  "33644655014": {
+    "desktop_chat_name": "Vetn Stuff",
+    "known_chat": true,
+    "known_contact_name": "Vetn",
+    "last_expected_next": "direct_answer",
+    "last_message_excerpt": "Super stupid",
+    "last_next_action": "answer",
+    "last_seen_ms": 1782157601702,
+    "last_social_context": "business_or_general",
+    "last_unresolved_topic": "direct_answer",
+    "latest_message_language": "english",
+    "locked": true,
+    "notes": "Trusted internal contact interaction style. Personality profile only; privacy restrictions still apply.",
+    "preferred_detail_level": "brief_execution_or_checklist",
+    "preferred_language": "english",
+    "preferred_tone": "internal_execution",
+    "relationship": "Staff",
+    "source": "manual_contact_alias",
+    "special_contact_profile_id": "vetn",
+    "special_contact_profile_role": "Trusted Internal Contact",
+    "updated_at_ms": 1782157600748
+  },
+  "919560510000": {
+    "known_chat": true,
+    "known_contact_name": "Suniil Bro Minister's Poa",
+    "last_expected_next": "direct_answer",
+    "last_message_excerpt": "U r a rockstat",
+    "last_next_action": "answer",
+    "last_seen_ms": 1782156749483,
+    "last_social_context": "business_or_general",
+    "last_unresolved_topic": "direct_answer",
+    "latest_message_language": "english",
+    "preferred_detail_level": "short_continue_context",
+    "preferred_language": "english",
+    "preferred_tone": "personal_premium",
+    "relationship": "Existing Client",
+    "source": "stored",
+    "updated_at_ms": 1782156739668
+  },
+  "971500009999": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "relationship": "New Client",
+    "source": "stored",
+    "updated_at_ms": 1782151132949
+  }
+}

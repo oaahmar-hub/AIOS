@@ -1,0 +1,178 @@
+{
+  "report": "PRODUCTION_HOSTING_FINAL_VALIDATION",
+  "created_utc": "2026-06-24T08:49:00Z",
+  "final_classification": "PARTIAL",
+  "classification_reason": "Deployment package validates locally, but no permanent public backend/frontend URL was created because hosting CLIs are not installed, no deployment login/session is available, and required production env secrets are missing from environment.",
+  "hosting_platform_selected": {
+    "recommended_host": "Railway",
+    "frontend_host": "Vercel or Cloudflare Pages",
+    "reason": [
+      "Railway supports Docker Python backend deployments from deployment/hosted-backend.",
+      "Railway supports environment variables, public URLs, HTTPS, logs, and custom domains.",
+      "Railway Hobby is within the target low-cost range for a small always-on backend.",
+      "Vercel or Cloudflare Pages are appropriate for the static frontend package."
+    ],
+    "monthly_expected_cost_usd": "Railway Hobby minimum $5/month plus usage; expected AIOS small backend target $5-15/month. Static frontend can be free or low-cost depending provider/domain.",
+    "risks": [
+      "Usage-based billing can exceed $15/month if traffic or memory grows.",
+      "Railway persistent disk requires a Volume for durable runtime state.",
+      "Webhook cannot be switched until the backend has a stable public URL.",
+      "Auth/domain require host login and DNS access."
+    ],
+    "sources": [
+      "https://railway.com/pricing",
+      "https://docs.railway.com/pricing/plans",
+      "https://render.com/pricing",
+      "https://fly.io/docs/about/pricing/"
+    ]
+  },
+  "deployment_package_audit": {
+    "deployment_ready": "YES_FOR_PACKAGE_LOCAL_VALIDATION",
+    "production_deployment_ready": "NO_PUBLIC_HOST_BLOCKED",
+    "backend": {
+      "path": "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend",
+      "entrypoint": "app.py",
+      "dockerfile": "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend/Dockerfile",
+      "railway_config": "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend/railway.json",
+      "render_config": "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend/render.yaml",
+      "env_example": "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend/.env.production.example",
+      "routes": [
+        "GET /health",
+        "GET /api/health",
+        "GET /api/status",
+        "GET /api/runtime/status",
+        "POST /api/ask",
+        "POST /webhook/whatsapp/simple"
+      ]
+    },
+    "frontend": {
+      "path": "/Users/hassanka/Downloads/AIOS/deployment/web-platform",
+      "static_config": "/Users/hassanka/Downloads/AIOS/deployment/web-platform/vercel.json",
+      "api_config_shim": "/Users/hassanka/Downloads/AIOS/deployment/web-platform/aios-config.js",
+      "pages": [
+        "index.html",
+        "AIOS-DASHBOARD.html",
+        "AIOS-RUNTIME-STATUS.html",
+        "AIOS-MOBILE-APP.html"
+      ]
+    },
+    "required_fixes_completed": [
+      "Added Basic Auth gate for protected API/status routes.",
+      "Added optional webhook shared-secret gate.",
+      "Added /api/health alias for frontend compatibility.",
+      "Added /api/runtime/status alias.",
+      "Corrected frontend health probes to /health.",
+      "Added non-secret frontend config shim.",
+      "Added .env.production.example.",
+      "Updated hosted backend deployment docs."
+    ],
+    "missing_files": [],
+    "missing_commands": [
+      "railway CLI not installed",
+      "vercel CLI not installed",
+      "fly CLI not installed",
+      "render CLI not installed",
+      "docker not installed"
+    ]
+  },
+  "environment_validation": {
+    "missing_required": [
+      "WASENDER_API_KEY",
+      "AIOS_BASIC_AUTH_USER",
+      "AIOS_BASIC_AUTH_PASSWORD"
+    ],
+    "missing_optional_or_contextual": [
+      "WA_SIMPLE_OPENAI_ENDPOINT",
+      "AIOS_ALLOWED_ORIGIN",
+      "AIOS_WEBHOOK_SECRET",
+      "AIOS_ROOT",
+      "AIRTABLE_API_KEY",
+      "AIRTABLE_BASE_ID",
+      "AIRTABLE_TABLE_ID",
+      "AIRTABLE_LEADS_TABLE",
+      "AIRTABLE_CONTACTS_TABLE",
+      "OPENAI_API_KEY",
+      "AIOS_API_BASE",
+      "AIOS_API_BASE_URL",
+      "AIOS_DOMAIN"
+    ],
+    "secret_values_exposed": false
+  },
+  "local_backend_validation": {
+    "started": true,
+    "port": 18180,
+    "python_compile": "PASS",
+    "health": {
+      "path": "/health",
+      "http_status": 200,
+      "status": "online"
+    },
+    "api_health": {
+      "path": "/api/health",
+      "http_status": 200,
+      "status": "online"
+    },
+    "auth": {
+      "api_status_without_auth": 401,
+      "api_status_with_auth": 200,
+      "api_runtime_status_with_auth": 200
+    },
+    "api_ask": {
+      "http_status": 200,
+      "result": "route_request responded",
+      "note": "Local route completed but took longer than ideal for production smoke test."
+    },
+    "webhook": {
+      "without_secret": 401,
+      "with_secret_empty_payload": 200,
+      "with_secret_result": "ignored empty payload accepted"
+    }
+  },
+  "local_frontend_validation": {
+    "static_server_port": 18181,
+    "pages": {
+      "/": 200,
+      "/AIOS-DASHBOARD.html": 200,
+      "/AIOS-RUNTIME-STATUS.html": 200,
+      "/AIOS-MOBILE-APP.html": 200,
+      "/app.js": 200,
+      "/aios-config.js": 200,
+      "/manifest.json": 200,
+      "/sw.js": 200
+    }
+  },
+  "public_deployment": {
+    "backend_url": null,
+    "frontend_url": null,
+    "health_endpoint": null,
+    "webhook_url": null,
+    "domain": null,
+    "auth_public_validation": "NOT_RUN_NO_PUBLIC_HOST",
+    "whatsapp_hosted_inbound": "NOT_RUN_NO_PUBLIC_HOST",
+    "whatsapp_hosted_outbound": "NOT_RUN_NO_PUBLIC_HOST",
+    "delivery_proof": "NOT_RUN_NO_PUBLIC_HOST"
+  },
+  "blockers": [
+    "Hosting CLI/session missing: railway/vercel/fly/render commands not installed.",
+    "Deployment login/OAuth approval required.",
+    "Required production env secrets not present in environment.",
+    "No public backend URL exists yet.",
+    "No public frontend URL exists yet.",
+    "Wasender webhook cannot be switched without a stable backend URL.",
+    "Domain/DNS access required for aios.hshglobaldubai.com."
+  ],
+  "files_changed": [
+    "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend/app.py",
+    "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend/.env.production.example",
+    "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend/RAILWAY_DEPLOY.md",
+    "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend/README.md",
+    "/Users/hassanka/Downloads/AIOS/deployment/web-platform/index.html",
+    "/Users/hassanka/Downloads/AIOS/deployment/web-platform/AIOS-DASHBOARD.html",
+    "/Users/hassanka/Downloads/AIOS/deployment/web-platform/AIOS-RUNTIME-STATUS.html",
+    "/Users/hassanka/Downloads/AIOS/deployment/web-platform/AIOS-MOBILE-APP.html",
+    "/Users/hassanka/Downloads/AIOS/deployment/web-platform/aios-config.js",
+    "/Users/hassanka/Downloads/AIOS/proofs/PRODUCTION_HOSTING_FINAL_REPORT.md",
+    "/Users/hassanka/Downloads/AIOS/proofs/PRODUCTION_HOSTING_FINAL_VALIDATION.json",
+    "/Users/hassanka/Downloads/AIOS/proofs/HOSTING_ENV_CHECKLIST.md"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-06-27T02:55:02+00:00",
+  "truth_bridge_quality_score": 48.28,
+  "total_bridge_rows": 1247,
+  "distribution": {
+    "Exact": 42,
+    "High-confidence": 72,
+    "Partial": 738,
+    "Weak": 386,
+    "Unusable": 9
+  },
+  "percentages": {
+    "Exact": 3.37,
+    "High-confidence": 5.77,
+    "Partial": 59.18,
+    "Weak": 30.95,
+    "Unusable": 0.72
+  },
+  "remaining_data_gaps": [
+    "Public listing rows still rarely carry same-row unit number, property number, or permit number.",
+    "Broker reference rows exist, but most are not yet linked to exact unit-bearing inventory records.",
+    "Active Listings and Dubai_brokers contribute unit/building truth but weak public-bridge linkage.",
+    "Bitrix24/raw sample and Runtime Memory Ledger did not contribute bridge-usable rows in current import.",
+    "Only one public listing CPID is currently visible in PropertyGraph despite the higher bridge row count."
+  ],
+  "recommended_high_value_sources": [
+    "BAYUT OVER ALL LEAD.xlsx: highest volume of URL/listing-id/broker-reference rows; needs same-row or linked permit/property/unit enrichment.",
+    "Listings (1).xlsx and files with the same schema: currently the strongest exact bridge source.",
+    "Secondary Listings LINKS EXCEL.xlsx joined with inventory/unit sheets: already has URLs and listing IDs, but lacks exact unit linkage.",
+    "Active Listings.xlsx combined with portal export fields: has unit/building truth, but needs listing reference or permit linkage.",
+    "CRM / Bitrix structured exports with broker reference, permit, property number, and unit in one row: highest-value missing bridge source."
+  ],
+  "evidence": {
+    "rows_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/TruthIngestion/outputs/truth_bridge_quality_rows.csv",
+    "report_md": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/TruthIngestion/outputs/TRUTH_BRIDGE_QUALITY_REPORT.md",
+    "summary_json": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/TruthIngestion/outputs/truth_bridge_quality_summary.json"
+  }
+}

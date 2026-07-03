@@ -1,0 +1,67 @@
+{
+  "contact_id": "recdLDE1PPqfGwfJa",
+  "conversation_id": "proof-20260623T115347Z",
+  "before_record": {
+    "id": "recdLDE1PPqfGwfJa",
+    "full_name": "AIOS Execution Test Lead",
+    "phone": "+971500009999",
+    "comms_log_links": [
+      {
+        "id": "reckvLrpv8u050LRP",
+        "name": "Inbound lead captured: Rental / Tenant. AI reply generated: Thanks. Please confirm area, property type, bedrooms, and budget range in AED. I’ll shortlist suitable options."
+      }
+    ]
+  },
+  "mutation_payload": {
+    "table": "Comms log",
+    "record_fields": {
+      "Summary": "AIOS CRM live proof 2026-06-23",
+      "Channel": "WhatsApp",
+      "Direction": "In",
+      "Template category": "Service",
+      "Body": "Safe validation record. Inbound interaction captured for live CRM write-back proof. No outbound WhatsApp sent.",
+      "Sent at": "2026-06-23T10:00:00.000Z",
+      "Contact": [
+        "recdLDE1PPqfGwfJa"
+      ]
+    },
+    "airtable_action_id": "actehN5WvYzrCSE95"
+  },
+  "after_record": {
+    "contact": {
+      "id": "recdLDE1PPqfGwfJa",
+      "full_name": "AIOS Execution Test Lead",
+      "phone": "+971500009999",
+      "comms_log_links": [
+        {
+          "id": "reckvLrpv8u050LRP",
+          "name": "Inbound lead captured: Rental / Tenant. AI reply generated: Thanks. Please confirm area, property type, bedrooms, and budget range in AED. I’ll shortlist suitable options."
+        },
+        {
+          "id": "recc9uae4n7oc280F",
+          "name": "AIOS CRM live proof 2026-06-23"
+        }
+      ]
+    },
+    "comms_log_record": {
+      "id": "recc9uae4n7oc280F",
+      "summary": "AIOS CRM live proof 2026-06-23",
+      "channel": "WhatsApp",
+      "direction": "In",
+      "template_category": "Service",
+      "body": "Safe validation record. Inbound interaction captured for live CRM write-back proof. No outbound WhatsApp sent.",
+      "sent_at": "2026-06-23T10:00:00.000Z",
+      "contact_links": [
+        {
+          "id": "recdLDE1PPqfGwfJa",
+          "name": "AIOS Execution Test Lead"
+        }
+      ]
+    }
+  },
+  "writeback_success": true,
+  "writeback_timestamp": "2026-06-23T11:53:47.000Z",
+  "source_log_path": "/Users/hassanka/Downloads/AIOS/data/transport/simple_whatsapp_gateway.log.jsonl",
+  "crm_target": "Airtable CRM / Comms log",
+  "errors": []
+}

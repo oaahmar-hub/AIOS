@@ -1,0 +1,95 @@
+{
+  "validated_at": "2026-06-27T15:38:43.101096+00:00",
+  "base_url": "https://aios-runtime-production.up.railway.app",
+  "visual_base_url": "https://aios-runtime-production.up.railway.app",
+  "passed": false,
+  "checks_passed": 2,
+  "checks_total": 9,
+  "runtime_ready": false,
+  "runtime_ready_percent": 0,
+  "production_deployment": "pending",
+  "public_beta_ready": false,
+  "temporary_preview": true,
+  "auth_required": true,
+  "auth_protection_pass": false,
+  "whatsapp_hosted_pass": true,
+  "whatsapp_backend_ingress_pass": false,
+  "gate_checks": [
+    {
+      "name": "hosted_runtime",
+      "passed": false
+    },
+    {
+      "name": "visual_presence",
+      "passed": false
+    },
+    {
+      "name": "eye_motion",
+      "passed": false
+    },
+    {
+      "name": "orchestrator",
+      "passed": false
+    },
+    {
+      "name": "auth_protection",
+      "passed": false
+    },
+    {
+      "name": "whatsapp_backend_ingress",
+      "passed": false
+    },
+    {
+      "name": "whatsapp_provider_live",
+      "passed": true
+    },
+    {
+      "name": "public_health",
+      "passed": true
+    },
+    {
+      "name": "permanent_domain",
+      "passed": false
+    }
+  ],
+  "checks": {
+    "hosted_runtime": {
+      "passed": false,
+      "checks_passed": 10,
+      "checks_total": 18,
+      "auth_mode": "none",
+      "source": "live_validation",
+      "report": "central_orchestrator/reports/HOSTED_RUNTIME_VALIDATION.json"
+    },
+    "visual_presence": {
+      "passed": true,
+      "checks_passed": 0,
+      "checks_total": 0,
+      "report": "central_orchestrator/reports/VISUAL_PRESENCE_VALIDATION.json",
+      "skipped": true
+    },
+    "eye_motion": {
+      "passed": true,
+      "checks_passed": 0,
+      "checks_total": 0,
+      "report": "central_orchestrator/reports/EYE_MOTION_VALIDATION.json",
+      "skipped": true,
+      "source": "live_validation"
+    },
+    "orchestrator": {
+      "passed": true,
+      "skipped": true
+    }
+  },
+  "blockers": [
+    "Hosted runtime validation did not pass.",
+    "Visual presence validation was skipped; screenshot proof is still required.",
+    "10-second Eye motion validation was skipped; motion proof is still required.",
+    "Internal AIOS orchestrator validation was skipped.",
+    "Public URL is temporary; attach permanent frontend/backend hosting and domain.",
+    "Production authentication is not enabled or was not validated with Basic Auth credentials.",
+    "Production authentication rejection checks did not pass.",
+    "Hosted WhatsApp backend ingress, verification, and provider webhook checks did not pass."
+  ],
+  "next_action": "Deploy to permanent host/domain, enable auth secrets, connect WhatsApp to hosted runtime, then rerun this gate."
+}

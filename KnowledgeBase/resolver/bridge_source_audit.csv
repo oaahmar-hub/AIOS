@@ -1,0 +1,11 @@
+bridge_source,availability,evidence_note,supporting_context
+listing screenshots,missing,0 OCR-indexed screenshot bridge rows in resolver outputs,OCR/image-based bridge not indexed in resolver
+broker reference databases,missing,0 rows with broker-reference-like text + unit,No structured local broker reference dataset found
+agent/company inventory exports,partially available,"24,357 local unit rows exist, but 0 contain listing URL + unit",Inventory/unit exports exist but are not linked to listing URLs
+Property Finder reports/export files,partially available,Property Finder URLs present in corpus; 0 meaningful listing URL + unit rows,"Property Finder URLs exist locally, but not with unit-bearing bridge fields"
+Bayut/Dubizzle saved listing exports,partially available,"82 listing URL + identifier rows exist, but 0 meaningful identifier bridges","Bayut and Dubizzle URLs exist locally, but identifier fields are parser-noise only"
+DLD/Dubai REST/permit datasets,partially available,"Permit/plot fields exist in corpus pockets, but 0 benchmark listings bridge through meaningful identifiers",Permit/plot data exists in small pockets but does not join to benchmark listings
+CRM records,missing,No local CRM-shaped listing URL + unit dataset detected,No local CRM table with listing URL and unit join was found
+WhatsApp messages that include both listing link and unit number,missing,0 WhatsApp messages with link + unit,Direct WhatsApp bridge rows are the most important internal check
+old Excel files with listing URL + unit number,missing,0 resolver rows with listing URL + unit,Spreadsheet bridge would allow internal exact URL to unit joins
+owner/unit databases,available now,Large local owner/unit corpus exists but without listing-link bridge,Large local unit corpus exists but without URL-level identifiers

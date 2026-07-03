@@ -1,0 +1,20 @@
+{
+  "app_name": "AIOS Command Center",
+  "subtitle": "HSH Global Dubai operating system",
+  "bundle_id_ios": "com.hshglobaldubai.aios",
+  "package_name_android": "com.hshglobaldubai.aios",
+  "category": "Business",
+  "age_rating": "4+",
+  "support_url": "https://hshglobaldubai.com",
+  "marketing_url": "https://aios.hshglobaldubai.com",
+  "privacy_policy_url": "https://aios.hshglobaldubai.com/privacy",
+  "short_description": "AI command center for HSH real estate operations.",
+  "full_description": "AIOS is the private command center for HSH Global Dubai operations, property intelligence, communications, tasks, and executive workflows.",
+  "data_safety": {
+    "collects_contact_info": true,
+    "collects_messages": true,
+    "collects_business_data": true,
+    "sells_data": false,
+    "third_party_sharing": "Only operational service providers required to run AIOS."
+  }
+}

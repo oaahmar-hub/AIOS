@@ -1,0 +1,1167 @@
+{
+  "previous_unit_records_resolved": 433,
+  "classification": "PARTIAL",
+  "total_records_indexed": 26166,
+  "permit_numbers_found": 2,
+  "property_numbers_found": 131,
+  "plot_land_numbers_found": 288,
+  "listing_urls_ids_found": 216,
+  "urls_found": 221,
+  "listing_ids_extracted": 216,
+  "pdf_files_scanned": 20,
+  "pdf_ids_extracted": 11,
+  "unit_records_resolved": 6992,
+  "new_unit_records_resolved": 6559,
+  "remaining_unresolved_records": 19174,
+  "confidence_distribution_90_plus": 5664,
+  "confidence_distribution_80_89": 1921,
+  "confidence_distribution_70_79": 0,
+  "confidence_distribution_below_70": 18581,
+  "restricted_owner_contact_rows": 23160,
+  "quality_flags": 1129,
+  "test_count": 50,
+  "url_success_matches": 0,
+  "id_success_matches": 0,
+  "top_failure_reasons": [
+    "identifier present but no matching complete record:379",
+    "owner/contact-only signals with missing unit/building:16581",
+    "missing unit/building despite project/context:2076",
+    "listing links without unit/building:138"
+  ],
+  "database_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/unit_resolver_database.sqlite",
+  "identity_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/listing_identity_map.csv",
+  "identity_json": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/listing_identity_map.json",
+  "resolver_index": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/unit_resolver_index.csv",
+  "unresolved_records_review": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/unresolved_records_review.csv",
+  "unresolved_failure_groups": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/unresolved_failure_groups.csv",
+  "unit_completion_evidence": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/unit_completion_merge_evidence.csv",
+  "aliases": {
+    "area_aliases": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/area_aliases.json",
+    "project_aliases": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/project_aliases.json",
+    "building_aliases": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/building_aliases.json",
+    "developer_aliases": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/developer_aliases.json"
+  },
+  "test_report": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/resolver_test_report.md",
+  "tests": [
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/en/new-projects/damac-properties/capri-phase-2-by-damac."
+      },
+      "confidence_score": 78,
+      "basis": "url_slug_area_project_tokens",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/en/new-projects/emaar-properties/vida-residences-hillside."
+      },
+      "confidence_score": 78,
+      "basis": "url_slug_area_project_tokens",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/go/QET3ZXC09BEVH6F1EQPKQHSAH4/en."
+      },
+      "confidence_score": 0,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/en/new-projects/emaar-properties/avarra-by-palace."
+      },
+      "confidence_score": 78,
+      "basis": "url_slug_area_project_tokens",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/en/new-projects/beyond/arancia-yards."
+      },
+      "confidence_score": 78,
+      "basis": "url_slug_area_project_tokens",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/en/agent/306990."
+      },
+      "confidence_score": 92,
+      "basis": "exact_listing_id_from_url",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/en/new-projects/emaar-properties/creek-bay."
+      },
+      "confidence_score": 78,
+      "basis": "url_slug_area_project_tokens",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/en/new-projects/object-1-contemporary-development/tetris-tower."
+      },
+      "confidence_score": 78,
+      "basis": "url_slug_area_project_tokens",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/en/new-projects/emaar-properties/orchid-at-creek-beach."
+      },
+      "confidence_score": 78,
+      "basis": "url_slug_area_project_tokens",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "listing_url": "https://www.propertyfinder.ae/en/new-projects/sobha-real-estate-llc/sobha-coraline-beach-residences."
+      },
+      "confidence_score": 78,
+      "basis": "url_slug_area_project_tokens",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "listing_link"
+    },
+    {
+      "query": {
+        "permit_number": "27459"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "permit_number"
+    },
+    {
+      "query": {
+        "permit_number": "51392"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "bfa7b5be0ca77b09",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Contract F - Plot 18- Palm Crown - New  (1).pdf"
+      },
+      "type": "permit_number"
+    },
+    {
+      "query": {
+        "property_number": "/awards 2025/dubai/"
+      },
+      "confidence_score": 98,
+      "basis": "exact_property_number",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "property_number"
+    },
+    {
+      "query": {
+        "property_number": "/details 11353397"
+      },
+      "confidence_score": 98,
+      "basis": "exact_property_number",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "property_number"
+    },
+    {
+      "query": {
+        "property_number": "/details 12329394"
+      },
+      "confidence_score": 98,
+      "basis": "exact_property_number",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "property_number"
+    },
+    {
+      "query": {
+        "property_number": "/details 12332752"
+      },
+      "confidence_score": 98,
+      "basis": "exact_property_number",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "property_number"
+    },
+    {
+      "query": {
+        "property_number": "/details 12448505"
+      },
+      "confidence_score": 98,
+      "basis": "exact_property_number",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "property_number"
+    },
+    {
+      "query": {
+        "property_number": "/details 12563817"
+      },
+      "confidence_score": 98,
+      "basis": "exact_property_number",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "property_number"
+    },
+    {
+      "query": {
+        "property_number": "/details 12685587"
+      },
+      "confidence_score": 98,
+      "basis": "exact_property_number",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "property_number"
+    },
+    {
+      "query": {
+        "property_number": "/details 12692810"
+      },
+      "confidence_score": 98,
+      "basis": "exact_property_number",
+      "record": {
+        "resolver_record_id": "7f9f69f79ea5c7e8",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "WhatsApp ChatStorage.sqlite"
+      },
+      "type": "property_number"
+    },
+    {
+      "query": {
+        "permit_number": "27459"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "permit_number": "27459"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "permit_number": "51392"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "bfa7b5be0ca77b09",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Contract F - Plot 18- Palm Crown - New  (1).pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "permit_number": "27459"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "permit_number": "27459"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "plot_number": "581"
+      },
+      "confidence_score": 96,
+      "basis": "exact_plot_number",
+      "record": {
+        "resolver_record_id": "e80dd63b3f83af52",
+        "area": "",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Tiger",
+        "owner_contact_available": "NO",
+        "source_file": "Tiger Sky Tower-3902TigerContract document.pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "permit_number": "27459"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "permit_number": "27459"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "permit_number": "27459"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "permit_number": "27459"
+      },
+      "confidence_score": 99,
+      "basis": "exact_permit_number",
+      "record": {
+        "resolver_record_id": "b1badf3f5a7ce994",
+        "area": "Palm Jumeirah",
+        "project": "",
+        "building": "",
+        "unit": "",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "Nakheel",
+        "owner_contact_available": "NO",
+        "source_file": "Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf"
+      },
+      "type": "pdf_extraction"
+    },
+    {
+      "query": {
+        "area": "B.T 5225 Maria Del Carmen Gamarra Apartment 2205 Beach Tower 1 97.25 m2 508242463",
+        "project": "Beach Tower",
+        "building": "t 5225 maria del carmen gamarra apartment 2205 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5225 Maria Del Carmen Gamarra Apartment 2205 Beach Tower 1 97.25 m2 508242463",
+        "project": "Beach Tower",
+        "building": "t 5225 maria del carmen gamarra apartment 2205 beach tower",
+        "unit": "2205",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "B.T 5226 Hussain Abdulrahim Abdulla Apartment 2206 Beach Tower 2 156.69 m2 551111171",
+        "project": "Beach Tower",
+        "building": "t 5226 hussain abdulrahim abdulla apartment 2206 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5226 Hussain Abdulrahim Abdulla Apartment 2206 Beach Tower 2 156.69 m2 551111171",
+        "project": "Beach Tower",
+        "building": "t 5226 hussain abdulrahim abdulla apartment 2206 beach tower",
+        "unit": "2206",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "B.T 5227 Andrew Robert Bainbridge Apartment 2207 Beach Tower 3 194.23 m2 504467695",
+        "project": "Beach Tower",
+        "building": "t 5227 andrew robert bainbridge apartment 2207 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5227 Andrew Robert Bainbridge Apartment 2207 Beach Tower 3 194.23 m2 504467695",
+        "project": "Beach Tower",
+        "building": "t 5227 andrew robert bainbridge apartment 2207 beach tower",
+        "unit": "2207",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "B.T 5228 Luc M T Tambeur Apartment 2208 Beach Tower 4 247.59 m2 502365216",
+        "project": "Beach Tower",
+        "building": "t 5228 luc m t tambeur apartment 2208 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5228 Luc M T Tambeur Apartment 2208 Beach Tower 4 247.59 m2 502365216",
+        "project": "Beach Tower",
+        "building": "t 5228 luc m t tambeur apartment 2208 beach tower",
+        "unit": "2208",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "B.T 5229 Adeel Mohammed Ghias Apartment 2301 Beach Tower 1 88.68 m2 552007626",
+        "project": "Beach Tower",
+        "building": "t 5229 adeel mohammed ghias apartment 2301 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5229 Adeel Mohammed Ghias Apartment 2301 Beach Tower 1 88.68 m2 552007626",
+        "project": "Beach Tower",
+        "building": "t 5229 adeel mohammed ghias apartment 2301 beach tower",
+        "unit": "2301",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "B.T 5230 Fadi Fakhry Alame Apartment 2302 Beach Tower 1 76.96 m2 506428877",
+        "project": "Beach Tower",
+        "building": "t 5230 fadi fakhry alame apartment 2302 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5230 Fadi Fakhry Alame Apartment 2302 Beach Tower 1 76.96 m2 506428877",
+        "project": "Beach Tower",
+        "building": "t 5230 fadi fakhry alame apartment 2302 beach tower",
+        "unit": "2302",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "B.T 5231 Khalid Ali Ibrahim Jasem Apartment 2303 Beach Tower 1 94.40 m2 503133313",
+        "project": "Beach Tower",
+        "building": "t 5231 khalid ali ibrahim jasem apartment 2303 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5231 Khalid Ali Ibrahim Jasem Apartment 2303 Beach Tower 1 94.40 m2 503133313",
+        "project": "Beach Tower",
+        "building": "t 5231 khalid ali ibrahim jasem apartment 2303 beach tower",
+        "unit": "2303",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "B.T 5232 Al Badi Group Apartment 2304 Beach Tower 1 113.66 m2 506222382",
+        "project": "Beach Tower",
+        "building": "t 5232 al badi group apartment 2304 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5232 Al Badi Group Apartment 2304 Beach Tower 1 113.66 m2 506222382",
+        "project": "Beach Tower",
+        "building": "t 5232 al badi group apartment 2304 beach tower",
+        "unit": "2304",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "B.T 5233 Hashem Abdul Hussain Apartment 2401 Beach Tower 1 88.68 m2 506416147",
+        "project": "Beach Tower",
+        "building": "t 5233 hashem abdul hussain apartment 2401 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5233 Hashem Abdul Hussain Apartment 2401 Beach Tower 1 88.68 m2 506416147",
+        "project": "Beach Tower",
+        "building": "t 5233 hashem abdul hussain apartment 2401 beach tower",
+        "unit": "2401",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "B.T 5234 Allison Kathleen Smith Apartment 2402 Beach Tower 1 79.96 m2 555127882",
+        "project": "Beach Tower",
+        "building": "t 5234 allison kathleen smith apartment 2402 beach tower"
+      },
+      "confidence_score": 45,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "0274e6abab0d15f9",
+        "area": "B.T 5234 Allison Kathleen Smith Apartment 2402 Beach Tower 1 79.96 m2 555127882",
+        "project": "Beach Tower",
+        "building": "t 5234 allison kathleen smith apartment 2402 beach tower",
+        "unit": "2402",
+        "size": "",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx"
+      },
+      "type": "area_project_building"
+    },
+    {
+      "query": {
+        "area": "5 VNR125 1 ST A Simplex Neighbor Plot 271.25028 123.03137699999999 394.281657 568264.3473385997",
+        "project": "",
+        "building": "",
+        "unit": "VNR125",
+        "size": "",
+        "bedrooms": "st"
+      },
+      "confidence_score": 35,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "2e97d487d7221bf3",
+        "area": "1 VNR121 1 ST A Simplex Neighbor Plot 271.25028 123.03137699999999 394.281657 568264.3473385997",
+        "project": "",
+        "building": "",
+        "unit": "VNR121",
+        "size": "",
+        "bedrooms": "st",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx"
+      },
+      "type": "random_inventory_row"
+    },
+    {
+      "query": {
+        "area": "115 B 32 51L Duplex 2 BR A Amenities Single Row 107.1225 39.8475 146.97 1100000",
+        "project": "",
+        "building": "",
+        "unit": "51L",
+        "size": "",
+        "bedrooms": "2"
+      },
+      "confidence_score": 35,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "3501bc55b1b82807",
+        "area": "57 B 21 51R Duplex 2 BR A Amenities Single Row 107.1225 39.8475 146.97 1100000",
+        "project": "",
+        "building": "",
+        "unit": "51R",
+        "size": "",
+        "bedrooms": "2",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Reportage_Inventory__3014__39097fe6b2.xlsx"
+      },
+      "type": "random_inventory_row"
+    },
+    {
+      "query": {
+        "area": "3 VFR1321 13 2B B Pool 897.60996 81.91404 979.524 1290000",
+        "project": "",
+        "building": "",
+        "unit": "VFR1321",
+        "size": "",
+        "bedrooms": "2b"
+      },
+      "confidence_score": 35,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "2e97d487d7221bf3",
+        "area": "2 VFR1221 12 2B B Pool 897.60996 81.91404 979.524 1275000",
+        "project": "",
+        "building": "",
+        "unit": "VFR1221",
+        "size": "",
+        "bedrooms": "2b",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx"
+      },
+      "type": "random_inventory_row"
+    },
+    {
+      "query": {
+        "area": "JVC",
+        "project": "Chaimaa Avenue 2",
+        "building": "47 5015 681",
+        "unit": "318",
+        "size": "76.47",
+        "bedrooms": ""
+      },
+      "confidence_score": 92,
+      "basis": "exact_building_unit",
+      "record": {
+        "resolver_record_id": "242c8faf18579e01",
+        "area": "JVC",
+        "project": "Chaimaa Avenue 2",
+        "building": "47 5015 681",
+        "unit": "318",
+        "size": "76.47",
+        "bedrooms": "",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "NO",
+        "source_file": "JVC.xlsx"
+      },
+      "type": "random_inventory_row"
+    },
+    {
+      "query": {
+        "area": "86 S2 002 S2 2 2 Duplex 3 BR Community 113.61000000000001 20.272399999999998 133.88240000000002 12600000 815533.98058252",
+        "project": "",
+        "building": "",
+        "unit": "S2002",
+        "size": "",
+        "bedrooms": "3"
+      },
+      "confidence_score": 35,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "7268c6edf2245875",
+        "area": "2 S1 002 S1 2 2 Duplex 3 BR Community 113.61000000000001 20.272399999999998 133.88240000000002 12600000 815533.980582524",
+        "project": "",
+        "building": "",
+        "unit": "S1002",
+        "size": "",
+        "bedrooms": "3",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Reportage_Inventory__Monte Napoleone MNGT Units__274dd0842b.xlsx"
+      },
+      "type": "random_inventory_row"
+    },
+    {
+      "query": {
+        "area": "1 BR Type 13 7 710 1 742.87 69.02 1,241,336 1,166,856",
+        "project": "",
+        "building": "",
+        "unit": "710",
+        "size": "",
+        "bedrooms": "1"
+      },
+      "confidence_score": 35,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "ece22ec4a40093c2",
+        "area": "1 BR Type 13 7 710 1 742.87 69.02 1,241,336 1,166,856",
+        "project": "",
+        "building": "",
+        "unit": "710",
+        "size": "",
+        "bedrooms": "1",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "HSHObject1__2556cb9f-0ebc-435f-b39e-31d3b5caa0ab__7f6e6a6f90.xlsx"
+      },
+      "type": "random_inventory_row"
+    },
+    {
+      "query": {
+        "area": "28 VKR314 3 1B A Simplex Main Road 489.21925500000003 49.51393999999999 538.733195 916077.84",
+        "project": "",
+        "building": "",
+        "unit": "VKR314",
+        "size": "",
+        "bedrooms": "1b"
+      },
+      "confidence_score": 35,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "2e97d487d7221bf3",
+        "area": "14 VKR209 2 1B A Simplex Main Road 489.21925500000003 49.51393999999999 538.733195 911577.84",
+        "project": "",
+        "building": "",
+        "unit": "VKR209",
+        "size": "",
+        "bedrooms": "1b",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx"
+      },
+      "type": "random_inventory_row"
+    },
+    {
+      "query": {
+        "area": "154 VKR701 7 2B C Simplex Pool & Landscape 811 48 859 1306500",
+        "project": "",
+        "building": "",
+        "unit": "VKR701",
+        "size": "",
+        "bedrooms": "2b"
+      },
+      "confidence_score": 35,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "2e97d487d7221bf3",
+        "area": "154 VKR701 7 2B C Simplex Pool & Landscape 811 48 859 1306500",
+        "project": "",
+        "building": "",
+        "unit": "VKR701",
+        "size": "",
+        "bedrooms": "2b",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx"
+      },
+      "type": "random_inventory_row"
+    },
+    {
+      "query": {
+        "area": "64 VMR707 7 ST A Simplex District Sikka 272.00375299999996 49.406301 321.41005399999995 554107.38",
+        "project": "",
+        "building": "",
+        "unit": "VMR707",
+        "size": "",
+        "bedrooms": "st"
+      },
+      "confidence_score": 35,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "2e97d487d7221bf3",
+        "area": "21 VMR306 3 ST A Simplex District Sikka 272.00375299999996 49.406301 321.41005399999995 546867.38",
+        "project": "",
+        "building": "",
+        "unit": "VMR306",
+        "size": "",
+        "bedrooms": "st",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx"
+      },
+      "type": "random_inventory_row"
+    },
+    {
+      "query": {
+        "area": "73 VKR1105 11 2B B Simplex Pool & Landscape 723.33408 47.25352099999999 770.587601 1252000",
+        "project": "",
+        "building": "",
+        "unit": "VKR1105",
+        "size": "",
+        "bedrooms": "2b"
+      },
+      "confidence_score": 35,
+      "basis": "vector_retrieval_fallback",
+      "record": {
+        "resolver_record_id": "2e97d487d7221bf3",
+        "area": "11 VKR205 2 2B B Simplex Pool & Landscape 723.33408 47.25352099999999 770.587601 1215130.46",
+        "project": "",
+        "building": "",
+        "unit": "VKR205",
+        "size": "",
+        "bedrooms": "2b",
+        "price": "",
+        "developer": "",
+        "owner_contact_available": "RESTRICTED_CONFIDENCE_BELOW_70",
+        "source_file": "Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx"
+      },
+      "type": "random_inventory_row"
+    }
+  ]
+}

@@ -1,0 +1,527 @@
+{
+  "generated_at": "2026-06-26T19:32:58.388413+00:00",
+  "case": {
+    "case_id": "need-a-2-bedroom-apartment-in-palm-jumeirah",
+    "client_name": "Confidential Client",
+    "client_request": "Need a 2 bedroom apartment in Palm Jumeirah",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/34c764ebe6c8__710e1444-f7db-4074-8c00-9517a31c558b.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - Need a 2 bedroom apartment in Palm Jumeirah",
+  "executive_pitch": "The strongest option today is Best Price |Sea View |Motivated Seller because it gives the best balance of location fit, operational readiness, and alignment with the residential move. The secondary play is Luxury Apt | Sea View and Spacious Layout, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Best Price |Sea View |Motivated Seller as the strongest aligned option based on the current brief. Keep Luxury Apt | Sea View and Spacious Layout as the alternative and EXCLUSIVE | 2-BEDROOM FOR SALE | NOTICE SERVED as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Best Price |Sea View |Motivated Seller",
+      "area": "The 8, The Crescent, Palm Jumeirah, Dubai",
+      "building": "The 8, The Crescent, Palm Jumeirah, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-palm-jumeirah-the-crescent-the-8-103268367.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-palm-jumeirah.html",
+        "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-palm-jumeirah-the-crescent-the-8-103268367.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "apartment",
+      "price_aed": 3600000,
+      "price_term": "sell",
+      "size_sqft": 1240,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "The 8, The Crescent, Palm Jumeirah, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/YWS4HS5MW07KFFA0NCK05FSSEG/4986df93-d09e-4c1e-91ad-9d03e09dc0bf/668x452.jpg?v=308be92d75f2819f2778c41f3bf09f3e",
+      "bedrooms": "2",
+      "bathrooms": "3",
+      "reference": "TE-1606",
+      "suitability_score": 99.4,
+      "investment_score": 30.0,
+      "combined_score": 80.0,
+      "constraint_fit": {
+        "bedroom_match": true,
+        "bathroom_match": null,
+        "view_match": null,
+        "floor_match": null,
+        "furnishing_match": null,
+        "readiness_match": null,
+        "within_budget": null,
+        "requested_size_sqft": {
+          "min": null,
+          "max": null,
+          "target": null
+        },
+        "target_size_range_sqft": [
+          1000.0,
+          1600.0
+        ]
+      },
+      "constraint_match_priority": 1,
+      "entry_psf_aed": 2903.23,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Palm Jumeirah location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "size is aligned with the target brief range of 1,000-1,600 sqft"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 99.4,
+      "clinic_strengths": [
+        "exact Palm Jumeirah location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "size is aligned with the target brief range of 1,000-1,600 sqft"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 2,903/sqft"
+      ],
+      "why_this_property": [
+        "Direct match for the requested Palm Jumeirah location.",
+        "Exact Palm Jumeirah location.",
+        "Apartment format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+8%2C+The+Crescent%2C+Palm+Jumeirah%2C+Dubai",
+      "rank": 1
+    },
+    {
+      "title": "Luxury Apt | Sea View and Spacious Layout",
+      "area": "Palm Beach Towers 2, Palm Beach Towers, Palm Jumeirah, Dubai",
+      "building": "Palm Beach Towers 2, Palm Beach Towers, Palm Jumeirah, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-palm-jumeirah-palm-beach-towers-palm-beach-towers-2-106392205.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-palm-jumeirah.html",
+        "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-palm-jumeirah-palm-beach-towers-palm-beach-towers-2-106392205.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "apartment",
+      "price_aed": 5419456,
+      "price_term": "sell",
+      "size_sqft": 1559,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Palm Beach Towers 2, Palm Beach Towers, Palm Jumeirah, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/769PEW4D7FDGDR8Y6XMAHG1E30/9d385226-30cc-4832-9497-25933dc40ff5/668x452.jpg?v=48efd1eb06c08f4d13c9f186a3238ca5",
+      "bedrooms": "2",
+      "bathrooms": "3",
+      "reference": "DPF-S-52602",
+      "suitability_score": 90.1,
+      "investment_score": 22.0,
+      "combined_score": 71.0,
+      "constraint_fit": {
+        "bedroom_match": true,
+        "bathroom_match": null,
+        "view_match": null,
+        "floor_match": null,
+        "furnishing_match": null,
+        "readiness_match": null,
+        "within_budget": null,
+        "requested_size_sqft": {
+          "min": null,
+          "max": null,
+          "target": null
+        },
+        "target_size_range_sqft": [
+          1000.0,
+          1600.0
+        ]
+      },
+      "constraint_match_priority": 1,
+      "entry_psf_aed": 3476.24,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Palm Jumeirah location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "size is aligned with the target brief range of 1,000-1,600 sqft"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 90.1,
+      "clinic_strengths": [
+        "exact Palm Jumeirah location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request",
+        "size is aligned with the target brief range of 1,000-1,600 sqft"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 3,476/sqft"
+      ],
+      "why_this_property": [
+        "Direct match for the requested Palm Jumeirah location.",
+        "Exact Palm Jumeirah location.",
+        "Apartment format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Palm+Beach+Towers+2%2C+Palm+Beach+Towers%2C+Palm+Jumeirah%2C+Dubai",
+      "rank": 2
+    },
+    {
+      "title": "EXCLUSIVE | 2-BEDROOM FOR SALE | NOTICE SERVED",
+      "area": "The Fairmont Palm Residence South, The Fairmont Palm Residences, Palm Jumeirah, Dubai",
+      "building": "The Fairmont Palm Residence South, The Fairmont Palm Residences, Palm Jumeirah, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-palm-jumeirah-the-fairmont-palm-residences-the-fairmont-palm-residence-south-103702298.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-palm-jumeirah.html",
+        "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-palm-jumeirah-the-fairmont-palm-residences-the-fairmont-palm-residence-south-103702298.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "apartment",
+      "price_aed": 4840000,
+      "price_term": "sell",
+      "size_sqft": 1726,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "The Fairmont Palm Residence South, The Fairmont Palm Residences, Palm Jumeirah, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/WB5PVTKKPCTQVP385TR27AJWPG/0d299644-3738-4013-81f0-a1990dc1bfe5/668x452.jpg?v=5bef839ee1fbda4aa01984e07fa1ae17",
+      "bedrooms": "2",
+      "bathrooms": "4",
+      "reference": "LZZ-R--AP7325",
+      "suitability_score": 83.0,
+      "investment_score": 30.0,
+      "combined_score": 68.2,
+      "constraint_fit": {
+        "bedroom_match": true,
+        "bathroom_match": null,
+        "view_match": null,
+        "floor_match": null,
+        "furnishing_match": null,
+        "readiness_match": null,
+        "within_budget": null,
+        "requested_size_sqft": {
+          "min": null,
+          "max": null,
+          "target": null
+        },
+        "target_size_range_sqft": [
+          1000.0,
+          1600.0
+        ]
+      },
+      "constraint_match_priority": 1,
+      "entry_psf_aed": 2804.17,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Palm Jumeirah location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request"
+      ],
+      "recommendation_risks": [
+        "size is materially above the target brief range of 1,000-1,600 sqft",
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 83.0,
+      "clinic_strengths": [
+        "exact Palm Jumeirah location",
+        "apartment format matches the request profile",
+        "2-bedroom layout matches the request"
+      ],
+      "clinic_risks": [
+        "size is materially above the target brief range of 1,000-1,600 sqft",
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 2,804/sqft"
+      ],
+      "why_this_property": [
+        "Direct match for the requested Palm Jumeirah location.",
+        "Exact Palm Jumeirah location.",
+        "Apartment format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Fairmont+Palm+Residence+South%2C+The+Fairmont+Palm+Residences%2C+Palm+Jumeirah%2C+Dubai",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Shortlist should compare capital entry, delivery timeline, and future demand ramp-up.",
+    "Residential comparisons should weigh layout efficiency, building quality, and lifestyle access alongside entry price.",
+    "Property Finder area range currently shows 3.2M - 39M.",
+    "Property Finder average asking price is 1.5M, with change of 35.8%.",
+    "Average asking price per sqft is 2.8K, with change of 39.7%."
+  ],
+  "compliance_gates": [
+    "Lease or purchase terms, building rules, and community restrictions must match the intended occupancy plan.",
+    "Service charges, parking allocation, and handover condition should be verified before commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 199 rows matching the area signal 'palm jumeirah'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "AIOS acquisition index recovered 202 internal source assets tied to palm jumeirah.",
+    "Internal source mix: 120 jpg, 69 pdf, 9 xlsx, 2 txt."
+  ],
+  "internal_inventory_matches": [
+    {
+      "project": "Meraas; Nakheel",
+      "area": "Deira; Dubai Islands; Palm Jumeirah",
+      "developer": "Meraas",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Data Uae Pak Last",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/751f90cc4e8b__6f1e3efe-637f-455e-9cc5-0d642d2242f3.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Downtown; Dubai Marina; Palm Jebel Ali; Palm Jumeirah",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/030bcceacfad__264e19e9-2524-4943-8a85-fc4411a041d9.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Deyaar",
+      "area": "Business Bay; Dubai Marina; Palm Jebel Ali; Palm Jumeirah",
+      "developer": "Deyaar",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/c04590d66106__2DON_MOHAMED_REDHA_-DEYAAR_DEVELOPMENT__PROJECT__c04590d661.xlsx",
+      "score": 70.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Damac",
+      "area": "Al Quoz; Damac Hills; Dubai Silicon Oasis; Dubai South; JVC; JVT; Jumeirah; Jumeirah Park; Nad Al Sheba; Palm Jumeirah; Umm Suqeim",
+      "developer": "Damac",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "UAE COMMERCIAL ONLY Rent - Sale",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/9e5c25684c3f__cbb60342-25f7-4736-99ae-d8bc9c169a4b.jpg",
+      "score": 65.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Emaar",
+      "area": "Downtown; Jumeirah; Palm Jumeirah",
+      "developer": "Emaar",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "UAE COMMERCIAL ONLY Rent - Sale",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/7425c42d7c46__cf5b761a-3d4f-452b-978b-1edbd77da490.jpg",
+      "score": 65.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "018a4ca4-88db-48f2-8439-32ac60600c53.pdf",
+      "area": "Palm Jumeirah",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "pdf",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Dubai broker's 💪",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/pdf/3cb29aed9d71__018a4ca4-88db-48f2-8439-32ac60600c53.pdf",
+      "score": 55.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "02beb4b2-b62d-48aa-9caa-741c3b7e53e2.pdf",
+      "area": "Palm Jumeirah",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "pdf",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Vetn Stuff",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/pdf/faf67e8f0c01__PDF Binder _Plot-18_ Palm Villa _Big Basement_ _1_.pdf",
+      "score": 55.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "0b6bfbf8-6d01-41b9-80e6-aaea2b321dcc.pdf",
+      "area": "Palm Jumeirah",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "pdf",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Ali Palm Case Al Haj",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/pdf/f79e2c9128dd__0b6bfbf8-6d01-41b9-80e6-aaea2b321dcc.pdf",
+      "score": 55.0,
+      "signal_type": "internal_asset"
+    }
+  ],
+  "internal_market_snapshot": {
+    "match_count": 202,
+    "asset_match_count": 8,
+    "file_type_counts": {
+      "xlsx": 9,
+      "jpg": 120,
+      "pdf": 69,
+      "zip": 1,
+      "png": 1,
+      "txt": 2
+    },
+    "top_projects": [
+      "Meraas; Nakheel",
+      "Deyaar",
+      "Damac",
+      "Emaar",
+      "Nakheel",
+      "HSH"
+    ],
+    "source_groups": [
+      "Data Uae Pak Last",
+      "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT",
+      "UAE COMMERCIAL ONLY Rent - Sale",
+      "Dubai broker's 💪"
+    ]
+  },
+  "next_steps": [
+    "Confirm live availability, rent or sale terms, and current landlord or seller expectations before client send.",
+    "Collect floor plan, exact built-up area, parking details, and building or community rules for the shortlisted options.",
+    "Verify service charges, maintenance condition, and move-in timeline before presenting the lead recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Property Finder - 2 bedroom Apartment search in Palm Jumeirah",
+      "url": "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-palm-jumeirah.html",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Apartments for Sale in Palm Jumeirah",
+      "url": "https://www.bayut.com/for-sale/apartments/dubai/palm-jumeirah/",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "Need a 2 bedroom apartment in Palm Jumeirah",
+    "source_mode": "text",
+    "area": "palm jumeirah",
+    "use_case": "apartment",
+    "property_preference": "apartment",
+    "bedroom_preference": "2",
+    "bathroom_preference": "",
+    "view_preference": "",
+    "floor_preference": "",
+    "furnishing_preference": "",
+    "readiness_preference": "",
+    "intent": "buy",
+    "source_url": "",
+    "max_price_aed": 0.0,
+    "min_size_sqft": 0.0,
+    "max_size_sqft": 0.0,
+    "target_size_sqft": 0.0
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 199,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/34c764ebe6c8__710e1444-f7db-4074-8c00-9517a31c558b.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/749441799c53__f506ef96-537a-4e0e-9ddf-39ee99bd6dbf.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/71c712303522__de9c1db6-41b3-4184-ae44-6c85d8eed863.jpg"
+      ]
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "READY FOR AGENT REVIEW BEFORE CLIENT SEND",
+    "review_notes": [
+      "Residential shortlist still needs building-rule, condition, and move-in verification before client send."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-palm-jumeirah-apartment.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-palm-jumeirah-apartment.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-palm-jumeirah-apartment.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-palm-jumeirah-apartment.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T19:32:58.399155+00:00",
+    "request_profile": {
+      "raw_request": "Need a 2 bedroom apartment in Palm Jumeirah",
+      "source_mode": "text",
+      "area": "palm jumeirah",
+      "use_case": "apartment",
+      "property_preference": "apartment",
+      "bedroom_preference": "2",
+      "bathroom_preference": "",
+      "view_preference": "",
+      "floor_preference": "",
+      "furnishing_preference": "",
+      "readiness_preference": "",
+      "intent": "buy",
+      "source_url": "",
+      "max_price_aed": 0.0,
+      "min_size_sqft": 0.0,
+      "max_size_sqft": 0.0,
+      "target_size_sqft": 0.0
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": false,
+      "internal_evidence_rows": 1
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/validate-text-palm-jumeirah-apartment.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

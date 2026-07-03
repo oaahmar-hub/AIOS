@@ -1,0 +1,33 @@
+{
+  "contact_id": "33644655014",
+  "conversation_id": "proof-20260623T115513Z",
+  "before_record": null,
+  "mutation_payload": {
+    "event": "inbound_message_validation",
+    "safe_mode": true,
+    "send_whatsapp": false,
+    "message_excerpt": "Proof validation only. No outbound send."
+  },
+  "after_record": null,
+  "writeback_success": false,
+  "writeback_timestamp": "2026-06-23T11:55:15.149547+00:00",
+  "source_log_path": "/Users/hassanka/Downloads/AIOS/data/transport/simple_whatsapp_gateway.log.jsonl",
+  "crm_target": "Airtable CRM",
+  "status": "CRM_WRITEBACK_NOT_LIVE",
+  "connector_presence": {
+    "AIRTABLE_API_KEY": false,
+    "AIRTABLE_BASE_ID": false,
+    "AIRTABLE_TABLE_ID": false,
+    "AIRTABLE_LEADS_TABLE": false,
+    "AIRTABLE_CONTACTS_TABLE": false
+  },
+  "errors": [
+    "Missing CRM connector configuration in environment.",
+    "Missing env: AIRTABLE_API_KEY",
+    "Missing env: AIRTABLE_BASE_ID",
+    "Missing env: AIRTABLE_TABLE_ID",
+    "Missing env: AIRTABLE_LEADS_TABLE",
+    "Missing env: AIRTABLE_CONTACTS_TABLE",
+    "No live Airtable CRM target configured for safe write-back validation."
+  ]
+}

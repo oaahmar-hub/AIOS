@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: aios-hosted-backend
+    env: docker
+    plan: starter
+    autoDeploy: false
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: AIOS_ALLOWED_ORIGIN
+        value: "*"
+      - key: WA_SIMPLE_OPENAI_ENDPOINT
+        value: https://hshglobaldubai.app.n8n.cloud/webhook/wa-simple-openai-reply-v4
+      - key: WASENDER_API_KEY
+        sync: false

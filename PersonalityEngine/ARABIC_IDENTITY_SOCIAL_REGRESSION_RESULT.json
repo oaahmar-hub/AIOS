@@ -1,0 +1,64 @@
+{
+  "passed": 3,
+  "total": 3,
+  "results": [
+    {
+      "test": "arabic_how_are_you_stays_social",
+      "pass": true,
+      "detail": {
+        "intent": "greeting",
+        "reply": "الحمدلله بخير يا غالي، إنت كيفك؟"
+      }
+    },
+    {
+      "test": "arabic_identity_intro_no_qualification",
+      "pass": true,
+      "detail": {
+        "intent": "identity_intro",
+        "social": {
+          "category": "identity_intro",
+          "emoji": [],
+          "emoji_meaning": "none",
+          "is_correction": false,
+          "is_joke": false,
+          "is_sarcasm": false,
+          "is_teasing_or_banter": false,
+          "is_misunderstanding": false,
+          "is_identity_intro": true,
+          "is_frustration": false,
+          "is_urgency": false,
+          "response_hint": "Acknowledge who they are warmly and continue naturally. Do not qualify or ask business questions yet.",
+          "history_relevant": true
+        },
+        "judgment": {
+          "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+          "next_action": "acknowledge_identity",
+          "expected_next": "friendly_identity_ack_no_business_qualification",
+          "ask_allowed": false,
+          "stop_qualifying": true,
+          "escalation": "none",
+          "signals": {
+            "conversation_objective": "correction",
+            "has_area": false,
+            "has_property_type": false,
+            "has_budget": false,
+            "has_process_word": false,
+            "has_developer": false,
+            "prior_property_context": false,
+            "active_history": true
+          },
+          "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+        },
+        "reply": "يا هلا عمر همام، نورت."
+      }
+    },
+    {
+      "test": "dubai_hills_not_greeting_hi_substring",
+      "pass": true,
+      "detail": {
+        "intent": "general",
+        "reply": ""
+      }
+    }
+  ]
+}

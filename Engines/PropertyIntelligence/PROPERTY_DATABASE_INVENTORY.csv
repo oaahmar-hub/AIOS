@@ -1,0 +1,15 @@
+database,table,rows
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,areas,17
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,developers,16
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,inventory_files,135
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,inventory_rows,168633
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,projects,596
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,property_types,214
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,retrieval_audit_log,436
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,source_row_map,201557
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,sqlite_sequence,1
+AIOS/KnowledgeBase/Property_Master_Database.sqlite,vector_ingestion_audit,56
+AIOS/KnowledgeBase/resolver/unit_resolver_database.sqlite,resolver_records,26166
+AIOS/KnowledgeBase/resolver/unit_resolver_database.sqlite,restricted_owner_contact,23160
+AIOS_KNOWLEDGE_CONTROL/06_PROPERTY_INTELLIGENCE_ENGINE/KnowledgeBase/resolver/unit_resolver_database.sqlite,resolver_records,26166
+AIOS_KNOWLEDGE_CONTROL/06_PROPERTY_INTELLIGENCE_ENGINE/KnowledgeBase/resolver/unit_resolver_database.sqlite,restricted_owner_contact,23160

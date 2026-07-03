@@ -1,0 +1,48 @@
+# Ignore local Chrome profiles and temp files
+.chrome-headless-profile/
+RunningChromeVersion
+
+# Ignore Python caches
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore local build artifacts
+node_modules/
+.vite/
+
+# Ignore macOS metadata
+.DS_Store
+
+# Ignore logs
+*.log
+
+# Ignore local/runtime databases (recreated on Railway volume)
+*.sqlite
+*.sqlite-*
+!KnowledgeBase/resolver/*.sqlite
+!KnowledgeBase/resolver/*.sqlite-*
+
+# Ignore git metadata
+.git/
+
+# Ignore large local directories not needed for runtime
+evidence/
+android/
+mobile-dist/
+KnowledgeBase/raw_data/
+KnowledgeBase/Raw/
+KnowledgeBase/VectorDB/
+proofs/
+deployment/
+transport/
+bin/
+automation/central_orchestrator/reports/
+automation/reports/
+automation/whatsapp_provider_gateway/reports/
+automation/whatsapp_provider_gateway/state/
+
+# Ignore large video assets from earlier phases
+assets/aios-eye-cinematic-loop-phase52.mp4
+assets/aios-eye-cinematic-loop-phase53.mp4
+assets/aios-eye-cinematic-loop-phase54.mp4

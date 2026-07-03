@@ -1,0 +1,49 @@
+source_file,merge_key,filled_fields,target_resolver_record_id
+Contract F - Plot 18- Palm Crown - New  (1).pdf,"('source_file_project_building_unit', 'Contract F - Plot 18- Palm Crown - New  (1).pdf', '', '', '')","plot_number,property_number",bfa7b5be0ca77b09
+Contract F - Plot 18- Palm Crown - New  (1).pdf,"('source_file_project_building_unit', 'Contract F - Plot 18- Palm Crown - New  (1).pdf', '', '', '')","permit_number,plot_number",d93deae982f7793c
+Contract F - Plot 18- Palm Crown - New  (1).pdf,"('source_file_project_building_unit', 'Contract F - Plot 18- Palm Crown - New  (1).pdf', '', '', '')","permit_number,property_number",8e7ab00c4974d1bb
+Plot-18_PJ-P-VP-018_REV-01_FINAL_Nakheel_Submission.pdf,"('source_file_project_building_unit', 'Plot-18_PJ-P-VP-018_REV-01_FINAL_Nakheel_Submission.pdf', '', '', '')",plot_number,61cd5aed78182158
+Plot-18_PJ-P-VP-018_REV-01_FINAL_Nakheel_Submission.pdf,"('source_file_project_building_unit', 'Plot-18_PJ-P-VP-018_REV-01_FINAL_Nakheel_Submission.pdf', '', '', '')",property_number,204a734118526f47
+extracted_text.txt,"('plot_number', 'pjpvp018')",property_number,bfd7bc7fe8554929
+rev01_text.txt,"('plot_number', 'pjpvp018')",property_number,efb3074ea7de7826
+Nakheel_Approval_QA_Report.pdf,"('plot_number', 'pjpvp018')",property_number,7abc7d28b5e0bfca
+extracted_text.txt,"('source_file_project_building_unit', 'extracted_text.txt', '', '', '')",plot_number,c97817e31802c0cc
+rev01_text.txt,"('source_file_project_building_unit', 'rev01_text.txt', '', '', '')",plot_number,3c8b555a5e948a50
+Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx', '', '', 'Unit')",unit,2e97d487d7221bf3
+Reportage_Inventory__Reportage Oceana__2e842da7d0.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Reportage Oceana__2e842da7d0.xlsx', '', '', 'Unit')",unit,face716f656e2649
+Reportage_Inventory__Reportage Oceana__a076884ead.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Reportage Oceana__a076884ead.xlsx', '', '', 'Unit')",unit,868fd362d120dadd
+Reportage_Inventory__Reportage Oceana__ac20f4467c.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Reportage Oceana__ac20f4467c.xlsx', '', '', 'Unit')",unit,a2ba5c545a9cb982
+Reportage_Inventory__Verdana 1 Residence PROJECT__0eb45bb535.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Verdana 1 Residence PROJECT__0eb45bb535.xlsx', '', '', 'Unit')",unit,a5fc8a8da29d62d9
+Reportage_Inventory__Verdana 1 Residence PROJECT__17b2459ef2.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Verdana 1 Residence PROJECT__17b2459ef2.xlsx', '', '', 'Unit')",unit,af3016d937bc57eb
+Reportage_Inventory__Verdana 1 Residence PROJECT__428f07ab6a.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Verdana 1 Residence PROJECT__428f07ab6a.xlsx', '', '', 'Unit')",unit,8f03e6598361130a
+Reportage_Inventory__Verdana 1 Residence PROJECT__8fe5287c9a.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Verdana 1 Residence PROJECT__8fe5287c9a.xlsx', '', '', 'Unit')",unit,5ea690b39631bc57
+Reportage_Inventory__Verdana 1 Residence PROJECT__91d41643da.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Verdana 1 Residence PROJECT__91d41643da.xlsx', '', '', 'Unit')",unit,3fbdd1e69a38f346
+Reportage_Inventory__Verdana 1 Residence PROJECT__b1536af67d.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Verdana 1 Residence PROJECT__b1536af67d.xlsx', '', '', 'Unit')",unit,067ff7e5d7c7eada
+Reportage_Inventory__Verdana 1 Residence PROJECT__b508ce282b.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Verdana 1 Residence PROJECT__b508ce282b.xlsx', '', '', 'Unit')",unit,0580576d3420af75
+Reportage_Inventory__Verdana 1 Residence PROJECT__e3d53f8a25.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__Verdana 1 Residence PROJECT__e3d53f8a25.xlsx', '', '', 'Unit')",unit,f22ce8514e6f0124
+WhatsApp ChatStorage.sqlite,"('property_number', 'listed')",property_number,7f9f69f79ea5c7e8
+WhatsApp ChatStorage.sqlite,"('listing_id', '15830889')",land_number,7f9f69f79ea5c7e8
+Palm_Jumeirah_Nakheel_Submission_Package_RevB_fixed.pdf,"('plot_number', '6757')","permit_number,property_number",b1badf3f5a7ce994
+cpalmd (1).pdf,"('plot_number', '6757')","permit_number,property_number",145ce6abb6bc2908
+Palm_Jumeirah_Nakheel_updated.pdf,"('plot_number', '6757')","permit_number,property_number",66d5c217ddafe191
+Palm_Jumeirah_Nakheel_Submission_Package_RevB_final.pdf,"('plot_number', '6757')","permit_number,property_number",d9b6a00edf880068
+Nakheel_Approval_QA_Report.pdf,"('plot_number', '6757')",permit_number,7abc7d28b5e0bfca
+Plot-18_PJ-P-VP-018_REV-01_FINAL_Nakheel_Submission.pdf,"('property_number', 'pjpvp018')",permit_number,61cd5aed78182158
+Plot-18_PJ-P-VP-018_REV-01_FINAL_Nakheel_Submission.pdf,"('property_number', 'pjpvp018')",permit_number,204a734118526f47
+extracted_text.txt,"('property_number', 'pjpvp018')",permit_number,c97817e31802c0cc
+extracted_text.txt,"('property_number', 'pjpvp018')",permit_number,bfd7bc7fe8554929
+rev01_text.txt,"('property_number', 'pjpvp018')",permit_number,3c8b555a5e948a50
+rev01_text.txt,"('property_number', 'pjpvp018')",permit_number,efb3074ea7de7826
+Reportage_Inventory__3014__69038f24c0.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__3014__69038f24c0.xlsx', '', '', '')",plot_number,b083d7e0a09ebfe9
+Reportage_Inventory__3014__ac9a52ed89.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__3014__ac9a52ed89.xlsx', '', '', '')",plot_number,a2301a11f7ad716d
+Reportage_Inventory__3014__39097fe6b2.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__3014__39097fe6b2.xlsx', '', '', '')",plot_number,3501bc55b1b82807
+Reportage_Inventory__3014__abd925a1c4.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__3014__abd925a1c4.xlsx', '', '', '')",plot_number,3c9c11afeca88692
+Reportage_Inventory__3014__6ea2d12d01.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__3014__6ea2d12d01.xlsx', '', '', '')",plot_number,68f1012de67d4e02
+Reportage_Inventory__3014__ccd1445561.xlsx,"('source_file_project_building_unit', 'Reportage_Inventory__3014__ccd1445561.xlsx', '', '', '')",plot_number,30157e83bfb25e36
+KnowledgeBase_Master_Catalog.csv,"('plot_number', '2463014')",unit,3ef1ba2533addb5b
+Reportage_Inventory__3014__69038f24c0.xlsx,"('plot_number', '2463014')",unit,b37875c17a154938
+Reportage_Inventory__3014__ac9a52ed89.xlsx,"('plot_number', '2463014')",unit,54c32daef7826f1e
+Reportage_Inventory__3014__39097fe6b2.xlsx,"('plot_number', '2463014')",unit,98656622f84e34e9
+Reportage_Inventory__3014__abd925a1c4.xlsx,"('plot_number', '2463014')",unit,b380009550e38ed5
+Reportage_Inventory__3014__6ea2d12d01.xlsx,"('plot_number', '2463014')",unit,ceed838476e28aa7
+Reportage_Inventory__3014__ccd1445561.xlsx,"('plot_number', '2463014')",unit,18c8b4c7748b748d

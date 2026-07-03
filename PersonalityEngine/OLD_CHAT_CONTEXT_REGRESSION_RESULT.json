@@ -1,0 +1,30 @@
+{
+  "passed": 4,
+  "total": 4,
+  "results": [
+    {
+      "test": "old_chat_detected_before_reply",
+      "pass": true
+    },
+    {
+      "test": "old_subject_loaded",
+      "pass": true
+    },
+    {
+      "test": "old_history_loaded",
+      "pass": true
+    },
+    {
+      "test": "identity_not_business_qualification",
+      "pass": true
+    }
+  ],
+  "context": {
+    "known_chat": true,
+    "known_contact_name": "H M Hasaan Noc Palm",
+    "old_chat_subject_summary": "Nakheel/Palm portal or NOC case; portal/account access; urgent follow-up",
+    "relationship": "Existing Client",
+    "intent": "identity_intro",
+    "reply": "يا هلا عمر همام، نورت."
+  }
+}

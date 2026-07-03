@@ -1,0 +1,65 @@
+{
+  "passed": 7,
+  "total": 7,
+  "results": [
+    {
+      "test": "friend_hala_is_friend_chat",
+      "pass": true,
+      "detail": {
+        "objective": "friend_chat",
+        "reply": "هلا والله 🌹"
+      }
+    },
+    {
+      "test": "arabic_how_are_you_is_casual",
+      "pass": true,
+      "detail": {
+        "objective": "casual_greeting",
+        "reply": "الحمدلله بخير يا غالي، إنت كيفك؟"
+      }
+    },
+    {
+      "test": "emoji_is_social_not_property",
+      "pass": true,
+      "detail": {
+        "objective": "joke",
+        "reply": "Haha no worries, Omar is here — just testing the AI a bit 😄"
+      }
+    },
+    {
+      "test": "ai_joke_not_property",
+      "pass": true,
+      "detail": {
+        "objective": "joke",
+        "reply": "Haha no worries, Omar is here — just testing the AI a bit 😄"
+      }
+    },
+    {
+      "test": "this_is_salwa_is_correction",
+      "pass": true,
+      "detail": {
+        "objective": "correction",
+        "intent": "correction",
+        "reply": "Got it, corrected."
+      }
+    },
+    {
+      "test": "need_1br_downtown_is_property",
+      "pass": true,
+      "detail": {
+        "objective": "property_inquiry",
+        "intent": "property",
+        "reply": ""
+      }
+    },
+    {
+      "test": "looking_buy_jvc_is_property",
+      "pass": true,
+      "detail": {
+        "objective": "property_inquiry",
+        "intent": "property",
+        "reply": ""
+      }
+    }
+  ]
+}

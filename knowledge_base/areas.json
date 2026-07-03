@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "description": "Area facts and unit-type constraints for AIOS property responses.",
+  "areas": {
+    "Dubai Hills": {
+      "aliases": ["Dubai Hills Estate", "Dubai Hills Village"],
+      "unit_types_allowed": ["1BR", "2BR", "3BR", "Townhouse", "Villa", "Apartment"],
+      "unit_types_restricted": ["Studio"],
+      "notes": "No studios."
+    },
+    "Marina": {
+      "aliases": ["Dubai Marina"],
+      "unit_types_allowed": ["Studio", "1BR", "2BR", "3BR", "Apartment", "Penthouse"],
+      "unit_types_restricted": [],
+      "notes": "Studios allowed."
+    },
+    "JVC": {
+      "aliases": ["Jumeirah Village Circle"],
+      "unit_types_allowed": ["Studio", "1BR", "2BR", "3BR", "Townhouse", "Apartment"],
+      "unit_types_restricted": [],
+      "notes": "Studios allowed."
+    },
+    "Downtown Dubai": {
+      "aliases": ["Downtown"],
+      "unit_types_allowed": ["Studio", "1BR", "2BR", "3BR", "Apartment", "Penthouse"],
+      "unit_types_restricted": [],
+      "notes": "Core city inventory."
+    },
+    "Business Bay": {
+      "aliases": ["Businessbay"],
+      "unit_types_allowed": ["Studio", "1BR", "2BR", "3BR", "Apartment", "Office"],
+      "unit_types_restricted": [],
+      "notes": "Mixed-use district."
+    },
+    "Palm Jumeirah": {
+      "aliases": ["Palm"],
+      "unit_types_allowed": ["1BR", "2BR", "3BR", "Apartment", "Villa", "Penthouse"],
+      "unit_types_restricted": ["Studio"],
+      "notes": "Primarily premium inventory."
+    },
+    "Yas Island": {
+      "aliases": ["Yas"],
+      "unit_types_allowed": ["Studio", "1BR", "2BR", "3BR", "Villa", "Townhouse", "Apartment"],
+      "unit_types_restricted": [],
+      "notes": "Abu Dhabi focus area."
+    },
+    "Saadiyat Island": {
+      "aliases": ["Saadiyat"],
+      "unit_types_allowed": ["Studio", "1BR", "2BR", "3BR", "Villa", "Apartment"],
+      "unit_types_restricted": [],
+      "notes": "Premium Abu Dhabi inventory."
+    },
+    "Al Raha": {
+      "aliases": ["Al Raha Beach", "Al Raha Gardens"],
+      "unit_types_allowed": ["Studio", "1BR", "2BR", "3BR", "Villa", "Townhouse", "Apartment"],
+      "unit_types_restricted": [],
+      "notes": "Family and waterfront submarkets."
+    },
+    "Al Reeman": {
+      "aliases": ["Al Reeman 1", "Al Reeman 2", "Al Reeman Plots"],
+      "unit_types_allowed": ["Plot", "Villa", "Townhouse"],
+      "unit_types_restricted": ["Studio", "Apartment"],
+      "notes": "Master-planned community with plot-led product."
+    }
+  }
+}

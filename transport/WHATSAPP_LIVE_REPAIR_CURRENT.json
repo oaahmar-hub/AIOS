@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-06-25T03:15:37+0400",
+  "local_gateway": "http://127.0.0.1:9010",
+  "local_gateway_health": "PASS",
+  "public_tunnel": "https://medieval-broadcasting-recipe-flyer.trycloudflare.com",
+  "public_webhook_url": "https://medieval-broadcasting-recipe-flyer.trycloudflare.com/webhook/whatsapp/simple",
+  "public_health": {
+    "error": "HTTP Error 530: <none>"
+  },
+  "wasender_send_api": "PASS via Keychain send token",
+  "wasender_session_id": "94234",
+  "wasender_session_management_api": "FAIL 401 with current token; needs dashboard or personal access token",
+  "current_blocker": "Wasender webhook must be changed to public_webhook_url. Browser extension control unavailable, API token cannot manage session."
+}

@@ -1,0 +1,23 @@
+{
+  "contact_id": "33644655014",
+  "before_relationship": "Staff",
+  "after_relationship": "Staff",
+  "before_dna": "Executive Buyer",
+  "after_dna": null,
+  "before_weather": null,
+  "after_weather": null,
+  "restored_relationship": true,
+  "restored_dna": false,
+  "restored_weather": false,
+  "pass": false,
+  "sources": {
+    "relationship_store": "/Users/hassanka/Downloads/AIOS/data/transport/whatsapp_relationship_store.json",
+    "dna_store": null,
+    "weather_store": null
+  },
+  "notes": [
+    "Relationship restored from persisted relationship store.",
+    "No persisted DNA store was found in the current runtime.",
+    "No persisted weather/context store was found in the current runtime."
+  ]
+}

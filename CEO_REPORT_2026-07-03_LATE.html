@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIOS — CEO Report (Late Afternoon Update)</title>
+  <style>
+    :root { --bg: #0b0c10; --card: #1f2833; --text: #c5c6c7; --heading: #66fcf1; --muted: #45a29e; --border: #45a29e33; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 760px; margin: 0 auto; padding: 40px 24px; }
+    h1 { color: var(--heading); font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    h2 { color: var(--heading); font-size: 1.25rem; margin-top: 32px; text-transform: uppercase; letter-spacing: 0.05em; }
+    strong { color: #fff; }
+    ul, ol { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    a { color: var(--heading); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: 0; border-top: 1px solid var(--border); margin: 28px 0; }
+    .meta { color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; }
+    .footer { color: var(--muted); font-size: 0.85rem; margin-top: 40px; }
+    .done { color: #66fcf1; }
+    .warn { color: #f5c518; }
+    .block { color: #ff6b6b; }
+    code { background: var(--card); padding: 2px 6px; border-radius: 4px; color: var(--heading); }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); }
+    th { color: var(--heading); }
+  </style>
+</head>
+<body>
+  <h1>AIOS — CEO Report (Late Afternoon Update)</h1>
+  <div class="meta">
+    <strong>Date:</strong> 2026-07-03<br>
+    <strong>Product:</strong> HSH AI OS — AI-powered real estate business operating system<br>
+    <strong>Owner:</strong> Omar Ahmar (o.a.ahmar@gmail.com)<br>
+    <strong>Prepared by:</strong> Cascade, Lead Autonomous Engineer
+  </div>
+  <hr>
+
+  <h2>Current Status</h2>
+  <ul>
+    <li><span class="done">✅</span> Backend runtime live on Railway</li>
+    <li><span class="done">✅</span> <code>/api/health</code> returning 200, runtime 100% ready</li>
+    <li><span class="done">✅</span> Airtable, Wasender, n8n connected</li>
+    <li><span class="done">✅</span> Unit-intelligence ingestion framework built and wired to live API
+      <ul>
+        <li><code>GET /api/unit/stats</code></li>
+        <li><code>POST /api/unit/ingest</code></li>
+        <li><code>POST /api/property/resolve</code></li>
+        <li><code>POST /api/unit/enrich</code></li>
+      </ul>
+    </li>
+    <li><span class="done">✅</span> URL parsers for Property Finder, Bayut, Dubizzle</li>
+    <li><span class="done">✅</span> WhatsApp message link / property-clue extractor</li>
+    <li><span class="done">✅</span> SQLite staging database with audit logging</li>
+    <li><span class="done">✅</span> Feed adapters for CSV/JSON/Excel portal exports</li>
+    <li><span class="done">✅</span> Bridge enrichment engine matching against resolver DB</li>
+    <li><span class="done">✅</span> Marketing automation trigger staging video, poster, flyer, social, brochure</li>
+    <li><span class="done">✅</span> CRM write-back adapter for Airtable (dry-run by default, approval-gated)</li>
+    <li><span class="done">✅</span> 13 unit tests + 1 integration test, all passing</li>
+    <li><span class="done">✅</span> React frontend scaffold built (components, dashboard, API proxy, theme)</li>
+    <li><span class="done">✅</span> Node.js installed locally, frontend built and served by backend at <code>/app/</code></li>
+    <li><span class="done">✅</span> Deployed backend + frontend to Railway (<code>aios-runtime</code>)</li>
+    <li><span class="done">✅</span> WhatsApp webhook verification working on production (<code>AIOS_WHATSAPP_VERIFY_TOKEN</code> configured)</li>
+    <li><span class="done">✅</span> Frontend command center publicly live at <code>/app/</code></li>
+    <li><span class="done">✅</span> Resolver database bundled and <code>/api/property/resolve</code> returns exact matches</li>
+    <li><span class="block">🔴</span> No live portal scraping yet (by design — awaiting approval and data feeds)</li>
+    <li><span class="warn">&#x1F7E1;</span> Unit bridge data still sparse in some fields (area, project, bedrooms, etc.) — requires external data feeds or manual enrichment</li>
+  </ul>
+
+  <h2>Overnight + Today Progress</h2>
+  <table>
+    <tr><th>Deliverable</th><th>Status</th></tr>
+    <tr><td>Unit-intelligence ingestion framework</td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>Live API endpoints for unit ingestion / resolution</td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>Property Finder / Bayut / Dubizzle feed adapters</td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>WhatsApp webhook verification fix</td><td><span class="done">✅ Live on production</span></td></tr>
+    <tr><td>Marketing automation trigger</td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>CRM write-back adapter (approval-gated)</td><td><span class="done">✅ Ready</span></td></tr>
+    <tr><td>Unit + integration tests</td><td><span class="done">✅ 14 tests passing</span></td></tr>
+    <tr><td>React frontend scaffold</td><td><span class="done">✅ Built, deployed, served at <code>/app/</code></span></td></tr>
+    <tr><td>Railway deployment</td><td><span class="done">✅ Live on <code>aios-runtime-production.up.railway.app</code></span></td></tr>
+  </table>
+
+  <h2>Next 3 Priorities</h2>
+  <ol>
+    <li><strong>Attach custom domain</strong> in Railway (current blocker in <code>/api/deployment/status</code>).</li>
+    <li><strong>Enrich resolver data</strong> — add external data feeds or manual records for area, project, bedrooms, price, size, developer.</li>
+    <li><strong>Complete Meta Business verification</strong> and switch Wasender webhook URL to the production domain.</li>
+  </ol>
+
+  <h2>Blockers Owned by Omar</h2>
+  <ul>
+    <li>Configure custom domain in Railway and update Wasender webhook URL.</li>
+    <li>Provide authorized portal data feeds or exports (Property Finder / Bayut / CRM) to enrich the unit bridge dataset.</li>
+    <li>Complete Meta Business verification for live WhatsApp sends.</li>
+  </ul>
+
+  <h2>Top 3 Unit-Retrieval Bottlenecks</h2>
+  <ol>
+    <li><strong>Missing public URL → exact unit bridge dataset.</strong> 221 URLs exist, 0 direct URL+unit rows.</li>
+    <li><strong>Sparse hard-identifier coverage.</strong> Truth Bridge Quality score: 52.8/100; only 4.3% exact rows.</li>
+    <li><strong>No autonomous acquisition pipeline.</strong> Ingestion framework is built but needs live data feeds and approval to run against portals.</li>
+  </ol>
+
+  <hr>
+  <p class="footer">Lead engineer: Cascade | Protocol: HSH LIFE FOREVER</p>
+</body>
+</html>

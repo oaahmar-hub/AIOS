@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-06-23T17:59:24.472551+00:00",
+  "output_directory": "/Users/hassanka/Downloads/AIOS/proofs/evidence_led_20260623T175924Z",
+  "results": {
+    "unit_finder_status": "FAIL",
+    "whatsapp_status": "PASS",
+    "identity_feedback_status": "PASS",
+    "outcome_learning_status": "PASS"
+  },
+  "artifacts": {
+    "unit_finder_verification_payload": "/Users/hassanka/Downloads/AIOS/proofs/evidence_led_20260623T175924Z/unit_finder_verification_payload.json",
+    "unit_finder_summary_report": "/Users/hassanka/Downloads/AIOS/proofs/evidence_led_20260623T175924Z/unit_finder_summary_report.md",
+    "whatsapp_delivery_verification_payload": "/Users/hassanka/Downloads/AIOS/proofs/evidence_led_20260623T175924Z/whatsapp_delivery_verification_payload.json",
+    "whatsapp_delivery_summary_report": "/Users/hassanka/Downloads/AIOS/proofs/evidence_led_20260623T175924Z/whatsapp_delivery_summary_report.md",
+    "identity_feedback_verification_payload": "/Users/hassanka/Downloads/AIOS/proofs/evidence_led_20260623T175924Z/identity_feedback_verification_payload.json",
+    "identity_feedback_summary_report": "/Users/hassanka/Downloads/AIOS/proofs/evidence_led_20260623T175924Z/identity_feedback_summary_report.md",
+    "outcome_learning_verification_payload": "/Users/hassanka/Downloads/AIOS/proofs/evidence_led_20260623T175924Z/outcome_learning_verification_payload.json",
+    "outcome_learning_summary_report": "/Users/hassanka/Downloads/AIOS/proofs/evidence_led_20260623T175924Z/outcome_learning_summary_report.md"
+  }
+}

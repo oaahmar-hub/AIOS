@@ -1,0 +1,391 @@
+{
+  "generated_at": "2026-06-26T18:05:37.718053+00:00",
+  "case": {
+    "case_id": "need-a-villa-in-dubai-hills",
+    "client_name": "Confidential Client",
+    "client_request": "Need a villa in Dubai Hills",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/3e629cfc9653__948c8a47-fbb9-40a7-9872-7ae94796f339.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - Need a villa in Dubai Hills",
+  "executive_pitch": "The strongest option today is Vacant On Transfer | Greenbelt | Prime Location because it gives the best balance of location fit, operational readiness, and alignment with the residential move. The secondary play is Single Row | Corner Plot | Easy to View, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Vacant On Transfer | Greenbelt | Prime Location as the strongest aligned option based on the current brief. Keep Single Row | Corner Plot | Easy to View as the alternative and TurnKey | Full Lagoon View | Vastu-Compliant as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Vacant On Transfer | Greenbelt | Prime Location",
+      "area": "Maple at Dubai Hills Estate 1, Maple at Dubai Hills Estate, Dubai Hills Estate, Dubai",
+      "building": "Maple at Dubai Hills Estate 1, Maple at Dubai Hills Estate, Dubai Hills Estate, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-hills-estate-maple-at-dubai-hills-estate-maple-at-dubai-hills-estate-1-106844882.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/villas-for-sale-dubai-hills-estate.html",
+        "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-hills-estate-maple-at-dubai-hills-estate-maple-at-dubai-hills-estate-1-106844882.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "villa",
+      "price_aed": 5000000,
+      "price_term": "sell",
+      "size_sqft": 2228,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Maple at Dubai Hills Estate 1, Maple at Dubai Hills Estate, Dubai Hills Estate, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/QVJ91N78V2WEETBA6X3VJA7X20/67ed87e1-37bd-418b-9280-824ff053cae0/668x452.jpg?v=445761d3496d01f4215c06dee98aaa80",
+      "bedrooms": "3",
+      "bathrooms": "3",
+      "reference": "BH-S-230157-1",
+      "suitability_score": 73.2,
+      "investment_score": 30.0,
+      "combined_score": 61.1,
+      "entry_psf_aed": 2244.17,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Dubai Hills location",
+        "villa format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 73.2,
+      "clinic_strengths": [
+        "exact Dubai Hills location",
+        "villa format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 2,244/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Maple+at+Dubai+Hills+Estate+1%2C+Maple+at+Dubai+Hills+Estate%2C+Dubai+Hills+Estate%2C+Dubai",
+      "rank": 1
+    },
+    {
+      "title": "Single Row | Corner Plot | Easy to View",
+      "area": "Golf Grove, Dubai Hills Estate, Dubai",
+      "building": "Golf Grove, Dubai Hills Estate, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-hills-estate-golf-grove-96931193.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/villas-for-sale-dubai-hills-estate.html",
+        "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-hills-estate-golf-grove-96931193.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "villa",
+      "price_aed": 7500000,
+      "price_term": "sell",
+      "size_sqft": 3362,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Golf Grove, Dubai Hills Estate, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/ZHR7B77MGCXG93NZNQPH8PQCBR/dfca67d7-0656-4a51-8068-cf806ceecb91/668x452.jpg",
+      "bedrooms": "3",
+      "bathrooms": "3",
+      "reference": "ES-1010073",
+      "suitability_score": 64.0,
+      "investment_score": 30.0,
+      "combined_score": 54.5,
+      "entry_psf_aed": 2230.81,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Dubai Hills location",
+        "villa format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 64.0,
+      "clinic_strengths": [
+        "exact Dubai Hills location",
+        "villa format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 2,231/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Golf+Grove%2C+Dubai+Hills+Estate%2C+Dubai",
+      "rank": 2
+    },
+    {
+      "title": "TurnKey | Full Lagoon View | Vastu-Compliant",
+      "area": "Address Hillcrest, Dubai Hills Estate, Dubai",
+      "building": "Address Hillcrest, Dubai Hills Estate, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-hills-estate-address-hillcrest-107290514.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/villas-for-sale-dubai-hills-estate.html",
+        "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-hills-estate-address-hillcrest-107290514.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "villa",
+      "price_aed": 26000000,
+      "price_term": "sell",
+      "size_sqft": 7128,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Address Hillcrest, Dubai Hills Estate, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/J79G2P5BSVQQPB1676DY3Z9JA4/debdbaff-01f5-4d08-9a5b-7c6c6a2233e8/668x452.jpg?v=18994465b20980fb1bb6673939e4596d",
+      "bedrooms": "5",
+      "bathrooms": "6",
+      "reference": "MCC-S-73683-5",
+      "suitability_score": 64.0,
+      "investment_score": 22.0,
+      "combined_score": 52.2,
+      "entry_psf_aed": 3647.59,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Dubai Hills location",
+        "villa format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 64.0,
+      "clinic_strengths": [
+        "exact Dubai Hills location",
+        "villa format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 3,648/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Address+Hillcrest%2C+Dubai+Hills+Estate%2C+Dubai",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Shortlist should compare capital entry, delivery timeline, and future demand ramp-up.",
+    "Residential comparisons should weigh layout efficiency, building quality, and lifestyle access alongside entry price.",
+    "Property Finder area range currently shows 4.5M - 277M.",
+    "Property Finder average asking price is 6.5M, with change of 11.4%.",
+    "Average asking price per sqft is 2.1K, with change of 10.1%."
+  ],
+  "compliance_gates": [
+    "Lease or purchase terms, building rules, and community restrictions must match the intended occupancy plan.",
+    "Service charges, parking allocation, and handover condition should be verified before commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 289 rows matching the area signal 'dubai hills'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "Property master database contains 3 raw rows linked to dubai hills.",
+    "AIOS acquisition index recovered 289 internal source assets tied to dubai hills.",
+    "Internal source mix: 264 jpg, 23 xlsx, 2 pdf."
+  ],
+  "internal_inventory_matches": [
+    {
+      "project": "Reportage",
+      "area": "Dubai Hills",
+      "developer": "Reportage",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/90b740e6691c__Reportage_Inventory__DUBAI HILLS AVAILABILITY__90b740e669.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Reportage",
+      "area": "Dubai Hills",
+      "developer": "Reportage",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/7f03fbbd4c7d__Reportage_Inventory__DUBAI HILLS AVAILABILITY__7f03fbbd4c.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Reportage",
+      "area": "Dubai Hills",
+      "developer": "Reportage",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/042e594ad20e__Reportage_Inventory__DUBAI HILLS AVAILABILITY__042e594ad2.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Reportage",
+      "area": "Dubai Hills",
+      "developer": "Reportage",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/902f581911e6__Reportage_Inventory__DUBAI HILLS AVAILABILITY__902f581911.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Reportage",
+      "area": "Dubai Hills",
+      "developer": "Reportage",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/d160d26d64ec__Reportage_Inventory__DUBAI HILLS AVAILABILITY__d160d26d64.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Reportage",
+      "area": "Dubai Hills",
+      "developer": "Reportage",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/da8db8e57da8__Reportage_Inventory__DUBAI HILLS AVAILABILITY__da8db8e57d.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Reportage",
+      "area": "Dubai Hills",
+      "developer": "Reportage",
+      "bedrooms": "",
+      "property_type": "xlsx",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/xlsx/7bb093345176__Reportage_Inventory__ffd5c26e-49da-4c91-b603-c0b42a2332e4__7bb0933451.xlsx",
+      "score": 90.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "35c722a4-7f42-40ac-ad4e-c3c8a69f6ea1.pdf",
+      "area": "Dubai Hills",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "pdf",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "EMAAR News with Firdavs(Fred)",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/pdf/232eb1c6ed13__de64e257-02ec-4491-a174-38231dd2576f.pdf",
+      "score": 55.0,
+      "signal_type": "internal_asset"
+    }
+  ],
+  "internal_market_snapshot": {
+    "match_count": 289,
+    "asset_match_count": 8,
+    "file_type_counts": {
+      "xlsx": 23,
+      "pdf": 2,
+      "jpg": 264
+    },
+    "top_projects": [
+      "Reportage",
+      "Emaar"
+    ],
+    "source_groups": [
+      "Reportage Inventory",
+      "EMAAR News with Firdavs(Fred)",
+      "EMAAR NEWS (FRED)",
+      "‼️DXB REALESTATE BROKERS ONLY‼️"
+    ]
+  },
+  "next_steps": [
+    "Confirm live availability, rent or sale terms, and current landlord or seller expectations before client send.",
+    "Collect floor plan, exact built-up area, parking details, and building or community rules for the shortlisted options.",
+    "Verify service charges, maintenance condition, and move-in timeline before presenting the lead recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Property Finder - Villa search in Dubai Hills",
+      "url": "https://www.propertyfinder.ae/en/buy/dubai/villas-for-sale-dubai-hills-estate.html",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "Need a villa in Dubai Hills",
+    "source_mode": "text",
+    "area": "dubai hills",
+    "use_case": "villa",
+    "property_preference": "villa",
+    "bedroom_preference": "",
+    "intent": "buy",
+    "source_url": ""
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 289,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/3e629cfc9653__948c8a47-fbb9-40a7-9872-7ae94796f339.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/3e629cfc9653__948c8a47-fbb9-40a7-9872-7ae94796f339.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/3e629cfc9653__948c8a47-fbb9-40a7-9872-7ae94796f339.jpg"
+      ]
+    },
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Property_Master_Database.sqlite",
+      "matched_rows": 3
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "READY FOR AGENT REVIEW BEFORE CLIENT SEND",
+    "review_notes": [
+      "Residential shortlist still needs building-rule, condition, and move-in verification before client send."
+    ]
+  }
+}

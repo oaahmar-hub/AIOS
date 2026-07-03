@@ -1,0 +1,14 @@
+{
+  "total_records": 26166,
+  "with_unit": 24357,
+  "with_url": 221,
+  "url_with_unit_project_complete": 0,
+  "url_conf80plus": 221,
+  "url_conf90plus": 1,
+  "remaining_unresolved": 1809,
+  "conclusion": {
+    "general_resolver_coverage": "PASS",
+    "url_linked_resolver_coverage": "URL_RESOLVER_PART_LIVE"
+  },
+  "source_db": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/unit_resolver_database.sqlite"
+}

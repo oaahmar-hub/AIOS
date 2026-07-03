@@ -1,0 +1,140 @@
+{
+  "validated_at": "2026-06-26T17:37:54.100120+00:00",
+  "passed": false,
+  "production_env_ready": false,
+  "checks": {
+    "compile": {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "py_compile",
+        "automation/central_orchestrator/runtime/aios_live_api_server.py",
+        "automation/central_orchestrator/runtime/aios_runtime.py",
+        "automation/central_orchestrator/runtime/validate_hosted_runtime.py",
+        "automation/central_orchestrator/runtime/validate_public_beta.py",
+        "automation/central_orchestrator/runtime/validate_eye_motion.py",
+        "automation/central_orchestrator/runtime/validate_container_runtime.py",
+        "automation/central_orchestrator/runtime/validate_host_environment.py",
+        "automation/central_orchestrator/runtime/validate_deployment_package.py",
+        "automation/central_orchestrator/runtime/validate_production_launch_readiness.py",
+        "automation/central_orchestrator/runtime/deployment_preflight.py",
+        "automation/central_orchestrator/runtime/build_deployment_bundle.py",
+        "automation/central_orchestrator/runtime/prepare_production_release.py"
+      ],
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "package": {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "automation/central_orchestrator/runtime/validate_deployment_package.py"
+      ],
+      "returncode": 1,
+      "passed": false,
+      "stdout_tail": "dates\",\n      \"passed\": true,\n      \"needle\": \"public_url_candidates\"\n    },\n    {\n      \"name\": \"finalizer:use public base url env\",\n      \"passed\": true,\n      \"needle\": \"AIOS_PUBLIC_BASE_URL\"\n    },\n    {\n      \"name\": \"finalizer:use railway public domain env\",\n      \"passed\": true,\n      \"needle\": \"RAILWAY_PUBLIC_DOMAIN\"\n    },\n    {\n      \"name\": \"finalizer:find local railway cli install\",\n      \"passed\": true,\n      \"needle\": \".railway/bin/railway\"\n    },\n    {\n      \"name\": \"pipeline:runs railway env sync\",\n      \"passed\": true,\n      \"needle\": \"sync_railway_environment.py\"\n    },\n    {\n      \"name\": \"pipeline:runs railway deploy runner\",\n      \"passed\": true,\n      \"needle\": \"deploy_railway_production.py\"\n    },\n    {\n      \"name\": \"pipeline:runs public finalizer\",\n      \"passed\": true,\n      \"needle\": \"finalize_production_hosting.py\"\n    },\n    {\n      \"name\": \"pipeline:writes pipeline report\",\n      \"passed\": true,\n      \"needle\": \"PRODUCTION_HOSTING_PIPELINE_RUN.json\"\n    },\n    {\n      \"name\": \"pipeline:emits final classification\",\n      \"passed\": true,\n      \"needle\": \"classification\"\n    }\n  ],\n  \"next_action\": \"Fix failed deployment package checks before hosting.\"\n}\n",
+      "stderr_tail": "",
+      "package_passed": false,
+      "checks_passed": 103,
+      "checks_total": 173
+    },
+    "bundle": {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "automation/central_orchestrator/runtime/build_deployment_bundle.py",
+        "--dry-run",
+        "--summary"
+      ],
+      "returncode": 1,
+      "passed": false,
+      "stdout_tail": "{\n  \"generated_at\": \"2026-06-26T17:37:31.431657+00:00\",\n  \"dry_run\": true,\n  \"passed\": false,\n  \"bundle\": \"automation/central_orchestrator/reports/deployment-bundles/AIOS_RUNTIME_DEPLOYMENT_20260626T173731Z.tar.gz\",\n  \"manifest\": \"automation/central_orchestrator/reports/deployment-bundles/AIOS_RUNTIME_DEPLOYMENT_20260626T173731Z.manifest.json\",\n  \"file_count\": 3992,\n  \"total_bytes\": 3338849198,\n  \"missing_required\": [\n    \"render.yaml\",\n    \".railwayignore\",\n    \".env.production.example\",\n    \"DEPLOYMENT.md\",\n    \"PRODUCTION_DEPLOYMENT_MANIFEST.json\",\n    \"automation/whatsapp_business_os/prompts/omar_real_estate_whatsapp_agent.txt\"\n  ],\n  \"external_side_effects\": {\n    \"published\": false,\n    \"deployed\": false,\n    \"secrets_written\": false,\n    \"external_network_calls\": false\n  }\n}\n",
+      "stderr_tail": "",
+      "bundle_passed": false,
+      "file_count": 3992,
+      "missing_required": [
+        "render.yaml",
+        ".railwayignore",
+        ".env.production.example",
+        "DEPLOYMENT.md",
+        "PRODUCTION_DEPLOYMENT_MANIFEST.json",
+        "automation/whatsapp_business_os/prompts/omar_real_estate_whatsapp_agent.txt"
+      ]
+    },
+    "environment": {
+      "passed": false,
+      "ready_for_host_secrets": false,
+      "checks": [
+        {
+          "name": "AIOS_ENV",
+          "present": false,
+          "placeholder": true,
+          "masked": "",
+          "fingerprint": ""
+        },
+        {
+          "name": "AIOS_AUTH_MODE",
+          "present": false,
+          "placeholder": true,
+          "masked": "",
+          "fingerprint": ""
+        },
+        {
+          "name": "AIOS_BASIC_AUTH_USER",
+          "present": false,
+          "placeholder": true,
+          "masked": "",
+          "fingerprint": ""
+        },
+        {
+          "name": "AIOS_BASIC_AUTH_PASSWORD",
+          "present": false,
+          "placeholder": true,
+          "masked": "",
+          "fingerprint": ""
+        },
+        {
+          "name": "AIOS_WHATSAPP_REPLY_MODE",
+          "present": false,
+          "placeholder": true,
+          "masked": "",
+          "fingerprint": ""
+        },
+        {
+          "name": "AIOS_WHATSAPP_VERIFY_TOKEN",
+          "present": false,
+          "placeholder": true,
+          "masked": "",
+          "fingerprint": ""
+        }
+      ],
+      "note": "Missing or placeholder values are expected before host secrets are set."
+    },
+    "generated_secret_plan": {
+      "generated_at": "2026-06-26T17:37:54.099317+00:00",
+      "not_written_to_disk": true,
+      "items": [
+        {
+          "key": "AIOS_BASIC_AUTH_PASSWORD",
+          "length": 36,
+          "fingerprint": "5f539e0553ec9222",
+          "masked": "zfo...nsy"
+        },
+        {
+          "key": "AIOS_WHATSAPP_VERIFY_TOKEN",
+          "length": 40,
+          "fingerprint": "b7303e33d01e757d",
+          "masked": "syW...znF"
+        }
+      ],
+      "use": "Generate final values in host secret manager or rerun with a secure operator present. Do not commit secrets."
+    }
+  },
+  "deployment_status": "fix_preflight_failures",
+  "external_blockers_remaining": [
+    "Permanent backend/frontend host approval.",
+    "Domain attachment.",
+    "Production secret entry in host dashboard.",
+    "WhatsApp provider login and live hosted test."
+  ]
+}

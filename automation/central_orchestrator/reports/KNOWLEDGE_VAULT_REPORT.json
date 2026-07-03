@@ -1,0 +1,943 @@
+{
+  "generated_at": "2026-06-25T13:07:47.872129+00:00",
+  "mode": "safe_local_knowledge_vault_no_external_side_effects",
+  "asset_count": 3723,
+  "text_asset_count": 733,
+  "binary_asset_count": 2990,
+  "categories": {
+    "sops": {
+      "asset_count": 12,
+      "text_count": 12,
+      "binary_count": 0,
+      "sample_paths": [
+        "OperatingSystem/03_SOPs/AIOS_SECURE_RAILWAY_DEPLOYMENT_SOP.md",
+        "OperatingSystem/03_SOPs/SOP01_Nakheel_NOC_Modification.md",
+        "OperatingSystem/03_SOPs/SOP02_DLD_Transfer_Registration.md",
+        "OperatingSystem/03_SOPs/SOP03_Ejari_Registration.md",
+        "OperatingSystem/03_SOPs/SOP04_RERA_Advertising_Permit.md",
+        "OperatingSystem/03_SOPs/SOP05_Property_Finder_Listing.md"
+      ],
+      "status": "strong"
+    },
+    "workflows": {
+      "asset_count": 13,
+      "text_count": 13,
+      "binary_count": 0,
+      "sample_paths": [
+        "KnowledgeBase/Bitrix24/05_Workflows/WORKFLOW_MAP.md",
+        "OperatingSystem/02_Workflows/WF01_Lead_Intake.md",
+        "OperatingSystem/02_Workflows/WF02_Property_Search_Shortlist.md",
+        "OperatingSystem/02_Workflows/WF03_PF_Listing_Publish.md",
+        "OperatingSystem/02_Workflows/WF04_Nakheel_NOC_Submission.md",
+        "OperatingSystem/02_Workflows/WF05_DLD_Transfer.md"
+      ],
+      "status": "strong"
+    },
+    "templates": {
+      "asset_count": 11,
+      "text_count": 11,
+      "binary_count": 0,
+      "sample_paths": [
+        "OperatingSystem/04_Templates/T01_Listing_Copy.md",
+        "OperatingSystem/04_Templates/T02_Client_Qualification.md",
+        "OperatingSystem/04_Templates/T03_Offer_Letter.md",
+        "OperatingSystem/04_Templates/T04_NOC_Cover_Request.md",
+        "OperatingSystem/04_Templates/T05_Feasibility_Report.md",
+        "OperatingSystem/04_Templates/T06_Handover_Checklist.md"
+      ],
+      "status": "strong"
+    },
+    "contracts": {
+      "asset_count": 0,
+      "text_count": 0,
+      "binary_count": 0,
+      "sample_paths": [],
+      "status": "missing"
+    },
+    "documents": {
+      "asset_count": 0,
+      "text_count": 0,
+      "binary_count": 0,
+      "sample_paths": [],
+      "status": "missing"
+    },
+    "cases": {
+      "asset_count": 0,
+      "text_count": 0,
+      "binary_count": 0,
+      "sample_paths": [],
+      "status": "missing"
+    },
+    "playbooks": {
+      "asset_count": 28,
+      "text_count": 28,
+      "binary_count": 0,
+      "sample_paths": [
+        "Agents/NakheelDesignApproval/COMPLIANCE_REPORT.md",
+        "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/FINAL_FIRST_PASS_APPROVAL_SCORE.md",
+        "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/FINAL_PRE_SUBMISSION_AUDIT.md",
+        "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/FINAL_RETURN_RISK_REPORT.md",
+        "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/FINAL_SUBMISSION_MATRIX.md",
+        "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/PJ-P-VP-018_FULL_AUDIT_REPORT.md"
+      ],
+      "status": "strong"
+    },
+    "regulatory": {
+      "asset_count": 0,
+      "text_count": 0,
+      "binary_count": 0,
+      "sample_paths": [],
+      "status": "missing"
+    },
+    "market": {
+      "asset_count": 0,
+      "text_count": 0,
+      "binary_count": 0,
+      "sample_paths": [],
+      "status": "missing"
+    },
+    "company": {
+      "asset_count": 0,
+      "text_count": 0,
+      "binary_count": 0,
+      "sample_paths": [],
+      "status": "missing"
+    },
+    "branding": {
+      "asset_count": 0,
+      "text_count": 0,
+      "binary_count": 0,
+      "sample_paths": [],
+      "status": "missing"
+    },
+    "crm": {
+      "asset_count": 0,
+      "text_count": 0,
+      "binary_count": 0,
+      "sample_paths": [],
+      "status": "missing"
+    },
+    "historical_knowledge": {
+      "asset_count": 0,
+      "text_count": 0,
+      "binary_count": 0,
+      "sample_paths": [],
+      "status": "missing"
+    }
+  },
+  "retrieval_routes": [
+    {
+      "query": "NOC checklist",
+      "intent": "government_approval",
+      "open_first": "sops/SOP-01-NOC-APPLICATION.md",
+      "then_use": [
+        "workflows/WF-01-NOC-APPLICATION.md",
+        "agents/01-NOC-APPROVALS-AGENT.md"
+      ],
+      "handoff": "@noc"
+    },
+    {
+      "query": "DLD transfer",
+      "intent": "transfer_operations",
+      "open_first": "workflows/WF-02-DLD-TRANSFER.md",
+      "then_use": [
+        "knowledge-base/regulatory/DLD-FEE-SCHEDULE.md",
+        "agents/02-DLD-EJARI-AGENT.md"
+      ],
+      "handoff": "@dld"
+    },
+    {
+      "query": "tenancy contract",
+      "intent": "contract_drafting",
+      "open_first": "templates/TPL-05-TENANCY-CONTRACT.md",
+      "then_use": [
+        "workflows/WF-03-TENANCY-EJARI.md",
+        "knowledge-base/regulatory/RERA-QUICK-REFERENCE.md"
+      ],
+      "handoff": "@contract"
+    },
+    {
+      "query": "lead qualification",
+      "intent": "crm_followup",
+      "open_first": "sops/SOP-09-LEAD-QUALIFICATION.md",
+      "then_use": [
+        "agents/04-CLIENT-MANAGER-AGENT.md",
+        "crm/CRM-GUIDE.md"
+      ],
+      "handoff": "@client"
+    },
+    {
+      "query": "investment brief",
+      "intent": "market_research",
+      "open_first": "templates/TPL-08-INVESTMENT-BRIEF.md",
+      "then_use": [
+        "workflows/WF-09-INVESTMENT-RESEARCH.md",
+        "knowledge-base/market/DUBAI-COMMUNITIES.md"
+      ],
+      "handoff": "@research"
+    },
+    {
+      "query": "brand voice",
+      "intent": "content_factory",
+      "open_first": "knowledge-base/branding/BRAND-GUIDELINES.md",
+      "then_use": [
+        "knowledge-base/branding/AIOS-BRAND-IDENTITY.md",
+        "agents/08-MARKETING-AGENT.md"
+      ],
+      "handoff": "@marketing"
+    },
+    {
+      "query": "document intake",
+      "intent": "document_classification",
+      "open_first": "agents/12-DOCUMENT-INTAKE-AGENT.md",
+      "then_use": [
+        "automation/ai_agents_production/runtime/document_intake_agent.py"
+      ],
+      "handoff": "@docs"
+    }
+  ],
+  "retrieval_results": [
+    {
+      "query": "NOC checklist",
+      "matches": [
+        {
+          "score": 5,
+          "title": "PJ-P-VP-018 Resubmission Checklist",
+          "path": "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/PJ-P-VP-018_RESUBMISSION_CHECKLIST.md",
+          "tags": [],
+          "excerpt": "# PJ-P-VP-018 Resubmission Checklist - Confirm live Nakheel record is PJ-P-VP-018. - Replace invalid consultant license candidate with the real Renaissance trade license. - Get owner authorization executed. - Get evaluat"
+        },
+        {
+          "score": 5,
+          "title": "Dld  Electronic No Objection Certification Enoc",
+          "path": "KnowledgeBase/Operations_Corpus/html/DLD__Electronic_No_Objection_Certification_eNOC.html",
+          "tags": [
+            "document",
+            "regulatory",
+            "brand"
+          ],
+          "excerpt": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" translate=\"no\"> <head> <!-- Google Tag Manager --> <script> (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var "
+        },
+        {
+          "score": 5,
+          "title": "Noc  Developer Enoc Freehold Transfer",
+          "path": "KnowledgeBase/Operations_Corpus/html/NOC__Developer_eNOC_freehold_transfer.html",
+          "tags": [
+            "document",
+            "regulatory",
+            "market",
+            "brand"
+          ],
+          "excerpt": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" translate=\"no\"> <head> <!-- Google Tag Manager --> <script> (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var "
+        },
+        {
+          "score": 5,
+          "title": "Noc  Project Noc For Off Plan Registration",
+          "path": "KnowledgeBase/Operations_Corpus/html/NOC__Project_NOC_for_off_plan_registration.html",
+          "tags": [
+            "document",
+            "regulatory",
+            "brand"
+          ],
+          "excerpt": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" translate=\"no\"> <head> <!-- Google Tag Manager --> <script> (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var "
+        },
+        {
+          "score": 5,
+          "title": "Dld  Electronic No Objection Certification Enoc",
+          "path": "KnowledgeBase/Operations_Corpus/text/DLD__Electronic_No_Objection_Certification_eNOC.txt",
+          "tags": [
+            "regulatory",
+            "market"
+          ],
+          "excerpt": "Dubai Land Department - Electronic No Objection Certification (eNOC) Heading ● ● ● ● ● ● We would like to inform you that from 1st August 2021, we have changed our technical support email from [email protected] to [email"
+        },
+        {
+          "score": 5,
+          "title": "Noc  Developer Enoc Freehold Transfer",
+          "path": "KnowledgeBase/Operations_Corpus/text/NOC__Developer_eNOC_freehold_transfer.txt",
+          "tags": [
+            "regulatory",
+            "market"
+          ],
+          "excerpt": "Dubai Land Department - Electronic No Objection Certification (eNOC) Heading ● ● ● ● ● ● We would like to inform you that from 1st August 2021, we have changed our technical support email from [email protected] to [email"
+        }
+      ]
+    },
+    {
+      "query": "DLD transfer",
+      "matches": [
+        {
+          "score": 10,
+          "title": "Dld  Transfer Registration Fees Between Properties",
+          "path": "KnowledgeBase/Operations_Corpus/html/DLD__Transfer_Registration_Fees_Between_Properties.html",
+          "tags": [
+            "document",
+            "regulatory",
+            "brand"
+          ],
+          "excerpt": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" translate=\"no\"> <head> <!-- Google Tag Manager --> <script> (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var "
+        },
+        {
+          "score": 10,
+          "title": "Dld  Transfer Registration Fees Between Properties",
+          "path": "KnowledgeBase/Operations_Corpus/text/DLD__Transfer_Registration_Fees_Between_Properties.txt",
+          "tags": [
+            "case",
+            "regulatory",
+            "market"
+          ],
+          "excerpt": "Dubai Land Department - Transfer of registration fees from one property to another application Heading ● ● ● ● ● ● We would like to inform you that from 1st August 2021, we have changed our technical support email from ["
+        },
+        {
+          "score": 10,
+          "title": "C461De20F7D9  Dld  Transfer Registration Fees Between Properties",
+          "path": "KnowledgeBase/raw_data/txt/c461de20f7d9__DLD__Transfer_Registration_Fees_Between_Properties.txt",
+          "tags": [
+            "case",
+            "regulatory",
+            "market"
+          ],
+          "excerpt": "Dubai Land Department - Transfer of registration fees from one property to another application Heading ● ● ● ● ● ● We would like to inform you that from 1st August 2021, we have changed our technical support email from ["
+        },
+        {
+          "score": 10,
+          "title": "WF05 — DLD Transfer",
+          "path": "OperatingSystem/02_Workflows/WF05_DLD_Transfer.md",
+          "tags": [
+            "sop",
+            "workflow",
+            "contract",
+            "document",
+            "regulatory",
+            "market",
+            "crm"
+          ],
+          "excerpt": "# WF05 — DLD Transfer **Flow:** Sale agreed → NOC → fees & docs → trustee appointment → transfer → register **Trigger:** A sale is agreed and the transfer must be executed. **Lead agent:** [A04 Compliance Officer](../01_"
+        },
+        {
+          "score": 10,
+          "title": "SOP02 — DLD Transfer & Registration",
+          "path": "OperatingSystem/03_SOPs/SOP02_DLD_Transfer_Registration.md",
+          "tags": [
+            "sop",
+            "workflow",
+            "contract",
+            "document",
+            "regulatory",
+            "market",
+            "crm"
+          ],
+          "excerpt": "# SOP02 — DLD Transfer & Registration **Purpose:** Execute and register a property ownership transfer at the DLD/registration trustee. **When:** A sale is agreed and ready to transfer. **Owner:** [A04](../01_Agents/A04_C"
+        },
+        {
+          "score": 10,
+          "title": "Dld  Transfer Registration Fees Between Properties",
+          "path": "deployment/hosted-backend/AIOS/KnowledgeBase/Operations_Corpus/text/DLD__Transfer_Registration_Fees_Between_Properties.txt",
+          "tags": [
+            "case",
+            "regulatory",
+            "market"
+          ],
+          "excerpt": "Dubai Land Department - Transfer of registration fees from one property to another application Heading ● ● ● ● ● ● We would like to inform you that from 1st August 2021, we have changed our technical support email from ["
+        }
+      ]
+    },
+    {
+      "query": "tenancy contract",
+      "matches": [
+        {
+          "score": 6,
+          "title": "A06 — Contracts & Renewals",
+          "path": "OperatingSystem/01_Agents/A06_Contracts_Renewals.md",
+          "tags": [
+            "sop",
+            "workflow",
+            "template",
+            "contract",
+            "regulatory"
+          ],
+          "excerpt": "# A06 — Contracts & Renewals **Role:** Drafts and reviews tenancy/sale contracts, MOUs, addenda; manages renewals, notices, and expiry tracking. **Invoke:** `Act as the Contracts & Renewals agent. <task>` **Inherits:** g"
+        },
+        {
+          "score": 6,
+          "title": "SOP06 — Tenancy Renewal & Notice",
+          "path": "OperatingSystem/03_SOPs/SOP06_Tenancy_Renewal_Notice.md",
+          "tags": [
+            "sop",
+            "workflow",
+            "template",
+            "contract",
+            "document",
+            "regulatory"
+          ],
+          "excerpt": "# SOP06 — Tenancy Renewal & Notice **Purpose:** Renew tenancies and serve rent-change / non-renewal / eviction notices within the legal windows. **When:** A tenancy approaches expiry, or a rent change / non-renewal / evi"
+        },
+        {
+          "score": 5,
+          "title": "Dubai Brokers Contract B",
+          "path": "KnowledgeBase/AIOS_Knowledge_Vault/case_library/CASE-03-DUBAI-BROKERS-CONTRACT-B.md",
+          "tags": [
+            "template",
+            "contract",
+            "case"
+          ],
+          "excerpt": "# Dubai Brokers Contract B ## Context Company-buyer contract flow uses company formation data, authorized signatory details, and upload-ready supporting files. ## Lesson Turn the case into a repeatable rule, checklist, o"
+        },
+        {
+          "score": 5,
+          "title": "1B285C2Fc1Bc  Contract F   Plot 18  Palm Crown   New   1 ",
+          "path": "KnowledgeBase/raw_data/pdf/1b285c2fc1bc__Contract F - Plot 18- Palm Crown - New  _1_.pdf",
+          "tags": [
+            "contract"
+          ],
+          "excerpt": ""
+        },
+        {
+          "score": 5,
+          "title": "6E39724Fd65D  Tiger Sky Tower 3902Tigercontract Document",
+          "path": "KnowledgeBase/raw_data/pdf/6e39724fd65d__Tiger Sky Tower-3902TigerContract document.pdf",
+          "tags": [
+            "contract",
+            "document"
+          ],
+          "excerpt": ""
+        },
+        {
+          "score": 5,
+          "title": "WF07 — Contract Renewal",
+          "path": "OperatingSystem/02_Workflows/WF07_Contract_Renewal.md",
+          "tags": [
+            "workflow",
+            "template",
+            "contract",
+            "case",
+            "regulatory",
+            "crm"
+          ],
+          "excerpt": "# WF07 — Contract Renewal **Flow:** Expiry radar → decision → notice (90d) → new terms → re-register **Trigger:** A lease/contract is within 120 days of expiry (radar set at signing). **Lead agent:** [A06 Contracts & Ren"
+        }
+      ]
+    },
+    {
+      "query": "lead qualification",
+      "matches": [
+        {
+          "score": 5,
+          "title": "Lead Management",
+          "path": "KnowledgeBase/Bitrix24/08_Lead_Management/LEAD_MANAGEMENT.md",
+          "tags": [
+            "workflow",
+            "crm"
+          ],
+          "excerpt": "# Lead Management Evidence scope: - Source chat: Home Sweet Home-Bitrix Support - WhatsApp chat JID: 120363176580421967@g.us - Local ChatStorage session PK: 1226 - Extracted local messages: 25 - Date range visible in loc"
+        },
+        {
+          "score": 5,
+          "title": "WF01 — Lead Intake",
+          "path": "OperatingSystem/02_Workflows/WF01_Lead_Intake.md",
+          "tags": [
+            "workflow",
+            "template",
+            "crm"
+          ],
+          "excerpt": "# WF01 — Lead Intake **Flow:** Lead → CRM → Task → Property match (the core money workflow, `SALES_KNOWLEDGE.md` #1) **Trigger:** New inquiry from WhatsApp, Property Finder, call, referral, or web. **Lead agent:** [A02 D"
+        },
+        {
+          "score": 5,
+          "title": "T02 — Client Qualification",
+          "path": "OperatingSystem/04_Templates/T02_Client_Qualification.md",
+          "tags": [
+            "sop",
+            "workflow",
+            "template",
+            "market",
+            "crm"
+          ],
+          "excerpt": "# T02 — Client Qualification **Used by:** A02 Deal Closer · WF01, SOP09. Capture the 6 fields fast; flag gaps. --- | Field | Value | Notes | |---|---|---| | **Name** | `{{name}}` | | | **Contact** | `{{phone / whatsapp /"
+        },
+        {
+          "score": 5,
+          "title": "!/usr/bin/env python3",
+          "path": "PersonalityEngine/LEAD_DIGITAL_CONCIERGE_REGRESSION.py",
+          "tags": [
+            "workflow",
+            "case",
+            "crm"
+          ],
+          "excerpt": "#!/usr/bin/env python3 from __future__ import annotations import json import sys sys.path.insert(0, \"/Users/hassanka/Downloads/AIOS/transport\") sys.path.insert(0, \"/Users/hassanka/Downloads/AIOS/PersonalityEngine\") impor"
+        },
+        {
+          "score": 5,
+          "title": "Lead Digital Operations Concierge Persona",
+          "path": "PersonalityEngine/LEAD_DIGITAL_OPERATIONS_CONCIERGE_PERSONA.md",
+          "tags": [
+            "workflow",
+            "crm"
+          ],
+          "excerpt": "# Lead Digital Operations Concierge Persona ## Identity You are the Lead Digital Operations Concierge. Your existence is defined by two metrics: 1. Zero-Latency Accuracy 2. Human-Equivalence You are not a chatbot. You ar"
+        },
+        {
+          "score": 2,
+          "title": "Sales Knowledge Playbook",
+          "path": "KnowledgeBase/AIOS_Knowledge_Vault/category_playbooks/SALES_KNOWLEDGE.md",
+          "tags": [
+            "workflow",
+            "template",
+            "case",
+            "crm"
+          ],
+          "excerpt": "# Sales Knowledge Playbook Lead handling, follow-up, CRM, and qualification routines. ## Extracted Knowledge 1. **Lead flow** — Lead -> CRM -> task -> property match -> dashboard is the core money workflow. (Source: CRM "
+        }
+      ]
+    },
+    {
+      "query": "investment brief",
+      "matches": [
+        {
+          "score": 5,
+          "title": "3F3B87323F85  Dubai Investment Comparison Hsh",
+          "path": "KnowledgeBase/raw_data/pdf/3f3b87323f85__dubai-investment-comparison-hsh.pdf",
+          "tags": [
+            "market"
+          ],
+          "excerpt": ""
+        },
+        {
+          "score": 5,
+          "title": "A133B3F87006  Hsh Nautica One Unit 4406 Investment Report V2",
+          "path": "KnowledgeBase/raw_data/pdf/a133b3f87006__hsh-nautica-one-unit-4406-investment-report-v2.pdf",
+          "tags": [
+            "market"
+          ],
+          "excerpt": ""
+        },
+        {
+          "score": 5,
+          "title": "WF10 — Daily CEO Briefing",
+          "path": "OperatingSystem/02_Workflows/WF10_Daily_CEO_Briefing.md",
+          "tags": [
+            "workflow",
+            "case",
+            "regulatory",
+            "crm"
+          ],
+          "excerpt": "# WF10 — Daily CEO Briefing **Flow:** Calendar + Gmail + Airtable + Tasks → one executive view → 3 priorities **Trigger:** Every morning (default 08:00). The first thing you run. **Lead agent:** [A01 Chief of Staff](../0"
+        },
+        {
+          "score": 1,
+          "title": "AIOS Reusable Project Architecture",
+          "path": "00_FOUNDATION/REUSABLE_PROJECT_ARCHITECTURE.md",
+          "tags": [],
+          "excerpt": "# AIOS Reusable Project Architecture Every AIOS project should follow this architecture: ```text 00_BRIEF/ 01_SOURCE_EVIDENCE/ 02_REQUIREMENTS/ 03_WORKING_FILES/ 04_VALIDATION/ 05_FINAL_OUTPUT/ 06_REPORTS/ 07_ARCHIVE/ ``"
+        },
+        {
+          "score": 1,
+          "title": "AIOS Templates",
+          "path": "00_FOUNDATION/TEMPLATES.md",
+          "tags": [
+            "template",
+            "crm"
+          ],
+          "excerpt": "# AIOS Templates ## Project brief ```markdown # Project Brief Project: Owner: Objective: Authority / client: Deadline: Risk level: Source folders: Success condition: ``` ## Validation report ```markdown # Validation Repo"
+        },
+        {
+          "score": 1,
+          "title": "Agent Template",
+          "path": "OperatingSystem/01_Agents/AGENT_TEMPLATE.md",
+          "tags": [
+            "sop",
+            "workflow",
+            "template"
+          ],
+          "excerpt": "# Agent Template Copy this to create a new agent. Keep it tight — an agent is an operating brief, not an essay. ``` # A__ — <Agent Name> **Role:** <one line> **Invoke:** `Act as the <name> agent. <task>` **Inherits:** gl"
+        }
+      ]
+    },
+    {
+      "query": "brand voice",
+      "matches": [
+        {
+          "score": 5,
+          "title": "111333029D24  Tax Invoice Inv 16965",
+          "path": "KnowledgeBase/raw_data/pdf/111333029d24__Tax Invoice_INV-16965.pdf",
+          "tags": [],
+          "excerpt": ""
+        },
+        {
+          "score": 5,
+          "title": "58Baebfe7D40  Hsh Standard Branded Proposal Template",
+          "path": "KnowledgeBase/raw_data/pdf/58baebfe7d40__HSH-STANDARD-BRANDED-PROPOSAL-TEMPLATE.pdf",
+          "tags": [
+            "template",
+            "brand"
+          ],
+          "excerpt": ""
+        },
+        {
+          "score": 5,
+          "title": "7Bc389Bcc153  Hsh Standard Branded Property Presentation Template",
+          "path": "KnowledgeBase/raw_data/pdf/7bc389bcc153__HSH-STANDARD-BRANDED-PROPERTY-PRESENTATION-TEMPLATE.pdf",
+          "tags": [
+            "template",
+            "brand"
+          ],
+          "excerpt": ""
+        },
+        {
+          "score": 5,
+          "title": "Bfc5C40E1Df6  Proforma Invoice P 16965",
+          "path": "KnowledgeBase/raw_data/pdf/bfc5c40e1df6__PROFORMA_INVOICE_P-16965.pdf",
+          "tags": [],
+          "excerpt": ""
+        },
+        {
+          "score": 5,
+          "title": "28F2667E70Fe  Voice Note Agent",
+          "path": "KnowledgeBase/raw_data/txt/28f2667e70fe__VOICE-NOTE-AGENT.txt",
+          "tags": [
+            "contract",
+            "regulatory",
+            "crm"
+          ],
+          "excerpt": "You are Omar AIOS Voice Note Agent. Convert WhatsApp voice notes into CRM-ready business actions. Return: transcript, language, intent, urgency, lead type, assigned AIOS agent, safe_auto_reply, draft_reply, follow_up_tas"
+        },
+        {
+          "score": 5,
+          "title": "7F970B8E9D60  Brand Assets Files",
+          "path": "KnowledgeBase/raw_data/txt/7f970b8e9d60__brand-assets-files.txt",
+          "tags": [
+            "document",
+            "market",
+            "brand"
+          ],
+          "excerpt": "outputs/AIOS/knowledge-base/branding/assets/company-documents/hsh-global-executive-strategic-report-en-ar.docx outputs/AIOS/knowledge-base/branding/assets/company-documents/hsh-global-executive-strategic-report.docx outp"
+        }
+      ]
+    },
+    {
+      "query": "document intake",
+      "matches": [
+        {
+          "score": 10,
+          "title": "58Ca2Bfee233  Document Intake Agent",
+          "path": "KnowledgeBase/raw_data/txt/58ca2bfee233__DOCUMENT-INTAKE-AGENT.txt",
+          "tags": [
+            "document",
+            "case",
+            "regulatory",
+            "crm"
+          ],
+          "excerpt": "You are Omar AIOS Document Intake Agent. Classify uploaded real-estate documents, extract client/property/case fields, identify missing items, assign the correct AIOS specialist, and create the next task. Do not give leg"
+        },
+        {
+          "score": 5,
+          "title": "PJ-P-VP-018 Missing Documents",
+          "path": "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/PJ-P-VP-018_MISSING_DOCUMENTS.md",
+          "tags": [
+            "document"
+          ],
+          "excerpt": "# PJ-P-VP-018 Missing Documents - Consultant trade license: MISSING - Current candidate is for ERDINC PROPERTY HOLDING Limited, not Renaissance Engineering Consultants. - Owner authorization / appointment letter: REQUIRE"
+        },
+        {
+          "score": 5,
+          "title": "6E39724Fd65D  Tiger Sky Tower 3902Tigercontract Document",
+          "path": "KnowledgeBase/raw_data/pdf/6e39724fd65d__Tiger Sky Tower-3902TigerContract document.pdf",
+          "tags": [
+            "contract",
+            "document"
+          ],
+          "excerpt": ""
+        },
+        {
+          "score": 5,
+          "title": "WF01 — Lead Intake",
+          "path": "OperatingSystem/02_Workflows/WF01_Lead_Intake.md",
+          "tags": [
+            "workflow",
+            "template",
+            "crm"
+          ],
+          "excerpt": "# WF01 — Lead Intake **Flow:** Lead → CRM → Task → Property match (the core money workflow, `SALES_KNOWLEDGE.md` #1) **Trigger:** New inquiry from WhatsApp, Property Finder, call, referral, or web. **Lead agent:** [A02 D"
+        },
+        {
+          "score": 2,
+          "title": "AIOS Daily Operations Workflows",
+          "path": "KnowledgeBase/AIOS_Daily_Operations_Workflows.md",
+          "tags": [
+            "workflow",
+            "document",
+            "regulatory",
+            "crm"
+          ],
+          "excerpt": "# AIOS Daily Operations Workflows Date: 2026-06-21 ## 1) Lead Intake Workflow **Flow** Lead -> CRM -> Task -> Property Recommendation **Live proof** - Lead created in Airtable: - `rec8LMkWke6uX8Oti` - `AIOS Live Lead - 2"
+        },
+        {
+          "score": 2,
+          "title": "In production this workflow should create/refresh CRM records and tasks.",
+          "path": "KnowledgeBase/aios_daily_operations_layer.py",
+          "tags": [
+            "workflow",
+            "document",
+            "crm"
+          ],
+          "excerpt": "from __future__ import annotations \"\"\"AIOS Daily Operations Layer. Five practical workflows that sit on top of the Brain/Router/Entry Point: 1. Lead intake 2. Property intelligence 3. Document retrieval 4. Operations ass"
+        }
+      ]
+    }
+  ],
+  "document_cases": [
+    {
+      "sample_id": "doc-title-deed-transfer",
+      "document_type": "Title Deed",
+      "case_type": "DLD Transfer",
+      "missing_items": [],
+      "risk_level": "High",
+      "assigned_agent": "@dld",
+      "approval_required": true,
+      "summary": "Title Deed. Name: Validation Buyer. Property: Unit 1508, Sadaf 6. DLD transfer and mortgage bank payment pending."
+    },
+    {
+      "sample_id": "doc-nakheel-noc",
+      "document_type": "NOC Document",
+      "case_type": "NOC",
+      "missing_items": [
+        "Contractor drawings"
+      ],
+      "risk_level": "Normal",
+      "assigned_agent": "@noc",
+      "approval_required": true,
+      "summary": "Nakheel NOC request. Name: Palm Owner. Unit: Palm Villa. Modification scope and contractor drawings missing."
+    },
+    {
+      "sample_id": "doc-tenancy-ejari",
+      "document_type": "Tenancy / Ejari",
+      "case_type": "Ejari",
+      "missing_items": [
+        "Emirates ID"
+      ],
+      "risk_level": "Normal",
+      "assigned_agent": "@dld",
+      "approval_required": true,
+      "summary": "Tenancy contract for Ejari. Name: Dubai Hills Tenant. Property: Dubai Hills 1BR. Missing tenant Emirates ID."
+    }
+  ],
+  "recent_assets": [
+    {
+      "title": "Unified Memory Report",
+      "path": "automation/central_orchestrator/reports/UNIFIED_MEMORY_REPORT.json",
+      "extension": ".json",
+      "asset_type": "text_knowledge",
+      "size_bytes": 11360,
+      "tags": [
+        "contract",
+        "case",
+        "crm",
+        "brand"
+      ],
+      "excerpt": "{ \"generated_at\": \"2026-06-25T13:07:46.903308+00:00\", \"context_version\": \"2.0\", \"mode\": \"safe_local_unified_memory_no_external_side_effects\", \"memory_packet_count\": 7, \"memory_types\": [ \"content\", \"conversation\", \"crm\", ",
+      "updated_at": "2026-06-25T13:07:46.903965+00:00"
+    },
+    {
+      "title": "!/usr/bin/env python3",
+      "path": "automation/central_orchestrator/runtime/aios_live_api_server.py",
+      "extension": ".py",
+      "asset_type": "text_knowledge",
+      "size_bytes": 41605,
+      "tags": [
+        "contract",
+        "case",
+        "crm"
+      ],
+      "excerpt": "#!/usr/bin/env python3 \"\"\"AIOS live local API server. Serves the static AIOS experience and exposes production-style API routes for central runtime decisions. No external network calls or connector writes happen here; th",
+      "updated_at": "2026-06-25T13:07:35.709962+00:00"
+    },
+    {
+      "title": "!/usr/bin/env python3",
+      "path": "transport/simple_whatsapp_openai_gateway.py",
+      "extension": ".py",
+      "asset_type": "text_knowledge",
+      "size_bytes": 227117,
+      "tags": [],
+      "excerpt": "#!/usr/bin/env python3 import base64 import hmac import json import os import re import sqlite3 import subprocess import sys import time import traceback import urllib.error import urllib.parse import urllib.request impo",
+      "updated_at": "2026-06-25T13:06:33.134150+00:00"
+    },
+    {
+      "title": "!/usr/bin/env python3",
+      "path": "aios_runtime_production_up.py",
+      "extension": ".py",
+      "asset_type": "text_knowledge",
+      "size_bytes": 876,
+      "tags": [],
+      "excerpt": "#!/usr/bin/env python3 \"\"\"Railway-friendly AIOS Runtime launcher.\"\"\" from __future__ import annotations import argparse import os import sys from pathlib import Path ROOT = Path(__file__).resolve().parent RUNTIME_DIR = R",
+      "updated_at": "2026-06-25T13:06:14.633177+00:00"
+    },
+    {
+      "title": "!/usr/bin/env python3",
+      "path": "automation/central_orchestrator/runtime/aios_runtime.py",
+      "extension": ".py",
+      "asset_type": "text_knowledge",
+      "size_bytes": 10940,
+      "tags": [],
+      "excerpt": "#!/usr/bin/env python3 \"\"\"Unified AIOS Runtime package. Single launch and status wrapper for the AIOS Live API Server, router, permission runtime, personality runtime, knowledge runtime, and health monitor. \"\"\" from __fu",
+      "updated_at": "2026-06-25T13:06:14.631281+00:00"
+    },
+    {
+      "title": "Railway",
+      "path": "railway.json",
+      "extension": ".json",
+      "asset_type": "text_knowledge",
+      "size_bytes": 407,
+      "tags": [],
+      "excerpt": "{ \"$schema\": \"https://railway.com/railway.schema.json\", \"build\": { \"builder\": \"DOCKERFILE\", \"dockerfilePath\": \"Dockerfile\" }, \"deploy\": { \"startCommand\": \"sh -c 'python3 -m aios_runtime_production_up --host 0.0.0.0 --por",
+      "updated_at": "2026-06-25T13:06:14.630645+00:00"
+    },
+    {
+      "title": "FINAL FIRST-PASS APPROVAL SCORE",
+      "path": "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/FINAL_FIRST_PASS_APPROVAL_SCORE.md",
+      "extension": ".md",
+      "asset_type": "text_knowledge",
+      "size_bytes": 3228,
+      "tags": [
+        "document"
+      ],
+      "excerpt": "# FINAL FIRST-PASS APPROVAL SCORE Date: 2026-06-25 Project: PJ-P-VP-018 ## Score Current first-pass approval confidence: `47 / 100` This is not a technical-rejection score only. It is a combined practical approval score ",
+      "updated_at": "2026-06-25T12:51:01.179039+00:00"
+    },
+    {
+      "title": "FINAL RETURN RISK REPORT",
+      "path": "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/FINAL_RETURN_RISK_REPORT.md",
+      "extension": ".md",
+      "asset_type": "text_knowledge",
+      "size_bytes": 3834,
+      "tags": [
+        "workflow",
+        "case"
+      ],
+      "excerpt": "# FINAL RETURN RISK REPORT Date: 2026-06-25 Project: PJ-P-VP-018 ## Summary The technical case is stronger than the original return case and stronger than the earlier blocked audit snapshot. However, a strict Nakheel rev",
+      "updated_at": "2026-06-25T12:51:01.178123+00:00"
+    },
+    {
+      "title": "FINAL PRE-SUBMISSION AUDIT",
+      "path": "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/FINAL_PRE_SUBMISSION_AUDIT.md",
+      "extension": ".md",
+      "asset_type": "text_knowledge",
+      "size_bytes": 5436,
+      "tags": [
+        "document",
+        "regulatory"
+      ],
+      "excerpt": "# FINAL PRE-SUBMISSION AUDIT Date: 2026-06-25 Project: Palm Jumeirah Villa Plot: PJ-P-VP-018 Authority: Nakheel / Palm Jumeirah Design Approval / NOC ## Executive conclusion One canonical submission set has now been iden",
+      "updated_at": "2026-06-25T12:51:01.177000+00:00"
+    },
+    {
+      "title": "FINAL SUBMISSION MATRIX",
+      "path": "Agents/NakheelDesignApproval/PJ-P-VP-018_AUDIT_2026-06-25/FINAL_SUBMISSION_MATRIX.md",
+      "extension": ".md",
+      "asset_type": "text_knowledge",
+      "size_bytes": 9003,
+      "tags": [
+        "regulatory"
+      ],
+      "excerpt": "# FINAL SUBMISSION MATRIX Date: 2026-06-25 Project: PJ-P-VP-018 Authority: Nakheel / Palm Jumeirah Design Approval / NOC Canonical master technical basis: [/Users/hassanka/Downloads/Palm_Jumeirah_Nakheel_Submission_Packa",
+      "updated_at": "2026-06-25T12:51:01.176141+00:00"
+    },
+    {
+      "title": "Final Pre-Deploy Verification After Airtable Rotation",
+      "path": "00_FOUNDATION/PRE_DEPLOY_VERIFICATION_AFTER_AIRTABLE_ROTATION.md",
+      "extension": ".md",
+      "asset_type": "text_knowledge",
+      "size_bytes": 1654,
+      "tags": [],
+      "excerpt": "# Final Pre-Deploy Verification After Airtable Rotation Status: BLOCKED until Omar confirms Airtable PAT rotation is complete. Purpose: run the final pre-deploy gate after the Airtable token has been rotated, without dep",
+      "updated_at": "2026-06-25T12:28:55.230924+00:00"
+    },
+    {
+      "title": "!/usr/bin/env python3",
+      "path": "00_FOUNDATION/scripts/pre_deploy_verify_after_airtable_rotation.py",
+      "extension": ".py",
+      "asset_type": "text_knowledge",
+      "size_bytes": 19202,
+      "tags": [
+        "crm"
+      ],
+      "excerpt": "#!/usr/bin/env python3 from __future__ import annotations import argparse import base64 import fnmatch import hashlib import http.client import importlib.util import json import os import re import socket import subproce",
+      "updated_at": "2026-06-25T12:28:55.230225+00:00"
+    }
+  ],
+  "coverage_summary": {
+    "required_categories": [
+      "branding",
+      "cases",
+      "company",
+      "contracts",
+      "crm",
+      "documents",
+      "historical_knowledge",
+      "market",
+      "playbooks",
+      "regulatory",
+      "sops",
+      "templates",
+      "workflows"
+    ],
+    "strong_categories": [
+      "playbooks",
+      "sops",
+      "templates",
+      "workflows"
+    ],
+    "thin_or_missing_categories": [
+      "branding",
+      "cases",
+      "company",
+      "contracts",
+      "crm",
+      "documents",
+      "historical_knowledge",
+      "market",
+      "regulatory"
+    ],
+    "has_sops": true,
+    "has_workflows": true,
+    "has_templates": true,
+    "has_contracts": false,
+    "has_document_intake": false,
+    "has_cases": false
+  },
+  "workflow_handoffs": [
+    {
+      "command": "@docs",
+      "scope": "classify documents, extract missing items, create case packet"
+    },
+    {
+      "command": "@ask",
+      "scope": "retrieve answer from local AIOS corpus"
+    },
+    {
+      "command": "@research",
+      "scope": "market and investment research retrieval"
+    },
+    {
+      "command": "@contract",
+      "scope": "contract and clause template retrieval"
+    },
+    {
+      "command": "@operations",
+      "scope": "DLD, RERA, NOC, Ejari, mortgage, off-plan, visa retrieval"
+    }
+  ],
+  "recommended_next_actions": [
+    "Use Knowledge Vault retrieval before creating new documents to avoid duplicates.",
+    "Add future live property inventory, clause bank, access register, portal register, and lessons learned as source-of-truth files.",
+    "Keep external sync to Drive, Notion, Airtable, or vector databases disabled until credentials and approval gates are ready."
+  ],
+  "external_side_effects": {
+    "drive_files_modified": false,
+    "notion_pages_created": false,
+    "airtable_rows_written": false,
+    "vector_db_written": false,
+    "documents_uploaded": false,
+    "files_deleted": false,
+    "external_search_called": false
+  }
+}

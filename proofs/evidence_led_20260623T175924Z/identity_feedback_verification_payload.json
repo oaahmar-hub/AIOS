@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-06-23T17:59:01.887812+00:00",
+  "sender": "971595009876",
+  "status": "PASS",
+  "before_feedback_count_sender": 0,
+  "after_feedback_count_sender": 1,
+  "feedback_delta_sender": 1,
+  "before_feedback_count_global": 2,
+  "after_feedback_count_global": 1,
+  "input_response_pair": {
+    "input": "Need 1BR for rent in DAMAC Hills, tell me next step.",
+    "response": "I can shortlist options now. Shall I send 3 matching units or schedule a call?"
+  },
+  "feedback_event": {
+    "ts": "2026-06-23T17:58:59.098044Z",
+    "event_type": "social",
+    "emotion": "neutral",
+    "outcome": "property_inquiry",
+    "impact": "property_search",
+    "future_relevance": "continue",
+    "quality_score": 0.518,
+    "source": "feedback",
+    "raw": "hello from seeded context",
+    "sender": "971595009876",
+    "outcome_label": "in_progress",
+    "outcome_confidence": 0.62,
+    "impact_level": "medium",
+    "feedback_notes": "Conversation moved to expected next: shortlist_or_check_options"
+  }
+}

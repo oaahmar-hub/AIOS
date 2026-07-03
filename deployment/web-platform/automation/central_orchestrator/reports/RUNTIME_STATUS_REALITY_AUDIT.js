@@ -1,0 +1,339 @@
+window.AIOS_RUNTIME_REALITY_AUDIT = {
+  "generated_at": "2026-06-24T08:24:49.972149+00:00",
+  "title": "AIOS Runtime Status Reality Audit",
+  "classification_policy": "No optimistic status. LIVE requires direct proof. PARTIAL means capability exists but live/production proof is incomplete. SIMULATED means only mock/demo proof exists. OFFLINE means required live dependency is missing or unreachable.",
+  "source_roots": {
+    "official_control_root": "/Users/hassanka/Documents/Omar-AI-OS",
+    "implementation_root": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS",
+    "deployed_web_root": "/Users/hassanka/Downloads/AIOS/deployment/web-platform"
+  },
+  "readiness_verification": {
+    "runtime_ready": {
+      "ready": true,
+      "status_scope": "local_runtime",
+      "proof_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/AIOS_RUNTIME_STATUS.json",
+      "timestamp": "2026-06-23T11:48:32.147853+00:00"
+    },
+    "intelligence_ready": {
+      "ready": true,
+      "status_scope": "local_intelligence_runtime",
+      "proof_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/reports/INTELLIGENCE_READY_VALIDATION.json",
+      "timestamp": "2026-06-23T04:08:52.286958+00:00"
+    },
+    "production_ready": {
+      "ready": false,
+      "status_scope": "public_production",
+      "proof_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/PRODUCTION_LAUNCH_READINESS.json",
+      "timestamp": "2026-06-22T17:32:42.087287+00:00",
+      "blockers": [
+        "Temporary tunnel must be replaced with permanent backend/frontend hosting and domain.",
+        "Connect WhatsApp provider to hosted runtime and run live hosted test.",
+        "Public beta gate must pass after permanent host, domain, auth, and WhatsApp provider are live."
+      ]
+    }
+  },
+  "hosting_reality": {
+    "hosted_backend": "OFFLINE: preview health endpoints returned 503 in current curl verification",
+    "hosted_frontend": "PARTIAL: local deployment files exist; no current reachable permanent frontend proof",
+    "domain": "PARTIAL: configured/masked in env report; no current reachable domain proof",
+    "auth": "PARTIAL: configured/historical pass; no current public auth proof while health is 503",
+    "health_endpoint": "OFFLINE: /api/health returned 503",
+    "current_curl": [
+      {
+        "url": "https://d564e97ebadc95.lhr.life/api/health",
+        "http_code": 503,
+        "body_preview": "<h1>no tunnel here :(</h1>"
+      },
+      {
+        "url": "https://0235c1cc3aa248.lhr.life/api/health",
+        "http_code": 503,
+        "body_preview": "<h1>no tunnel here :(</h1>"
+      }
+    ],
+    "hosting_contract": {
+      "host": "Render",
+      "service_file": "render.yaml",
+      "docker_file": "Dockerfile",
+      "health_endpoint": "/api/health",
+      "permission_endpoint": "/api/permission/evaluate",
+      "runtime_status_endpoint": "/api/runtime/status",
+      "deployment_status_endpoint": "/api/deployment/status",
+      "whatsapp_test_endpoint": "/api/whatsapp/hosted-test",
+      "whatsapp_webhook_endpoint": "/webhook/whatsapp/provider/gateway"
+    },
+    "auth_status": {
+      "configured_in_contract": true,
+      "historical_preview_auth_passed": true,
+      "current_public_auth_proof_live": false,
+      "host_environment_ready": false,
+      "host_environment_report": "automation/central_orchestrator/reports/HOST_ENVIRONMENT_VALIDATION.json"
+    },
+    "host_environment_ready": true
+  },
+  "whatsapp_reality": {
+    "provider_accepted": true,
+    "delivery_confirmed": false,
+    "delivery_unconfirmed": true,
+    "reply_delivery": {
+      "enabled": false,
+      "mode": "hold_for_approval",
+      "reason": "Live provider sends remain approval-gated in AIOS Runtime."
+    },
+    "delivery_payload_status": "in_progress"
+  },
+  "services": [
+    {
+      "service": "Runtime",
+      "status": "LIVE",
+      "reason": "Local runtime contract reports ready with all component imports and auto-start checks passing; public hosting is classified separately.",
+      "source_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/aios_live_api_server.py",
+      "proof_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/AIOS_RUNTIME_STATUS.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-23T11:48:32.147853+00:00",
+      "evidence": {
+        "status": "ready",
+        "production_ready_percent": 100,
+        "blocked_items": []
+      }
+    },
+    {
+      "service": "Intelligence",
+      "status": "LIVE",
+      "reason": "Intelligence readiness report passes memory, context, confidence gate, unit parsing tests, and marks intelligence_ready true.",
+      "source_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/validate_aios_intelligence_readiness.py",
+      "proof_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/reports/INTELLIGENCE_READY_VALIDATION.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-23T04:08:52.286958+00:00",
+      "evidence": {
+        "runtime_ready": true,
+        "intelligence_ready": true,
+        "production_ready": false,
+        "production_readiness_blockers": [
+          "Pending separate hosting/auth/domain/deployment prerequisites for full production readiness."
+        ]
+      }
+    },
+    {
+      "service": "Production",
+      "status": "PARTIAL",
+      "reason": "Runtime is ready, but production deployment is pending and public beta is not ready.",
+      "source_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/PRODUCTION_LAUNCH_READINESS.json",
+      "proof_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/PRODUCTION_LAUNCH_READINESS.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-22T17:32:42.087287+00:00",
+      "evidence": {
+        "production_deployment": "pending",
+        "public_beta_ready": false,
+        "blockers": [
+          "Temporary tunnel must be replaced with permanent backend/frontend hosting and domain.",
+          "Connect WhatsApp provider to hosted runtime and run live hosted test.",
+          "Public beta gate must pass after permanent host, domain, auth, and WhatsApp provider are live."
+        ]
+      }
+    },
+    {
+      "service": "WhatsApp",
+      "status": "PARTIAL",
+      "reason": "Provider-shaped inbound webhook is accepted and backend route works; final outbound delivery is unconfirmed/in_progress or held for approval.",
+      "source_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/whatsapp_provider_gateway.py",
+      "proof_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/WHATSAPP_PROVIDER_WEBHOOK_REPORT.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-23T11:54:08.474930+00:00",
+      "evidence": {
+        "provider_accepted": true,
+        "delivery_confirmed": false,
+        "delivery_unconfirmed": true,
+        "reply_delivery": {
+          "enabled": false,
+          "mode": "hold_for_approval",
+          "reason": "Live provider sends remain approval-gated in AIOS Runtime."
+        },
+        "delivery_payload_status": "in_progress"
+      }
+    },
+    {
+      "service": "CRM",
+      "status": "OFFLINE",
+      "reason": "Live Airtable CRM writeback is not configured; required Airtable environment variables are missing.",
+      "source_file": "/Users/hassanka/Documents/Omar-AI-OS/01_MASTER_CONTROL/current/Airtable_CRM_Schema.md",
+      "proof_file": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/downloads/proofs/crm_writeback_validation_20260623T115513Z.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-23T11:55:15.149547+00:00",
+      "evidence": {
+        "status": "CRM_WRITEBACK_NOT_LIVE",
+        "writeback_success": false,
+        "errors": [
+          "Missing CRM connector configuration in environment.",
+          "Missing env: AIRTABLE_API_KEY",
+          "Missing env: AIRTABLE_BASE_ID",
+          "Missing env: AIRTABLE_TABLE_ID",
+          "Missing env: AIRTABLE_LEADS_TABLE",
+          "Missing env: AIRTABLE_CONTACTS_TABLE",
+          "No live Airtable CRM target configured for safe write-back validation."
+        ]
+      }
+    },
+    {
+      "service": "Memory",
+      "status": "LIVE",
+      "reason": "Persistent relationship, DNA, and weather context restore proof passes.",
+      "source_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/aios_context_store.py",
+      "proof_file": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/downloads/proofs/persistent_context_restore_20260623T115513Z.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-23T11:55:13+00:00",
+      "evidence": {
+        "pass": true,
+        "restored_relationship": true,
+        "restored_dna": true,
+        "restored_weather": true
+      }
+    },
+    {
+      "service": "Knowledge Base",
+      "status": "LIVE",
+      "reason": "Knowledge vault report indexes 2472 assets and runtime status reports Knowledge Runtime ready.",
+      "source_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/knowledge_vault_runtime.py",
+      "proof_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/KNOWLEDGE_VAULT_REPORT.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-23T00:42:39.714786+00:00",
+      "evidence": {
+        "asset_count": 2472,
+        "runtime_component": "Knowledge Runtime ready"
+      }
+    },
+    {
+      "service": "Unit Finder",
+      "status": "PARTIAL",
+      "reason": "Runtime parser resolves synthetic/platform URL tests, but evidence-led live listing benchmark fails and exact unit rate is 0%.",
+      "source_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/unit_finder.py",
+      "proof_file": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/downloads/proofs/evidence_led_20260623T175717Z/unit_finder_verification_payload.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-23T17:58:15.183018+00:00",
+      "evidence": {
+        "status": "FAIL",
+        "matcher_top_enriched": {
+          "status": "RESOLVED",
+          "record_id": "raw-e6d971645320b9b2",
+          "unit": "",
+          "confidence": 98
+        },
+        "benchmarks": {
+          "total_tests": 50,
+          "exact_rate": 0.0,
+          "likely_rate": 26.0,
+          "unresolved_rate": 74.0,
+          "exact": 0,
+          "likely": 13,
+          "unresolved": 37,
+          "results_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/live_listing_benchmark_results.csv",
+          "top_failure_reasons": [
+            [
+              "no_public_fields_extracted",
+              50
+            ],
+            [
+              "no_public_identifier_bridge",
+              50
+            ],
+            [
+              "no_unit_in_local_match",
+              50
+            ],
+            [
+              "insufficient_similarity_score",
+              37
+            ],
+            [
+              "live_fetch_blocked",
+              22
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "service": "Hosting",
+      "status": "OFFLINE",
+      "reason": "Current hosted backend preview health endpoints return HTTP 503; deployment web platform is missing the runtime report path unless locally supplied.",
+      "source_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/render.yaml",
+      "proof_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/reports/PRODUCTION_DEPLOYMENT_EVIDENCE_20260623.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-24T08:24:49.972149+00:00",
+      "evidence": {
+        "hosted_backend": "OFFLINE: preview health endpoints returned 503 in current curl verification",
+        "hosted_frontend": "PARTIAL: local deployment files exist; no current reachable permanent frontend proof",
+        "domain": "PARTIAL: configured/masked in env report; no current reachable domain proof",
+        "auth": "PARTIAL: configured/historical pass; no current public auth proof while health is 503",
+        "health_endpoint": "OFFLINE: /api/health returned 503",
+        "current_curl": [
+          {
+            "url": "https://d564e97ebadc95.lhr.life/api/health",
+            "http_code": 503,
+            "body_preview": "<h1>no tunnel here :(</h1>"
+          },
+          {
+            "url": "https://0235c1cc3aa248.lhr.life/api/health",
+            "http_code": 503,
+            "body_preview": "<h1>no tunnel here :(</h1>"
+          }
+        ],
+        "hosting_contract": {
+          "host": "Render",
+          "service_file": "render.yaml",
+          "docker_file": "Dockerfile",
+          "health_endpoint": "/api/health",
+          "permission_endpoint": "/api/permission/evaluate",
+          "runtime_status_endpoint": "/api/runtime/status",
+          "deployment_status_endpoint": "/api/deployment/status",
+          "whatsapp_test_endpoint": "/api/whatsapp/hosted-test",
+          "whatsapp_webhook_endpoint": "/webhook/whatsapp/provider/gateway"
+        },
+        "auth_status": {
+          "configured_in_contract": true,
+          "historical_preview_auth_passed": true,
+          "current_public_auth_proof_live": false,
+          "host_environment_ready": false,
+          "host_environment_report": "automation/central_orchestrator/reports/HOST_ENVIRONMENT_VALIDATION.json"
+        },
+        "host_environment_ready": true
+      }
+    },
+    {
+      "service": "Outcome Learning",
+      "status": "PARTIAL",
+      "reason": "Outcome feedback event exists and quality changed, but outcome label remains in_progress and latest bundle does not prove closed-loop production learning.",
+      "source_file": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/automation/central_orchestrator/runtime/human_identity_feedback.py",
+      "proof_file": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/downloads/proofs/evidence_led_20260623T175859Z/outcome_learning_verification_payload.json",
+      "validation_report": "/Users/hassanka/Documents/Omar-AI-OS/03_VALIDATION_REPORTS/current/RUNTIME_STATUS_REALITY_AUDIT.json",
+      "timestamp": "2026-06-23T17:59:01.887817+00:00",
+      "evidence": {
+        "status": "PASS",
+        "outcome_label": "in_progress",
+        "quality_changed": true,
+        "no_duplicate_feedback_events": true
+      }
+    }
+  ],
+  "summary": {
+    "services_live": [
+      "Runtime",
+      "Intelligence",
+      "Memory",
+      "Knowledge Base"
+    ],
+    "services_partial": [
+      "Production",
+      "WhatsApp",
+      "Unit Finder",
+      "Outcome Learning"
+    ],
+    "services_offline": [
+      "CRM",
+      "Hosting"
+    ],
+    "services_simulated": [],
+    "biggest_blocker": "Hosting is not currently reachable: public preview health endpoints return HTTP 503 and production deployment/public beta remain pending.",
+    "highest_priority": "Deploy permanent backend/frontend hosting with domain and auth, then rerun health, public beta, and WhatsApp provider delivery validation.",
+    "final_aios_reality_score": 60
+  }
+};

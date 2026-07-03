@@ -1,0 +1,209 @@
+{
+  "generated_at": "2026-06-26T16:53:52.157915+00:00",
+  "case": {
+    "case_id": "en-broker-home-sweet-home-real-estate-5151",
+    "client_name": "Confidential Client",
+    "client_request": "en broker home sweet home real estate 5151",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/85dc25b10ca3__b7ad3954-58c6-4e00-9d1f-f6ae8ddd62b1.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - en broker home sweet home real estate 5151",
+  "executive_pitch": "The strongest launch path today is POOL VIEW | LOWEST PRICE | FULLY FURNISHED because it gives the clinic the best balance of Dubai South relevance, customer accessibility, and operational readiness. The secondary play is Fully Upgraded I Next to GEMS I Vacant For Rent, which is stronger as a medium-term brand and capital-growth position than as an immediate opening site.",
+  "sales_pitch": "Lead with Fully Upgraded I Next to GEMS I Vacant For Rent as the strongest aligned option based on the current brief. Keep BRAND NEW |PREMIUM CORNER UNIT| LOWEST PRICE as the alternative and POOL VIEW | LOWEST PRICE | FULLY FURNISHED as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "POOL VIEW | LOWEST PRICE | FULLY FURNISHED",
+      "area": "Samana Park Views, Arjan, Dubai",
+      "building": "Samana Park Views, Arjan, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-arjan-samana-park-views-93158854.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-5151",
+        "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-arjan-samana-park-views-93158854.html"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "unknown",
+      "price_aed": 58999.0,
+      "size_sqft": 353.0,
+      "availability": "live_broker_listing",
+      "delivery_timeline": "Current public broker listing",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "clinic_fit": "medium",
+      "summary": "Live Property Finder broker listing pulled directly from the broker-detail-schema.",
+      "pros": [
+        "Live public listing extracted directly from Property Finder broker page."
+      ],
+      "cons": [
+        "Specific use approval and exact suitability still need review."
+      ],
+      "map_query": "Samana Park Views, Arjan, Dubai",
+      "clinic_fit_score": 41.0,
+      "investment_score": 30.0,
+      "combined_score": 37.9,
+      "entry_psf_aed": 167.14,
+      "clinic_strengths": [],
+      "clinic_risks": [
+        "small footprint may compress treatment flow or boarding capacity",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "entry price around AED 167/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Samana+Park+Views%2C+Arjan%2C+Dubai",
+      "rank": 1
+    },
+    {
+      "title": "Fully Upgraded I Next to GEMS I Vacant For Rent",
+      "area": "Oia Residence, Motor City, Dubai",
+      "building": "Oia Residence, Motor City, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-motor-city-oia-residence-106862974.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-5151",
+        "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-motor-city-oia-residence-106862974.html"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "unknown",
+      "price_aed": 250000.0,
+      "size_sqft": 2976.0,
+      "availability": "live_broker_listing",
+      "delivery_timeline": "Current public broker listing",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "clinic_fit": "medium",
+      "summary": "Live Property Finder broker listing pulled directly from the broker-detail-schema.",
+      "pros": [
+        "Live public listing extracted directly from Property Finder broker page."
+      ],
+      "cons": [
+        "Specific use approval and exact suitability still need review."
+      ],
+      "map_query": "Oia Residence, Motor City, Dubai",
+      "clinic_fit_score": 36.0,
+      "investment_score": 30.0,
+      "combined_score": 34.3,
+      "entry_psf_aed": 84.01,
+      "clinic_strengths": [
+        "size can support reception, consult rooms, treatment, and storage"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "entry price around AED 84/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Oia+Residence%2C+Motor+City%2C+Dubai",
+      "rank": 2
+    },
+    {
+      "title": "BRAND NEW |PREMIUM CORNER UNIT| LOWEST PRICE",
+      "area": "Elie Saab 2, Elie Saab, Arabian Ranches 3, Dubai",
+      "building": "Elie Saab 2, Elie Saab, Arabian Ranches 3, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/rent/villa-for-rent-dubai-arabian-ranches-3-elie-saab-elie-saab-2-92727972.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-5151",
+        "https://www.propertyfinder.ae/en/plp/rent/villa-for-rent-dubai-arabian-ranches-3-elie-saab-elie-saab-2-92727972.html"
+      ],
+      "commercial_mode": "rent",
+      "property_type": "unknown",
+      "price_aed": 349999.0,
+      "size_sqft": 4822.0,
+      "availability": "live_broker_listing",
+      "delivery_timeline": "Current public broker listing",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "clinic_fit": "medium",
+      "summary": "Live Property Finder broker listing pulled directly from the broker-detail-schema.",
+      "pros": [
+        "Live public listing extracted directly from Property Finder broker page."
+      ],
+      "cons": [
+        "Specific use approval and exact suitability still need review."
+      ],
+      "map_query": "Elie Saab 2, Elie Saab, Arabian Ranches 3, Dubai",
+      "clinic_fit_score": 32.0,
+      "investment_score": 30.0,
+      "combined_score": 31.4,
+      "entry_psf_aed": 72.58,
+      "clinic_strengths": [
+        "size can support reception, consult rooms, treatment, and storage"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "entry price around AED 73/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Elie+Saab+2%2C+Elie+Saab%2C+Arabian+Ranches+3%2C+Dubai",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Market context has to be expanded with area-specific live sources before client send."
+  ],
+  "compliance_gates": [
+    "Usage, fit-out, and authority approvals must match the target business activity before deal commitment."
+  ],
+  "internal_evidence": [],
+  "next_steps": [
+    "Confirm exact live availability and current commercial terms before client send.",
+    "Collect floor plan, service-charge, fit-out, and authority-use information for the shortlisted options.",
+    "Run final approval and risk review before presenting the recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "User supplied source URL",
+      "url": "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-5151",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "en broker home sweet home real estate 5151",
+    "source_mode": "url",
+    "area": "",
+    "use_case": "general_property",
+    "property_preference": "any",
+    "intent": "discovery",
+    "source_url": "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-5151"
+  },
+  "evidence_trail": [],
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-url-propertyfinder-broker.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-url-propertyfinder-broker.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-url-propertyfinder-broker.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/generic-url-propertyfinder-broker.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T16:53:52.159464+00:00",
+    "request_profile": {
+      "raw_request": "en broker home sweet home real estate 5151",
+      "source_mode": "url",
+      "area": "",
+      "use_case": "general_property",
+      "property_preference": "any",
+      "intent": "discovery",
+      "source_url": "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-5151"
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": true,
+      "url_context_provider": true,
+      "internal_evidence_rows": 0
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/generic-url-propertyfinder-broker.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

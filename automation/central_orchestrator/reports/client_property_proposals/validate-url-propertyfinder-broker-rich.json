@@ -1,0 +1,368 @@
+{
+  "generated_at": "2026-06-26T17:52:03.080728+00:00",
+  "case": {
+    "case_id": "en-broker-home-sweet-home-real-estate-7889",
+    "client_name": "Confidential Client",
+    "client_request": "en broker home sweet home real estate 7889",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/85dc25b10ca3__b7ad3954-58c6-4e00-9d1f-f6ae8ddd62b1.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - en broker home sweet home real estate 7889",
+  "executive_pitch": "The strongest option today is Elite Property Brokerage Broker Portfolio because it gives the best balance of location fit, operational readiness, and alignment with the property brief. The secondary play is Al Mirax Real Estate Brokers Broker Portfolio, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Elite Property Brokerage Broker Portfolio as the strongest aligned option based on the current brief. Keep Al Mirax Real Estate Brokers Broker Portfolio as the alternative and IMARA Broker Portfolio as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Elite Property Brokerage Broker Portfolio",
+      "area": "Dubai",
+      "building": "Office 613, Building Onyx Tower 1, Barsha Heights (Tecom), Greens, Dubai,",
+      "developer": "Elite Property Brokerage",
+      "source_url": "https://www.propertyfinder.ae/en/broker/elite-property-brokerage-4428-4302",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-7889",
+        "https://www.propertyfinder.ae/en/broker/elite-property-brokerage-4428-4302"
+      ],
+      "commercial_mode": "mixed",
+      "property_type": "apartment",
+      "price_aed": 0,
+      "size_sqft": 0,
+      "availability": "live_broker_portfolio",
+      "delivery_timeline": "Current public broker profile",
+      "launch_mode": "current",
+      "footfall_profile": "medium",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "655 live portfolio listings, 645 residential, 10 commercial",
+      "pros": [
+        "Live public broker profile sourced directly from Property Finder.",
+        "Portfolio mix shows 655 active listings linked to this broker."
+      ],
+      "cons": [
+        "Broker portfolio page is not a single property listing and still needs drill-down before client commitment.",
+        "Live property-level pricing and unit fit must be confirmed from the chosen listing."
+      ],
+      "map_query": "Office 613, Building Onyx Tower 1, Barsha Heights (Tecom), Greens, Dubai,",
+      "broker_name": "Elite Property Brokerage",
+      "broker_location": "Dubai",
+      "broker_address": "Office 613, Building Onyx Tower 1, Barsha Heights (Tecom), Greens, Dubai,",
+      "broker_portfolio_counts": {
+        "total_properties": 655,
+        "residential_rent": 265,
+        "residential_sale": 380,
+        "commercial_rent": 3,
+        "commercial_sale": 7
+      },
+      "suitability_score": 34.0,
+      "investment_score": 8.0,
+      "combined_score": 26.7,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "residential format aligns with home-search requests"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 34.0,
+      "clinic_strengths": [
+        "residential format aligns with home-search requests"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "developer: Elite Property Brokerage"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Office+613%2C+Building+Onyx+Tower+1%2C+Barsha+Heights+%28Tecom%29%2C+Greens%2C+Dubai%2C",
+      "rank": 1
+    },
+    {
+      "title": "Al Mirax Real Estate Brokers Broker Portfolio",
+      "area": "Dubai",
+      "building": "Office 1606, Building Fifty One Tower, Business Bay, Marasi Drive, Dubai,",
+      "developer": "Al Mirax Real Estate Brokers",
+      "source_url": "https://www.propertyfinder.ae/en/broker/al-mirax-real-estate-brokers-7114-6988",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-7889",
+        "https://www.propertyfinder.ae/en/broker/al-mirax-real-estate-brokers-7114-6988"
+      ],
+      "commercial_mode": "mixed",
+      "property_type": "apartment",
+      "price_aed": 0,
+      "size_sqft": 0,
+      "availability": "live_broker_portfolio",
+      "delivery_timeline": "Current public broker profile",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "139 live portfolio listings, 139 residential",
+      "pros": [
+        "Live public broker profile sourced directly from Property Finder.",
+        "Portfolio mix shows 139 active listings linked to this broker."
+      ],
+      "cons": [
+        "Broker portfolio page is not a single property listing and still needs drill-down before client commitment.",
+        "Live property-level pricing and unit fit must be confirmed from the chosen listing."
+      ],
+      "map_query": "Office 1606, Building Fifty One Tower, Business Bay, Marasi Drive, Dubai,",
+      "broker_name": "Al Mirax Real Estate Brokers",
+      "broker_location": "Dubai",
+      "broker_address": "Office 1606, Building Fifty One Tower, Business Bay, Marasi Drive, Dubai,",
+      "broker_portfolio_counts": {
+        "total_properties": 139,
+        "residential_rent": 13,
+        "residential_sale": 126,
+        "commercial_rent": 0,
+        "commercial_sale": 0
+      },
+      "suitability_score": 28.0,
+      "investment_score": 8.0,
+      "combined_score": 22.4,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "residential format aligns with home-search requests"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 28.0,
+      "clinic_strengths": [
+        "residential format aligns with home-search requests"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "developer: Al Mirax Real Estate Brokers"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Office+1606%2C+Building+Fifty+One+Tower%2C+Business+Bay%2C+Marasi+Drive%2C+Dubai%2C",
+      "rank": 2
+    },
+    {
+      "title": "IMARA Broker Portfolio",
+      "area": "Dubai",
+      "building": "Office Office 705, Building Magnum Opus Tower, Barsha Heights (Tecom), Barsha 1, Dubai, PO Box 000",
+      "developer": "IMARA",
+      "source_url": "https://www.propertyfinder.ae/en/broker/i-m-a-r-a-real-estate-l-l-c-v2-13079-13079",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-7889",
+        "https://www.propertyfinder.ae/en/broker/i-m-a-r-a-real-estate-l-l-c-v2-13079-13079"
+      ],
+      "commercial_mode": "mixed",
+      "property_type": "apartment",
+      "price_aed": 0,
+      "size_sqft": 0,
+      "availability": "live_broker_portfolio",
+      "delivery_timeline": "Current public broker profile",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "180 live portfolio listings, 180 residential",
+      "pros": [
+        "Live public broker profile sourced directly from Property Finder.",
+        "Portfolio mix shows 180 active listings linked to this broker."
+      ],
+      "cons": [
+        "Broker portfolio page is not a single property listing and still needs drill-down before client commitment.",
+        "Live property-level pricing and unit fit must be confirmed from the chosen listing."
+      ],
+      "map_query": "Office Office 705, Building Magnum Opus Tower, Barsha Heights (Tecom), Barsha 1, Dubai, PO Box 000",
+      "broker_name": "IMARA",
+      "broker_location": "Dubai",
+      "broker_address": "Office Office 705, Building Magnum Opus Tower, Barsha Heights (Tecom), Barsha 1, Dubai, PO Box 000",
+      "broker_portfolio_counts": {
+        "total_properties": 180,
+        "residential_rent": 70,
+        "residential_sale": 110,
+        "commercial_rent": 0,
+        "commercial_sale": 0
+      },
+      "suitability_score": 28.0,
+      "investment_score": 8.0,
+      "combined_score": 22.4,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "residential format aligns with home-search requests"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 28.0,
+      "clinic_strengths": [
+        "residential format aligns with home-search requests"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "developer: IMARA"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Office+Office+705%2C+Building+Magnum+Opus+Tower%2C+Barsha+Heights+%28Tecom%29%2C+Barsha+1%2C+Dubai%2C+PO+Box+000",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Market context has to be expanded with area-specific live sources before client send.",
+    "Current Property Finder broker-profile fallback surfaced 578 live portfolio listings across the top ranked broker candidates.",
+    "Observed broker mix is 568 residential listings versus 10 commercial listings across the shortlisted broker profiles.",
+    "Shortlisted broker profiles currently cluster in Dubai."
+  ],
+  "compliance_gates": [
+    "Usage, fit-out, and authority approvals must match the target business activity before deal commitment."
+  ],
+  "internal_evidence": [
+    "AIOS property database returned 3 scored internal matches for the brief.",
+    "Internal price band across matched records is AED 1,403 to AED 2,500, with median AED 1,800."
+  ],
+  "internal_inventory_matches": [
+    {
+      "project": "Availability List",
+      "area": "Parking Price: AED 14,000/-",
+      "developer": "Reportage",
+      "bedrooms": "",
+      "property_type": "D - Duplex",
+      "inventory_type": "Availability",
+      "status": "",
+      "price_aed": 1403,
+      "source_group": "Reportage Inventory",
+      "file_name": "Reportage_Inventory__0da894d2-e70d-40d5-96ff-5b143280caea__d46f8387c9.xlsx",
+      "score": 5.0
+    },
+    {
+      "project": "Parking @40,000",
+      "area": "Parking @40,000",
+      "developer": "Reportage",
+      "bedrooms": "",
+      "property_type": "COMMERCIAL UNIT NUMBER",
+      "inventory_type": "Availability",
+      "status": "",
+      "price_aed": 1800,
+      "source_group": "Reportage Inventory",
+      "file_name": "Reportage_Inventory__cfd8b6b9-e709-4842-92de-8d50bdab70fd__0eb45bb535.xlsx",
+      "score": 5.0
+    },
+    {
+      "project": "Unknown",
+      "area": "Unknown",
+      "developer": "Binghatti",
+      "bedrooms": "",
+      "property_type": "Office",
+      "inventory_type": "Commercial Inventory",
+      "status": "",
+      "price_aed": 2500,
+      "source_group": "Binghatti DARIA HSH",
+      "file_name": "Binghatti_DARIA_HSH__39b48a72-dc45-4912-87fa-f481dfd6a4b7__a485f89564.xlsx",
+      "score": 5.0
+    }
+  ],
+  "internal_market_snapshot": {
+    "match_count": 3,
+    "priced_match_count": 3,
+    "median_price_aed": 1800,
+    "min_price_aed": 1403,
+    "max_price_aed": 2500,
+    "top_projects": [
+      "Availability List",
+      "Parking @40,000",
+      "Unknown"
+    ],
+    "property_types": [
+      "commercial unit number",
+      "d - duplex",
+      "office"
+    ]
+  },
+  "next_steps": [
+    "Confirm exact live availability and current commercial terms before client send.",
+    "Collect floor plan, service-charge, fit-out, and authority-use information for the shortlisted options.",
+    "Run final approval and risk review before presenting the recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "fam Properties - Branch 33 Broker Portfolio",
+      "url": "https://www.propertyfinder.ae/en/broker/fam-real-estate-broker-branch-33-royals-v2-12867-12867",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "IMARA Broker Portfolio",
+      "url": "https://www.propertyfinder.ae/en/broker/i-m-a-r-a-real-estate-l-l-c-v2-13079-13079",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Al Mirax Real Estate Brokers Broker Portfolio",
+      "url": "https://www.propertyfinder.ae/en/broker/al-mirax-real-estate-brokers-7114-6988",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "User supplied source URL",
+      "url": "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-7889",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "en broker home sweet home real estate 7889",
+    "source_mode": "url",
+    "area": "",
+    "use_case": "general_property",
+    "property_preference": "any",
+    "bedroom_preference": "",
+    "intent": "discovery",
+    "source_url": "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-7889"
+  },
+  "evidence_trail": [],
+  "agent_review": {
+    "approval_posture": "CONDITIONAL: resolve review notes before client send",
+    "review_notes": [
+      "Lead option Elite Property Brokerage Broker Portfolio still requires written use and approval confirmation.",
+      "Lead option Elite Property Brokerage Broker Portfolio still needs live pricing confirmation.",
+      "One or more shortlisted options still lack full area or layout detail."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-broker-rich.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-broker-rich.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-broker-rich.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-broker-rich.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T17:52:03.082187+00:00",
+    "request_profile": {
+      "raw_request": "en broker home sweet home real estate 7889",
+      "source_mode": "url",
+      "area": "",
+      "use_case": "general_property",
+      "property_preference": "any",
+      "bedroom_preference": "",
+      "intent": "discovery",
+      "source_url": "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-7889"
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": true,
+      "url_context_provider": true,
+      "internal_evidence_rows": 0
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/validate-url-propertyfinder-broker-rich.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

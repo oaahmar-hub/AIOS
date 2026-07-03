@@ -1,0 +1,156 @@
+{
+  "report": "INTELLIGENCE_READINESS_FINAL_PROOF",
+  "created_utc": "2026-06-24T08:32:33Z",
+  "classification": {
+    "Outcome Learning": "PASS",
+    "Feedback Learning": "PASS",
+    "Best-Version Learning": "PASS",
+    "Future Behavior Adaptation": "PASS",
+    "Intelligence Readiness": "LIVE"
+  },
+  "scope": "Outcome Learning and Intelligence Readiness only",
+  "excluded_tracks": [
+    "Unit Finder",
+    "Website visuals",
+    "Command Center UI",
+    "Main Builder onboarding",
+    "File consolidation",
+    "Navigation",
+    "Hosting"
+  ],
+  "pipeline_trace": {
+    "message": "Need Dubai Hills 2BR options up to 2.5M. Controlled pipeline baseline.",
+    "sender": "971880010003",
+    "memory": {
+      "file": "/Users/hassanka/Downloads/AIOS/data/transport/human_identity_events.jsonl",
+      "feedback_line": 224,
+      "after_learning_line": 225
+    },
+    "feedback_event": {
+      "source": "feedback",
+      "outcome_label": "confirmed",
+      "outcome_confidence": 0.88,
+      "timestamp": "2026-06-24T08:32:33.095946Z",
+      "quality_score": 0.7695
+    },
+    "outcome_event": {
+      "status": "stored",
+      "quality": 0.7695
+    },
+    "best_version_update": {
+      "before_score": 0.5,
+      "after_score": 0.546,
+      "before_signal": "no_learning_events",
+      "after_signal": "best_effort_mode",
+      "score_changed": true
+    },
+    "future_behavior_change": {
+      "same_user": "971880010003",
+      "before_episodes_count": 0,
+      "after_episodes_count": 1,
+      "after_learning_rules": [
+        "social"
+      ],
+      "after_quality_average": 0.769
+    }
+  },
+  "before_after_learning_test": {
+    "before": {
+      "score": 0.5,
+      "memory": "no prior learning events for controlled pipeline sender",
+      "behavior": "no_learning_events"
+    },
+    "apply_outcome": {
+      "outcome_label": "confirmed",
+      "outcome_confidence": 0.88,
+      "source": "feedback"
+    },
+    "after": {
+      "score": 0.546,
+      "memory": "feedback event persisted in human_identity_events.jsonl",
+      "behavior": "best_effort_mode"
+    },
+    "result": "PASS"
+  },
+  "negative_outcome_test": {
+    "sender": "971880010001",
+    "event_file_line": 220,
+    "outcome_label": "failed",
+    "outcome_confidence": 0.93,
+    "quality_score": 0.352,
+    "before_score": 0.5,
+    "after_score": 0.442,
+    "score_reduced_or_unchanged": true,
+    "result": "PASS"
+  },
+  "positive_outcome_test": {
+    "sender": "971880010002",
+    "event_file_line": 222,
+    "outcome_label": "success",
+    "outcome_confidence": 0.91,
+    "quality_score": 0.774,
+    "before_score": 0.5,
+    "after_score": 0.547,
+    "score_increased": true,
+    "result": "PASS"
+  },
+  "feedback_event_validation": {
+    "file": "/Users/hassanka/Downloads/AIOS/data/transport/human_identity_events.jsonl",
+    "validated_lines": [
+      220,
+      222,
+      224
+    ],
+    "required_fields_present": {
+      "source_feedback": true,
+      "outcome_label": true,
+      "outcome_confidence": true,
+      "timestamp": true
+    },
+    "result": "PASS"
+  },
+  "best_version_validation": {
+    "best_version_score_changes_because_of_outcome": true,
+    "positive_outcome_increased_score": true,
+    "negative_outcome_did_not_increase_score": true,
+    "message_count_only_rejected": true,
+    "result": "PASS"
+  },
+  "runtime_validation_artifact": "/Users/hassanka/Downloads/AIOS/proofs/intelligence_readiness_runtime_validation_20260624T083233Z.json",
+  "files_changed": [
+    {
+      "path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/human_identity_engine.py",
+      "purpose": "Preserve global feedback events, score explicit outcome labels, reduce score for failed outcomes, increase score for successful outcomes."
+    },
+    {
+      "path": "/Users/hassanka/Downloads/AIOS/data/transport/human_identity_events.jsonl",
+      "purpose": "Active evidence store updated by controlled outcome learning validation events."
+    },
+    {
+      "path": "/Users/hassanka/Downloads/AIOS/proofs/intelligence_readiness_runtime_validation_20260624T083233Z.json",
+      "purpose": "Raw runtime validation payload."
+    },
+    {
+      "path": "/Users/hassanka/Downloads/AIOS/proofs/INTELLIGENCE_READINESS_FINAL_PROOF.md",
+      "purpose": "Final markdown proof report."
+    },
+    {
+      "path": "/Users/hassanka/Downloads/AIOS/proofs/INTELLIGENCE_READINESS_FINAL_PROOF.json",
+      "purpose": "Final machine-readable proof report."
+    }
+  ],
+  "validation": {
+    "python_compile": "PASS",
+    "runtime_validation_json": "PASS",
+    "final_json": "PASS",
+    "event_store_global_preservation": {
+      "global_event_count_before": 219,
+      "global_event_count_after": 225,
+      "unique_senders_after": 14
+    }
+  },
+  "freeze_status": {
+    "Intelligence Readiness track": "FROZEN_AFTER_THIS_PROOF",
+    "next_track": "PRODUCTION HOSTING"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "contact_id": "33644655014",
+  "before_relationship": "Staff",
+  "after_relationship": "Staff",
+  "before_dna": "Executive Buyer",
+  "after_dna": "Executive Buyer",
+  "before_weather": {
+    "location": "Dubai",
+    "summary": "Clear",
+    "temperature_c": 34
+  },
+  "after_weather": {
+    "location": "Dubai",
+    "summary": "Clear",
+    "temperature_c": 34
+  },
+  "stored_context": {
+    "identity_dna": {
+      "communication_style": {
+        "value": "Direct"
+      },
+      "investor_profile": {
+        "value": "Executive Buyer"
+      }
+    },
+    "persistence_meta": {
+      "identity_dna": {
+        "confidence": 0.93,
+        "source": "proof_seed"
+      },
+      "weather": {
+        "confidence": 0.91,
+        "source": "proof_seed"
+      }
+    },
+    "weather": {
+      "location": "Dubai",
+      "summary": "Clear",
+      "temperature_c": 34
+    }
+  },
+  "restored_context": {
+    "identity_dna": {
+      "investor_profile": {
+        "value": "Executive Buyer"
+      },
+      "communication_style": {
+        "value": "Direct"
+      }
+    },
+    "working_memory": {
+      "active_intent": {
+        "area": {},
+        "property_type": {},
+        "budget": {}
+      },
+      "decay_metadata": {
+        "rate": 0.05,
+        "last_sync": ""
+      }
+    },
+    "weather": {
+      "location": "Dubai",
+      "summary": "Clear",
+      "temperature_c": 34
+    },
+    "persistence_meta": {
+      "identity_dna": {
+        "confidence": 0.93,
+        "source": "proof_seed"
+      },
+      "weather": {
+        "confidence": 0.91,
+        "source": "proof_seed"
+      }
+    }
+  },
+  "before_confidence_values": {
+    "identity_dna": {
+      "source": "proof_seed",
+      "confidence": 0.93
+    },
+    "weather": {
+      "source": "proof_seed",
+      "confidence": 0.91
+    }
+  },
+  "after_confidence_values": {
+    "identity_dna": {
+      "confidence": 0.93,
+      "source": "proof_seed"
+    },
+    "weather": {
+      "confidence": 0.91,
+      "source": "proof_seed"
+    }
+  },
+  "before_source_values": {
+    "identity_dna": {
+      "source": "proof_seed",
+      "confidence": 0.93
+    },
+    "weather": {
+      "source": "proof_seed",
+      "confidence": 0.91
+    }
+  },
+  "after_source_values": {
+    "identity_dna": {
+      "confidence": 0.93,
+      "source": "proof_seed"
+    },
+    "weather": {
+      "confidence": 0.91,
+      "source": "proof_seed"
+    }
+  },
+  "restored_relationship": true,
+  "restored_dna": true,
+  "restored_weather": true,
+  "pass": true,
+  "sources": {
+    "relationship_store": "/Users/hassanka/Downloads/AIOS/data/transport/whatsapp_relationship_store.json",
+    "dna_store": "/Users/hassanka/Downloads/AIOS/data/transport/whatsapp_relationship_store.json",
+    "weather_store": "/Users/hassanka/Downloads/AIOS/data/transport/whatsapp_relationship_store.json"
+  },
+  "notes": [
+    "Relationship restored from persisted relationship store.",
+    "DNA restored from persisted relationship store context.",
+    "Weather restored from persisted relationship store context."
+  ]
+}

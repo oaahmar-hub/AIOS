@@ -1,0 +1,1015 @@
+{
+  "generated_at": "2026-06-26T19:41:50.039899+00:00",
+  "validation_mode": "artifact_reuse",
+  "scenario_count": 19,
+  "passed_count": 19,
+  "failed_count": 0,
+  "all_passed": true,
+  "scenarios": [
+    {
+      "name": "text_veterinary_clinic_dubai_south",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "I want a veterinary clinic in Dubai South",
+        "source_mode": "text",
+        "area": "dubai south",
+        "use_case": "veterinary_clinic",
+        "property_preference": "commercial",
+        "bedroom_preference": "",
+        "intent": "business_setup",
+        "source_url": "",
+        "max_price_aed": 0.0
+      },
+      "top_candidate_titles": [
+        "5% Discount | VAT Waiver | 30/70 Payment Plan | Direct From Developer",
+        "Bright | Fully Fitted Space | Partitioned",
+        "Premium Retail Space | Great ROI | Flexible Plan | Dubai South"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-vet-dubai-south.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-vet-dubai-south.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-vet-dubai-south.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-vet-dubai-south.png"
+      },
+      "source_count": 10,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 29,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "jpg": 29
+        },
+        "top_projects": [
+          "Damac",
+          "Emaar"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Zoya Development 🤝 HSH",
+          "Professional Realtors",
+          "Dubai broker's 💪"
+        ]
+      }
+    },
+    {
+      "name": "voice_apartment_dubai_marina",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need a 2 bedroom apartment in Dubai Marina under 2000000",
+        "source_mode": "voice",
+        "area": "dubai marina",
+        "use_case": "apartment",
+        "property_preference": "apartment",
+        "bedroom_preference": "2",
+        "intent": "buy",
+        "source_url": "",
+        "max_price_aed": 2000000.0
+      },
+      "top_candidate_titles": [
+        "Vacant | Panoramic View | High ROI",
+        "Full Palm View | Fendi Layout | High ROI",
+        "20% Below Market Price | Spacious 2BR | Skyview"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment.png"
+      },
+      "source_count": 2,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 178,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 62,
+          "jpg": 116
+        },
+        "top_projects": [
+          "Deyaar",
+          "Binghatti; Damac; Danube; Ellington; Oxford Terraces; Sadaf; Sobha; Tiger",
+          "Aldar",
+          "Azizi",
+          "Damac",
+          "Binghatti"
+        ],
+        "source_groups": [
+          "Data Uae Pak Last",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT",
+          "Binghatti (DARIA) - HSH",
+          "Vetn Stuff"
+        ]
+      }
+    },
+    {
+      "name": "text_apartment_palm_jumeirah",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need a 2 bedroom apartment in Palm Jumeirah",
+        "source_mode": "text",
+        "area": "palm jumeirah",
+        "use_case": "apartment",
+        "property_preference": "apartment",
+        "bedroom_preference": "2",
+        "bathroom_preference": "",
+        "view_preference": "",
+        "floor_preference": "",
+        "furnishing_preference": "",
+        "readiness_preference": "",
+        "intent": "buy",
+        "source_url": "",
+        "max_price_aed": 0.0,
+        "min_size_sqft": 0.0,
+        "max_size_sqft": 0.0,
+        "target_size_sqft": 0.0
+      },
+      "top_candidate_titles": [
+        "Best Price |Sea View |Motivated Seller",
+        "Luxury Apt | Sea View and Spacious Layout",
+        "EXCLUSIVE | 2-BEDROOM FOR SALE | NOTICE SERVED"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-palm-jumeirah-apartment.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-palm-jumeirah-apartment.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-palm-jumeirah-apartment.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-palm-jumeirah-apartment.png"
+      },
+      "source_count": 2,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 202,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 9,
+          "jpg": 120,
+          "pdf": 69,
+          "zip": 1,
+          "png": 1,
+          "txt": 2
+        },
+        "top_projects": [
+          "Meraas; Nakheel",
+          "Deyaar",
+          "Damac",
+          "Emaar",
+          "Nakheel",
+          "HSH"
+        ],
+        "source_groups": [
+          "Data Uae Pak Last",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT",
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Dubai broker's 💪"
+        ]
+      }
+    },
+    {
+      "name": "url_bayut_dubai_south_office",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "to rent offices dubai dubai south",
+        "source_mode": "url",
+        "area": "dubai south",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "intent": "rent",
+        "source_url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/",
+        "max_price_aed": 0.0
+      },
+      "top_candidate_titles": [
+        "Modern Office in Dubai South Business Park",
+        "Internal Signal - Damac",
+        "Internal Signal - ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-bayut-dubai-south-office.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-bayut-dubai-south-office.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-bayut-dubai-south-office.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-bayut-dubai-south-office.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 29,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "jpg": 29
+        },
+        "top_projects": [
+          "Damac",
+          "Emaar"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Zoya Development 🤝 HSH",
+          "Professional Realtors",
+          "Dubai broker's 💪"
+        ]
+      }
+    },
+    {
+      "name": "url_propertyfinder_direct_office",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "en plp commercial rent office space for rent dubai dubai south dubai world central business park 97364276 html",
+        "source_mode": "url",
+        "area": "dubai south",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "intent": "rent",
+        "source_url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-dubai-south-dubai-world-central-business-park-97364276.html",
+        "max_price_aed": 0.0
+      },
+      "top_candidate_titles": [
+        "Modern Office in Dubai South Business Park",
+        "Internal Signal - Damac",
+        "Internal Signal - ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-direct-office.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-direct-office.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-direct-office.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-direct-office.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 29,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "jpg": 29
+        },
+        "top_projects": [
+          "Damac",
+          "Emaar"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Zoya Development 🤝 HSH",
+          "Professional Realtors",
+          "Dubai broker's 💪"
+        ]
+      }
+    },
+    {
+      "name": "url_propertyfinder_broker",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "en broker home sweet home real estate 7889",
+        "source_mode": "url",
+        "area": "business bay",
+        "use_case": "general_property",
+        "property_preference": "any",
+        "bedroom_preference": "",
+        "intent": "discovery",
+        "source_url": "https://www.propertyfinder.ae/en/broker/home-sweet-home-real-estate-7889",
+        "max_price_aed": 0.0
+      },
+      "top_candidate_titles": [
+        "Elite Property Brokerage Broker Portfolio",
+        "Al Mirax Real Estate Brokers Broker Portfolio",
+        "IMARA Broker Portfolio"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-broker.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-broker.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-broker.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-propertyfinder-broker.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 3,
+      "internal_snapshot": {
+        "match_count": 3,
+        "priced_match_count": 3,
+        "median_price_aed": 1800,
+        "min_price_aed": 1403,
+        "max_price_aed": 2500,
+        "top_projects": [
+          "Availability List",
+          "Parking @40,000",
+          "Unknown"
+        ],
+        "property_types": [
+          "commercial unit number",
+          "d - duplex",
+          "office"
+        ]
+      }
+    },
+    {
+      "name": "text_warehouse_dubai_south",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "I need a warehouse in Dubai South",
+        "source_mode": "text",
+        "area": "dubai south",
+        "use_case": "warehouse",
+        "property_preference": "warehouse",
+        "bedroom_preference": "",
+        "intent": "discovery",
+        "source_url": "",
+        "max_price_aed": 0.0
+      },
+      "top_candidate_titles": [
+        "Warehouses for Rent in Dubai South",
+        "Warehouses for Rent in Logistics City, Dubai South",
+        "Commercial Properties for Rent in Dubai South"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-warehouse-dubai-south.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-warehouse-dubai-south.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-warehouse-dubai-south.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-warehouse-dubai-south.png"
+      },
+      "source_count": 4,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 29,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "jpg": 29
+        },
+        "top_projects": [
+          "Damac",
+          "Emaar"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Zoya Development 🤝 HSH",
+          "Professional Realtors",
+          "Dubai broker's 💪"
+        ]
+      }
+    },
+    {
+      "name": "text_office_business_bay",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need an office in Business Bay",
+        "source_mode": "text",
+        "area": "business bay",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "intent": "business_setup",
+        "source_url": "",
+        "max_price_aed": 0.0
+      },
+      "top_candidate_titles": [
+        "Spacious Fitted Office in Business Bay",
+        "Fitted Office with Parking | Business Bay",
+        "Fully Furnished | High Floor | Grade A"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 159,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 34,
+          "jpg": 125
+        },
+        "top_projects": [
+          "Binghatti",
+          "Tiger; Tiger Sky Tower",
+          "Deyaar",
+          "Binghatti; HSH",
+          "HSH; Tiger; Tiger Sky Tower",
+          "Omniyat"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Binghatti (DARIA) - HSH",
+          "TIGER - HOME SWEET HOME REAL ESTATE",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT"
+        ]
+      }
+    },
+    {
+      "name": "text_office_business_bay_budget",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need an office in Business Bay under 180000",
+        "source_mode": "text",
+        "area": "business bay",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "intent": "business_setup",
+        "source_url": "",
+        "max_price_aed": 180000.0
+      },
+      "top_candidate_titles": [
+        "Fitted Office with Parking | Business Bay",
+        "Fully Furnished | High Floor | Grade A",
+        "Spacious Fitted Office in Business Bay"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-budget.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-budget.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-budget.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-budget.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 159,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 34,
+          "jpg": 125
+        },
+        "top_projects": [
+          "Binghatti",
+          "Tiger; Tiger Sky Tower",
+          "Deyaar",
+          "Binghatti; HSH",
+          "HSH; Tiger; Tiger Sky Tower",
+          "Omniyat"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Binghatti (DARIA) - HSH",
+          "TIGER - HOME SWEET HOME REAL ESTATE",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT"
+        ]
+      }
+    },
+    {
+      "name": "text_office_business_bay_budget_size",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need an office in Business Bay around 900 sqft under 180000",
+        "source_mode": "text",
+        "area": "business bay",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "intent": "business_setup",
+        "source_url": "",
+        "max_price_aed": 180000.0,
+        "min_size_sqft": 0.0,
+        "max_size_sqft": 0.0,
+        "target_size_sqft": 900.0
+      },
+      "top_candidate_titles": [
+        "Fitted Office with Parking | Business Bay",
+        "Fully Furnished | High Floor | Grade A",
+        "Spacious Fitted Office in Business Bay"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-budget-size.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-budget-size.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-budget-size.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-budget-size.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 159,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 34,
+          "jpg": 125
+        },
+        "top_projects": [
+          "Binghatti",
+          "Tiger; Tiger Sky Tower",
+          "Deyaar",
+          "Binghatti; HSH",
+          "HSH; Tiger; Tiger Sky Tower",
+          "Omniyat"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Binghatti (DARIA) - HSH",
+          "TIGER - HOME SWEET HOME REAL ESTATE",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT"
+        ]
+      }
+    },
+    {
+      "name": "text_office_business_bay_with_parking",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need an office in Business Bay with parking under 180000",
+        "source_mode": "text",
+        "area": "business bay",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "bathroom_preference": "",
+        "view_preference": "",
+        "floor_preference": "",
+        "parking_preference": "required",
+        "furnishing_preference": "",
+        "readiness_preference": "",
+        "intent": "business_setup",
+        "source_url": "",
+        "max_price_aed": 180000.0,
+        "min_size_sqft": 0.0,
+        "max_size_sqft": 0.0,
+        "target_size_sqft": 0.0
+      },
+      "top_candidate_titles": [
+        "Fitted Office with Parking | Business Bay",
+        "Fully Furnished | High Floor | Grade A",
+        "Spacious Fitted Office in Business Bay"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-with-parking.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-with-parking.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-with-parking.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-with-parking.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 159,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 34,
+          "jpg": 125
+        },
+        "top_projects": [
+          "Binghatti",
+          "Tiger; Tiger Sky Tower",
+          "Deyaar",
+          "Binghatti; HSH",
+          "HSH; Tiger; Tiger Sky Tower",
+          "Omniyat"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Binghatti (DARIA) - HSH",
+          "TIGER - HOME SWEET HOME REAL ESTATE",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT"
+        ]
+      }
+    },
+    {
+      "name": "text_office_business_bay_furnished",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need a furnished office in Business Bay under 180000",
+        "source_mode": "text",
+        "area": "business bay",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "furnishing_preference": "furnished",
+        "intent": "business_setup",
+        "source_url": "",
+        "max_price_aed": 180000.0,
+        "min_size_sqft": 0.0,
+        "max_size_sqft": 0.0,
+        "target_size_sqft": 0.0
+      },
+      "top_candidate_titles": [
+        "Fully Furnished | High Floor | Grade A",
+        "Fitted Office with Parking | Business Bay",
+        "Spacious Fitted Office in Business Bay"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-furnished.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-furnished.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-furnished.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-furnished.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 159,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 34,
+          "jpg": 125
+        },
+        "top_projects": [
+          "Binghatti",
+          "Tiger; Tiger Sky Tower",
+          "Deyaar",
+          "Binghatti; HSH",
+          "HSH; Tiger; Tiger Sky Tower",
+          "Omniyat"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Binghatti (DARIA) - HSH",
+          "TIGER - HOME SWEET HOME REAL ESTATE",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT"
+        ]
+      }
+    },
+    {
+      "name": "text_office_business_bay_ready",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need a ready office in Business Bay under 180000",
+        "source_mode": "text",
+        "area": "business bay",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "furnishing_preference": "",
+        "readiness_preference": "ready",
+        "intent": "business_setup",
+        "source_url": "",
+        "max_price_aed": 180000.0,
+        "min_size_sqft": 0.0,
+        "max_size_sqft": 0.0,
+        "target_size_sqft": 0.0
+      },
+      "top_candidate_titles": [
+        "Fitted Office with Parking | Business Bay",
+        "Fully Furnished | High Floor | Grade A",
+        "Spacious Fitted Office in Business Bay"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-ready.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-ready.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-ready.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-ready.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 159,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 34,
+          "jpg": 125
+        },
+        "top_projects": [
+          "Binghatti",
+          "Tiger; Tiger Sky Tower",
+          "Deyaar",
+          "Binghatti; HSH",
+          "HSH; Tiger; Tiger Sky Tower",
+          "Omniyat"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Binghatti (DARIA) - HSH",
+          "TIGER - HOME SWEET HOME REAL ESTATE",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT"
+        ]
+      }
+    },
+    {
+      "name": "voice_apartment_dubai_marina_3bath",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need a 2 bedroom 3 bathroom apartment in Dubai Marina under 3500000",
+        "source_mode": "voice",
+        "area": "dubai marina",
+        "use_case": "apartment",
+        "property_preference": "apartment",
+        "bedroom_preference": "2",
+        "bathroom_preference": "3",
+        "furnishing_preference": "",
+        "readiness_preference": "",
+        "intent": "buy",
+        "source_url": "",
+        "max_price_aed": 3500000.0,
+        "min_size_sqft": 0.0,
+        "max_size_sqft": 0.0,
+        "target_size_sqft": 0.0
+      },
+      "top_candidate_titles": [
+        "Sea View | Huge Layout | Furnished | Upgraded",
+        "20% Below Market Price | Spacious 2BR | Skyview",
+        "Full Palm View | Fendi Layout | High ROI"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-3bath.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-3bath.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-3bath.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-3bath.png"
+      },
+      "source_count": 2,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 178,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 62,
+          "jpg": 116
+        },
+        "top_projects": [
+          "Deyaar",
+          "Binghatti; Damac; Danube; Ellington; Oxford Terraces; Sadaf; Sobha; Tiger",
+          "Aldar",
+          "Azizi",
+          "Damac",
+          "Binghatti"
+        ],
+        "source_groups": [
+          "Data Uae Pak Last",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT",
+          "Binghatti (DARIA) - HSH",
+          "Vetn Stuff"
+        ]
+      }
+    },
+    {
+      "name": "url_apartment_dubai_marina_upgraded",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need an upgraded 2 bedroom 3 bathroom apartment in Dubai Marina under 3500000",
+        "source_mode": "url",
+        "area": "dubai marina",
+        "use_case": "apartment",
+        "property_preference": "apartment",
+        "bedroom_preference": "2",
+        "bathroom_preference": "3",
+        "view_preference": "",
+        "floor_preference": "",
+        "parking_preference": "",
+        "feature_preferences": [
+          "upgraded"
+        ],
+        "furnishing_preference": "",
+        "readiness_preference": "",
+        "intent": "buy",
+        "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-ocean-heights-84894360.html",
+        "max_price_aed": 3500000.0,
+        "min_size_sqft": 0.0,
+        "max_size_sqft": 0.0,
+        "target_size_sqft": 0.0
+      },
+      "top_candidate_titles": [
+        "Sea View | Huge Layout | Furnished | Upgraded",
+        "Internal Signal - 0a7db0a7-e771-4ae7-849b-55ba41ec9109.xlsx",
+        "Internal Signal - 0e691bc5-7001-4fba-9a03-1bda4bc0ba5b.xlsx"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-marina-apartment-upgraded.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-marina-apartment-upgraded.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-marina-apartment-upgraded.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-marina-apartment-upgraded.png"
+      },
+      "source_count": 2,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 178,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 62,
+          "jpg": 116
+        },
+        "top_projects": [
+          "Deyaar",
+          "Binghatti; Damac; Danube; Ellington; Oxford Terraces; Sadaf; Sobha; Tiger",
+          "Aldar",
+          "Azizi",
+          "Damac",
+          "Binghatti"
+        ],
+        "source_groups": [
+          "Data Uae Pak Last",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT",
+          "Binghatti (DARIA) - HSH",
+          "Vetn Stuff"
+        ]
+      }
+    },
+    {
+      "name": "voice_apartment_dubai_marina_palm_view",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need a 2 bedroom apartment in Dubai Marina with Palm view under 3500000",
+        "source_mode": "voice",
+        "area": "dubai marina",
+        "use_case": "apartment",
+        "property_preference": "apartment",
+        "bedroom_preference": "2",
+        "bathroom_preference": "",
+        "view_preference": "palm",
+        "floor_preference": "",
+        "furnishing_preference": "",
+        "readiness_preference": "",
+        "intent": "buy",
+        "source_url": "",
+        "max_price_aed": 3500000.0,
+        "min_size_sqft": 0.0,
+        "max_size_sqft": 0.0,
+        "target_size_sqft": 0.0
+      },
+      "top_candidate_titles": [
+        "Full Palm View | Fendi Layout | High ROI",
+        "Vacant | Panoramic View | High ROI",
+        "20% Below Market Price | Spacious 2BR | Skyview"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-palm-view.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-palm-view.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-palm-view.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-voice-marina-apartment-palm-view.png"
+      },
+      "source_count": 2,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 178,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 62,
+          "jpg": 116
+        },
+        "top_projects": [
+          "Deyaar",
+          "Binghatti; Damac; Danube; Ellington; Oxford Terraces; Sadaf; Sobha; Tiger",
+          "Aldar",
+          "Azizi",
+          "Damac",
+          "Binghatti"
+        ],
+        "source_groups": [
+          "Data Uae Pak Last",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT",
+          "Binghatti (DARIA) - HSH",
+          "Vetn Stuff"
+        ]
+      }
+    },
+    {
+      "name": "text_office_business_bay_high_floor",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need a high floor office in Business Bay under 180000",
+        "source_mode": "text",
+        "area": "business bay",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "bathroom_preference": "",
+        "view_preference": "",
+        "floor_preference": "high",
+        "furnishing_preference": "",
+        "readiness_preference": "",
+        "intent": "business_setup",
+        "source_url": "",
+        "max_price_aed": 180000.0,
+        "min_size_sqft": 0.0,
+        "max_size_sqft": 0.0,
+        "target_size_sqft": 0.0
+      },
+      "top_candidate_titles": [
+        "Fully Furnished | High Floor | Grade A",
+        "Fitted Office with Parking | Business Bay",
+        "Spacious Fitted Office in Business Bay"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-high-floor.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-high-floor.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-high-floor.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-office-business-bay-high-floor.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 159,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "xlsx": 34,
+          "jpg": 125
+        },
+        "top_projects": [
+          "Binghatti",
+          "Tiger; Tiger Sky Tower",
+          "Deyaar",
+          "Binghatti; HSH",
+          "HSH; Tiger; Tiger Sky Tower",
+          "Omniyat"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Binghatti (DARIA) - HSH",
+          "TIGER - HOME SWEET HOME REAL ESTATE",
+          "2DON MOHAMED REDHA -DEYAAR DEVELOPMENT"
+        ]
+      }
+    },
+    {
+      "name": "text_clinic_jvc",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "Need a clinic in JVC",
+        "source_mode": "text",
+        "area": "jvc",
+        "use_case": "clinic",
+        "property_preference": "commercial",
+        "bedroom_preference": "",
+        "intent": "business_setup",
+        "source_url": "",
+        "max_price_aed": 0.0
+      },
+      "top_candidate_titles": [
+        "Modern Office Space I High ROI",
+        "Spacious | Prime Location | Genuine Resale",
+        "Shops for Rent in Jvc"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-clinic-jvc.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-clinic-jvc.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-clinic-jvc.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-clinic-jvc.png"
+      },
+      "source_count": 4,
+      "internal_match_count": 8,
+      "internal_snapshot": {
+        "match_count": 225,
+        "asset_match_count": 8,
+        "file_type_counts": {
+          "csv": 2,
+          "xlsx": 52,
+          "pdf": 7,
+          "jpg": 163,
+          "txt": 1
+        },
+        "top_projects": [
+          "Binghatti; Deyaar; HSH",
+          "Binghatti",
+          "Tiger; Tiger Sky Tower",
+          "Binghatti; Damac; Danube; Ellington; Oxford Terraces; Sadaf; Sobha; Tiger",
+          "Binghatti; HSH",
+          "HSH; Object1"
+        ],
+        "source_groups": [
+          "UAE COMMERCIAL ONLY Rent - Sale",
+          "Binghatti (DARIA) - HSH",
+          "Home Sweet Home 🤝 Tasmeer Indigo (JVC)",
+          "Azizi/Best Brokers 🤍"
+        ]
+      }
+    },
+    {
+      "name": "url_generic_dubai_south_office_page",
+      "passed": true,
+      "errors": [],
+      "request_profile": {
+        "raw_request": "en work commercial property offices",
+        "source_mode": "url",
+        "area": "dubai south",
+        "use_case": "office",
+        "property_preference": "office",
+        "bedroom_preference": "",
+        "intent": "discovery",
+        "source_url": "https://www.dubaisouth.ae/en/work/commercial-property/offices",
+        "max_price_aed": 0.0
+      },
+      "top_candidate_titles": [
+        "Bright | Fully Fitted Space | Partitioned",
+        "Modern Office in Dubai South Business Park",
+        "Office Space in Dubai South | Free Zone Offices"
+      ],
+      "artifact_paths": {
+        "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-generic-dubai-south-office-page.json",
+        "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-generic-dubai-south-office-page.html",
+        "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-generic-dubai-south-office-page.pdf",
+        "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-url-generic-dubai-south-office-page.png"
+      },
+      "source_count": 5,
+      "internal_match_count": 1,
+      "internal_snapshot": {
+        "match_count": 1,
+        "priced_match_count": 1,
+        "median_price_aed": 2500,
+        "min_price_aed": 2500,
+        "max_price_aed": 2500,
+        "top_projects": [
+          "Unknown"
+        ],
+        "property_types": [
+          "office"
+        ]
+      }
+    }
+  ]
+}

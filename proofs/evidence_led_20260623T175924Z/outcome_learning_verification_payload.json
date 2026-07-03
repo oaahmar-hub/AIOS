@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-06-23T17:59:01.887817+00:00",
+  "sender": "971595009876",
+  "status": "PASS",
+  "logic_file": "/tmp/aios_evidence_led_runtime_data/20260623T175859Z/transport/human_identity_events.jsonl",
+  "before_quality": 0.5700000000000001,
+  "after_quality": 0.518,
+  "quality_changed": true,
+  "outcome_label": "in_progress",
+  "outcome_confidence": 0.62,
+  "impact_level": "medium",
+  "no_duplicate_feedback_events": true
+}

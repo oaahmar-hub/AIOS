@@ -1,0 +1,883 @@
+{
+  "validated_at": "2026-06-27T15:40:04.030285+00:00",
+  "passed": false,
+  "checks_passed": 103,
+  "checks_total": 173,
+  "manifest": "",
+  "checks": [
+    {
+      "name": "render:render docker runtime",
+      "passed": false,
+      "needle": "runtime: docker"
+    },
+    {
+      "name": "render:render health endpoint",
+      "passed": false,
+      "needle": "healthCheckPath: /api/health"
+    },
+    {
+      "name": "render:render auth mode env",
+      "passed": false,
+      "needle": "AIOS_AUTH_MODE"
+    },
+    {
+      "name": "render:render auth user secret",
+      "passed": false,
+      "needle": "AIOS_BASIC_AUTH_USER"
+    },
+    {
+      "name": "render:render auth password secret",
+      "passed": false,
+      "needle": "AIOS_BASIC_AUTH_PASSWORD"
+    },
+    {
+      "name": "render:render whatsapp hold mode env",
+      "passed": false,
+      "needle": "AIOS_WHATSAPP_REPLY_MODE"
+    },
+    {
+      "name": "render:render whatsapp verify token secret",
+      "passed": false,
+      "needle": "AIOS_WHATSAPP_VERIFY_TOKEN"
+    },
+    {
+      "name": "railway:valid json",
+      "passed": true,
+      "path": "railway.json"
+    },
+    {
+      "name": "railway:dockerfile builder",
+      "passed": true,
+      "value": "DOCKERFILE"
+    },
+    {
+      "name": "railway:dockerfile path",
+      "passed": true,
+      "value": "Dockerfile"
+    },
+    {
+      "name": "railway:start command",
+      "passed": false,
+      "value": "sh -c 'python3 -m aios_runtime_production_up --host 0.0.0.0 --port ${PORT:-8888}'"
+    },
+    {
+      "name": "railway:python wrapper present",
+      "passed": true,
+      "path": "aios_runtime_production_up.py"
+    },
+    {
+      "name": "docker:runtime script still bundled",
+      "passed": false,
+      "path": "Dockerfile"
+    },
+    {
+      "name": "railway:legacy unsafe shell port expansion removed",
+      "passed": true,
+      "value": "sh -c 'python3 -m aios_runtime_production_up --host 0.0.0.0 --port ${PORT:-8888}'"
+    },
+    {
+      "name": "railway:wrapper dispatches live server",
+      "passed": false,
+      "path": "aios_runtime_production_up.py"
+    },
+    {
+      "name": "railway:health endpoint",
+      "passed": true,
+      "value": "/api/health"
+    },
+    {
+      "name": "railway:health timeout",
+      "passed": true,
+      "value": 300
+    },
+    {
+      "name": "railway:runtime reports ignored",
+      "passed": false,
+      "path": ".railwayignore"
+    },
+    {
+      "name": "railway:local tools ignored",
+      "passed": false,
+      "path": ".railwayignore"
+    },
+    {
+      "name": "railway:mobile build outputs ignored",
+      "passed": false,
+      "path": ".railwayignore"
+    },
+    {
+      "name": "railway:evidence outputs ignored",
+      "passed": false,
+      "path": ".railwayignore"
+    },
+    {
+      "name": "railway:large brand binaries ignored",
+      "passed": false,
+      "path": ".railwayignore"
+    },
+    {
+      "name": "railway:secrets ignored",
+      "passed": false,
+      "path": ".railwayignore"
+    },
+    {
+      "name": "docker:python base image",
+      "passed": true,
+      "needle": "FROM python:3.12-slim"
+    },
+    {
+      "name": "docker:runtime port",
+      "passed": false,
+      "needle": "EXPOSE 8765"
+    },
+    {
+      "name": "docker:runtime start command",
+      "passed": false,
+      "needle": "aios_live_api_server.py"
+    },
+    {
+      "name": "service-worker:current cache version",
+      "passed": true,
+      "path": "aios-service-worker.js"
+    },
+    {
+      "name": "service-worker:no protected page precache",
+      "passed": true,
+      "protected_pages": [
+        "AIOS-DASHBOARD.html",
+        "AIOS-MOBILE-APP.html",
+        "AIOS-RUNTIME-STATUS.html"
+      ]
+    },
+    {
+      "name": "service-worker:defines protected runtime cache exclusions",
+      "passed": true,
+      "protected_pages": [
+        "AIOS-DASHBOARD.html",
+        "AIOS-MOBILE-APP.html",
+        "AIOS-RUNTIME-STATUS.html"
+      ]
+    },
+    {
+      "name": "service-worker:no cinematic video precache",
+      "passed": true,
+      "path": "aios-service-worker.js"
+    },
+    {
+      "name": "service-worker:no cinematic video runtime cache",
+      "passed": true,
+      "path": "aios-service-worker.js"
+    },
+    {
+      "name": "website:no protected command data fetch on hosted landing",
+      "passed": false,
+      "path": "AIOS-WEBSITE.html"
+    },
+    {
+      "name": "website:eye video delayed load",
+      "passed": false,
+      "path": "AIOS-WEBSITE.html"
+    },
+    {
+      "name": "website:eye visible from first frame",
+      "passed": false,
+      "path": "AIOS-WEBSITE.html"
+    },
+    {
+      "name": "website:premium motion respects device constraints",
+      "passed": false,
+      "path": "AIOS-WEBSITE.html"
+    },
+    {
+      "name": "website:background motion starts after critical entry",
+      "passed": false,
+      "path": "AIOS-WEBSITE.html"
+    },
+    {
+      "name": "website:defer hosted data until after entry",
+      "passed": false,
+      "path": "AIOS-WEBSITE.html"
+    },
+    {
+      "name": "website:below fold render containment",
+      "passed": false,
+      "path": "AIOS-WEBSITE.html"
+    },
+    {
+      "name": "dashboard:premium motion respects device constraints",
+      "passed": false,
+      "path": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "dashboard:no native browser dialogs",
+      "passed": false,
+      "path": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "dashboard:planner edits inline",
+      "passed": false,
+      "path": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "dashboard:command eye has measurable ambient motion",
+      "passed": false,
+      "path": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "dashboard:api base storage access guarded",
+      "passed": false,
+      "path": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "mobile:api base storage access guarded",
+      "passed": false,
+      "path": "AIOS-MOBILE-APP.html"
+    },
+    {
+      "name": "runtime-status:component output escaped",
+      "passed": true,
+      "path": "AIOS-RUNTIME-STATUS.html"
+    },
+    {
+      "name": "runtime-status:api base storage access guarded",
+      "passed": true,
+      "path": "AIOS-RUNTIME-STATUS.html"
+    },
+    {
+      "name": "offline:declares favicon to avoid browser fallback 404",
+      "passed": true,
+      "path": "offline.html"
+    },
+    {
+      "name": "api:command center data route",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/aios_live_api_server.py"
+    },
+    {
+      "name": "api:gzip json responses",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/aios_live_api_server.py"
+    },
+    {
+      "name": "api:compact json responses by default",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/aios_live_api_server.py"
+    },
+    {
+      "name": "api:command center serialized response cache",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/aios_live_api_server.py"
+    },
+    {
+      "name": "api:service worker served no-store",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/aios_live_api_server.py"
+    },
+    {
+      "name": "auth:server keeps public landing unauthenticated",
+      "passed": false,
+      "path": "automation/central_orchestrator/runtime/aios_live_api_server.py"
+    },
+    {
+      "name": "hosted-validator:checks command center data api",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_hosted_runtime.py"
+    },
+    {
+      "name": "hosted-validator:checks gzip command data",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_hosted_runtime.py"
+    },
+    {
+      "name": "hosted-validator:checks command data size budgets",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_hosted_runtime.py"
+    },
+    {
+      "name": "performance-validator:checks command data warm-cache speed",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_runtime_performance.py"
+    },
+    {
+      "name": "landing-boot-validator:blocks early heavy video and command data",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_landing_boot_performance.py"
+    },
+    {
+      "name": "landing-boot-validator:blocks visible ai fingerprint terms",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_landing_boot_performance.py"
+    },
+    {
+      "name": "visual-validator:uses combined gold green signal",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_visual_presence.py"
+    },
+    {
+      "name": "hosted-validator:checks public website size budget",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_hosted_runtime.py"
+    },
+    {
+      "name": "hosted-validator:checks public gzip delivery budgets",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_hosted_runtime.py"
+    },
+    {
+      "name": "hosted-validator:checks current service worker delivery contract",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_hosted_runtime.py"
+    },
+    {
+      "name": "hosted-validator:checks public landing without credentials",
+      "passed": true,
+      "path": "automation/central_orchestrator/runtime/validate_hosted_runtime.py"
+    },
+    {
+      "name": "dashboard:uses live command center data api when hosted",
+      "passed": false,
+      "path": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "dashboard:boots eye before command center hydration",
+      "passed": false,
+      "path": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "dashboard:applies initial route before hydration",
+      "passed": false,
+      "path": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "dashboard:uses live runtime status api when hosted",
+      "passed": false,
+      "path": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "mobile:uses live command center data api when hosted",
+      "passed": false,
+      "path": "AIOS-MOBILE-APP.html"
+    },
+    {
+      "name": "docs:Hosted Validation",
+      "passed": false,
+      "needle": "Hosted Validation"
+    },
+    {
+      "name": "docs:Visual Presence Validation",
+      "passed": false,
+      "needle": "Visual Presence Validation"
+    },
+    {
+      "name": "docs:Eye Motion Validation",
+      "passed": false,
+      "needle": "Eye Motion Validation"
+    },
+    {
+      "name": "docs:Public Beta Gate",
+      "passed": false,
+      "needle": "Public Beta Gate"
+    },
+    {
+      "name": "docs:AIOS_BASIC_AUTH_USER",
+      "passed": false,
+      "needle": "AIOS_BASIC_AUTH_USER"
+    },
+    {
+      "name": "docs:validate_public_beta.py",
+      "passed": false,
+      "needle": "validate_public_beta.py"
+    },
+    {
+      "name": "docs:validate_eye_motion.py",
+      "passed": false,
+      "needle": "validate_eye_motion.py"
+    },
+    {
+      "name": "docs:validate_container_runtime.py",
+      "passed": false,
+      "needle": "validate_container_runtime.py"
+    },
+    {
+      "name": "docs:validate_host_environment.py",
+      "passed": false,
+      "needle": "validate_host_environment.py"
+    },
+    {
+      "name": "docs:validate_production_launch_readiness.py",
+      "passed": false,
+      "needle": "validate_production_launch_readiness.py"
+    },
+    {
+      "name": "docs:deployment_preflight.py",
+      "passed": false,
+      "needle": "deployment_preflight.py"
+    },
+    {
+      "name": "docs:sync_railway_environment.py",
+      "passed": false,
+      "needle": "sync_railway_environment.py"
+    },
+    {
+      "name": "docs:deploy_railway_production.py",
+      "passed": false,
+      "needle": "deploy_railway_production.py"
+    },
+    {
+      "name": "docs:finalize_production_hosting.py",
+      "passed": false,
+      "needle": "finalize_production_hosting.py"
+    },
+    {
+      "name": "docs:run_production_hosting_pipeline.py",
+      "passed": false,
+      "needle": "run_production_hosting_pipeline.py"
+    },
+    {
+      "name": "docs:build_deployment_bundle.py",
+      "passed": false,
+      "needle": "build_deployment_bundle.py"
+    },
+    {
+      "name": "docs:prepare_production_release.py",
+      "passed": false,
+      "needle": "prepare_production_release.py"
+    },
+    {
+      "name": "docs:/api/deployment/status",
+      "passed": false,
+      "needle": "/api/deployment/status"
+    },
+    {
+      "name": "docs:/api/launch/readiness",
+      "passed": false,
+      "needle": "/api/launch/readiness"
+    },
+    {
+      "name": "docs:/api/whatsapp/hosted-test",
+      "passed": false,
+      "needle": "/api/whatsapp/hosted-test"
+    },
+    {
+      "name": "docs:/webhook/whatsapp/provider/gateway",
+      "passed": false,
+      "needle": "/webhook/whatsapp/provider/gateway"
+    },
+    {
+      "name": "docs:AIOS_WHATSAPP_REPLY_MODE=hold",
+      "passed": false,
+      "needle": "AIOS_WHATSAPP_REPLY_MODE=hold"
+    },
+    {
+      "name": "docs:AIOS_WHATSAPP_VERIFY_TOKEN",
+      "passed": false,
+      "needle": "AIOS_WHATSAPP_VERIFY_TOKEN"
+    },
+    {
+      "name": "docs:unauthenticated access",
+      "passed": false,
+      "needle": "unauthenticated access"
+    },
+    {
+      "name": "docs:DEPLOYMENT_PREFLIGHT.json",
+      "passed": false,
+      "needle": "DEPLOYMENT_PREFLIGHT.json"
+    },
+    {
+      "name": "docs:PRODUCTION_LAUNCH_READINESS.json",
+      "passed": false,
+      "needle": "PRODUCTION_LAUNCH_READINESS.json"
+    },
+    {
+      "name": "docs:PRODUCTION_RELEASE_CANDIDATE.json",
+      "passed": false,
+      "needle": "PRODUCTION_RELEASE_CANDIDATE.json"
+    },
+    {
+      "name": "docs:CONTAINER_RUNTIME_VALIDATION.json",
+      "passed": false,
+      "needle": "CONTAINER_RUNTIME_VALIDATION.json"
+    },
+    {
+      "name": "docs:HOST_ENVIRONMENT_VALIDATION.json",
+      "passed": false,
+      "needle": "HOST_ENVIRONMENT_VALIDATION.json"
+    },
+    {
+      "name": "docs:RAILWAY_ENVIRONMENT_SYNC.json",
+      "passed": false,
+      "needle": "RAILWAY_ENVIRONMENT_SYNC.json"
+    },
+    {
+      "name": "docs:deployment-bundles",
+      "passed": false,
+      "needle": "deployment-bundles"
+    },
+    {
+      "name": "docs:PRODUCTION_HOSTING_PUBLIC_FINALIZATION.json",
+      "passed": false,
+      "needle": "PRODUCTION_HOSTING_PUBLIC_FINALIZATION.json"
+    },
+    {
+      "name": "docs:PRODUCTION_HOSTING_PIPELINE_RUN.json",
+      "passed": false,
+      "needle": "PRODUCTION_HOSTING_PIPELINE_RUN.json"
+    },
+    {
+      "name": "bundle:exclude local tool root",
+      "passed": true,
+      "needle": "\".tools\""
+    },
+    {
+      "name": "bundle:exclude local tool contents",
+      "passed": true,
+      "needle": "\".tools/*\""
+    },
+    {
+      "name": "bundle:exclude native Android build outputs",
+      "passed": true,
+      "needle": "\"android/**\""
+    },
+    {
+      "name": "bundle:exclude generated mobile web build",
+      "passed": true,
+      "needle": "\"mobile-dist/**\""
+    },
+    {
+      "name": "bundle:exclude generated evidence screenshots",
+      "passed": true,
+      "needle": "\"evidence/**\""
+    },
+    {
+      "name": "bundle:exclude generated automation evidence",
+      "passed": true,
+      "needle": "\"automation/evidence/**\""
+    },
+    {
+      "name": "bundle:exclude stale Eye video phase 52",
+      "passed": true,
+      "needle": "\"assets/aios-eye-cinematic-loop-phase52.mp4\""
+    },
+    {
+      "name": "bundle:exclude stale Eye video phase 53",
+      "passed": true,
+      "needle": "\"assets/aios-eye-cinematic-loop-phase53.mp4\""
+    },
+    {
+      "name": "bundle:exclude stale Eye video phase 54",
+      "passed": true,
+      "needle": "\"assets/aios-eye-cinematic-loop-phase54.mp4\""
+    },
+    {
+      "name": "bundle:exclude large brand binary assets",
+      "passed": true,
+      "needle": "\"knowledge-base/branding/assets/**\""
+    },
+    {
+      "name": "bundle:require railway config in bundle",
+      "passed": true,
+      "needle": "\"railway.json\""
+    },
+    {
+      "name": "bundle:require railway ignore in bundle",
+      "passed": true,
+      "needle": "\".railwayignore\""
+    },
+    {
+      "name": "bundle:require railway env sync in bundle",
+      "passed": true,
+      "needle": "\"automation/central_orchestrator/runtime/sync_railway_environment.py\""
+    },
+    {
+      "name": "bundle:require runtime performance validator in bundle",
+      "passed": true,
+      "needle": "\"automation/central_orchestrator/runtime/validate_runtime_performance.py\""
+    },
+    {
+      "name": "bundle:require landing boot performance validator in bundle",
+      "passed": true,
+      "needle": "\"automation/central_orchestrator/runtime/validate_landing_boot_performance.py\""
+    },
+    {
+      "name": "bundle:require railway deploy runner in bundle",
+      "passed": true,
+      "needle": "\"automation/central_orchestrator/runtime/deploy_railway_production.py\""
+    },
+    {
+      "name": "bundle:require production hosting finalizer in bundle",
+      "passed": true,
+      "needle": "\"automation/central_orchestrator/runtime/finalize_production_hosting.py\""
+    },
+    {
+      "name": "bundle:require production hosting pipeline in bundle",
+      "passed": true,
+      "needle": "\"automation/central_orchestrator/runtime/run_production_hosting_pipeline.py\""
+    },
+    {
+      "name": "railway-env:writes redacted env sync report",
+      "passed": true,
+      "needle": "RAILWAY_ENVIRONMENT_SYNC.json"
+    },
+    {
+      "name": "railway-env:uses stdin for secret values",
+      "passed": true,
+      "needle": "\"--stdin\""
+    },
+    {
+      "name": "railway-env:tracks secret env keys",
+      "passed": true,
+      "needle": "SECRET_ENV"
+    },
+    {
+      "name": "railway-env:suppresses secret command stdout",
+      "passed": true,
+      "needle": "stdout\": \"\" if stdin is not None"
+    },
+    {
+      "name": "railway-runner:collect railway domain list",
+      "passed": true,
+      "needle": "\"domain\", \"list\", \"--json\""
+    },
+    {
+      "name": "railway-runner:inspect remote railway env without printing values",
+      "passed": true,
+      "needle": "\"variable\", \"list\", \"--json\""
+    },
+    {
+      "name": "railway-runner:retry slow railway env inspection",
+      "passed": true,
+      "needle": "for timeout in (45, 90)"
+    },
+    {
+      "name": "railway-runner:separate local env from effective deployment env",
+      "passed": true,
+      "needle": "effective_environment"
+    },
+    {
+      "name": "railway-runner:defines local release refresh commands",
+      "passed": true,
+      "needle": "LOCAL_RELEASE_REFRESH_COMMANDS"
+    },
+    {
+      "name": "railway-runner:refreshes local release evidence before readiness",
+      "passed": true,
+      "needle": "_refresh_local_release"
+    },
+    {
+      "name": "railway-runner:refreshes local boot and runtime speed evidence",
+      "passed": true,
+      "needle": "_refresh_local_speed_evidence"
+    },
+    {
+      "name": "railway-runner:refreshes browser boot performance evidence",
+      "passed": true,
+      "needle": "validate_landing_boot_performance.py"
+    },
+    {
+      "name": "railway-runner:refreshes runtime performance evidence",
+      "passed": true,
+      "needle": "validate_runtime_performance.py"
+    },
+    {
+      "name": "railway-runner:blocks release when local speed server is not healthy",
+      "passed": true,
+      "needle": "local_validation_server_health_timeout"
+    },
+    {
+      "name": "railway-runner:stops local validation server after speed refresh",
+      "passed": true,
+      "needle": "terminate local validation server"
+    },
+    {
+      "name": "railway-runner:checks validation freshness against source files",
+      "passed": true,
+      "needle": "_source_freshness"
+    },
+    {
+      "name": "railway-runner:reports stale source files for release evidence",
+      "passed": true,
+      "needle": "stale_sources"
+    },
+    {
+      "name": "railway-runner:refreshes deployment package validation",
+      "passed": true,
+      "needle": "validate_deployment_package.py"
+    },
+    {
+      "name": "railway-runner:blocks stale deployment package validation",
+      "passed": true,
+      "needle": "deployment_package_validation_stale"
+    },
+    {
+      "name": "railway-runner:refreshes container runtime validation",
+      "passed": true,
+      "needle": "validate_container_runtime.py"
+    },
+    {
+      "name": "railway-runner:blocks stale container runtime validation",
+      "passed": true,
+      "needle": "container_runtime_validation_stale"
+    },
+    {
+      "name": "railway-runner:requires boot performance validation for readiness",
+      "passed": true,
+      "needle": "LANDING_BOOT_PERFORMANCE_VALIDATION.json"
+    },
+    {
+      "name": "railway-runner:blocks release when boot performance fails",
+      "passed": true,
+      "needle": "boot_performance_validation_not_passed"
+    },
+    {
+      "name": "railway-runner:blocks stale boot performance validation",
+      "passed": true,
+      "needle": "boot_performance_validation_stale"
+    },
+    {
+      "name": "railway-runner:requires runtime performance validation for readiness",
+      "passed": true,
+      "needle": "RUNTIME_PERFORMANCE_VALIDATION.json"
+    },
+    {
+      "name": "railway-runner:blocks release when runtime performance fails",
+      "passed": true,
+      "needle": "runtime_performance_validation_not_passed"
+    },
+    {
+      "name": "railway-runner:blocks stale runtime performance validation",
+      "passed": true,
+      "needle": "runtime_performance_validation_stale"
+    },
+    {
+      "name": "railway-runner:refreshes deployment bundle artifact",
+      "passed": true,
+      "needle": "build_deployment_bundle.py"
+    },
+    {
+      "name": "railway-runner:blocks deploy when refresh fails",
+      "passed": true,
+      "needle": "blocked_local_release_refresh_failed"
+    },
+    {
+      "name": "railway-runner:allows explicit refresh bypass for diagnostics",
+      "passed": true,
+      "needle": "--no-refresh-local-release"
+    },
+    {
+      "name": "railway-runner:support explicit domain generation",
+      "passed": true,
+      "needle": "ensure_domain"
+    },
+    {
+      "name": "railway-runner:capture public url candidates",
+      "passed": true,
+      "needle": "public_url_candidates"
+    },
+    {
+      "name": "railway-runner:capture existing service domains in check mode",
+      "passed": true,
+      "needle": "_extract_domains_from_service_instance"
+    },
+    {
+      "name": "railway-runner:extract public urls from railway output",
+      "passed": true,
+      "needle": "PUBLIC_URL_PATTERN"
+    },
+    {
+      "name": "delivery-audit:accepts explicit hosted base url argument",
+      "passed": true,
+      "needle": "\"base_url\""
+    },
+    {
+      "name": "delivery-audit:uses public base url env fallback",
+      "passed": true,
+      "needle": "AIOS_PUBLIC_BASE_URL"
+    },
+    {
+      "name": "delivery-audit:supports configurable auth user env",
+      "passed": true,
+      "needle": "--auth-user-env"
+    },
+    {
+      "name": "delivery-audit:supports configurable auth password env",
+      "passed": true,
+      "needle": "--auth-password-env"
+    },
+    {
+      "name": "delivery-audit:supports exact service worker cache assertion",
+      "passed": true,
+      "needle": "--expected-cache"
+    },
+    {
+      "name": "delivery-audit:requires current release service worker cache",
+      "passed": true,
+      "needle": "EXPECTED_SERVICE_WORKER_CACHE = \"aios-presence-v86\""
+    },
+    {
+      "name": "delivery-audit:audits protected runtime cache exclusion",
+      "passed": true,
+      "needle": "service_worker_protected_runtime_cache_excluded"
+    },
+    {
+      "name": "delivery-audit:audits service worker no-store delivery",
+      "passed": true,
+      "needle": "service_worker_cache_control_no_store"
+    },
+    {
+      "name": "delivery-audit:normalizes audited base url",
+      "passed": true,
+      "needle": "BASE = args.base_url.rstrip"
+    },
+    {
+      "name": "finalizer:read railway deploy-run evidence",
+      "passed": true,
+      "needle": "RAILWAY_PRODUCTION_DEPLOYMENT_RUN.json"
+    },
+    {
+      "name": "finalizer:use railway url candidates",
+      "passed": true,
+      "needle": "public_url_candidates"
+    },
+    {
+      "name": "finalizer:use public base url env",
+      "passed": true,
+      "needle": "AIOS_PUBLIC_BASE_URL"
+    },
+    {
+      "name": "finalizer:use railway public domain env",
+      "passed": true,
+      "needle": "RAILWAY_PUBLIC_DOMAIN"
+    },
+    {
+      "name": "finalizer:find local railway cli install",
+      "passed": true,
+      "needle": ".railway/bin/railway"
+    },
+    {
+      "name": "pipeline:runs railway env sync",
+      "passed": true,
+      "needle": "sync_railway_environment.py"
+    },
+    {
+      "name": "pipeline:runs railway deploy runner",
+      "passed": true,
+      "needle": "deploy_railway_production.py"
+    },
+    {
+      "name": "pipeline:runs public finalizer",
+      "passed": true,
+      "needle": "finalize_production_hosting.py"
+    },
+    {
+      "name": "pipeline:writes pipeline report",
+      "passed": true,
+      "needle": "PRODUCTION_HOSTING_PIPELINE_RUN.json"
+    },
+    {
+      "name": "pipeline:emits final classification",
+      "passed": true,
+      "needle": "classification"
+    }
+  ],
+  "next_action": "Fix failed deployment package checks before hosting."
+}

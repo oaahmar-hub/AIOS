@@ -1,0 +1,15 @@
+{
+  "date": "2026-06-25",
+  "system_status": "PARTIAL",
+  "indexed_files": 2495,
+  "pdfs_attempted": 483,
+  "duplicate_hash_groups": 437,
+  "nakheel_status": "PASS",
+  "property_status": "PARTIAL",
+  "canonical_outputs": [
+    "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Canonical/AIOS_CANONICAL_FILE_INVENTORY.csv",
+    "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Canonical/AIOS_PDF_TEXT_INDEX.csv",
+    "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Canonical/AIOS_PROJECT_RELATIONSHIP_MAP.csv",
+    "/Users/hassanka/Downloads/AIOS/00_FOUNDATION/AIOS_EXECUTIVE_REPORT.md"
+  ]
+}

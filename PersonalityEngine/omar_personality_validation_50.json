@@ -1,0 +1,752 @@
+[
+  {
+    "input_type": "greeting",
+    "input_lang": "english",
+    "user_excerpt": "from what I can see from other clients - the spam is coming from smart lead enablemend. please disable this for now while we are fixing it. there are 2 projects that are getting sp",
+    "omar_reply_excerpt": "🤦🏻‍♂️😢 i thought it make it better",
+    "reply_words": 7,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "greeting",
+    "input_lang": "english",
+    "user_excerpt": "us too, but I think the way how they are running the marketing is wrong for the smart leads",
+    "omar_reply_excerpt": "Finder liner and cover full sit left right and under cover arch 1 bush kit",
+    "reply_words": 15,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "parts team",
+    "omar_reply_excerpt": "Sure",
+    "reply_words": 1,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "arabic",
+    "user_excerpt": "شو وينك مختفي",
+    "omar_reply_excerpt": "Good throw them and I hope you will put note in the group That’s it’s super red flag to use any of clients Aprtment",
+    "reply_words": 24,
+    "reply_type": "action_push",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "action_push",
+    "input_lang": "english",
+    "user_excerpt": "Sure Faizan on the way now",
+    "omar_reply_excerpt": "I remove the smart lead",
+    "reply_words": 5,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "negotiation",
+    "input_lang": "english",
+    "user_excerpt": "part number also diffrent",
+    "omar_reply_excerpt": "Can you sent me please photo and brand",
+    "reply_words": 8,
+    "reply_type": "action_push",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "it additional parts right",
+    "omar_reply_excerpt": "i don’t think the thermostat original",
+    "reply_words": 6,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "boot-args keepsyms=1 debug=0x100 -lilubetaall ipc_control_port_options=0 -nokcmismatchpanic",
+    "omar_reply_excerpt": "thermostat",
+    "reply_words": 1,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "Bro its not open",
+    "omar_reply_excerpt": "Pull it up then down",
+    "reply_words": 5,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "Ok opem",
+    "omar_reply_excerpt": "Waiting for it please let someone from mangment called me before I make official complaint",
+    "reply_words": 15,
+    "reply_type": "escalation_sensitive",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "action_push",
+    "input_lang": "english",
+    "user_excerpt": "let me check",
+    "omar_reply_excerpt": "Did you took it out",
+    "reply_words": 5,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "other",
+    "user_excerpt": ".",
+    "omar_reply_excerpt": "Did we knew for who’s the bags",
+    "reply_words": 7,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "Waiting for subission approval",
+    "omar_reply_excerpt": "WP1ZZZ92ZDLA90909 Omar Al Ahmar [phone] HEATER HOSE [phone] HEATER HOSE [phone] COOLANT HOSE [phone] COOLANT HOSE [phone] CLAMP [phone] CLAMP [phone] CLAMP [phone] O RING [phone] THERMOSTAT HOUSING [phone] SEAL [phone] T",
+    "reply_words": 55,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "greeting",
+    "input_lang": "english",
+    "user_excerpt": "No brother first day we did the payment yesterday we did the submission First section of submission is completed and the second round finished after we uploading the address proof ",
+    "omar_reply_excerpt": "Hi",
+    "reply_words": 1,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "once approval has done KYC verifivation mail will receive",
+    "omar_reply_excerpt": "This we made today",
+    "reply_words": 4,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "yes",
+    "omar_reply_excerpt": "Kyc I mean client recived",
+    "reply_words": 5,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "arabic",
+    "user_excerpt": "اي عملية",
+    "omar_reply_excerpt": "So you think tomorrow trade linces will be done",
+    "reply_words": 9,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "greeting",
+    "input_lang": "english",
+    "user_excerpt": "no brother",
+    "omar_reply_excerpt": "Yeah I know I got shocked when you say not same part - that poor guy he took or shout and everything without saying anything 🥲",
+    "reply_words": 26,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "greeting",
+    "input_lang": "english",
+    "user_excerpt": "Hello",
+    "omar_reply_excerpt": "Hay",
+    "reply_words": 1,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "action_push",
+    "input_lang": "english",
+    "user_excerpt": "And please tomorrow let me know where is key and card so we send it to them",
+    "omar_reply_excerpt": "Yes I thought you had it Just checking they return it as there was no response",
+    "reply_words": 16,
+    "reply_type": "action_push",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "greeting",
+    "input_lang": "english",
+    "user_excerpt": "okay brother take rest now and plz plz find out for me who was there",
+    "omar_reply_excerpt": "I sent them maybe coz of afdrese was not complete",
+    "reply_words": 10,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "if it cancelled",
+    "omar_reply_excerpt": "No it’s return only Needed walaw bb",
+    "reply_words": 7,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "other",
+    "user_excerpt": "😍😍",
+    "omar_reply_excerpt": "For now make yourself as you forget about it till we get the one",
+    "reply_words": 14,
+    "reply_type": "action_push",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "enjad",
+    "omar_reply_excerpt": "*Welcome* & *Thank You* For Reaching Out. ♾️⚖️ This is *Omar Al-Ahmar*, Head of Secondary & Studies at HS Global Dubai, Reorganized as DlD Strategic Partner With High Level Access . I specialize in project management, ad",
+    "reply_words": 79,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "english",
+    "user_excerpt": "Yes bro",
+    "omar_reply_excerpt": "*Welcome* & *Thank You* For Reaching Out. ♾️⚖️ This is *Omar Al-Ahmar*, Head of Secondary & Studies at HS Global Dubai, Reorganized as DlD Strategic Partner With High Level Access . I specialize in project management, ad",
+    "reply_words": 79,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "action_push",
+    "input_lang": "english",
+    "user_excerpt": "please remind me about apartment number",
+    "omar_reply_excerpt": "2907 sir",
+    "reply_words": 2,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "action_push",
+    "input_lang": "english",
+    "user_excerpt": "your people have taken the suite cases but still am to check and i know owner of the suite cases has to come back for them",
+    "omar_reply_excerpt": "Who take it !!",
+    "reply_words": 4,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "arabic",
+    "user_excerpt": "أبعت رقم معتز",
+    "omar_reply_excerpt": "2907",
+    "reply_words": 1,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "action_push",
+    "input_lang": "english",
+    "user_excerpt": "Am good thanks",
+    "omar_reply_excerpt": "How’s available outcall good price good girl",
+    "reply_words": 7,
+    "reply_type": "negotiation",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "greeting",
+    "input_lang": "english",
+    "user_excerpt": "Which hotel do you stay at",
+    "omar_reply_excerpt": "Sport city",
+    "reply_words": 2,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "action_push",
+    "input_lang": "english",
+    "user_excerpt": "Outcall 1hr 1600",
+    "omar_reply_excerpt": "Vedio call",
+    "reply_words": 2,
+    "reply_type": "action_push",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "greeting",
+    "input_lang": "english",
+    "user_excerpt": "hi darling ! how are you !",
+    "omar_reply_excerpt": "Good you",
+    "reply_words": 2,
+    "reply_type": "action_push",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "mixed",
+    "user_excerpt": "نعتذر، نحن لا نراقب هذه الدردشة. لمزيد من التفاصيل حول طلبات امازون الخاصة بك، تفضل بزيارة [link][link]amazon.ae/wa_yo _أرسل: إيقاف إذا كنت لا ترغب في تلقي رسائل متعلقة بالطلب_",
+    "omar_reply_excerpt": "Wanna come bb",
+    "reply_words": 3,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "question",
+    "input_lang": "english",
+    "user_excerpt": "How much you can pay?",
+    "omar_reply_excerpt": "500 love",
+    "reply_words": 2,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "question",
+    "input_lang": "english",
+    "user_excerpt": "Where are you from?",
+    "omar_reply_excerpt": "Am out of cash coz of work and payment normaly I pay more bb",
+    "reply_words": 14,
+    "reply_type": "escalation_sensitive",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "question",
+    "input_lang": "english",
+    "user_excerpt": "Js ?",
+    "omar_reply_excerpt": "honey",
+    "reply_words": 1,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "arabic",
+    "user_excerpt": "دخيل البك انا",
+    "omar_reply_excerpt": "I miss you",
+    "reply_words": 3,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "other",
+    "user_excerpt": "😊",
+    "omar_reply_excerpt": "Haha don’t get me wrong",
+    "reply_words": 5,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "action_push",
+    "input_lang": "english",
+    "user_excerpt": "What i say i d know",
+    "omar_reply_excerpt": "Nothing nothing 😂",
+    "reply_words": 3,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": true
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "other",
+    "user_excerpt": "🤣🤣",
+    "omar_reply_excerpt": "I didn’t tell you to say or feel bad this for loser men I never do that - you didn’t get my point lol",
+    "reply_words": 24,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "other",
+    "user_excerpt": "😃",
+    "omar_reply_excerpt": "You",
+    "reply_words": 1,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "other",
+    "user_excerpt": "🥲",
+    "omar_reply_excerpt": "Plot-18 PJ-P-VP-018 REV-01 FINAL Nakheel Submission",
+    "reply_words": 6,
+    "reply_type": "negotiation",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "question",
+    "input_lang": "english",
+    "user_excerpt": "For today ?",
+    "omar_reply_excerpt": "Yes sure baby",
+    "reply_words": 3,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "question",
+    "input_lang": "english",
+    "user_excerpt": "Now late u not sleep ?",
+    "omar_reply_excerpt": "I prefer to sleep with you and wake up with you )",
+    "reply_words": 12,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "question",
+    "input_lang": "english",
+    "user_excerpt": "Were is it located?",
+    "omar_reply_excerpt": "Elie saeb 2 Arabian ranchers 3",
+    "reply_words": 6,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "escalation_sensitive",
+    "input_lang": "english",
+    "user_excerpt": "Bank valuation",
+    "omar_reply_excerpt": "Yes when so I can take appointment from tenets please",
+    "reply_words": 10,
+    "reply_type": "negotiation",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": true,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "escalation_sensitive",
+    "input_lang": "english",
+    "user_excerpt": "did you create the contract already?",
+    "omar_reply_excerpt": "It’s from Emaar this is the unit details",
+    "reply_words": 8,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "question",
+    "input_lang": "english",
+    "user_excerpt": "off plan?",
+    "omar_reply_excerpt": "Yes rest on pc should be",
+    "reply_words": 6,
+    "reply_type": "general",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "escalation_sensitive",
+    "input_lang": "english",
+    "user_excerpt": "its not valid. the contract expired already since april",
+    "omar_reply_excerpt": "One of them extended it’s expire transaction done already , but not claimed on pf - I was holding the portal by myself with other many things so there was no time to do a lot of things glad you join )",
+    "reply_words": 42,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": false,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  },
+  {
+    "input_type": "general",
+    "input_lang": "arabic",
+    "user_excerpt": "الله يعافيك",
+    "omar_reply_excerpt": "هلا حبيب اعذرني كنت مسافر و رجعت البارحة شو اخبارك حبيب",
+    "reply_words": 11,
+    "reply_type": "greeting",
+    "policy_check": "PASS",
+    "style_features": {
+      "short_reply": true,
+      "asks_next_step": false,
+      "action_oriented": false,
+      "humor_or_warmth": false
+    }
+  }
+]

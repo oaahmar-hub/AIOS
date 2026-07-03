@@ -1,0 +1,501 @@
+direction,lang,type,words,chars,emoji_count,time,chat,text
+inbound_contact,english,general,13,63,0,2026-06-18T19:41:08+00:00,Azad Shikha Inv Friend,Can you tell me the location where grey is located in Abu Dhabi
+inbound_contact,english,general,1,28,0,2026-06-18T20:20:06+00:00,Vetn Stuff,[link]tailscale.com/download
+outbound_omar,english,negotiation,1,30,0,2026-06-18T20:33:48.289414+00:00,Vetn Stuff,hassans-imac.tail5b0b50.ts.net
+inbound_contact,english,negotiation,103,833,0,2026-06-18T21:03:13+00:00,Vetn Stuff,"[profile.gd_ultimate_builder] internet = true read_files = true write_files = true create_files = true run_commands = true install_packages = true download_files = true open_websites = true open_applications = true delete_files = false publish_changes = false require_publish_approval = true auto_continue = true auto_retry = true auto_fix_errors = true click_continue = true open_new_pages = true n8n_access = true create_workflows = true create_full_applications = true modify_projects = true google_account_use = true gmail_use = true portal_login_allowed = true payment_use = true max_single_payment_usd = 20 require_payment_approval = true mac_access = true home_sweet_home_pc_access = true iphone_access = false memory_mode = ""project"" reasoning_mode = ""deep"" context_mode = ""maximum"" ask_followup_changes = ""only_when_blocked"""
+inbound_contact,english,greeting,123,870,0,2026-06-18T21:10:21+00:00,Vetn Stuff,"Act autonomously. Before making changes: - Analyze the entire project. - Understand architecture, workflows, dependencies, integrations, and business objectives. Always: - Remove duplicates. - Consolidate overlapping systems. - Organize files and folders. - Refactor where beneficial. - Fix discovered issues. - Improve performance. - Improve reliability. - Improve maintainability. - Improve scalability. - Improve documentation. - Improve automation. Take initiative. Do not wait for step-by-step instructions when the next action is obvious. When multiple solutions exist: - Choose the most robust. - Choose the most maintainable. - Choose the most scalable. - Choose the solution with the highest long-term business value. Think like a senior architect, engineer, operator, researcher, and product owner. Leave the project better than you found it with every change."
+inbound_contact,english,greeting,93,639,0,2026-06-18T21:10:28+00:00,Vetn Stuff,Provide a complete execution report. Include: - What was analyzed. - What was improved. - What was fixed. - What was removed. - What was consolidated. - What was automated. - What was reorganized. - What risks were found. - What recommendations remain. Actively identify: - Duplicate systems. - Broken workflows. - Missing components. - Security concerns. - Performance bottlenecks. - Automation opportunities. Recommend the next highest-impact actions. Optimize continuously for: - Automation. - Simplicity. - Reliability. - Speed. - Scalability. - Business value. Operate with maximum initiative and ownership within granted permissions.
+inbound_contact,english,escalation_sensitive,49,367,0,2026-06-18T21:35:41+00:00,Vetn Stuff,"Do not stop for business assumptions. Choose the most standard industry implementation. If multiple valid solutions exist: 1. Choose the simplest. 2. Choose the most scalable. 3. Choose the lowest-maintenance option. Document every assumption. Continue implementation. Only stop if external access, credentials, payment approval, or irreversible actions are required."
+inbound_contact,english,general,1,68,0,2026-06-18T22:12:17+00:00,Vetn Stuff,[link]hshglobaldubai.app.n8n.cloud/webhook/whatsapp/provider/gateway
+inbound_contact,english,greeting,1,2,0,2026-06-18T23:10:09+00:00,Vetn Stuff,Hi
+outbound_omar,english,greeting,2,10,0,2026-06-18T23:10:23+00:00,Vetn Stuff,Hello dear
+inbound_contact,english,greeting,1,5,0,2026-06-18T23:14:34+00:00,Vetn Stuff,Hello
+outbound_omar,english,greeting,3,17,0,2026-06-18T23:15:35+00:00,Vetn Stuff,Good morning fest
+inbound_contact,english,action_push,8,39,1,2026-06-18T23:22:28+00:00,Vetn Stuff,AIOS live test: UAE main number check ✅
+inbound_contact,english,general,1,2,0,2026-06-18T23:24:12+00:00,Vetn Stuff,He
+outbound_omar,english,general,3,16,4,2026-06-18T23:24:33+00:00,Vetn Stuff,Oula Ace 🕶️❤️‍🔥💋
+outbound_omar,english,greeting,1,2,0,2026-06-18T23:32:51+00:00,Vetn Stuff,Hi
+inbound_contact,english,general,3,20,0,2026-06-18T23:33:04+00:00,Vetn Stuff,Helen’s Jajajja sins
+outbound_omar,english,general,2,12,0,2026-06-18T23:33:25+00:00,Vetn Stuff,Subways sins
+inbound_contact,english,action_push,10,48,1,2026-06-18T23:46:26+00:00,Vetn Stuff,AIOS live auto test — please reply if received ✅
+outbound_omar,english,greeting,4,14,0,2026-06-18T23:52:12+00:00,Vetn Stuff,Hi how are you
+inbound_contact,english,action_push,10,48,1,2026-06-19T01:44:25+00:00,Vetn Stuff,AIOS live auto test — please reply if received ✅
+inbound_contact,english,action_push,10,48,1,2026-06-19T01:45:56+00:00,Vetn Stuff,AIOS live auto test — please reply if received ✅
+inbound_contact,english,greeting,19,114,0,2026-06-19T01:49:24+00:00,Vetn Stuff,"Hi, thanks for messaging HSH Global Dubai. How can I help today — buying, renting, selling, viewing, or approvals?"
+inbound_contact,english,action_push,5,18,1,2026-06-19T02:07:11+00:00,[phone],Have a good day ❤️
+inbound_contact,arabic,greeting,14,75,0,2026-06-19T05:09:39+00:00,[phone],السلام عليكم ورحمة الله وبركاته صباح الخير أخي عمر هذه ورقة إستعلام عن عقار
+inbound_contact,english,greeting,3,17,0,2026-06-19T05:32:13+00:00,Jess HSH Assstant,Good morning Omar
+inbound_contact,english,action_push,8,53,0,2026-06-19T05:34:04+00:00,Jess HSH Assstant,Kindly please explained about the documents you send.
+outbound_omar,english,general,3,13,0,2026-06-19T05:51:12+00:00,Jess HSH Assstant,Sure Weill do
+outbound_omar,english,greeting,2,8,0,2026-06-19T05:51:28+00:00,[phone],Hi sluty
+outbound_omar,english,general,3,15,0,2026-06-19T05:52:11+00:00,[phone],Miss your pussy
+inbound_contact,english,greeting,2,12,0,2026-06-19T06:13:53+00:00,Lea Admin Manger,Good morning
+inbound_contact,english,negotiation,77,462,0,2026-06-19T06:33:16+00:00,[phone],"Hey OMAR! Want to Make More Money Faster? Tap into 1700+ live projects across the UAE instead of fighting over the same listings on the portals? Invespy gives you access to exclusive off-market, pre-launch and developer-direct inventory so you can close more premium deals faster. Plus, you can get paid from 24 hours up to 14 days after closing, instead of waiting 60–90 days for commissions. Join 5000+ brokers already using Invespy to sell smarter, not harder"
+inbound_contact,english,general,3,22,0,2026-06-19T06:41:57+00:00,Doina Beyond,Passo Availability NEW
+outbound_omar,arabic,greeting,18,88,0,2026-06-19T08:15:36+00:00,[phone],يسعد صباحك مزبوط تاريخ جديد يعني غير هيك ما بقدر أعطيك تسكت المالك لانو ما عنا اي موافقة
+outbound_omar,english,general,9,43,0,2026-06-19T08:16:21+00:00,She Try Pr,Sluty bb you remember when i drill your ass
+outbound_omar,english,greeting,2,5,0,2026-06-19T08:16:58+00:00,Mimis First One B B,Hi bb
+inbound_contact,english,greeting,141,730,9,2026-06-19T08:26:20+00:00,[phone],"What if your football knowledge could win you a Rolex? ⚽ Welcome to JAD Global Broker Champions and this season it`s bigger than ever: all the brokerage companies in Dubai are now competing against each other, with our brokers leading the charge. How you rise to the top: ⚽ Back your match predictions 👈 Refer fellow brokers to earn bonus points 👈 Climb the leaderboard — the higher you finish, the bigger you win 🏆 The prize ladder: 🥇 1st — Rolex Datejust Oyster 🥈 2nd — Maldives Getaway for Two 🥉 3rd — 1 oz Pure Gold Bar 4th — iPhone 17 Pro Max + Apple Watch 5th — Samsung 75"" TV + Xbox + EA Sports FC 25 6th–10th — Whoop Fitness Tracker Ten brokers walk away winners. The only question is how high you'll climb. Register now 👇"
+inbound_contact,english,general,2,7,0,2026-06-19T08:29:37+00:00,She Try Pr,Yes bby
+inbound_contact,english,greeting,19,114,0,2026-06-19T08:35:27+00:00,Vetn Stuff,"Hi, thanks for messaging HSH Global Dubai. How can I help today — buying, renting, selling, viewing, or approvals?"
+outbound_omar,english,general,3,11,0,2026-06-19T08:37:59+00:00,Vetn Stuff,Who are you
+inbound_contact,english,negotiation,20,143,0,2026-06-19T08:38:01+00:00,Vetn Stuff,"Thanks for your message. Please send area, property type, budget/timeline, and whether you want buying, renting, selling, or approvals support."
+outbound_omar,english,greeting,2,11,0,2026-06-19T08:38:15+00:00,Vetn Stuff,Dubai hills
+inbound_contact,english,greeting,14,71,0,2026-06-19T08:59:46+00:00,Vetn Stuff,Hi — thanks for messaging HSH Global Dubai. What can I help with today?
+inbound_contact,english,negotiation,11,46,0,2026-06-19T09:00:42+00:00,Vetn Stuff,Can I have rent 1bd in Jvc up to 90k furnished
+outbound_omar,english,negotiation,11,46,0,2026-06-19T09:01:02+00:00,Vetn Stuff,Can I have rent 1bd in Jvc up to 90k furnished
+inbound_contact,english,negotiation,12,73,0,2026-06-19T09:01:05+00:00,Vetn Stuff,"Send area, type, bedrooms, and budget in AED, and I’ll shortlist options."
+outbound_omar,english,general,2,6,0,2026-06-19T09:01:40+00:00,Vetn Stuff,I sent
+inbound_contact,arabic,question,6,34,0,2026-06-19T09:06:17+00:00,[phone],السلام عليكم مهندس عمر ممكن اكلمك؟
+outbound_omar,arabic,general,3,13,1,2026-06-19T09:08:06+00:00,Hasan HSH Brother,جمعة مباركة 🥰
+outbound_omar,english,question,18,89,0,2026-06-19T09:08:55+00:00,Lea Admin Manger,Good afternoon-am at Jvc I have viewing at arbian ranches at 5.30 we have key in office ?
+outbound_omar,arabic,general,3,15,0,2026-06-19T09:09:19+00:00,Lea Admin Manger,الفيلا تعت للعم
+inbound_contact,english,action_push,4,21,0,2026-06-19T09:10:07+00:00,Lea Admin Manger,ill check from Hassan
+outbound_omar,english,action_push,16,75,0,2026-06-19T09:10:29+00:00,Lea Admin Manger,Thank you and he told me Elias is coming today to office you have idea when
+inbound_contact,english,action_push,4,14,0,2026-06-19T09:10:48+00:00,Lea Admin Manger,no i dont know
+outbound_omar,english,greeting,25,110,0,2026-06-19T09:11:57+00:00,Lea Admin Manger,Okay I’ll wait he’s answer for Elias just check me the key I think I have one copy at home but just to be sure
+outbound_omar,english,greeting,13,61,0,2026-06-19T09:17:36+00:00,Hasan HSH Brother,‏for Elias will charge him 27500 for the service is it fine ?
+inbound_contact,english,greeting,14,69,0,2026-06-19T09:28:05+00:00,Vetn Stuff,Am looking for 1 bedroom Dubai hills for rent up to 95k not furnished
+inbound_contact,english,general,2,6,0,2026-06-19T09:29:01+00:00,Hasan HSH Brother,No bro
+inbound_contact,english,greeting,3,15,0,2026-06-19T09:33:28+00:00,Haris Nadeem,yes brother MOU
+inbound_contact,english,general,1,2,0,2026-06-19T09:33:31+00:00,Haris Nadeem,OK
+inbound_contact,english,action_push,7,33,0,2026-06-19T09:34:00+00:00,Haris Nadeem,If you gets confused then call me
+outbound_omar,english,general,4,33,0,2026-06-19T09:37:37+00:00,Markus Salut,Lease Agreement - [phone]T[phone]
+outbound_omar,english,greeting,29,158,0,2026-06-19T09:39:45+00:00,Markus Salut,Now brother not only we can make the transfer inshallah you also have company for holding activate as well and you’re allowed to make visa for employ even etc
+outbound_omar,english,greeting,1,2,0,2026-06-19T09:39:55+00:00,Jess HSH Assstant,Hi
+outbound_omar,english,greeting,4,16,0,2026-06-19T09:40:18+00:00,Jess HSH Assstant,This is the unit
+outbound_omar,english,negotiation,4,21,0,2026-06-19T09:42:26+00:00,Jess HSH Assstant,Buyer name is company
+outbound_omar,english,action_push,4,26,0,2026-06-19T09:42:48+00:00,Jess HSH Assstant,Company owner share holder
+outbound_omar,english,negotiation,2,14,0,2026-06-19T09:43:03+00:00,Jess HSH Assstant,Seller details
+outbound_omar,english,negotiation,1,6,0,2026-06-19T09:43:20+00:00,Jess HSH Assstant,Seller
+outbound_omar,english,negotiation,1,6,0,2026-06-19T09:43:25+00:00,Jess HSH Assstant,Seller
+outbound_omar,english,greeting,42,211,0,2026-06-19T09:46:10+00:00,Jess HSH Assstant,Closing price same op price no extra amount no previce dld or anything only op And the new dld agency fee on trasfer day Buyer seller are international no one will be here if you need any assist just let me know
+outbound_omar,english,greeting,31,147,1,2026-06-19T09:48:11+00:00,Haris Nadeem,No brother it’s my little game and this small complex let’s make him our first trial I’ll take zero charge on it as test if it work next 15k plus 😂
+inbound_contact,english,greeting,10,47,0,2026-06-19T09:49:04+00:00,Haris Nadeem,No bro you also take charge it's not easy thing
+inbound_contact,english,greeting,26,125,0,2026-06-19T09:49:44+00:00,Haris Nadeem,I've to inform banker all the things that we're making fake MOU to disburse and all it's a game not a easy thing to take cash
+inbound_contact,english,action_push,5,24,0,2026-06-19T09:50:26+00:00,Jess HSH Assstant,i'll call in few minutes
+inbound_contact,english,greeting,29,183,0,2026-06-19T09:51:09+00:00,[phone],"*100 leads came in last week*. How many got a follow-up? With *Leadrat*, every lead is auto-assigned and every follow-up is tracked. *Omar Al-Ahmar*, Nothing falls through the cracks."
+inbound_contact,mixed,general,8,34,0,2026-06-19T09:51:17+00:00,Hasan HSH Brother,Key عم شيك عليهم بل سيارة تبع العم
+inbound_contact,arabic,general,1,2,0,2026-06-19T09:51:45+00:00,Hasan HSH Brother,تم
+outbound_omar,english,greeting,50,259,4,2026-06-19T09:52:59+00:00,Hasan HSH Brother,I've to inform dld and banker all the things that we're making new meal fake MOU to disburse and all it's a tricky closing not a easy thing to take cash and he’s our first trial we will add it to service list We make the impossible possible ilhamdollah 🙏🏻❤️‍🔥
+outbound_omar,english,general,17,76,2,2026-06-19T09:55:36+00:00,Haris Nadeem,Can I do it btw same way or not with some small modifications to the plan 🫠😁
+inbound_contact,english,general,1,5,0,2026-06-19T09:55:53+00:00,Haris Nadeem,Means
+outbound_omar,english,general,4,18,0,2026-06-19T09:56:01+00:00,Haris Nadeem,For my pre aproval
+outbound_omar,english,negotiation,12,52,0,2026-06-19T09:56:16+00:00,Haris Nadeem,Can I do or need to be different kind of pre aproval
+inbound_contact,english,general,5,21,0,2026-06-19T09:56:18+00:00,Haris Nadeem,What you want tell me
+outbound_omar,english,greeting,2,14,0,2026-06-19T09:56:27+00:00,Haris Nadeem,Equity brother
+inbound_contact,english,general,8,43,0,2026-06-19T09:56:48+00:00,Haris Nadeem,for the equity property should be 100% paid
+outbound_omar,english,general,10,46,0,2026-06-19T09:57:21+00:00,Haris Nadeem,Yes you mean I need to pick ready Proprty 100%
+inbound_contact,english,greeting,7,33,0,2026-06-19T09:58:03+00:00,Jess HSH Assstant,how much the price for this unit?
+inbound_contact,arabic,general,1,2,0,2026-06-19T09:58:25+00:00,Hasan HSH Brother,تم
+inbound_contact,english,general,8,39,0,2026-06-19T10:00:00+00:00,Haris Nadeem,and the property should be on your name
+inbound_contact,english,general,6,27,0,2026-06-19T10:00:09+00:00,Haris Nadeem,then you get equity on that
+outbound_omar,other,general,1,9,0,2026-06-19T10:02:24+00:00,Jess HSH Assstant,"2,709,037"
+inbound_contact,english,action_push,8,40,0,2026-06-19T10:02:47+00:00,Jess HSH Assstant,Yes please share the oqood or title deed
+inbound_contact,english,greeting,6,27,0,2026-06-19T10:03:12+00:00,[phone],"Hello, will see you at 5.30"
+outbound_omar,english,greeting,12,58,0,2026-06-19T10:05:17+00:00,[phone],Yes confirm dear may I have any of the attending id please
+inbound_contact,english,general,1,4,0,2026-06-19T10:07:33+00:00,[phone],Okay
+outbound_omar,other,general,1,1,1,2026-06-19T10:07:52+00:00,Osamah Hassan Hsh,🙋
+inbound_contact,arabic,general,2,11,0,2026-06-19T10:15:02+00:00,Osamah Hassan Hsh,جمعة مباركة
+inbound_contact,arabic,general,4,23,0,2026-06-19T10:15:12+00:00,Osamah Hassan Hsh,عليكم السلام ورحمة الله
+outbound_omar,other,general,1,2,2,2026-06-19T10:37:46+00:00,Manish HSH Exchnage,👋🏻
+inbound_contact,arabic,greeting,7,31,0,2026-06-19T10:44:08+00:00,Osamah Hassan Hsh,اي حبيبي أنا خبرتك ما رديت عليه
+outbound_omar,arabic,general,4,20,0,2026-06-19T10:48:38+00:00,Osamah Hassan Hsh,عمر أحمد محمد الأحمر
+inbound_contact,english,action_push,5,25,0,2026-06-19T11:07:12+00:00,Jess HSH Assstant,Omar please share the otp
+inbound_contact,english,question,3,15,0,2026-06-19T11:08:02+00:00,Jess HSH Assstant,Oqood is ready?
+inbound_contact,english,general,1,7,0,2026-06-19T11:27:01+00:00,Vetn Stuff,[phone]
+inbound_contact,other,general,1,5,0,2026-06-19T11:27:05+00:00,Vetn Stuff,05/31
+outbound_omar,arabic,general,2,10,0,2026-06-19T11:30:13+00:00,[phone],اكيد صديقي
+inbound_contact,arabic,general,1,5,0,2026-06-19T11:30:42+00:00,[phone],يالله
+inbound_contact,english,greeting,14,71,0,2026-06-19T11:33:48+00:00,Vetn Stuff,"Got it — Dubai Hills. Are you looking to buy, rent, or compare options?"
+outbound_omar,english,general,3,28,0,2026-06-19T11:52:49+00:00,Jess HSH Assstant,ReportBook - [phone]T[phone]
+outbound_omar,english,general,3,28,0,2026-06-19T11:52:50+00:00,Jess HSH Assstant,ReportBook - [phone]T[phone]
+outbound_omar,english,greeting,25,131,0,2026-06-19T11:54:49+00:00,Markus Salut,Please sent me receipt when transfer is done brother to sent to our admin We’re starting now with form a trasfer will sent you asap
+inbound_contact,english,action_push,10,49,0,2026-06-19T11:56:28+00:00,Jess HSH Assstant,i will resend again the otp for your dubai broker
+outbound_omar,english,general,1,4,0,2026-06-19T11:56:48+00:00,Jess HSH Assstant,Sure
+outbound_omar,english,greeting,21,123,0,2026-06-19T11:57:07+00:00,Jess HSH Assstant,Welcome to Dubai Land Department Smart Services. Your One Time Password (OTP) 89785. This OTP is valid for 10 minutes only.
+inbound_contact,english,general,2,9,0,2026-06-19T11:57:14+00:00,Jess HSH Assstant,Thank you
+inbound_contact,english,greeting,15,78,0,2026-06-19T12:03:14+00:00,Jess HSH Assstant,how much the balance for this unit and paid amount?i have to insert the amount
+inbound_contact,english,greeting,13,56,1,2026-06-19T12:03:59+00:00,Vetn Stuff,"AIOS live proof check — if you see this, reply with OK ✅"
+outbound_omar,other,general,1,3,0,2026-06-19T12:04:02+00:00,Jess HSH Assstant,35%
+outbound_omar,english,general,2,4,1,2026-06-19T12:04:15+00:00,Vetn Stuff,Ok ✅
+inbound_contact,english,negotiation,14,64,1,2026-06-19T12:04:17+00:00,Vetn Stuff,"Got it — Ok ✅. Are you looking to buy, rent, or compare options?"
+outbound_omar,english,general,1,3,0,2026-06-19T12:04:23+00:00,Vetn Stuff,Buy
+inbound_contact,english,question,3,16,0,2026-06-19T12:04:26+00:00,Jess HSH Assstant,balance or paid?
+inbound_contact,english,negotiation,13,63,0,2026-06-19T12:04:26+00:00,Vetn Stuff,"Got it — Buy. Are you looking to buy, rent, or compare options?"
+inbound_contact,english,general,2,11,0,2026-06-19T12:06:22+00:00,Markus Salut,Yes correct
+inbound_contact,english,general,1,2,0,2026-06-19T12:06:25+00:00,Markus Salut,Ok
+outbound_omar,english,general,2,11,0,2026-06-19T12:06:43+00:00,Jess HSH Assstant,Yes exactly
+outbound_omar,english,general,7,31,0,2026-06-19T12:06:49+00:00,Jess HSH Assstant,In the spa you have all details
+outbound_omar,english,general,2,15,0,2026-06-19T12:06:54+00:00,Jess HSH Assstant,"It’s 948,162.95"
+outbound_omar,english,escalation_sensitive,8,37,0,2026-06-19T12:07:21+00:00,Markus Salut,I’ll sent you tiger gov dld link soon
+inbound_contact,other,general,1,1,1,2026-06-19T12:07:45+00:00,Markus Salut,👍
+inbound_contact,english,greeting,5,25,0,2026-06-19T12:10:17+00:00,Jess HSH Assstant,"941,031 this is the total"
+outbound_omar,english,action_push,13,57,0,2026-06-19T12:11:21+00:00,Jess HSH Assstant,Wait let me double check am in zoom cording give me 5 min
+inbound_contact,english,general,4,22,0,2026-06-19T12:11:48+00:00,Jess HSH Assstant,Okay noted and waiting
+inbound_contact,english,greeting,1,2,0,2026-06-19T12:25:28+00:00,Jess HSH Assstant,Hi
+outbound_omar,english,action_push,2,10,0,2026-06-19T12:25:45+00:00,Jess HSH Assstant,Yes please
+outbound_omar,english,negotiation,2,18,0,2026-06-19T12:29:34+00:00,Jess HSH Assstant,"AED 941,031/34.74%"
+inbound_contact,english,negotiation,4,24,0,2026-06-19T12:31:18+00:00,Jess HSH Assstant,how much the commission?
+outbound_omar,english,general,5,28,0,2026-06-19T12:32:12+00:00,Jess HSH Assstant,Agency fee basic trasnfer 2%
+inbound_contact,english,general,3,11,0,2026-06-19T12:32:27+00:00,Jess HSH Assstant,plus 5% vat
+outbound_omar,english,general,10,44,0,2026-06-19T12:32:29+00:00,Jess HSH Assstant,It might not get pass but let’s try our luck
+inbound_contact,other,general,3,18,0,2026-06-19T12:33:32+00:00,Jess HSH Assstant,"54,180.74 + 2,709."
+inbound_contact,english,negotiation,3,26,0,2026-06-19T12:34:14+00:00,Jess HSH Assstant,"Total commission 56,889.74"
+outbound_omar,english,escalation_sensitive,12,49,0,2026-06-19T12:34:57+00:00,Jess HSH Assstant,Okay but try to make it as basic cost like dld 4%
+inbound_contact,english,negotiation,9,44,0,2026-06-19T12:35:51+00:00,Jess HSH Assstant,no need to add the vat?DLD cost is different
+inbound_contact,english,negotiation,6,29,0,2026-06-19T12:36:55+00:00,Jess HSH Assstant,i do the normal 2% commission
+outbound_omar,english,escalation_sensitive,31,139,0,2026-06-19T12:38:50+00:00,Lea Admin Manger,"She’s making form f can you make me recipe , and make it like - that trasfer fee wishes us 2% & 4% dld plus trusty office plus mou plus etc"
+outbound_omar,english,greeting,21,123,0,2026-06-19T12:40:49+00:00,Jess HSH Assstant,Welcome to Dubai Land Department Smart Services. Your One Time Password (OTP) 90320. This OTP is valid for 10 minutes only.
+outbound_omar,english,general,1,7,0,2026-06-19T12:41:01+00:00,Jess HSH Assstant,[phone]
+outbound_omar,english,greeting,14,73,0,2026-06-19T12:41:23+00:00,Jess HSH Assstant,Mr Marcos please sent him link directly I’ll be busy in Elie saeb viewing
+outbound_omar,english,greeting,9,47,0,2026-06-19T12:41:44+00:00,Jess HSH Assstant,I have been informed him admin will contact you
+inbound_contact,english,escalation_sensitive,1,80,0,2026-06-19T12:46:26+00:00,Jess HSH Assstant,[link]trakheesi.dubailand.gov.ae/dubaibrokers/#/contracts/view/CA[phone]/[phone]
+inbound_contact,english,escalation_sensitive,11,50,0,2026-06-19T12:46:52+00:00,Jess HSH Assstant,Contract A. i send also the link via email and sms
+outbound_omar,english,escalation_sensitive,11,50,0,2026-06-19T12:50:44+00:00,Markus Salut,Contract A. i send also the link via email and sms
+outbound_omar,english,escalation_sensitive,1,80,0,2026-06-19T12:50:44+00:00,Markus Salut,[link]trakheesi.dubailand.gov.ae/dubaibrokers/#/contracts/view/CA[phone]/[phone]
+outbound_omar,english,general,7,26,0,2026-06-19T12:56:51+00:00,[phone],I might be late 10 min max
+inbound_contact,english,general,2,10,0,2026-06-19T12:56:58+00:00,[phone],No worries
+outbound_omar,english,general,2,9,0,2026-06-19T12:57:03+00:00,[phone],Thank you
+outbound_omar,english,general,5,22,0,2026-06-19T12:58:51+00:00,[phone],Elie saeb 2/ villa 249
+outbound_omar,english,action_push,40,190,0,2026-06-19T13:00:28+00:00,[phone],As I saw on the master it should be the end corner villa last street But note here showing it’s on the open corner side - I checked it on spa and gis it’s definitely on other corner end side
+inbound_contact,english,negotiation,6,28,0,2026-06-19T13:04:19+00:00,Markus Salut,Ok the Seller Must accept it
+inbound_contact,english,general,4,19,0,2026-06-19T13:04:24+00:00,Markus Salut,Because he asked me
+outbound_omar,english,greeting,7,32,0,2026-06-19T13:05:00+00:00,Markus Salut,Yes this is for seller not buyer
+outbound_omar,english,negotiation,2,11,0,2026-06-19T13:05:07+00:00,Markus Salut,Buyer after
+inbound_contact,english,general,2,5,0,2026-06-19T13:05:11+00:00,Markus Salut,Ah ok
+inbound_contact,english,greeting,5,24,0,2026-06-19T13:06:54+00:00,Jess HSH Assstant,i need his mobile number
+outbound_omar,english,general,22,128,0,2026-06-19T13:11:06+00:00,Jess HSH Assstant,- [phone] - ⁠C6XTC5Z1K - ⁠Mariam Erdinc - ⁠Nuri Erdinc - ⁠Single - ⁠Christian Orthodox - ⁠Viehoferstr. 17 - ⁠45127 Essen Germany
+outbound_omar,english,general,2,7,0,2026-06-19T13:16:06+00:00,Jess HSH Assstant,Put any
+outbound_omar,english,negotiation,5,25,0,2026-06-19T13:16:21+00:00,Jess HSH Assstant,Buyer is the company note
+outbound_omar,english,negotiation,5,27,0,2026-06-19T13:16:33+00:00,Jess HSH Assstant,Don’t put paspoart as buyer
+inbound_contact,english,general,5,21,0,2026-06-19T13:17:56+00:00,Jess HSH Assstant,okay i will put blank
+inbound_contact,english,question,2,10,1,2026-06-19T13:18:56+00:00,Lea Admin Manger,😅sorry ???
+outbound_omar,mixed,escalation_sensitive,17,111,0,2026-06-19T13:21:37+00:00,Markus Salut,عزيزي العميل Contract CA[phone] has been approved successfully. عزيزي ،، لقد تم تفعيل عقد CA[phone] بنجاح. شكرا
+outbound_omar,mixed,escalation_sensitive,17,111,0,2026-06-19T13:21:37+00:00,Jess HSH Assstant,عزيزي العميل Contract CA[phone] has been approved successfully. عزيزي ،، لقد تم تفعيل عقد CA[phone] بنجاح. شكرا
+outbound_omar,english,general,11,50,0,2026-06-19T13:26:46+00:00,Lea Admin Manger,In viewing let me finsh and will tell you about it
+outbound_omar,english,general,3,9,0,2026-06-19T13:29:34+00:00,[phone],On my way
+outbound_omar,english,general,2,6,0,2026-06-19T13:29:43+00:00,[phone],10 min
+inbound_contact,english,general,9,46,0,2026-06-19T13:30:11+00:00,[phone],"Don't rush, we will actually take more 10 mins"
+inbound_contact,arabic,general,6,20,0,2026-06-19T13:33:46+00:00,Hassan Kazabr Brother,معي خط و بخلص و بتصك
+outbound_omar,arabic,general,1,5,0,2026-06-19T13:33:59+00:00,Hassan Kazabr Brother,ضروري
+outbound_omar,arabic,general,6,31,0,2026-06-19T13:34:15+00:00,Hassan Kazabr Brother,ممكن احتاج ارنلك حتى ادخل فيونك
+inbound_contact,english,action_push,2,10,0,2026-06-19T13:34:28+00:00,Jess HSH Assstant,otp please
+outbound_omar,english,greeting,21,123,0,2026-06-19T13:34:36+00:00,Jess HSH Assstant,Welcome to Dubai Land Department Smart Services. Your One Time Password (OTP) 99193. This OTP is valid for 10 minutes only.
+inbound_contact,arabic,general,1,4,0,2026-06-19T13:34:37+00:00,Hassan Kazabr Brother,لحظة
+outbound_omar,english,general,1,7,0,2026-06-19T13:36:28+00:00,Hassan Kazabr Brother,[phone]
+outbound_omar,english,general,4,21,0,2026-06-19T13:36:29+00:00,Hassan Kazabr Brother,R3 Elie Saab II-V-249
+outbound_omar,mixed,general,1,13,0,2026-06-19T13:36:31+00:00,Hassan Kazabr Brother,‎الإقامة.pdf
+inbound_contact,english,general,15,79,0,2026-06-19T13:46:08+00:00,Jess HSH Assstant,im about to leave if i cant finished i will continue at home.waiting the laptop
+outbound_omar,english,general,2,9,0,2026-06-19T13:46:33+00:00,Jess HSH Assstant,It’s fine
+inbound_contact,english,general,3,12,0,2026-06-19T13:49:58+00:00,[phone],Are you here
+inbound_contact,english,general,6,25,0,2026-06-19T13:50:08+00:00,[phone],We are close to the villa
+inbound_contact,english,action_push,10,43,1,2026-06-19T15:01:41+00:00,Vetn Stuff,AIOS live proof check 2 — please reply OK ✅
+inbound_contact,english,general,2,4,1,2026-06-19T15:02:14+00:00,Vetn Stuff,Ok ✅
+outbound_omar,english,general,2,4,1,2026-06-19T15:02:38+00:00,Vetn Stuff,Ok ✅
+outbound_omar,english,general,2,4,1,2026-06-19T15:04:55+00:00,Vetn Stuff,Ok ✅
+outbound_omar,english,general,2,4,1,2026-06-19T15:04:59+00:00,‎You,Ok ✅
+inbound_contact,english,general,2,4,1,2026-06-19T15:05:29+00:00,Vetn Stuff,Ok ✅
+outbound_omar,english,action_push,2,12,0,2026-06-19T15:52:05+00:00,[phone],Good evening
+inbound_contact,english,question,20,102,1,2026-06-19T15:52:07+00:00,[phone],"Good evening to you too 🌙 What’s the vibe tonight? Winding down, or are you still in full energy mode?"
+outbound_omar,english,greeting,116,738,0,2026-06-19T15:52:13+00:00,[phone],"Good. Keep this work, but do not stop at the draft layer. Now apply the same tone + history + risk-hold behavior to the LIVE production WhatsApp router, not only WA-01 draft/hold flow. Tasks: 1. Confirm the live inbound production path uses the same canonical prompt and reply behavior 2. Confirm returning contacts load prior context/history before replying 3. Confirm mixed Arabic/English works on the live path 4. Confirm risky/legal/payment/government topics go to Omar-review hold on the live path 5. Do not create new agents or new workflows 6. Reuse existing runtime and canonical prompt files Output only: LIVE ROUTER UPDATED YES/NO LIVE HISTORY SUPPORT YES/NO LIVE MIXED-LANGUAGE SUPPORT YES/NO LIVE RISK HOLD YES/NO NEXT BLOCKER"
+inbound_contact,english,greeting,87,523,0,2026-06-19T15:52:15+00:00,[phone],"I don't have access to your WhatsApp production router or runtime files, so I can't directly confirm or update those systems. LIVE ROUTER UPDATED: NO LIVE HISTORY SUPPORT: NO LIVE MIXED-LANGUAGE SUPPORT: NO LIVE RISK HOLD: NO NEXT BLOCKER: I can't access or modify your production WhatsApp router, runtime, or canonical prompt files If you share the router config, prompt file, or logs, I can review them with you and draft the exact changes to match your WA-01 draft/hold behavior. Want to paste the relevant section here?"
+outbound_omar,english,general,5,27,0,2026-06-19T15:52:42+00:00,[phone],Take control of my WhatsApp
+inbound_contact,english,greeting,97,564,0,2026-06-19T15:52:43+00:00,[phone],"I can't take control of your WhatsApp account. I don't have access to your phone, messages, or WhatsApp settings, and I can't send or read messages on your behalf. What I can do: Help you write replies, set up auto-replies, or draft message templates you can copy into WhatsApp Walk you through settings for chat history, backups, or privacy controls Review message flows if you paste them here If you're trying to automate replies or add risk-hold behavior like we discussed earlier, I can help you write the prompt/logic for your router. Want to start with that?"
+inbound_contact,english,general,1,4,0,2026-06-19T16:09:59+00:00,Jess HSH Assstant,Omar
+inbound_contact,english,action_push,2,12,0,2026-06-19T16:10:10+00:00,Jess HSH Assstant,Good evening
+inbound_contact,english,action_push,3,16,0,2026-06-19T16:12:26+00:00,Jess HSH Assstant,please share otp
+inbound_contact,english,escalation_sensitive,6,27,0,2026-06-19T16:12:26+00:00,Jess HSH Assstant,can i send now for contract
+inbound_contact,english,action_push,6,44,0,2026-06-19T16:29:35+00:00,Vetn Stuff,Register of Shareholders or Members.docx (1)
+inbound_contact,english,general,3,18,0,2026-06-19T16:29:36+00:00,Vetn Stuff,License Letter (1)
+inbound_contact,english,escalation_sensitive,5,44,0,2026-06-19T16:29:38+00:00,Vetn Stuff,Tiger Sky Tower-3902TigerContract document 2
+inbound_contact,english,general,4,19,0,2026-06-19T16:29:41+00:00,Vetn Stuff,Register of UBO (1)
+inbound_contact,english,general,4,32,0,2026-06-19T16:29:44+00:00,Vetn Stuff,Certificate of Incorporation (1)
+inbound_contact,english,escalation_sensitive,4,42,0,2026-06-19T16:29:45+00:00,Vetn Stuff,Tiger Sky Tower-3902TigerContract document
+inbound_contact,english,general,2,15,0,2026-06-19T16:29:47+00:00,Vetn Stuff,Lease Agreement
+inbound_contact,english,general,6,33,0,2026-06-19T16:29:48+00:00,Vetn Stuff,UBO Declaration Form - signed (1)
+inbound_contact,english,general,4,33,0,2026-06-19T16:29:49+00:00,Vetn Stuff,Lease Agreement - [phone]T[phone]
+inbound_contact,english,general,7,42,0,2026-06-19T16:29:50+00:00,Vetn Stuff,INC Memorandum of Association - signed (1)
+inbound_contact,english,general,1,83,0,2026-06-19T17:19:56+00:00,Vetn Stuff,3aa9d3de76c92df0cf1ce3e9c2392950applications_1030_684637_transactions_Report[phone]
+outbound_omar,english,greeting,17,75,0,2026-06-19T17:22:40+00:00,Jess HSH Assstant,Hi I was in a meeting Ace made form b already you can do maybe mou tomorrow
+inbound_contact,english,general,1,7,0,2026-06-19T18:43:44+00:00,Vetn Stuff,[email]
+inbound_contact,english,greeting,40,258,0,2026-06-19T19:11:41+00:00,Vetn Stuff,"Use this in the notes section: `The transfer and registration fee amount of AED 189,632.59 shall be borne and paid by the Buyer, [Buyer Name], in connection with the property transfer and registration process.` Shorter version: `Transfer and registration fee"
+outbound_omar,english,action_push,1,35,0,2026-06-19T19:18:13.067812+00:00,Vetn Stuff,[link]dubailand.gov.ae/r/m924k0eDAB
+outbound_omar,english,greeting,20,119,0,2026-06-19T19:20:06+00:00,Markus Salut,Hello brother sorry for late for contract B delay coz it’s company and international complex admin dld couldn’t make it
+outbound_omar,english,general,4,17,0,2026-06-19T19:20:11+00:00,Markus Salut,I almost finsh it
+outbound_omar,english,general,2,5,0,2026-06-19T19:20:14+00:00,Markus Salut,2 min
+inbound_contact,english,general,3,13,0,2026-06-19T19:20:31+00:00,Markus Salut,Ok no Problem
+inbound_contact,english,greeting,5,26,0,2026-06-19T19:20:44+00:00,Markus Salut,You Need something from me
+outbound_omar,english,action_push,1,35,0,2026-06-19T19:21:05+00:00,Markus Salut,[link]dubailand.gov.ae/r/m924k0eDAB
+outbound_omar,english,negotiation,2,9,0,2026-06-19T19:21:15+00:00,Markus Salut,For buyer
+inbound_contact,english,general,4,18,0,2026-06-19T19:21:31+00:00,Markus Salut,He must approve it
+inbound_contact,other,question,1,1,0,2026-06-19T19:21:32+00:00,Markus Salut,?
+outbound_omar,english,negotiation,8,42,0,2026-06-19T19:21:34+00:00,Markus Salut,For now just aproved B contract buyer side
+outbound_omar,english,general,2,6,2,2026-06-19T19:21:40+00:00,Markus Salut,Yes 👍🏻
+inbound_contact,english,general,1,2,0,2026-06-19T19:21:43+00:00,Markus Salut,Ok
+outbound_omar,english,negotiation,3,14,0,2026-06-19T19:21:44+00:00,Markus Salut,Same seller as
+inbound_contact,english,greeting,2,9,0,2026-06-19T19:21:47+00:00,Markus Salut,This link
+inbound_contact,english,general,1,2,0,2026-06-19T19:21:54+00:00,Markus Salut,Ok
+outbound_omar,english,greeting,8,42,0,2026-06-19T19:21:55+00:00,Markus Salut,But this for buyer only morning was seller
+inbound_contact,english,action_push,2,6,0,2026-06-19T19:22:06+00:00,Markus Salut,I know
+outbound_omar,english,general,15,70,0,2026-06-19T19:22:27+00:00,Markus Salut,Yes if you click they will ask you otp you will receive phone or email
+inbound_contact,english,greeting,2,12,0,2026-06-19T19:24:47+00:00,Markus Salut,Done Brother
+inbound_contact,english,general,1,7,0,2026-06-19T19:26:00+00:00,Markus Salut,Perfect
+inbound_contact,english,question,3,12,0,2026-06-19T19:26:09+00:00,Markus Salut,Whats Next ?
+inbound_contact,arabic,greeting,2,10,0,2026-06-19T19:56:47+00:00,Osamah Hassan Hsh,مساء الخير
+inbound_contact,mixed,general,4,25,0,2026-06-19T19:57:04+00:00,Osamah Hassan Hsh,ظبطت الدخلة على community
+inbound_contact,english,action_push,19,104,0,2026-06-19T20:01:25+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,greeting,1,2,0,2026-06-19T20:02:20+00:00,Vetn Stuff,Hi
+inbound_contact,english,action_push,19,104,0,2026-06-19T20:12:29+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,action_push,19,104,0,2026-06-19T20:17:34+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,greeting,1,5,0,2026-06-19T20:44:36+00:00,Vetn Stuff,Hello
+inbound_contact,english,action_push,15,98,0,2026-06-19T21:11:32+00:00,Vetn Stuff,"Sure — send the preferred time, property/community, and number of viewers, and I’ll coordinate it."
+inbound_contact,english,action_push,15,98,0,2026-06-19T21:13:56+00:00,Vetn Stuff,"Sure — send the preferred time, property/community, and number of viewers, and I’ll coordinate it."
+outbound_omar,other,question,1,2,0,2026-06-19T21:15:57+00:00,Vetn Stuff,??
+inbound_contact,english,greeting,466,2717,95,2026-06-20T02:50:27+00:00,[phone],"🇦🇪 *2026 ALL THESE EVERY TYPE DATABASE Available* 🇦🇪 🌃 *‎Jan 2026 Buildings Updated Database* 🌃 *Fresh January 2026 updated Dubai database* 🌃 *Fresh china leads data* 🌃 *Latest 2 million leads January 2026* 🌃 *5 million Linkedin with emails and personal Linkedin profile Data* 🌃 *October 2025 updated building owner data* 🌃 *Commercial and Plots Data* 🌃 *72k property finder Data* 🌃 *Top investors Data* 🌃 *ALL DUBAI property owners data* 🌃 *ALL Abu Dhabi property owners data* 🌃 *ALL UAE real estate property agents database* 🌃 *UAE Agents and Clients Emails database* 🌃 *All Developer Off Plan database* 🌃 *7 Emirates Full Business database* 🌃 *7 Emirates Corporate Companies data* 🌃 *UAE And Other Country GCC Database* 🌃 *UAE School Database* 🌃 *UAE high and network database* 🌃 *UAE B2B database* 🌃 *UAE car owners and Buyers database* 🌃 *ALL UAE Property buyers and sellers database* 🌃 *All UAE companies data with all details* 🌃 *All UAE Banking database* 🌃 *High limit credit card holder data* 🌃 *All Salary wise data with all details* 🌃 *HNi all emirates data* 🌃 *UAE HR mangers data* 🌃 *DU network and Etisalat data* 🌃 *UAE mobiles numbers data* 🌃 *UAE dental related data* 🌃 *USDA contacts data* 🌃 *Business executive data* 🌃 *Dubai studio city data* 🌃 *Indian business Executive in UAE data* 🌃 *ALL country carrefour data* 🌃 *AIX investment data* 🌃 *Avatrade data* 🌃 *HSBC investers data* 🌃 *Random golf data* 🌃 *Corporate - Master file* 🌃 *Bulk Emails blaster data* 🌃 *leads extra big people data* 🌃 *High network Abu Dhabi* 🌃 *IFXZ Brokers* 🌃 *UAE Grocery Store* 🌃 *UAE Graphic Designer DATA* 🌃 *Plumbing sanitary contracting* 🌃 *UAE Marketing Managers* 🌃 *Industrial companies* 🌃 *Insurance DATA* 🌃 *ALL country B2B data* 🌃 *UAE high and network data* 🌃 *UAE Linkedin data* 🌃 *UAE HNI data* 🌃 *Gulf and worldwide data* 🌃 *High and top people UAE data* 🌃 *SMS marketing database* 🌃 *Top investers data* 🌃 *CEO crypto data* 🌃 *XTB Crypto* 🌃 *ALL Country emails leads data* 🌃 *Sales emails leads data* 🌃 *UAE product finder data* 🌃 *ALL UAE ,USA ,UK AUS And others Country investers database* 🌃 *Business data top with designation* *HNWI Jan 2026* 💎 🏦 *Brazil HNWI (6.3k)* 🏦 *Azarbeijan (644)* 🏦 *KSA HNWI (190k)* 🏦 *Spain HNWI (7.2k)* 🏦 *Lebanon HNWI (5.1k)* 🏦 *UK HNWI (19.7k)* 🏦 *Turkiye HNWI (8.4k)* 🏦 *Turkiye Resident HNI (1.4 Mil)* 🏦 *Isreal (1.04 Mil)* 🏦 *GCC Mix (148k)* 🏦 *Dubai Resident HNI (548k)* 🏦 *HNWI Dxb (3.4 k)* 🏦 *Premium Investots (1k)* 🏦 *Russian investors* 🏦 *Indian investors* 🏦 *New Zealand* 🏦 *South Africa* 🏦 *European* 🏦 *USA* 🏦 *Canada* 🏦 *Spain* 🏦 *Qatar* 🏦 *Oman* 🏦 *Kuwait* 🏦 *Egypt* 🏦 *Bahrain* *All Countries number included* *Permanent number-👇👇* * Also Contact-;[phone]"
+outbound_omar,english,greeting,79,510,6,2026-06-20T02:50:31+00:00,[phone],"*Welcome* & *Thank You* For Reaching Out. ♾️⚖️ This is *Omar Al-Ahmar*, Head of Secondary & Studies at HS Global Dubai, Reorganized as DlD Strategic Partner With High Level Access . I specialize in project management, advanced feasibility studies, and high-value investment structuring, leveraging GIS, DDA, BID , DLD etc , Deep Market Intelligence, and senior-level access — including opportunities before public release. 🧠 🧬 Rest assured, you’re in trusted, expert hands until I connect with you shortly. ⚜️✨"
+outbound_omar,english,greeting,79,510,6,2026-06-20T07:26:04+00:00,[phone],"*Welcome* & *Thank You* For Reaching Out. ♾️⚖️ This is *Omar Al-Ahmar*, Head of Secondary & Studies at HS Global Dubai, Reorganized as DlD Strategic Partner With High Level Access . I specialize in project management, advanced feasibility studies, and high-value investment structuring, leveraging GIS, DDA, BID , DLD etc , Deep Market Intelligence, and senior-level access — including opportunities before public release. 🧠 🧬 Rest assured, you’re in trusted, expert hands until I connect with you shortly. ⚜️✨"
+inbound_contact,english,question,32,199,0,2026-06-20T07:26:28+00:00,[phone],"It is a pleasure to connect with you, Omar. I can certainly assist you with information regarding the STAMN apartment project. Are you considering these units for personal use or investment purposes?"
+inbound_contact,english,action_push,3,19,0,2026-06-20T08:34:18+00:00,Jess HSH Assstant,Good afternoon Omar
+inbound_contact,english,escalation_sensitive,15,74,0,2026-06-20T08:35:04+00:00,Jess HSH Assstant,"Just let me know if we will gonna create the MOU, cheque is ready?and Noc?"
+inbound_contact,english,action_push,2,14,0,2026-06-20T10:55:16+00:00,[phone],Good afternoon
+inbound_contact,english,question,3,12,0,2026-06-20T10:55:20+00:00,[phone],how are you?
+inbound_contact,english,action_push,11,50,0,2026-06-20T10:55:30+00:00,[phone],any update til we didn’t get the rest of the parts
+inbound_contact,english,general,5,21,0,2026-06-20T10:55:42+00:00,[phone],we are waiting for it
+outbound_omar,english,greeting,22,122,0,2026-06-20T10:56:47+00:00,[phone],Hello brother unfortunately same couldn’t find so order them and I also will keep looking we only miss some clip and rings
+outbound_omar,english,general,9,41,0,2026-06-20T10:57:09+00:00,[phone],All need to order them and will take time
+inbound_contact,english,greeting,9,44,0,2026-06-20T10:57:10+00:00,[phone],so can i order this parts from our suppliers
+outbound_omar,english,general,4,26,0,2026-06-20T10:57:28+00:00,[phone],Yes without the thermostat
+inbound_contact,english,general,1,2,0,2026-06-20T10:57:32+00:00,[phone],ok
+outbound_omar,english,greeting,17,90,0,2026-06-20T10:58:02+00:00,[phone],Rest yes brother For the wheel finder inside I already order I’ll check when it will reach
+inbound_contact,english,general,1,2,0,2026-06-20T10:58:13+00:00,[phone],ok
+outbound_omar,english,action_push,12,54,0,2026-06-20T10:58:48+00:00,[phone],I’ll try to pass as well if you’re open tomorrow or so
+inbound_contact,english,general,1,2,0,2026-06-20T10:59:00+00:00,[phone],ok
+inbound_contact,english,general,6,28,0,2026-06-20T10:59:22+00:00,[phone],we are not open every sunday
+outbound_omar,english,general,2,16,0,2026-06-20T11:06:05+00:00,[phone],Monday inshallah
+inbound_contact,english,general,3,16,0,2026-06-20T11:06:17+00:00,[phone],okay insha allah
+outbound_omar,english,action_push,22,102,0,2026-06-20T11:08:31+00:00,Jess HSH Assstant,"Hay sorry i forgot today is off , it’s fine all is good you can do continue on your working days hours"
+inbound_contact,english,general,2,9,0,2026-06-20T13:44:23+00:00,Jess HSH Assstant,Okay omar
+inbound_contact,english,general,6,28,0,2026-06-20T14:31:10+00:00,Jess HSH Assstant,i can open your dubai broker
+inbound_contact,english,action_push,3,13,0,2026-06-20T14:31:17+00:00,Jess HSH Assstant,just to check
+outbound_omar,english,general,7,41,0,2026-06-20T14:32:02+00:00,Jess HSH Assstant,It’s from Proprty finder not Dubai broker
+inbound_contact,english,greeting,3,12,0,2026-06-20T14:32:36+00:00,Jess HSH Assstant,Not this one
+inbound_contact,english,escalation_sensitive,5,27,0,2026-06-20T14:32:50+00:00,Jess HSH Assstant,For the contract of Mr.Omed
+inbound_contact,english,general,2,8,0,2026-06-20T14:32:56+00:00,Jess HSH Assstant,In sobha
+inbound_contact,english,general,16,67,0,2026-06-20T14:37:03+00:00,Jess HSH Assstant,It's not for us but in for portal and i have to report it in monday
+outbound_omar,english,action_push,9,41,0,2026-06-20T14:37:15+00:00,Jess HSH Assstant,Do you want my dubsi broker to check omed
+inbound_contact,english,action_push,2,10,0,2026-06-20T14:37:24+00:00,Jess HSH Assstant,Yes please
+outbound_omar,english,general,3,11,0,2026-06-20T14:37:36+00:00,Jess HSH Assstant,Sent me otp
+outbound_omar,english,greeting,24,146,0,2026-06-20T14:39:05+00:00,Jess HSH Assstant,"Dear Customer, Welcome to Dubai Land Department Smart Services. Your One Time Password (OTP) 36584. This OTP is valid for 10 minutes only. Regards"
+outbound_omar,english,general,25,107,0,2026-06-20T14:39:42+00:00,Jess HSH Assstant,Did you claim the transaction of reef and others btw - if not yet it’s fine just tell me so I met ace do it
+inbound_contact,english,action_push,6,30,0,2026-06-20T14:54:06+00:00,Jess HSH Assstant,Let me double check in Monday.
+outbound_omar,english,greeting,38,201,0,2026-06-20T14:59:21+00:00,Jess HSH Assstant,It’s fine no need as really am asking you for this and some other things since you came and nothing happened - if the case your working for mangment only then it’s okay as am handover everything slowly
+inbound_contact,english,action_push,7,35,0,2026-06-20T15:00:57+00:00,Jess HSH Assstant,I just started. Please bear with me
+outbound_omar,english,greeting,42,225,0,2026-06-20T15:07:28+00:00,Jess HSH Assstant,Trust me I have no problem with you I didn’t even sent any single report- but I can’t wait month for small things and in the same time I don’t like to cut someone rizk coz mangment accepted without real professional interview
+outbound_omar,english,general,24,115,0,2026-06-20T15:08:18+00:00,Jess HSH Assstant,I can see your doing your best that’s why am not arguing- but I hope to understand my position as well from my eyes
+outbound_omar,other,general,1,1,1,2026-06-20T15:08:49+00:00,Hassan Kazabr Brother,🙋
+inbound_contact,english,action_push,19,104,0,2026-06-20T15:10:52+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,general,2,10,0,2026-06-20T15:11:57+00:00,Jess HSH Assstant,Okay noted
+inbound_contact,english,general,1,3,0,2026-06-20T15:14:19+00:00,Vetn Stuff,Yea
+outbound_omar,english,general,4,14,1,2026-06-20T15:14:28+00:00,Vetn Stuff,Yes yes okay ✅
+outbound_omar,other,general,1,2,2,2026-06-20T15:29:22+00:00,[phone],👋🏻
+inbound_contact,english,general,1,3,0,2026-06-20T15:29:33+00:00,[phone],Yes
+inbound_contact,english,greeting,27,142,0,2026-06-20T15:31:25+00:00,[phone],"Brother, it has a 12-month guarantee. There will be no problem with it for 12 months. You can easily use it for 12 months without any worries."
+inbound_contact,arabic,general,4,17,0,2026-06-20T15:31:55+00:00,Hassan Kazabr Brother,يا حي الله بالشيخ
+inbound_contact,english,greeting,56,278,2,2026-06-20T15:32:16+00:00,[phone],Claude.ai max plan 20x subscription Price for 👇 145$ 1 year Claude ai max plan 20x details 👇 Bro this will be your private personal account which you will use alone no one else will use it and this is an unlimited account there is no limit to it you can use it whenever you want
+inbound_contact,english,question,8,56,0,2026-06-20T15:38:20+00:00,[phone],Only private personal account on your email activation??
+inbound_contact,english,greeting,7,40,0,2026-06-20T15:40:30+00:00,[phone],70$ for 6 months subscription my brother
+inbound_contact,english,escalation_sensitive,14,85,0,2026-06-20T15:41:42+00:00,[phone],do you have payment method like Remitly Tap tap transfer Crypto Binance western union
+inbound_contact,english,action_push,4,23,0,2026-06-20T15:41:49+00:00,[phone],Please my friend typing
+outbound_omar,english,general,1,7,0,2026-06-20T15:42:53+00:00,[phone],[email]
+inbound_contact,english,general,3,12,0,2026-06-20T15:42:59+00:00,[phone],Ok my friend
+inbound_contact,english,greeting,3,20,0,2026-06-20T15:43:05+00:00,[phone],Which payment method
+outbound_omar,english,general,4,18,0,2026-06-20T15:43:50+00:00,[phone],In Claude you mean
+outbound_omar,english,greeting,5,21,0,2026-06-20T15:43:55+00:00,[phone],I didn’t get this one
+inbound_contact,english,action_push,19,104,0,2026-06-20T15:45:19+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,greeting,22,114,0,2026-06-20T15:45:26+00:00,[phone],"Brother, as soon as you pay me the money, I will activate your account within five minutes, so don't worry at all."
+inbound_contact,english,greeting,21,121,0,2026-06-20T15:45:52+00:00,[phone],"Because this is a private personal account, its payment is fast. You will get the account within five minutes of payment."
+outbound_omar,english,action_push,24,120,0,2026-06-20T15:45:55+00:00,[phone],How I’ll make sure sorry I don’t know you and you don’t know me as well that’s was my main question what’s the guarantee
+inbound_contact,english,greeting,18,89,0,2026-06-20T15:46:36+00:00,[phone],"Brother, if you say so, I can show you my customer reviews and also show you the account."
+outbound_omar,english,general,2,7,0,2026-06-20T15:51:38+00:00,[phone],Sent me
+outbound_omar,english,general,7,25,0,2026-06-20T15:51:44+00:00,[phone],I can also do same to you
+inbound_contact,english,general,3,14,0,2026-06-20T15:51:47+00:00,[phone],Okay my friend
+outbound_omar,english,general,16,76,0,2026-06-20T15:52:11+00:00,[phone],Active my account and I’ll pay you after - my name itself is for 1000 review
+inbound_contact,english,greeting,47,253,0,2026-06-20T15:53:03+00:00,[phone],"Brother, there is no problem, when we activate the account, there is a payment there. As soon as you pay me, I will give you the subscription five minutes later. I am showing you the account and also showing my customers' reviews. I am an honest person."
+inbound_contact,english,action_push,5,29,0,2026-06-20T15:55:17+00:00,[phone],Check my customer reviews bro
+inbound_contact,english,general,15,79,0,2026-06-20T15:56:17+00:00,[phone],You can see that I have already activated the accounts of many of my customers.
+inbound_contact,english,general,23,121,0,2026-06-20T15:57:09+00:00,[phone],"Believe me, once you buy a subscription from me, I will work with you for a long time, you will be completely worry-free."
+outbound_omar,english,greeting,9,38,3,2026-06-20T16:08:10+00:00,[phone],You think am easy one to scam me 🤦🏻‍♂️
+inbound_contact,english,greeting,20,98,0,2026-06-20T16:08:52+00:00,[phone],"Brother, I trust you, I know you will pay me, but when I activate the account, there is a payment."
+outbound_omar,english,greeting,10,55,0,2026-06-20T16:09:33+00:00,[phone],After my account is active I’ll pay 100% nothing before
+inbound_contact,english,greeting,16,87,0,2026-06-20T16:09:33+00:00,[phone],"Brother, let's make an agreement, your trust will be created and mine will be mine too."
+inbound_contact,english,escalation_sensitive,16,84,0,2026-06-20T16:10:05+00:00,[phone],Please pay me half the payment fast. I will pay the half after checking the account.
+outbound_omar,english,greeting,16,71,0,2026-06-20T16:10:23+00:00,[phone],Brother I made my trust by reputation I no need to tell you my name eng
+outbound_omar,english,greeting,18,91,0,2026-06-20T16:11:14+00:00,[phone],And one more thing before doing anything I would like to offer 50$ for 5-6 month if working
+outbound_omar,english,general,24,112,0,2026-06-20T16:11:50+00:00,[phone],Even for 3 month an okay but I’ll not risk more then 50$ if all was top we will do crazy work together inshallah
+outbound_omar,english,action_push,16,80,0,2026-06-20T16:12:42+00:00,[phone],Done when you active the account let me know I check and sent you after directly
+inbound_contact,english,greeting,26,134,0,2026-06-20T16:12:52+00:00,[phone],"Yes, brother, I agree. You pay me 50 dollars. I will activate your account. I am also a Muslim. Insha Allah, there will be no problem."
+outbound_omar,english,general,1,2,0,2026-06-20T16:13:16+00:00,[phone],No
+outbound_omar,english,general,4,23,0,2026-06-20T16:13:21+00:00,[phone],After you active habibi
+inbound_contact,english,greeting,19,99,0,2026-06-20T16:13:27+00:00,[phone],"Brother, I will send you the account five minutes after payment, so you don't have to worry at all."
+outbound_omar,english,general,5,25,0,2026-06-20T16:13:29+00:00,[phone],I pay 0 before activation
+outbound_omar,english,general,7,38,0,2026-06-20T16:13:39+00:00,[phone],Pleaee let’s not waste each other time
+outbound_omar,english,general,7,27,0,2026-06-20T16:13:50+00:00,[phone],I have no extra word to add
+inbound_contact,english,negotiation,37,182,0,2026-06-20T16:14:03+00:00,[phone],"You give me 25 dollars. After checking the account, do the deal, man. I am a Muslim. I swear to Allah. When you give me half the payment, I will share it with you five minutes later."
+outbound_omar,other,general,1,1,0,2026-06-20T16:14:14+00:00,[phone],…
+inbound_contact,english,greeting,27,133,0,2026-06-20T16:14:25+00:00,[phone],"I am a Muslim and I have one language. As soon as you make the payment, I will share these details with you within five minutes. $25."
+inbound_contact,english,general,10,49,0,2026-06-20T16:14:54+00:00,[phone],"Friend, trust me, I won't let you break my trust."
+outbound_omar,english,action_push,9,44,0,2026-06-20T16:14:57+00:00,[phone],Good bye as since say your scamer not Muslim
+inbound_contact,english,general,1,9,0,2026-06-20T16:15:00+00:00,[phone],Inshallah
+outbound_omar,english,general,7,36,0,2026-06-20T16:15:10+00:00,[phone],Never use Islam for your own benefit
+outbound_omar,english,general,1,3,0,2026-06-20T16:15:11+00:00,[phone],Bye
+inbound_contact,english,general,5,29,0,2026-06-20T16:15:12+00:00,[phone],Bro I am Muslim Alhamdulillah
+outbound_omar,english,question,1,60,0,2026-06-20T16:23:58+00:00,Hassan Kazabr Brother,[link][link]facebook.com/share/r/1D2TZZzwLt/?mibextid=wwXIfr
+inbound_contact,arabic,question,3,10,0,2026-06-20T16:24:59+00:00,Osamah Hassan Hsh,شو بدهم ؟؟
+outbound_omar,arabic,general,5,26,2,2026-06-20T16:25:25+00:00,Osamah Hassan Hsh,باثنوب حوض كبير بالحمام 🤪😂
+inbound_contact,arabic,general,6,21,1,2026-06-20T16:25:51+00:00,Osamah Hassan Hsh,من حقة إذا كان شغال 😂
+outbound_omar,arabic,general,14,61,2,2026-06-20T16:26:40+00:00,Osamah Hassan Hsh,اه قال لو سمحت لايلنا فيلا مو مهم اي شي إلى الباثتوب بليز 🐒🕶️
+inbound_contact,mixed,general,12,67,0,2026-06-20T16:27:52+00:00,Osamah Hassan Hsh,نحطلهم واحد يأمرون امر بس بدنا approve انو الزلمة الختيار شغال 100%
+outbound_omar,english,general,1,61,0,2026-06-20T16:40:57.441825+00:00,Vetn Stuff,CB[phone]_V1_0620T203801_340963cc-ad43-4f4f-b828-a21d1b014efa
+outbound_omar,english,negotiation,14,78,1,2026-06-20T16:45:42+00:00,Markus Salut,A-B aproved accepted Left is Mou Noc Declaration Transfer And it’s done deal ✅
+outbound_omar,english,greeting,20,110,0,2026-06-20T16:46:53+00:00,Markus Salut,This is only for tiger unit as we wanted to check processes register unit under company and it’s done approved
+outbound_omar,arabic,general,3,11,0,2026-06-20T16:55:18+00:00,Hassan Kazabr Brother,سلم عل شباب
+inbound_contact,arabic,general,7,37,0,2026-06-20T16:57:54+00:00,Osamah Hassan Hsh,ممتاز لكان إذا اتفقنا نعمله مال شخصين
+inbound_contact,english,general,1,7,0,2026-06-20T17:22:30+00:00,Markus Salut,Perfect
+inbound_contact,english,action_push,19,104,0,2026-06-20T17:28:43+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,action_push,19,104,0,2026-06-20T17:29:02+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+outbound_omar,english,general,1,2,0,2026-06-20T17:29:12+00:00,Vetn Stuff,So
+outbound_omar,english,general,3,15,0,2026-06-20T17:29:17+00:00,Vetn Stuff,Sent me details
+inbound_contact,english,general,1,2,0,2026-06-20T17:32:19+00:00,Vetn Stuff,Ho
+inbound_contact,english,action_push,19,104,0,2026-06-20T17:42:26+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,greeting,9,48,0,2026-06-20T18:36:08+00:00,Vetn Stuff,Hello please one bedroom for rent Jvc 80k yearly
+inbound_contact,english,greeting,9,48,0,2026-06-20T18:38:13+00:00,Vetn Stuff,Hello please one bedroom for rent Jvc 80k yearly
+inbound_contact,english,action_push,19,104,0,2026-06-20T18:48:34+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,greeting,1,2,0,2026-06-20T18:48:57+00:00,Vetn Stuff,Hi
+inbound_contact,english,action_push,19,104,0,2026-06-20T18:49:04+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,action_push,19,104,0,2026-06-20T18:49:08+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,greeting,9,48,0,2026-06-20T18:49:19+00:00,Vetn Stuff,Hello please one bedroom for rent Jvc 80k yearly
+inbound_contact,english,general,1,2,0,2026-06-20T18:55:45+00:00,Vetn Stuff,So
+inbound_contact,english,greeting,9,48,0,2026-06-20T18:56:12+00:00,Vetn Stuff,Hello please one bedroom for rent Jvc 80k yearly
+inbound_contact,english,action_push,19,104,0,2026-06-20T18:59:02+00:00,Vetn Stuff,Thanks — I have your earlier details. Send any update or property reference and I’ll take it from there.
+inbound_contact,english,greeting,9,48,0,2026-06-20T18:59:21+00:00,Vetn Stuff,Hello please one bedroom for rent Jvc 80k yearly
+inbound_contact,english,general,2,14,0,2026-06-20T19:08:03+00:00,Nazieh,Keefak habeebi
+inbound_contact,english,general,12,57,0,2026-06-20T19:08:23+00:00,Nazieh,Listen there is a guy in Emirates he wants to cash crypto
+inbound_contact,english,action_push,2,7,0,2026-06-20T19:08:31+00:00,Nazieh,Call me
+outbound_omar,english,general,9,43,0,2026-06-20T19:09:13+00:00,Nazieh,Done let me reach home and will contact you
+inbound_contact,arabic,general,2,14,0,2026-06-20T19:09:26+00:00,Nazieh,العمله بيتكوين
+inbound_contact,arabic,general,5,25,0,2026-06-20T19:09:27+00:00,Nazieh,تجربة فى الاول 20 بيتكوين
+inbound_contact,english,greeting,9,48,0,2026-06-20T21:12:51+00:00,Vetn Stuff,Hello please one bedroom for rent Jvc 80k yearly
+inbound_contact,english,greeting,9,48,0,2026-06-20T22:33:39+00:00,Vetn Stuff,Hello please one bedroom for rent Jvc 80k yearly
+inbound_contact,english,greeting,9,48,0,2026-06-20T23:08:37+00:00,Vetn Stuff,Hello please one bedroom for rent Jvc 80k yearly
+inbound_contact,english,greeting,9,48,0,2026-06-20T23:37:40+00:00,Vetn Stuff,Hello please one bedroom for rent Jvc 80k yearly
+inbound_contact,english,action_push,45,252,0,2026-06-20T23:40:27+00:00,Vetn Stuff,HSH Main is reconnected to the correct UAE number. Put the production webhook into listening mode. Tell me: SEND NOW I will send one fresh WhatsApp message. Then return only: WEBHOOK RECEIVED: YES / NO PAYLOAD RECEIVED: YES / NO N8N EXECUTION: YES / NO
+inbound_contact,english,general,1,30,0,2026-06-21T07:35:40+00:00,Sadam Cove Cleaner,[link]vt.tiktok.com/ZSQKB6NpT/
+inbound_contact,english,question,1,66,0,2026-06-21T07:39:37+00:00,Mum Orange,[link][link]instagram.com/p/DZbHaO0Mjbd/?igsh=MWRlbXUzc28yNW5peg==
+inbound_contact,english,question,1,69,0,2026-06-21T07:40:47+00:00,Mum Orange,[link][link]instagram.com/reel/DYXouf8Mc02/?igsh=MTZmMndtMzFmNWg5Mw==
+inbound_contact,english,question,1,65,0,2026-06-21T08:04:52+00:00,Dareen T. El Samarany,[link][link]instagram.com/reel/DZ1vN6vCG3G/?igsh=ODJyNHdyZzBneWYy
+inbound_contact,english,question,1,60,0,2026-06-21T08:29:50+00:00,Top Deal Mina Rashid,[link][link]facebook.com/share/r/1BGbQyT4df/?mibextid=wwXIfr
+inbound_contact,arabic,general,4,17,0,2026-06-21T09:31:51+00:00,Nazieh,وين اللي بدو يحكي
+inbound_contact,other,general,1,3,3,2026-06-21T09:31:53+00:00,Nazieh,🤣🤣🤣
+inbound_contact,arabic,general,5,26,0,2026-06-21T09:32:13+00:00,Nazieh,والله بستنو مني الجماعة رد
+inbound_contact,other,general,1,2,2,2026-06-21T09:47:44+00:00,Vetn Stuff,👋🏻
+outbound_omar,english,greeting,1,2,0,2026-06-21T09:52:30+00:00,Vetn Stuff,Hi
+outbound_omar,english,greeting,12,56,1,2026-06-21T09:56:16+00:00,Markus Salut,Done ✅ Brother all the way it’s Sunday feel free no rush
+inbound_contact,english,greeting,19,134,0,2026-06-21T10:09:18+00:00,Nazieh,"To join the meeting on Google Meet, click this link: [link]meet.google.com/bet-amyc-ubb Or open Meet and enter this code: bet-amyc-ubb"
+inbound_contact,english,general,5,20,0,2026-06-21T10:10:43+00:00,Nazieh,We are waiting for u
+inbound_contact,english,question,1,163,0,2026-06-21T11:28:35+00:00,Mohit Bhojwani Agent,[link][link]thenationalnews.com/news/uae/2026/06/21/tourists-eager-to-return-to-dubai-after-travel-warnings-scrapped/?utm_source=whatsapp&utm_medium=socialsharebtn
+inbound_contact,english,question,1,92,0,2026-06-21T11:30:22+00:00,Meils Hsh,[link][link]instagram.com/reel/DZ2KMYtu3CT/?igsh=enk0eHU0M2treHg2&share_type=SHARE_TO_STATUS
+inbound_contact,english,greeting,2,13,0,2026-06-21T12:03:23+00:00,Markus Salut,Hello Brother
+inbound_contact,english,escalation_sensitive,3,16,0,2026-06-21T12:03:28+00:00,Markus Salut,Here the payment
+outbound_omar,other,general,2,6,0,2026-06-21T12:05:29+00:00,Lea Admin Manger,3553 €
+outbound_omar,other,general,2,6,0,2026-06-21T12:05:36+00:00,Hasan HSH Brother,3553 €
+outbound_omar,english,greeting,32,143,1,2026-06-21T12:08:48+00:00,Lea Admin Manger,"Can you ask for sent me what I paid as cost for service , this amount plus 950 aed poa I’ll sent you the receipt of poa as well Kind regards ☺️"
+outbound_omar,english,greeting,20,104,0,2026-06-21T12:09:36+00:00,Lea Admin Manger,And tomorrow we should close this as well I have finsh form a+b / will start with mou tomorrow inshallah
+inbound_contact,arabic,question,19,96,0,2026-06-21T12:43:18+00:00,Nazieh,معلم نزيه لازم نعرف ما هي طلبات الاخ عمر لتنفيذ التجريبي ٢٠ بيتكوين ما المطلوب من صاحب المحفظه ؟
+inbound_contact,english,general,6,23,0,2026-06-21T12:43:34+00:00,Nazieh,Text me when u are free
+inbound_contact,english,action_push,6,22,0,2026-06-21T12:43:40+00:00,Nazieh,So we can set the call
+inbound_contact,arabic,general,51,254,0,2026-06-21T12:49:07+00:00,Nazieh,في نفس وقت تنفيذ الـ ٢٠ بتكوين بنجاح وتاكيد ذلك من الاخ عمر ،،، سيسافر ابووافي فوراً من جده إلى دبي لترتيب البرنامج مع الاخ عمر لباقي الشغل ،،، نفس الشيء سوف احصل على تاشيره وانا كمان سأغادر إلى دبي للقاء الشباب هناك ،، وانتم اكيد إذا تحبون حياكم الله ..
+inbound_contact,english,action_push,2,13,0,2026-06-21T13:08:59+00:00,[phone],Send location
+outbound_omar,english,greeting,79,510,6,2026-06-21T13:09:02+00:00,[phone],"*Welcome* & *Thank You* For Reaching Out. ♾️⚖️ This is *Omar Al-Ahmar*, Head of Secondary & Studies at HS Global Dubai, Reorganized as DlD Strategic Partner With High Level Access . I specialize in project management, advanced feasibility studies, and high-value investment structuring, leveraging GIS, DDA, BID , DLD etc , Deep Market Intelligence, and senior-level access — including opportunities before public release. 🧠 🧬 Rest assured, you’re in trusted, expert hands until I connect with you shortly. ⚜️✨"
+inbound_contact,english,general,1,7,0,2026-06-21T13:09:15+00:00,[phone],Talabad
+outbound_omar,english,general,1,2,0,2026-06-21T13:11:21+00:00,[phone],Ok
+outbound_omar,english,general,9,49,0,2026-06-21T13:13:02+00:00,[phone],They will sent you location order for poor people
+inbound_contact,english,general,3,18,0,2026-06-21T13:13:34+00:00,[phone],Live location sand
+inbound_contact,english,general,1,33,0,2026-06-21T13:46:42+00:00,Nazieh,[link][link]quantumhotwallet.com/
+inbound_contact,arabic,greeting,17,83,0,2026-06-21T13:46:42+00:00,Nazieh,حبيبي نزيه ،، بدنا جواب سريع من عمر شو مطلوب من ابووافي علشان عمر يبلش فوراً بالشغل
+outbound_omar,arabic,escalation_sensitive,73,361,0,2026-06-21T14:03:25+00:00,Mum Orange,عطوني ذهبتهم الحمدالله الي هي ليرة أنا عطيتها لنديا والحمدالله هيها موجودة حكيت معهم ماردو و انتي نفس الشي و ابنك طلعت ايدي و ريحتكم مني والارض شي بيني و بين بابا ولو بدو عيوني بعطي أنا قد ماانقهرت امي و حسيت حالي لحالي معي الله أنا و على اخت العملية أنا وعايش في عيد ميلادي في مراضي و صحتي أنا ماما غلط و سوسة العيلة و مغضوب سيبتكم تعيشو سعدتكم انشالله تلاقوها
+outbound_omar,arabic,general,21,103,0,2026-06-21T14:04:37+00:00,Mum Orange,ذهبتهم ليرة ناديا بكرة بتوصلها وانا كنت بدي أعطيهم ليرة من عندي بس الأكل نكر لو بتعطي عيونك بضل يكل فيك
+inbound_contact,english,greeting,1,2,0,2026-06-21T14:35:18+00:00,[phone],Hi
+outbound_omar,english,greeting,79,510,6,2026-06-21T14:35:21+00:00,[phone],"*Welcome* & *Thank You* For Reaching Out. ♾️⚖️ This is *Omar Al-Ahmar*, Head of Secondary & Studies at HS Global Dubai, Reorganized as DlD Strategic Partner With High Level Access . I specialize in project management, advanced feasibility studies, and high-value investment structuring, leveraging GIS, DDA, BID , DLD etc , Deep Market Intelligence, and senior-level access — including opportunities before public release. 🧠 🧬 Rest assured, you’re in trusted, expert hands until I connect with you shortly. ⚜️✨"
+inbound_contact,english,general,1,30,0,2026-06-21T14:40:04+00:00,Sadam Cove Cleaner,[link]vt.tiktok.com/ZSQE2WDJS/
+inbound_contact,english,general,1,7,0,2026-06-21T16:05:37+00:00,[phone],[email]
+inbound_contact,english,general,2,8,0,2026-06-21T16:54:32+00:00,Swap Devlober,Hey omar
+inbound_contact,english,general,2,7,0,2026-06-21T16:54:34+00:00,Swap Devlober,How's u
+inbound_contact,arabic,general,2,12,0,2026-06-21T18:24:17+00:00,Nazieh,وينك يالحبيب
+inbound_contact,english,general,11,110,0,2026-06-21T18:25:18+00:00,Vetn Stuff,- Nakheel Account Access [link]onlineservices.nakheel.com/ customer number 2278458 [email] Nakheel123@ [phone]
+inbound_contact,english,question,1,65,0,2026-06-21T18:34:39+00:00,Mum Orange,[link][link]instagram.com/reel/DY50EVxIABf/?igsh=bm02Zjl1NWo0d3pq
+outbound_omar,english,action_push,15,98,0,2026-06-21T19:48:24+00:00,[phone],"Sure — send the preferred time, property/community, and number of viewers, and I’ll coordinate it."
+inbound_contact,english,general,1,7,0,2026-06-21T22:00:23+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:01:03+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:01:18+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:03:57+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:03:57+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:50:30+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:50:31+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:50:35+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:50:39+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:50:56+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:50:59+00:00,,[email]
+inbound_contact,english,general,1,7,0,2026-06-21T22:51:02+00:00,,[email]
+inbound_contact,arabic,general,8,55,0,2026-06-22T00:22:59+00:00,Check Austdio Sharjah,اللّٰہُمَّ صَلِّ عَلٰی مُحَمَّدٍ وَعَلٰی آلِ مُحَمَّد ﷺ
+inbound_contact,english,negotiation,26,155,0,2026-06-22T01:33:05+00:00,Brok5 Remove,"Autumn 2,Block A,Season Community JVC District 15 Dubai 1 bed 2 bath 797 Sqft Fully furnished/ready to move dedicated parking Central AC Asking price 785 K"
+inbound_contact,english,negotiation,25,138,0,2026-06-22T01:33:18+00:00,Brok5 Remove,"Bay Central West, Dubai Marina Studio 1 bath 446 Sqft Marina and sea view Fully furnished/1 parking close to jbr Beach Asking price 1.47 M"
+inbound_contact,english,negotiation,20,110,0,2026-06-22T01:33:24+00:00,Brok5 Remove,"Al Furjan Dubai 7 bed 7,600 Sqft Swimming pool and garden Unfurnished ideally for big family Asking price 17 M"
+inbound_contact,english,greeting,24,139,0,2026-06-22T01:33:30+00:00,Brok5 Remove,"Links West The Greens Dubai 2 bed 1,315 Sqft Fully Upgraded and Furnished High floor with premium finishes Vastu Compliant Asking price 4 M"
+inbound_contact,english,negotiation,26,150,0,2026-06-22T01:33:33+00:00,Brok5 Remove,"Damac Tower by Paramount Hotel & Resort Bussines Bay Dubai 2 bed 2 bath 1,514 Sqft Tower D/Burj khalifa view Fully furnished/vacant Asking price 2.1 M"
+inbound_contact,english,greeting,23,132,0,2026-06-22T01:33:38+00:00,Brok5 Remove,"Binghati Orchid JVC District 10 Dubai 2 bed 2 bath 1,175 Sqft Brand new/high floor Semi open kitchen Unfurnished Asking price 1.65 M"
+inbound_contact,english,greeting,22,116,0,2026-06-22T01:33:49+00:00,Brok5 Remove,"Binghati Royale ,JVC District 18 Dubai 1 bed 2 bath 928 Sqft Park and pool view Vacant/high floor Asking price 1.4 M"
+inbound_contact,english,negotiation,19,93,0,2026-06-22T01:33:52+00:00,Brok5 Remove,"Binghatti Apex JVC 1BR | 2Bath | 843.89 SQ.FT | AED 1.25M View: Water, Ain dubai & Five Hotel"
+inbound_contact,english,negotiation,19,98,0,2026-06-22T01:33:59+00:00,Brok5 Remove,"Binghatti Gardenia JVC 2 bed with pool 1,113 Sqft rented at 150k till May 2027 Asking price 1.45 M"
+inbound_contact,english,negotiation,16,95,0,2026-06-22T01:36:52+00:00,Brok5 Remove,Discovery Garden building Mogul 183 Studio 1 bath 490 sqft vacant on transfer Asking price 700k
+inbound_contact,english,negotiation,20,100,0,2026-06-22T01:37:07+00:00,Brok5 Remove,"Binghatti Avenue,Al jaddaf Dubai 1 bed 2 bath 709 Sqft ROI 15 % Burj Khalifa View Asking price 1.3 M"
+inbound_contact,english,negotiation,36,190,0,2026-06-22T01:37:19+00:00,Brok5 Remove,*Dubai Land* *Furnished* 1 BHK Balcony *Durar 1 DLRC* Rented on 60k till August Size 753 sf Price 875K *Vacant* 2 BHK Balcony *Durar 1 DLRC* Size 1116 sf Price 1.2M Studio for sale in MAG330
+inbound_contact,english,negotiation,34,181,0,2026-06-22T01:37:26+00:00,Brok5 Remove,Units For Sale or Rent DT views2 2bed 3.6M Burj Royale 2bed 2.88M 29 BLVD 2bed 2.59M DT views2 3bed 4.6M Boulevard Point 3BR 7.6M Burj Crown 3BR 4.1M Boulevard Point rent 180K Villa
+inbound_contact,english,negotiation,16,82,0,2026-06-22T01:37:29+00:00,Brok5 Remove,JIt. Armada 1. 3bed. . Rented till June 1. 2027 for 160k Size1340ft. Price is 2.2m
+inbound_contact,english,negotiation,21,101,0,2026-06-22T01:37:35+00:00,Brok5 Remove,JIt. Armada 1. Huge 1 bed. 24 floor. Rented till May 1. 2027 for 80k size 1016ft net area. Price 1.25
+inbound_contact,english,general,18,101,0,2026-06-22T01:37:41+00:00,Brok5 Remove,Jlt. Armada 1. 3 bed. Fully upgraded. 2 parkings. 23 floor. Vacant!!! 1314 ft. Fully furnished ! 2.3m
+inbound_contact,english,negotiation,17,92,0,2026-06-22T01:37:54+00:00,Brok5 Remove,"Ocean Heights Dubai Marina 2 bed 2 bath 1,600 Sqft fully refurbished vacant Asking price 3 M"
+inbound_contact,english,greeting,28,165,0,2026-06-22T01:38:01+00:00,Brok5 Remove,"Address Bayview Tower 2,Address Resorts Emaar Beachfront Dubai 2 bed 3 bath 1,432 Sqft Rare 04 series full Seaview /high floor direct beach access Asking price 8.5 M"
+inbound_contact,english,negotiation,18,102,0,2026-06-22T01:38:04+00:00,Brok5 Remove,"Miraclz Tower by Danube, Arjan Dubai 2 bed 3 bath 1,192 Sqft Furnished/Garden view Asking price 1.46 M"
+inbound_contact,english,negotiation,11,53,0,2026-06-22T01:38:11+00:00,Brok5 Remove,Miraclz Tower Arjan 1 bed 759 Sqft Asking price 1.1 M
+inbound_contact,arabic,general,3,20,2,2026-06-22T02:21:39+00:00,Ismail New Number Pro,التعادل للفراعنة 💪⚽️
+inbound_contact,arabic,general,3,20,2,2026-06-22T02:22:22+00:00,Done Pro,التعادل للفراعنة ⚽️💪
+inbound_contact,english,question,1,100,0,2026-06-22T02:30:45+00:00,Cucu 🐥🐣,[link][link]instagram.com/reel/DZ2OoWuMa4l/?igsh=MWIzZ2p0M3l0ZG5paw%3D%3D&share_type=SHARE_TO_STATUS
+inbound_contact,english,question,1,92,0,2026-06-22T02:34:48+00:00,Cucu 🐥🐣,[link][link]instagram.com/reel/DYE0BOEzJW9/?igsh=enFhNnp4NXpleGNo&share_type=SHARE_TO_STATUS
+inbound_contact,arabic,general,14,77,0,2026-06-22T04:05:43+00:00,Abu Abdallah Whats,سبحان الله وبحمده سبحان الله العظيم عدد خلقه ورضا نفسه وزنة عرشه ومداد كلماته
+outbound_omar,english,general,1,3,0,2026-06-22T05:23:26+00:00,[phone],Yes
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:31:37+00:00,[phone],"Hello, how can I help you?"
+inbound_contact,english,greeting,3,17,0,2026-06-22T05:35:50+00:00,Jess HSH Assstant,Good morning Omar
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:35:59+00:00,Jess HSH Assstant,"Hello, how can I help you?"
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:36:00+00:00,Jess HSH Assstant,"Hello, how can I help you?"
+inbound_contact,english,question,12,50,0,2026-06-22T05:36:59+00:00,Jess HSH Assstant,May i know the pending or you need me to do today?
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:37:05+00:00,Jess HSH Assstant,"Hello, how can I help you?"
+outbound_omar,english,greeting,13,62,0,2026-06-22T05:37:08+00:00,Jess HSH Assstant,"Which tasks are pending, or what would you like me to do today"
+inbound_contact,english,greeting,5,28,0,2026-06-22T05:38:42+00:00,Jess HSH Assstant,only this one anything else?
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:38:49+00:00,Jess HSH Assstant,"Hello, how can I help you?"
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:38:50+00:00,Jess HSH Assstant,"Hello, how can I help you?"
+inbound_contact,arabic,greeting,4,17,0,2026-06-22T05:45:56+00:00,MOHAMAD Plot,يسعد صباحك يا ملك
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:46:04+00:00,MOHAMAD Plot,"Hello, how can I help you?"
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:46:05+00:00,MOHAMAD Plot,"Hello, how can I help you?"
+inbound_contact,english,greeting,27,137,0,2026-06-22T05:55:00+00:00,Jess HSH Assstant,This message is normal according to PF expert if you are super agent. my question is do you know them or they contact you for a property?
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:55:07+00:00,Jess HSH Assstant,"Hello, how can I help you?"
+outbound_omar,english,greeting,6,26,0,2026-06-22T05:55:08+00:00,Jess HSH Assstant,"Hello, how can I help you?"
+outbound_omar,arabic,greeting,11,56,1,2026-06-22T06:04:42+00:00,MOHAMAD Plot,وياك يا ملك، صباح الخير والسعادة 🌞 كيف أقدر أخدمك اليوم؟
+inbound_contact,arabic,greeting,2,10,0,2026-06-22T06:04:57+00:00,MOHAMAD Plot,عمور الملك
+outbound_omar,arabic,greeting,8,47,0,2026-06-22T06:05:05+00:00,MOHAMAD Plot,أهلاً وسهلاً عمور الملك! كيف أقدر أساعدك اليوم؟
+inbound_contact,arabic,action_push,4,21,0,2026-06-22T06:05:05+00:00,MOHAMAD Plot,بدي دقلك ايمتى فاضيلي
+outbound_omar,arabic,greeting,32,158,0,2026-06-22T06:05:11+00:00,MOHAMAD Plot,أكيد، خبرني أي يوم و أي وقت بناسبك؟ ممكن بكرا الصبح بين 9-12، أو بعد الظهر 2-5، أو مساءً 7-9. بتحب مكالمة صوتية ولا فيديو؟ وإذا في توقيت تاني قوللي وأنا بظبط.
+inbound_contact,mixed,general,3,10,0,2026-06-22T06:05:36+00:00,MOHAMAD Plot,ال AI يلعب
+outbound_omar,mixed,question,21,108,0,2026-06-22T06:05:44+00:00,MOHAMAD Plot,"ماذا تقصد بـ ""الـ AI يلعب""؟ تقصد أنه يمزح/يتصرف بغرابة، أم تريد أن ألعب معك لعبة معيّنة؟ اختر أو اشرح بسرعة."
+outbound_omar,arabic,greeting,8,41,0,2026-06-22T06:06:09+00:00,MOHAMAD Plot,صباح النور يا ملك! كيف أقدر أساعدك اليوم؟
+outbound_omar,arabic,question,15,83,0,2026-06-22T06:06:13+00:00,MOHAMAD Plot,"من تقصد بـ ""هم"" تحديدًا؟ أعطِني أسماء أو سياق (صورة، جهة، محادثة، إلخ) لأقدر أساعد."

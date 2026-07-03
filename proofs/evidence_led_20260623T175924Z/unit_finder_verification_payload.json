@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-06-23T17:58:15.183018+00:00",
+  "target": {
+    "url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-ocean-heights-84894360.html",
+    "source_platform": "propertyfinder.ae",
+    "fetch_bridge": "snapshot_cache_used_after_http_block",
+    "http_fetch_status": "blocked_cloudfront",
+    "fetch_confidence_label": "available"
+  },
+  "extracted_public_fields": {
+    "area": "Dubai Marina",
+    "building": "Ocean Heights",
+    "bedrooms": "2",
+    "size_sqm": 145.0,
+    "size_sqft": 1565,
+    "price_aed": 2200000,
+    "permit_number": "",
+    "property_number": "",
+    "plot_number": ""
+  },
+  "matcher_top_raw": {
+    "status": "LIKELY_MATCH",
+    "record_id": "raw-e6d971645320b9b2",
+    "unit": "",
+    "confidence": 80
+  },
+  "matcher_top_enriched": {
+    "status": "RESOLVED",
+    "record_id": "raw-e6d971645320b9b2",
+    "unit": "",
+    "confidence": 98
+  },
+  "benchmarks": {
+    "total_tests": 50,
+    "exact_rate": 0.0,
+    "likely_rate": 26.0,
+    "unresolved_rate": 74.0,
+    "exact": 0,
+    "likely": 13,
+    "unresolved": 37,
+    "results_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/live_listing_benchmark_results.csv",
+    "top_failure_reasons": [
+      [
+        "no_public_fields_extracted",
+        50
+      ],
+      [
+        "no_public_identifier_bridge",
+        50
+      ],
+      [
+        "no_unit_in_local_match",
+        50
+      ],
+      [
+        "insufficient_similarity_score",
+        37
+      ],
+      [
+        "live_fetch_blocked",
+        22
+      ]
+    ]
+  },
+  "status": "FAIL"
+}

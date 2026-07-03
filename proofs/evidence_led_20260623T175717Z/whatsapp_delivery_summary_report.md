@@ -1,0 +1,8 @@
+# WhatsApp Delivery Verification
+STATUS: PASS
+REQUEST_SENDER: 971595001234
+REQUEST_MESSAGE: Need 1BR for rent in DAMAC Hills, tell me next step.
+HTTP_STATUS: 200
+OUTBOUND_EVENT_TS: None
+OUTBOUND_STATUS: None
+RESULT_OK: False

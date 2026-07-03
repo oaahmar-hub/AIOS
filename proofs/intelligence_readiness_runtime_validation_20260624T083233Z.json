@@ -1,0 +1,261 @@
+{
+  "run_id": "20260624T083233Z",
+  "created_utc": "2026-06-24T08:32:33.107576+00:00",
+  "event_file": "/Users/hassanka/Downloads/AIOS/data/transport/human_identity_events.jsonl",
+  "global_event_count_before": 219,
+  "global_event_count_after": 225,
+  "unique_senders_after": 16,
+  "pipeline_trace": {
+    "sender": "971880010003",
+    "message": {
+      "before_sender_event_count": 0,
+      "memory_event_after_message": {
+        "ts": "2026-06-24T08:32:33.095946Z",
+        "event_type": "social",
+        "emotion": "neutral",
+        "outcome": "property_inquiry",
+        "impact": "property",
+        "future_relevance": "continue",
+        "quality_score": 0.5700000000000001,
+        "source": "inferred_message",
+        "raw": "Need Dubai Hills 2BR options up to 2.5M. Controlled pipeline baseline.",
+        "sender": "971880010003"
+      },
+      "context_before_learning": {
+        "sender": "971880010003",
+        "relationship_profile": {
+          "relationship_type": "CLIENT",
+          "trust_level": "",
+          "communication_style": "direct",
+          "response_style": "concise",
+          "preferred_language": "",
+          "preferred_time": "business_hours",
+          "preferred_detail_level": "short",
+          "important_events": [],
+          "previous_conflicts": [],
+          "previous_wins": []
+        },
+        "identity_profile": {
+          "contact_name": "",
+          "role_summary": "",
+          "communication_pattern": "direct",
+          "negotiation_style": "pragmatic",
+          "decision_style": "structured",
+          "follow_up_style": "short",
+          "closure_style": "option-led",
+          "humor_style": "light",
+          "risk_style": "balanced",
+          "confidence_style": "measured",
+          "preferred_closing_actions": []
+        },
+        "episodes": [],
+        "best_version_score": 0.5,
+        "last_action_recommendation": "search and shortlist",
+        "best_learning_rules": {
+          "learning_rules": [],
+          "best_version_signal": "no_learning_events",
+          "quality_average": 0.5
+        }
+      }
+    },
+    "feedback_event": {
+      "ts": "2026-06-24T08:32:33.095946Z",
+      "event_type": "social",
+      "emotion": "neutral",
+      "outcome": "property_inquiry",
+      "impact": "property",
+      "future_relevance": "continue",
+      "quality_score": 0.7695,
+      "source": "feedback",
+      "raw": "Need Dubai Hills 2BR options up to 2.5M. Controlled pipeline baseline.",
+      "sender": "971880010003",
+      "outcome_label": "confirmed",
+      "outcome_confidence": 0.88,
+      "impact_level": "high",
+      "feedback_notes": "Controlled pipeline outcome: recommendation accepted and next action confirmed."
+    },
+    "outcome_event": {
+      "status": "stored",
+      "sender": "971880010003",
+      "quality": 0.7695,
+      "event_id": "4d22d4eb389e2c13"
+    },
+    "best_version_update": {
+      "before_score": 0.5,
+      "after_score": 0.546,
+      "before_rules": {
+        "learning_rules": [],
+        "best_version_signal": "no_learning_events",
+        "quality_average": 0.5
+      },
+      "after_rules": {
+        "learning_rules": [
+          "social"
+        ],
+        "best_version_signal": "best_effort_mode",
+        "quality_average": 0.769
+      },
+      "score_changed": true
+    },
+    "future_behavior_change": {
+      "same_user": "971880010003",
+      "before": {
+        "best_version_score": 0.5,
+        "best_learning_rules": {
+          "learning_rules": [],
+          "best_version_signal": "no_learning_events",
+          "quality_average": 0.5
+        },
+        "episodes_count": 0
+      },
+      "after": {
+        "best_version_score": 0.546,
+        "best_learning_rules": {
+          "learning_rules": [
+            "social"
+          ],
+          "best_version_signal": "best_effort_mode",
+          "quality_average": 0.769
+        },
+        "episodes_count": 1,
+        "episodes": [
+          {
+            "ts": "2026-06-24T08:32:33.095946Z",
+            "event_type": "social",
+            "emotion": "neutral",
+            "outcome": "property_inquiry",
+            "impact": "property",
+            "future_relevance": "continue",
+            "quality_score": 0.7695,
+            "source": "feedback",
+            "raw": "Need Dubai Hills 2BR options up to 2.5M. Controlled pipeline baseline."
+          }
+        ]
+      }
+    }
+  },
+  "negative_outcome_test": {
+    "sender": "971880010001",
+    "before_score": 0.5,
+    "feedback_result": {
+      "status": "stored",
+      "sender": "971880010001",
+      "quality": 0.352,
+      "event_id": "a7af6e9297f4b081"
+    },
+    "feedback_event": {
+      "ts": "2026-06-24T08:32:33.049477Z",
+      "event_type": "business",
+      "emotion": "neutral",
+      "outcome": "property_inquiry",
+      "impact": "property",
+      "future_relevance": "continue",
+      "quality_score": 0.352,
+      "source": "feedback",
+      "raw": "Need 1BR in JVC up to 90k. Controlled negative baseline.",
+      "sender": "971880010001",
+      "outcome_label": "failed",
+      "outcome_confidence": 0.93,
+      "impact_level": "high",
+      "feedback_notes": "Controlled failed outcome: reply did not solve the user need."
+    },
+    "after_score": 0.442,
+    "score_reduced_or_unchanged": true
+  },
+  "positive_outcome_test": {
+    "sender": "971880010002",
+    "before_score": 0.5,
+    "feedback_result": {
+      "status": "stored",
+      "sender": "971880010002",
+      "quality": 0.774,
+      "event_id": "a7f9f81b13609248"
+    },
+    "feedback_event": {
+      "ts": "2026-06-24T08:32:33.076483Z",
+      "event_type": "business",
+      "emotion": "neutral",
+      "outcome": "property_inquiry",
+      "impact": "property",
+      "future_relevance": "continue",
+      "quality_score": 0.774,
+      "source": "feedback",
+      "raw": "Need 1BR in JVC up to 90k. Controlled positive baseline.",
+      "sender": "971880010002",
+      "outcome_label": "success",
+      "outcome_confidence": 0.91,
+      "impact_level": "high",
+      "feedback_notes": "Controlled successful outcome: options matched and next step was accepted."
+    },
+    "after_score": 0.547,
+    "score_increased": true
+  },
+  "feedback_event_validation": {
+    "source_feedback_present": true,
+    "outcome_label_present": true,
+    "outcome_confidence_present": true,
+    "timestamp_present": true,
+    "events": [
+      {
+        "ts": "2026-06-24T08:32:33.049477Z",
+        "event_type": "business",
+        "emotion": "neutral",
+        "outcome": "property_inquiry",
+        "impact": "property",
+        "future_relevance": "continue",
+        "quality_score": 0.352,
+        "source": "feedback",
+        "raw": "Need 1BR in JVC up to 90k. Controlled negative baseline.",
+        "sender": "971880010001",
+        "outcome_label": "failed",
+        "outcome_confidence": 0.93,
+        "impact_level": "high",
+        "feedback_notes": "Controlled failed outcome: reply did not solve the user need."
+      },
+      {
+        "ts": "2026-06-24T08:32:33.076483Z",
+        "event_type": "business",
+        "emotion": "neutral",
+        "outcome": "property_inquiry",
+        "impact": "property",
+        "future_relevance": "continue",
+        "quality_score": 0.774,
+        "source": "feedback",
+        "raw": "Need 1BR in JVC up to 90k. Controlled positive baseline.",
+        "sender": "971880010002",
+        "outcome_label": "success",
+        "outcome_confidence": 0.91,
+        "impact_level": "high",
+        "feedback_notes": "Controlled successful outcome: options matched and next step was accepted."
+      },
+      {
+        "ts": "2026-06-24T08:32:33.095946Z",
+        "event_type": "social",
+        "emotion": "neutral",
+        "outcome": "property_inquiry",
+        "impact": "property",
+        "future_relevance": "continue",
+        "quality_score": 0.7695,
+        "source": "feedback",
+        "raw": "Need Dubai Hills 2BR options up to 2.5M. Controlled pipeline baseline.",
+        "sender": "971880010003",
+        "outcome_label": "confirmed",
+        "outcome_confidence": 0.88,
+        "impact_level": "high",
+        "feedback_notes": "Controlled pipeline outcome: recommendation accepted and next action confirmed."
+      }
+    ]
+  },
+  "best_version_validation": {
+    "positive_changed_because_of_outcome": true,
+    "negative_not_increased": true,
+    "message_count_only_rejected": true
+  },
+  "final_audit": {
+    "Outcome Learning": "PASS",
+    "Feedback Learning": "PASS",
+    "Best-Version Learning": "PASS",
+    "Future Behavior Adaptation": "PASS",
+    "Intelligence Readiness": "LIVE"
+  }
+}

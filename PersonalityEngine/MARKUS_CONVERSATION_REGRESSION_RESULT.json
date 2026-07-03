@@ -1,0 +1,82 @@
+{
+  "passed": 5,
+  "total": 5,
+  "results": [
+    {
+      "test": "hello_brother_not_property",
+      "pass": true,
+      "detail": {
+        "intent": "greeting",
+        "reply": "Hello."
+      }
+    },
+    {
+      "test": "what_about_you_social",
+      "pass": true,
+      "detail": {
+        "intent": "greeting",
+        "reply": "All good brother, thanks."
+      }
+    },
+    {
+      "test": "wrong_chat_correction",
+      "pass": true,
+      "detail": {
+        "intent": "correction",
+        "reply": "Got it, corrected."
+      }
+    },
+    {
+      "test": "buy_now_buyer_context",
+      "pass": true,
+      "detail": {
+        "intent": "property",
+        "judgment": {
+          "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+          "next_action": "continue_buyer_requirement",
+          "expected_next": "continue_buyer_search",
+          "ask_allowed": false,
+          "stop_qualifying": true,
+          "escalation": "none",
+          "signals": {
+            "has_area": false,
+            "has_property_type": true,
+            "has_budget": false,
+            "has_process_word": false,
+            "has_developer": false,
+            "prior_property_context": false,
+            "active_history": true
+          },
+          "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+        },
+        "reply": "Perfect, buying. Send me the preferred area or developer and I’ll shortlist the best options."
+      }
+    },
+    {
+      "test": "developer_continuation",
+      "pass": true,
+      "detail": {
+        "intent": "property",
+        "judgment": {
+          "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+          "next_action": "recommend",
+          "expected_next": "developer_shortlist_or_options",
+          "ask_allowed": false,
+          "stop_qualifying": true,
+          "escalation": "none",
+          "signals": {
+            "has_area": false,
+            "has_property_type": false,
+            "has_budget": false,
+            "has_process_word": false,
+            "has_developer": true,
+            "prior_property_context": true,
+            "active_history": true
+          },
+          "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+        },
+        "reply": "Perfect — I’ll check Tiger and Eleven options and send you the best matches."
+      }
+    }
+  ]
+}

@@ -1,0 +1,808 @@
+{
+  "generated_at": "20260623T173750Z",
+  "url_unit_benchmark": {
+    "status": "FAIL",
+    "summary": {
+      "total_tests": "50",
+      "exact_resolution_rate": "0.0%",
+      "likely_match_rate": "26.0%",
+      "unresolved_rate": "74.0%",
+      "propertyfinder": "26",
+      "bayut": "15",
+      "dubizzle": "9",
+      "exact": "0",
+      "likely": "13",
+      "unresolved": "37",
+      "no_public_fields_extracted": "50",
+      "no_public_identifier_bridge": "50",
+      "no_unit_in_local_match": "50",
+      "insufficient_similarity_score": "37",
+      "live_fetch_blocked": "22",
+      "results_csv": "`/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/live_listing_benchmark_results.csv`"
+    },
+    "nonempty_resolved_units": 0,
+    "propertyfinder_unresolved_count": 25,
+    "examples": [
+      {
+        "source": "propertyfinder",
+        "url": "https://www.propertyfinder.ae/go/QET3ZXC09BEVH6F1EQPKQHSAH4/en.",
+        "area": "",
+        "building": "",
+        "bedrooms": "",
+        "size": "",
+        "price": "",
+        "confidence": "64",
+        "exact_unit_found": "NO",
+        "likely_match": "NO",
+        "unresolved": "YES",
+        "resolved_unit": "",
+        "top_status": "UNRESOLVED",
+        "top_record_id": "7f9f69f79ea5c7e8",
+        "fetch_status": "http_400",
+        "fetch_bridge": "no_snapshot_available",
+        "failure_reasons": "insufficient_similarity_score,no_public_fields_extracted,no_public_identifier_bridge,no_unit_in_local_match"
+      },
+      {
+        "source": "propertyfinder",
+        "url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-business-bay-damac-maison-prive-damac-maison-prive-a-79419142.html",
+        "area": "",
+        "building": "",
+        "bedrooms": "",
+        "size": "",
+        "price": "",
+        "confidence": "83",
+        "exact_unit_found": "NO",
+        "likely_match": "YES",
+        "unresolved": "NO",
+        "resolved_unit": "",
+        "top_status": "LIKELY_MATCH",
+        "top_record_id": "7f9f69f79ea5c7e8",
+        "fetch_status": "http_403",
+        "fetch_bridge": "no_snapshot_available",
+        "failure_reasons": "live_fetch_blocked,no_public_fields_extracted,no_public_identifier_bridge,no_unit_in_local_match"
+      },
+      {
+        "source": "propertyfinder",
+        "url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-dubai-studio-city-samana-golf-avenue-73864626.html",
+        "area": "",
+        "building": "",
+        "bedrooms": "",
+        "size": "",
+        "price": "",
+        "confidence": "64",
+        "exact_unit_found": "NO",
+        "likely_match": "NO",
+        "unresolved": "YES",
+        "resolved_unit": "",
+        "top_status": "UNRESOLVED",
+        "top_record_id": "7f9f69f79ea5c7e8",
+        "fetch_status": "http_403",
+        "fetch_bridge": "no_snapshot_available",
+        "failure_reasons": "insufficient_similarity_score,live_fetch_blocked,no_public_fields_extracted,no_public_identifier_bridge,no_unit_in_local_match"
+      },
+      {
+        "source": "propertyfinder",
+        "url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-hadaeq-sheikh-mohammed-bin-rashid-79392661.html",
+        "area": "",
+        "building": "",
+        "bedrooms": "",
+        "size": "",
+        "price": "",
+        "confidence": "64",
+        "exact_unit_found": "NO",
+        "likely_match": "NO",
+        "unresolved": "YES",
+        "resolved_unit": "",
+        "top_status": "UNRESOLVED",
+        "top_record_id": "7f9f69f79ea5c7e8",
+        "fetch_status": "http_403",
+        "fetch_bridge": "no_snapshot_available",
+        "failure_reasons": "insufficient_similarity_score,live_fetch_blocked,no_public_fields_extracted,no_public_identifier_bridge,no_unit_in_local_match"
+      },
+      {
+        "source": "propertyfinder",
+        "url": "https://propertyfinder.ae/go/FC8X62V5XNRD3Q4G09CTTC4BX8",
+        "area": "",
+        "building": "",
+        "bedrooms": "",
+        "size": "",
+        "price": "",
+        "confidence": "64",
+        "exact_unit_found": "NO",
+        "likely_match": "NO",
+        "unresolved": "YES",
+        "resolved_unit": "",
+        "top_status": "UNRESOLVED",
+        "top_record_id": "7f9f69f79ea5c7e8",
+        "fetch_status": "http_403",
+        "fetch_bridge": "no_snapshot_available",
+        "failure_reasons": "insufficient_similarity_score,live_fetch_blocked,no_public_fields_extracted,no_public_identifier_bridge,no_unit_in_local_match"
+      },
+      {
+        "source": "propertyfinder",
+        "url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-difc-sky-gardens-76131379.html",
+        "area": "",
+        "building": "",
+        "bedrooms": "",
+        "size": "",
+        "price": "",
+        "confidence": "64",
+        "exact_unit_found": "NO",
+        "likely_match": "NO",
+        "unresolved": "YES",
+        "resolved_unit": "",
+        "top_status": "UNRESOLVED",
+        "top_record_id": "7f9f69f79ea5c7e8",
+        "fetch_status": "http_403",
+        "fetch_bridge": "no_snapshot_available",
+        "failure_reasons": "insufficient_similarity_score,live_fetch_blocked,no_public_fields_extracted,no_public_identifier_bridge,no_unit_in_local_match"
+      },
+      {
+        "source": "propertyfinder",
+        "url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-arjan-samana-park-views-90924720.html",
+        "area": "",
+        "building": "",
+        "bedrooms": "",
+        "size": "",
+        "price": "",
+        "confidence": "64",
+        "exact_unit_found": "NO",
+        "likely_match": "NO",
+        "unresolved": "YES",
+        "resolved_unit": "",
+        "top_status": "UNRESOLVED",
+        "top_record_id": "7f9f69f79ea5c7e8",
+        "fetch_status": "http_403",
+        "fetch_bridge": "no_snapshot_available",
+        "failure_reasons": "insufficient_similarity_score,live_fetch_blocked,no_public_fields_extracted,no_public_identifier_bridge,no_unit_in_local_match"
+      },
+      {
+        "source": "propertyfinder",
+        "url": "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-arjan-avelon-boulevard-2Q6qKEu4nNA.html",
+        "area": "",
+        "building": "",
+        "bedrooms": "",
+        "size": "",
+        "price": "",
+        "confidence": "64",
+        "exact_unit_found": "NO",
+        "likely_match": "NO",
+        "unresolved": "YES",
+        "resolved_unit": "",
+        "top_status": "UNRESOLVED",
+        "top_record_id": "7f9f69f79ea5c7e8",
+        "fetch_status": "http_403",
+        "fetch_bridge": "no_snapshot_available",
+        "failure_reasons": "insufficient_similarity_score,live_fetch_blocked,no_public_fields_extracted,no_public_identifier_bridge,no_unit_in_local_match"
+      }
+    ],
+    "bridge_audit_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/bridge_source_audit.md",
+    "benchmark_report_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/live_listing_benchmark_report.md",
+    "benchmark_csv_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/live_listing_benchmark_results.csv"
+  },
+  "whatsapp_end_to_end_delivery": {
+    "status": "PASS",
+    "hold_for_approval_present_in_live_gateway": false,
+    "hold_for_omar_symbol_present_in_live_gateway": true,
+    "live_send_call_present": true,
+    "latest_successful_outbound_events": [
+      {
+        "ts": 1782223838573,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "60228544495821",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58021363,
+            "jid": "60228544495821@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "CLIENT",
+        "relationship_source": "stored_memory",
+        "tone_match": true
+      },
+      {
+        "ts": 1782223845976,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "60228544495821",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58021407,
+            "jid": "60228544495821@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "CLIENT",
+        "relationship_source": "stored_memory",
+        "tone_match": true
+      },
+      {
+        "ts": 1782223879599,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "140561998704667",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58021589,
+            "jid": "140561998704667@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "FRIEND",
+        "relationship_source": "stored_memory",
+        "tone_match": true
+      },
+      {
+        "ts": 1782223888120,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "140561998704667",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58021648,
+            "jid": "140561998704667@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "FRIEND",
+        "relationship_source": "stored_memory",
+        "tone_match": true
+      },
+      {
+        "ts": 1782223899442,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "60228544495821",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58021713,
+            "jid": "60228544495821@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "CLIENT",
+        "relationship_source": "stored_memory",
+        "tone_match": true
+      },
+      {
+        "ts": 1782223954533,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "140561998704667",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58022025,
+            "jid": "140561998704667@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "FRIEND",
+        "relationship_source": "stored_memory",
+        "tone_match": true
+      },
+      {
+        "ts": 1782223996716,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "140561998704667",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58022265,
+            "jid": "140561998704667@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "FRIEND",
+        "relationship_source": "stored_memory",
+        "tone_match": true
+      },
+      {
+        "ts": 1782224013667,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "140561998704667",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58022338,
+            "jid": "140561998704667@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "FRIEND",
+        "relationship_source": "stored_memory",
+        "tone_match": false
+      }
+    ],
+    "log_path": "/Users/hassanka/Downloads/AIOS/data/transport/simple_whatsapp_gateway.log.jsonl",
+    "gateway_path": "/Users/hassanka/Downloads/AIOS/transport/simple_whatsapp_openai_gateway.py"
+  },
+  "human_identity_feedback_live": {
+    "status": "PASS",
+    "feedback_source_events_live_count": 0,
+    "sender": "140561998704667",
+    "persisted_memory": {
+      "known_chat": false,
+      "known_contact_name": "",
+      "last_expected_next": "update_context_and_continue",
+      "last_message_excerpt": "No nothing",
+      "last_next_action": "acknowledge_correction",
+      "last_seen_ms": 1782224013655,
+      "last_social_context": "correction",
+      "last_unresolved_topic": "update_context_and_continue",
+      "latest_message_language": "english",
+      "preferred_detail_level": "very_short",
+      "preferred_language": "english",
+      "preferred_tone": "warm_familiar",
+      "relationship": "Friend",
+      "source": "stored",
+      "updated_at_ms": 1782224011508
+    },
+    "identity_events_tail": [
+      {
+        "ts": "2026-06-23T13:59:21.128698Z",
+        "event_type": "business",
+        "emotion": "neutral",
+        "outcome": "casual_greeting",
+        "impact": "general",
+        "future_relevance": "continue",
+        "quality_score": 0.55,
+        "source": "inferred_message",
+        "raw": "?",
+        "sender": "140561998704667"
+      },
+      {
+        "ts": "2026-06-23T14:11:10.511467Z",
+        "event_type": "social",
+        "emotion": "neutral",
+        "outcome": "follow_up",
+        "impact": "general",
+        "future_relevance": "continue",
+        "quality_score": 0.55,
+        "source": "inferred_message",
+        "raw": "Yes bro everytime your Ai send message Heya.",
+        "sender": "140561998704667"
+      },
+      {
+        "ts": "2026-06-23T14:11:16.221673Z",
+        "event_type": "business",
+        "emotion": "neutral",
+        "outcome": "joke",
+        "impact": "emoji_reaction",
+        "future_relevance": "continue",
+        "quality_score": 0.55,
+        "source": "inferred_message",
+        "raw": "😂",
+        "sender": "140561998704667"
+      },
+      {
+        "ts": "2026-06-23T14:12:25.155920Z",
+        "event_type": "business",
+        "emotion": "neutral",
+        "outcome": "follow_up",
+        "impact": "general",
+        "future_relevance": "continue",
+        "quality_score": 0.55,
+        "source": "inferred_message",
+        "raw": "No bro I’m worried because I got valuation report of my 2transaction",
+        "sender": "140561998704667"
+      },
+      {
+        "ts": "2026-06-23T14:13:06.681045Z",
+        "event_type": "business",
+        "emotion": "neutral",
+        "outcome": "follow_up",
+        "impact": "general",
+        "future_relevance": "continue",
+        "quality_score": 0.55,
+        "source": "inferred_message",
+        "raw": "One valuation is done on friday and one  valuation is done yesterday and I got report",
+        "sender": "140561998704667"
+      },
+      {
+        "ts": "2026-06-23T14:13:31.512570Z",
+        "event_type": "social",
+        "emotion": "neutral",
+        "outcome": "correction",
+        "impact": "correction",
+        "future_relevance": "continue",
+        "quality_score": 0.55,
+        "source": "inferred_message",
+        "raw": "No nothing",
+        "sender": "140561998704667"
+      }
+    ],
+    "gateway_log_tail": [
+      {
+        "ts": 1782223951262,
+        "event": "openai_reply",
+        "status": 200,
+        "sender": "140561998704667",
+        "reply": "Okay bro — what exactly worries you: low value, mismatch between reports, or bank/mortgage issue?",
+        "fallback": false,
+        "history_loaded": true,
+        "history": "user: brother share the guy number who done valuation on thursday\nassistant: Heya.\nuser: .\nassistant: Heya.\nuser: ?\nassistant: Heya.\nuser: ?\nassistant: Heya.\nuser: Yes bro everytime your Ai send message Heya.\nuser: 😂\nassistant: Haha no worries, Omar is here — just testing the AI a bit 😄\nassistant: Sorry bro — my bad. You still want the valuer’s number from Thursday, or do you want me to ask him to call you?\nuser: No bro I’m worried because I got valuation report of my 2transaction\nassistant: Heya.\nuser: ?\nassistant: Heya.\nuser: Yes bro everytime your Ai send message Heya.\nuser: 😂\nassistant: Haha no worries, Omar is here — just testing the AI a bit 😄\nassistant: Sorry bro — my bad. You still want the valuer’s number from Thursday, or do you want me to ask him to call you?\nuser: No bro I’m worried because I got valuation report of my 2transaction",
+        "personality_profile": "OMAR_PERSONALITY_PROFILE_V1",
+        "policy_decision": "allow",
+        "relationship": "FRIEND",
+        "retrieval_proof": {
+          "engine": "HYBRID_RETRIEVAL_INTELLIGENCE_V2",
+          "retrieval_intent": "property_lookup",
+          "route": "property_search",
+          "source_used": "Conversation History + Relationship Memory",
+          "query_used": "No bro I’m worried because I got valuation report of my 2transaction",
+          "required": false,
+          "executed": true,
+          "match_found": true,
+          "result_count": 1,
+          "matches": [
+            {
+              "type": "conversation_context",
+              "history_loaded": true
+            }
+          ],
+          "vector_matches": [],
+          "hybrid_confidence": 0.0,
+          "confidence": 0.62
+        },
+        "psych_profile": {
+          "urgency": "Medium",
+          "ego_style": "Relationship-Oriented",
+          "reasoning": "Heuristic fallback based on urgency and action intent words.",
+          "source": "psych_node"
+        }
+      },
+      {
+        "ts": 1782223954533,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "140561998704667",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58022025,
+            "jid": "140561998704667@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "FRIEND",
+        "relationship_source": "stored_memory",
+        "tone_match": true
+      },
+      {
+        "ts": 1782223986660,
+        "event": "inbound_received",
+        "parsed": {
+          "from_me": false,
+          "sender": "140561998704667",
+          "reply_target": "140561998704667@lid",
+          "sender_digits": "140561998704667",
+          "sender_quality": "digit",
+          "sender_candidates": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "140561998704667@lid",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "text": "One valuation is done on friday and one  valuation is done yesterday and I got report",
+          "message_id": "2AE04FEB854117518DD7",
+          "ignored": false,
+          "ignored_reason": "",
+          "raw_jid": "140561998704667@lid",
+          "is_na_sender": false
+        }
+      },
+      {
+        "ts": 1782223993477,
+        "event": "personality_context_built",
+        "sender": "140561998704667",
+        "intent": "general",
+        "relationship": "FRIEND",
+        "relationship_source": "stored",
+        "sender_type": "Friend",
+        "policy_decision": "allow",
+        "contact_known": false,
+        "personality_profile": "OMAR_PERSONALITY_PROFILE_V1",
+        "social_context": "business_or_general",
+        "business_next_action": "answer",
+        "expected_next": "direct_answer",
+        "retrieval_intent": "property_lookup",
+        "retrieval_source": "Conversation History + Relationship Memory",
+        "retrieval_query": "One valuation is done on friday and one  valuation is done yesterday and I got report",
+        "retrieval_match_found": true,
+        "retrieval_result_count": 1
+      },
+      {
+        "ts": 1782223993477,
+        "event": "openai_reply",
+        "status": 200,
+        "sender": "140561998704667",
+        "reply": "Got them — which worries you: low value or the two reports don’t match?",
+        "fallback": false,
+        "history_loaded": true,
+        "history": "user: brother share the guy number who done valuation on thursday\nassistant: Heya.\nuser: .\nassistant: Heya.\nuser: ?\nassistant: Heya.\nuser: ?\nassistant: Heya.\nuser: Yes bro everytime your Ai send message Heya.\nuser: 😂\nassistant: Haha no worries, Omar is here — just testing the AI a bit 😄\nassistant: Sorry bro — my bad. You still want the valuer’s number from Thursday, or do you want me to ask him to call you?\nuser: No bro I’m worried because I got valuation report of my 2transaction\nassistant: Okay bro — what exactly worries you: low value, mismatch between reports, or bank/mortgage issue?\nuser: One valuation is done on friday and one  valuation is done yesterday and I got report\nassistant: Heya.\nuser: Yes bro everytime your Ai send message Heya.\nuser: 😂\nassistant: Haha no worries, Omar is here — just testing the AI a bit 😄\nassistant: Sorry bro — my bad. You still want the valuer’s number from Thursday, or do you want me to ask him to call you?\nuser: No bro I’m worried because I got valuation report of my 2transaction\nassistant: Okay bro — what exactly worries you: low value, mismatch between reports, or bank/mortgage issue?\nuser: One valuation is done on friday and one  valuation is done yesterday and I got report",
+        "personality_profile": "OMAR_PERSONALITY_PROFILE_V1",
+        "policy_decision": "allow",
+        "relationship": "FRIEND",
+        "retrieval_proof": {
+          "engine": "HYBRID_RETRIEVAL_INTELLIGENCE_V2",
+          "retrieval_intent": "property_lookup",
+          "route": "property_search",
+          "source_used": "Conversation History + Relationship Memory",
+          "query_used": "One valuation is done on friday and one  valuation is done yesterday and I got report",
+          "required": false,
+          "executed": true,
+          "match_found": true,
+          "result_count": 1,
+          "matches": [
+            {
+              "type": "conversation_context",
+              "history_loaded": true
+            }
+          ],
+          "vector_matches": [],
+          "hybrid_confidence": 0.0,
+          "confidence": 0.62
+        },
+        "psych_profile": {
+          "urgency": "Medium",
+          "ego_style": "Relationship-Oriented",
+          "reasoning": "Heuristic fallback based on urgency and action intent words.",
+          "source": "psych_node"
+        }
+      },
+      {
+        "ts": 1782223996716,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "140561998704667",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58022265,
+            "jid": "140561998704667@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "FRIEND",
+        "relationship_source": "stored_memory",
+        "tone_match": true
+      },
+      {
+        "ts": 1782224011456,
+        "event": "inbound_received",
+        "parsed": {
+          "from_me": false,
+          "sender": "140561998704667",
+          "reply_target": "140561998704667@lid",
+          "sender_digits": "140561998704667",
+          "sender_quality": "digit",
+          "sender_candidates": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "140561998704667@lid",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "text": "No nothing",
+          "message_id": "2A102A5E0FBC0B676DE3",
+          "ignored": false,
+          "ignored_reason": "",
+          "raw_jid": "140561998704667@lid",
+          "is_na_sender": false
+        }
+      },
+      {
+        "ts": 1782224011513,
+        "event": "personality_context_built",
+        "sender": "140561998704667",
+        "intent": "correction",
+        "relationship": "FRIEND",
+        "relationship_source": "stored",
+        "sender_type": "Friend",
+        "policy_decision": "allow",
+        "contact_known": false,
+        "personality_profile": "OMAR_PERSONALITY_PROFILE_V1",
+        "social_context": "correction",
+        "business_next_action": "acknowledge_correction",
+        "expected_next": "update_context_and_continue",
+        "retrieval_intent": "property_lookup",
+        "retrieval_source": "Conversation History + Relationship Memory",
+        "retrieval_query": "No nothing",
+        "retrieval_match_found": true,
+        "retrieval_result_count": 1
+      },
+      {
+        "ts": 1782224011513,
+        "event": "openai_reply",
+        "status": 200,
+        "sender": "140561998704667",
+        "reply": "Got it, corrected.",
+        "fallback": false,
+        "history_loaded": true,
+        "history": "user: brother share the guy number who done valuation on thursday\nassistant: Heya.\nuser: .\nassistant: Heya.\nuser: ?\nassistant: Heya.\nuser: ?\nassistant: Heya.\nuser: Yes bro everytime your Ai send message Heya.\nuser: 😂\nassistant: Haha no worries, Omar is here — just testing the AI a bit 😄\nassistant: Sorry bro — my bad. You still want the valuer’s number from Thursday, or do you want me to ask him to call you?\nuser: No bro I’m worried because I got valuation report of my 2transaction\nassistant: Okay bro — what exactly worries you: low value, mismatch between reports, or bank/mortgage issue?\nuser: One valuation is done on friday and one  valuation is done yesterday and I got report\nassistant: Got them — which worries you: low value or the two reports don’t match?\nuser: No nothing\nuser: 😂\nassistant: Haha no worries, Omar is here — just testing the AI a bit 😄\nassistant: Sorry bro — my bad. You still want the valuer’s number from Thursday, or do you want me to ask him to call you?\nuser: No bro I’m worried because I got valuation report of my 2transaction\nassistant: Okay bro — what exactly worries you: low value, mismatch between reports, or bank/mortgage issue?\nuser: One valuation is done on friday and one  valuation is done yesterday and I got report\nassistant: Got them — which worries you: low value or the two reports don’t match?\nuser: No nothing",
+        "personality_profile": "OMAR_PERSONALITY_PROFILE_V1",
+        "policy_decision": "allow",
+        "relationship": "FRIEND",
+        "retrieval_proof": {
+          "engine": "HYBRID_RETRIEVAL_INTELLIGENCE_V2",
+          "retrieval_intent": "property_lookup",
+          "route": "property_search",
+          "source_used": "Conversation History + Relationship Memory",
+          "query_used": "No nothing",
+          "required": false,
+          "executed": true,
+          "match_found": true,
+          "result_count": 1,
+          "matches": [
+            {
+              "type": "conversation_context",
+              "history_loaded": true
+            }
+          ],
+          "vector_matches": [],
+          "hybrid_confidence": 0.0,
+          "confidence": 0.62
+        },
+        "psych_profile": {
+          "urgency": "Low",
+          "ego_style": "Relationship-Oriented",
+          "reasoning": "Heuristic fallback based on urgency and action intent words.",
+          "source": "psych_node"
+        }
+      },
+      {
+        "ts": 1782224013667,
+        "event": "whatsapp_outbound",
+        "status": 200,
+        "sender": "140561998704667",
+        "result": {
+          "success": true,
+          "data": {
+            "msgId": 58022338,
+            "jid": "140561998704667@lid",
+            "status": "in_progress"
+          }
+        },
+        "shielded": false,
+        "relationship_override": false,
+        "expected_relationship": "FRIEND",
+        "relationship_source": "stored_memory",
+        "tone_match": false
+      }
+    ],
+    "relationship_store_path": "/Users/hassanka/Downloads/AIOS/data/transport/whatsapp_relationship_store.json",
+    "identity_events_path": "/Users/hassanka/Downloads/AIOS/data/transport/human_identity_events.jsonl"
+  },
+  "outcome_learning": {
+    "live_status": "UNPROVEN",
+    "live_feedback_event_count": 0,
+    "controlled_status": "PASS",
+    "controlled_before_best_version_score": 0.5,
+    "controlled_feedback_result": {
+      "status": "stored",
+      "sender": "999000111222",
+      "quality": 0.7769999999999999,
+      "event_id": "d63f0418fd71e4da"
+    },
+    "controlled_after_best_version_score": 0.525,
+    "controlled_episodes_after": [
+      {
+        "ts": "2026-06-23T17:37:50.085419Z",
+        "event_type": "closing",
+        "emotion": "neutral",
+        "outcome": "property_inquiry",
+        "impact": "closing",
+        "future_relevance": "continue",
+        "quality_score": 0.7769999999999999,
+        "source": "feedback",
+        "raw": "Client confirmed booking for tomorrow."
+      }
+    ],
+    "runtime_promises": [
+      {
+        "promise_id": 1,
+        "whatsapp_id": "158115446145272",
+        "task_description": "Do this — short and firm: 1) Header: “48‑Hour Notice to Vacate / Demand for Handover” + date. 2) ID tenant, property address, tenancy contract/Ejari ref. 3) State breach (non‑cooperation/unpaid/refusal) and facts (dates/messages). 4) Demand: hand over keys + full payment within 48 hours (give exact deadline date/time). 5) Consequence: “Failure to comply will result in eviction case at RDC and enforcement.” 6) Sign (owner), send as WhatsApp + PDF, request signed receipt; keep screenshots and orig",
+        "source_message": "Do this — short and firm:\n\n1) Header: “48‑Hour Notice to Vacate / Demand for Handover” + date.  \n2) ID tenant, property address, tenancy contract/Ejari ref.  \n3) State breach (non‑cooperation/unpaid/refusal) and facts (dates/messages).  \n4) Demand: hand over keys + full payment within 48 hours (give exact deadline date/time).  \n5) Consequence: “Failure to comply will result in eviction case at RDC and enforcement.”  \n6) Sign (owner), send as WhatsApp + PDF, request signed receipt; keep screenshots and originals.\n\nWant me to draft the exact text now?",
+        "target_deadline_ts": 1782382767,
+        "status": "open",
+        "created_ts": 1782209967,
+        "updated_ts": 1782209967,
+        "last_action": ""
+      }
+    ],
+    "runtime_state_sessions": [
+      {
+        "whatsapp_id": "161688741507165",
+        "state": "DISCOVERY_RAPPORT",
+        "last_sender_text": "",
+        "last_urgency": "",
+        "last_ego_style": "",
+        "last_state_payload": "{}",
+        "updated_ts": 1782224590
+      },
+      {
+        "whatsapp_id": "140561998704667",
+        "state": "DISCOVERY_RAPPORT",
+        "last_sender_text": "No nothing",
+        "last_urgency": "Low",
+        "last_ego_style": "Relationship-Oriented",
+        "last_state_payload": "{}",
+        "updated_ts": 1782224013
+      },
+      {
+        "whatsapp_id": "60228544495821",
+        "state": "DISCOVERY_RAPPORT",
+        "last_sender_text": "Dear Seller, \r\nContract F has been registered.\r\nClick on below link to accept or reject request\r\nhttps://b2c.dubailand.gov.ae/UnifiedContracts.MobileServer_F/Signatory/token/1h7cb9P6q2j9nVsZmxEFmi5Cmbn2Tv26pCQAp9VmjWY%3d\r\n\r\nعزيزي البائع ،،\r\nلقد تم تسجيل عقد F \r\nاضغط على الرابط أدناه للموافقة أو رفض الطلب \r\nhttps://b2c.dubailand.gov.ae/UnifiedContracts.MobileServer_F/Signatory/token/1h7cb9P6q2j9nVsZmxEFmi5Cmbn2Tv26pCQAp9VmjWY%3d",
+        "last_urgency": "Medium",
+        "last_ego_style": "Relationship-Oriented",
+        "last_state_payload": "{}",
+        "updated_ts": 1782223899
+      },
+      {
+        "whatsapp_id": "82829065121912",
+        "state": "DISCOVERY_RAPPORT",
+        "last_sender_text": "No problem",
+        "last_urgency": "Medium",
+        "last_ego_style": "Relationship-Oriented",
+        "last_state_payload": "{}",
+        "updated_ts": 1782219659
+      },
+      {
+        "whatsapp_id": "214443623465087",
+        "state": "DISCOVERY_RAPPORT",
+        "last_sender_text": "Hi",
+        "last_urgency": "Low",
+        "last_ego_style": "Relationship-Oriented",
+        "last_state_payload": "{}",
+        "updated_ts": 1782218102
+      }
+    ],
+    "human_identity_engine_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/human_identity_engine.py"
+  }
+}

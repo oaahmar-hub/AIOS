@@ -1,0 +1,297 @@
+{
+  "generated_at": "2026-06-26T17:26:17.778968+00:00",
+  "case": {
+    "case_id": "need-a-2-bedroom-apartment-in-dubai-marina-under-2000000",
+    "client_name": "Confidential Client",
+    "client_request": "Need a 2 bedroom apartment in Dubai Marina under 2000000",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8350ffa5e2a8__087b9ca4-8909-4a11-87c5-d09e398312dd.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - Need a 2 bedroom apartment in Dubai Marina under 2000000",
+  "executive_pitch": "The strongest option today is Upgraded | Vacant | Huge Layout because it gives the best balance of location fit, operational readiness, and alignment with the residential move. The secondary play is Full Palm View | Fendi Layout | High ROI, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Upgraded | Vacant | Huge Layout as the strongest aligned option based on the current brief. Keep Full Palm View | Fendi Layout | High ROI as the alternative and 20% Below Market Price | Spacious 2BR | Skyview as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Upgraded | Vacant | Huge Layout",
+      "area": "The Torch, Dubai Marina, Dubai",
+      "building": "The Torch, Dubai Marina, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-the-torch-88749518.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-dubai-marina.html",
+        "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-the-torch-88749518.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "apartment",
+      "price_aed": 2100000,
+      "price_term": "sell",
+      "size_sqft": 1198,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "The Torch, Dubai Marina, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/QH7J30N1RPR6AMXP885DHB1WMW/409b9d6c-aafb-4373-8e17-f745d5455e43/668x452.jpg",
+      "bedrooms": "2",
+      "bathrooms": "2",
+      "reference": "1038401697168",
+      "suitability_score": 90.5,
+      "investment_score": 30.0,
+      "combined_score": 73.5,
+      "entry_psf_aed": 1752.92,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 90.5,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 1,753/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Torch%2C+Dubai+Marina%2C+Dubai",
+      "rank": 1
+    },
+    {
+      "title": "Full Palm View | Fendi Layout | High ROI",
+      "area": "Damac Heights, Dubai Marina, Dubai",
+      "building": "Damac Heights, Dubai Marina, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-damac-heights-107279115.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-dubai-marina.html",
+        "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-damac-heights-107279115.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "apartment",
+      "price_aed": 3050000,
+      "price_term": "sell",
+      "size_sqft": 1328,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Damac Heights, Dubai Marina, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/MRKGZDN4S8DHB16AQ4R4332R54/e8f2e2c2-d96e-48fe-b078-451375046fef/668x452.jpg?v=da0fb1b23f88436980d748aeeb336e60",
+      "bedrooms": "2",
+      "bathrooms": "3",
+      "reference": "MCC-S-74948",
+      "suitability_score": 90.2,
+      "investment_score": 30.0,
+      "combined_score": 73.4,
+      "entry_psf_aed": 2296.69,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 90.2,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 2,297/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Damac+Heights%2C+Dubai+Marina%2C+Dubai",
+      "rank": 2
+    },
+    {
+      "title": "20% Below Market Price | Spacious 2BR | Skyview",
+      "area": "Skyview Tower, Dubai Marina, Dubai",
+      "building": "Skyview Tower, Dubai Marina, Dubai",
+      "source_url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-skyview-tower-104695182.html",
+      "source_links": [
+        "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-dubai-marina.html",
+        "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-skyview-tower-104695182.html"
+      ],
+      "commercial_mode": "sale",
+      "property_type": "apartment",
+      "price_aed": 2399000,
+      "price_term": "sell",
+      "size_sqft": 1606,
+      "availability": "live_search_result",
+      "delivery_timeline": "Current public search result",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "medium",
+      "summary": "Live Property Finder search result extracted from page data.",
+      "pros": [
+        "Live public listing extracted from Property Finder search results."
+      ],
+      "cons": [
+        "Specific terms and fit should still be verified before client send."
+      ],
+      "map_query": "Skyview Tower, Dubai Marina, Dubai",
+      "hero_image_url": "https://static.shared.propertyfinder.ae/media/images/listing/XHTZ5058SW6Z5JCJG41X36J3BG/29ce085e-551e-455d-a64b-ed2702a21d5c/668x452.jpg?v=672ad6f3bd8eb133c5b0dfc1cbbcd01f",
+      "bedrooms": "2",
+      "bathrooms": "3",
+      "reference": "LZZ-R-AP8840",
+      "suitability_score": 87.4,
+      "investment_score": 30.0,
+      "combined_score": 71.4,
+      "entry_psf_aed": 1493.77,
+      "recommendation_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "recommendation_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "clinic_fit_score": 87.4,
+      "clinic_strengths": [
+        "exact Dubai Marina location",
+        "apartment format matches the request profile",
+        "size supports flexible layout planning"
+      ],
+      "clinic_risks": [
+        "handover delay pushes launch timeline"
+      ],
+      "investment_notes": [
+        "entry price around AED 1,494/sqft"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Skyview+Tower%2C+Dubai+Marina%2C+Dubai",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Shortlist should compare capital entry, delivery timeline, and future demand ramp-up.",
+    "Residential comparisons should weigh layout efficiency, building quality, and lifestyle access alongside entry price.",
+    "Property Finder area range currently shows 1.3M - 14.8M.",
+    "Property Finder average asking price is 1.2M, with change of 6.6%.",
+    "Average asking price per sqft is 2.6K, with change of 9.6%.",
+    "Reported rental yield signal is 6.1%."
+  ],
+  "compliance_gates": [
+    "Lease or purchase terms, building rules, and community restrictions must match the intended occupancy plan.",
+    "Service charges, parking allocation, and handover condition should be verified before commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 178 rows matching the area signal 'dubai marina'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "Property master database contains 1 raw rows linked to dubai marina."
+  ],
+  "internal_inventory_matches": [],
+  "internal_market_snapshot": {
+    "match_count": 0,
+    "priced_match_count": 0,
+    "median_price_aed": 0,
+    "min_price_aed": 0,
+    "max_price_aed": 0,
+    "top_projects": [],
+    "property_types": []
+  },
+  "next_steps": [
+    "Confirm live availability, rent or sale terms, and current landlord or seller expectations before client send.",
+    "Collect floor plan, exact built-up area, parking details, and building or community rules for the shortlisted options.",
+    "Verify service charges, maintenance condition, and move-in timeline before presenting the lead recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Property Finder - 2 bedroom Apartment search in Dubai Marina",
+      "url": "https://www.propertyfinder.ae/en/buy/dubai/2-bedroom-apartments-for-sale-dubai-marina.html",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "Need a 2 bedroom apartment in Dubai Marina under 2000000",
+    "source_mode": "voice",
+    "area": "dubai marina",
+    "use_case": "apartment",
+    "property_preference": "apartment",
+    "bedroom_preference": "2",
+    "intent": "buy",
+    "source_url": ""
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 178,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8350ffa5e2a8__087b9ca4-8909-4a11-87c5-d09e398312dd.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/aabc0378c5b4__90a1c059-529a-4230-afb7-4397935e0b4c.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/aabc0378c5b4__90a1c059-529a-4230-afb7-4397935e0b4c.jpg"
+      ]
+    },
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/Property_Master_Database.sqlite",
+      "matched_rows": 1
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "READY FOR AGENT REVIEW BEFORE CLIENT SEND",
+    "review_notes": [
+      "Residential shortlist still needs building-rule, condition, and move-in verification before client send."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-voice-marina-v2.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-voice-marina-v2.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-voice-marina-v2.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-voice-marina-v2.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T17:26:17.780774+00:00",
+    "request_profile": {
+      "raw_request": "Need a 2 bedroom apartment in Dubai Marina under 2000000",
+      "source_mode": "voice",
+      "area": "dubai marina",
+      "use_case": "apartment",
+      "property_preference": "apartment",
+      "bedroom_preference": "2",
+      "intent": "buy",
+      "source_url": ""
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": false,
+      "internal_evidence_rows": 2
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/realty-voice-marina-v2.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

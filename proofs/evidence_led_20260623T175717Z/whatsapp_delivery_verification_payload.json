@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-06-23T17:58:18.864429+00:00",
+  "server": {
+    "host": "127.0.0.1",
+    "port": 9110,
+    "data_dir": "/tmp/aios_evidence_led_runtime_data/20260623T175717Z"
+  },
+  "request": {
+    "sender": "971595001234",
+    "message_id": "aim-led-20260623T175717Z",
+    "text": "Need 1BR for rent in DAMAC Hills, tell me next step."
+  },
+  "response": {
+    "status": "PASS",
+    "http_status": 200,
+    "payload": {
+      "ok": true,
+      "reply": "Got it. I can shortlist a few options now and send them to you.",
+      "send": {
+        "success": true,
+        "data": {
+          "msgId": 60482197,
+          "jid": "@lid",
+          "status": "in_progress"
+        },
+        "text_preview": "Got it. I can shortlist a few options now and send them to you."
+      },
+      "relationship": "Existing Client",
+      "intent": "property_search",
+      "policy_decision": "allow",
+      "personality_profile": "OMAR_PERSONALITY_PROFILE_V1",
+      "data_shield": "ok"
+    }
+  },
+  "delivery_confirmation": {
+    "event_ts": null,
+    "status": null,
+    "sender": null,
+    "result": null
+  },
+  "error": null
+}

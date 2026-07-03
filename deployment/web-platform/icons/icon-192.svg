@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="42" fill="#090A0B"/>
+  <circle cx="96" cy="96" r="62" fill="none" stroke="#D8C28A" stroke-width="4"/>
+  <circle cx="96" cy="96" r="28" fill="none" stroke="#18E0A2" stroke-width="4"/>
+  <text x="96" y="106" fill="#F5F7FA" font-size="28" font-family="Arial, sans-serif" text-anchor="middle" font-weight="700">AIOS</text>
+</svg>

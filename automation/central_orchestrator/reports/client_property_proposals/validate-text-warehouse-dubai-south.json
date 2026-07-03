@@ -1,0 +1,468 @@
+{
+  "generated_at": "2026-06-26T19:07:53.000970+00:00",
+  "case": {
+    "case_id": "i-need-a-warehouse-in-dubai-south",
+    "client_name": "Confidential Client",
+    "client_request": "I need a warehouse in Dubai South",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - I need a warehouse in Dubai South",
+  "executive_pitch": "The strongest option today is Warehouses for Rent in Dubai South because it gives the best balance of location fit, operational readiness, and alignment with the warehouse operation. The secondary play is Warehouses for Rent in Logistics City, Dubai South, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Warehouses for Rent in Dubai South as the strongest aligned option based on the current brief. Keep Warehouses for Rent in Logistics City, Dubai South as the alternative and Commercial Properties for Rent in Dubai South as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Warehouses for Rent in Dubai South",
+      "area": "Dubai South",
+      "building": "Dubai South",
+      "source_url": "https://www.bayut.com/to-rent/warehouses/dubai/dubai-south/",
+      "source_links": [
+        "https://www.bayut.com/to-rent/warehouses/dubai/dubai-south/"
+      ],
+      "commercial_mode": "discovery",
+      "property_type": "warehouse",
+      "price_aed": 0,
+      "size_sqft": 0,
+      "availability": "public_source_route",
+      "delivery_timeline": "Live public source route",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "high",
+      "summary": "Public listing route identified, but structured listing extraction still needs browser-level or provider-level enrichment for exact property metrics.",
+      "pros": [
+        "Live public source route aligned to the request market.",
+        "Usable for manual review and next-pass listing extraction."
+      ],
+      "cons": [
+        "Exact unit-level metrics are not yet extracted from this source route.",
+        "Client-facing commitment still needs live listing-level confirmation."
+      ],
+      "map_query": "Dubai South",
+      "hero_image_url": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/9e5c25684c3f__cbb60342-25f7-4736-99ae-d8bc9c169a4b.jpg",
+      "suitability_score": 63.0,
+      "investment_score": 0.0,
+      "combined_score": 45.4,
+      "constraint_fit": {
+        "bedroom_match": null,
+        "within_budget": null,
+        "target_size_range_sqft": [
+          5000.0,
+          30000.0
+        ]
+      },
+      "entry_psf_aed": null,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "warehouse format matches the request profile",
+        "layout and positioning align well with the warehouse operation"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 63.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "warehouse format matches the request profile",
+        "layout and positioning align well with the warehouse operation"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [],
+      "why_this_property": [
+        "Direct match for the requested Dubai South location.",
+        "Exact Dubai South location.",
+        "Warehouse format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+South",
+      "rank": 1
+    },
+    {
+      "title": "Warehouses for Rent in Logistics City, Dubai South",
+      "area": "Dubai South",
+      "building": "Dubai South",
+      "source_url": "https://www.bayut.com/to-rent/warehouses/dubai/dubai-south/logistics-city/",
+      "source_links": [
+        "https://www.bayut.com/to-rent/warehouses/dubai/dubai-south/logistics-city/"
+      ],
+      "commercial_mode": "discovery",
+      "property_type": "warehouse",
+      "price_aed": 0,
+      "size_sqft": 0,
+      "availability": "public_source_route",
+      "delivery_timeline": "Live public source route",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "high",
+      "summary": "Public listing route identified, but structured listing extraction still needs browser-level or provider-level enrichment for exact property metrics.",
+      "pros": [
+        "Live public source route aligned to the request market.",
+        "Usable for manual review and next-pass listing extraction."
+      ],
+      "cons": [
+        "Exact unit-level metrics are not yet extracted from this source route.",
+        "Client-facing commitment still needs live listing-level confirmation."
+      ],
+      "map_query": "Dubai South",
+      "hero_image_url": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/c3ec4c4e7360__ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg",
+      "suitability_score": 63.0,
+      "investment_score": 0.0,
+      "combined_score": 45.4,
+      "constraint_fit": {
+        "bedroom_match": null,
+        "within_budget": null,
+        "target_size_range_sqft": [
+          5000.0,
+          30000.0
+        ]
+      },
+      "entry_psf_aed": null,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "warehouse format matches the request profile",
+        "layout and positioning align well with the warehouse operation"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 63.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "warehouse format matches the request profile",
+        "layout and positioning align well with the warehouse operation"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [],
+      "why_this_property": [
+        "Direct match for the requested Dubai South location.",
+        "Exact Dubai South location.",
+        "Warehouse format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+South",
+      "rank": 2
+    },
+    {
+      "title": "Commercial Properties for Rent in Dubai South",
+      "area": "Dubai South",
+      "building": "Dubai South",
+      "source_url": "https://www.bayut.com/to-rent/commercial/dubai/dubai-south/",
+      "source_links": [
+        "https://www.bayut.com/to-rent/commercial/dubai/dubai-south/"
+      ],
+      "commercial_mode": "discovery",
+      "property_type": "warehouse",
+      "price_aed": 0,
+      "size_sqft": 0,
+      "availability": "public_source_route",
+      "delivery_timeline": "Live public source route",
+      "launch_mode": "current",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "high",
+      "summary": "Public listing route identified, but structured listing extraction still needs browser-level or provider-level enrichment for exact property metrics.",
+      "pros": [
+        "Live public source route aligned to the request market.",
+        "Usable for manual review and next-pass listing extraction."
+      ],
+      "cons": [
+        "Exact unit-level metrics are not yet extracted from this source route.",
+        "Client-facing commitment still needs live listing-level confirmation."
+      ],
+      "map_query": "Dubai South",
+      "hero_image_url": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+      "suitability_score": 63.0,
+      "investment_score": 0.0,
+      "combined_score": 45.4,
+      "constraint_fit": {
+        "bedroom_match": null,
+        "within_budget": null,
+        "target_size_range_sqft": [
+          5000.0,
+          30000.0
+        ]
+      },
+      "entry_psf_aed": null,
+      "gross_yield_percent": null,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "warehouse format matches the request profile",
+        "layout and positioning align well with the warehouse operation"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 63.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "warehouse format matches the request profile",
+        "layout and positioning align well with the warehouse operation"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [],
+      "why_this_property": [
+        "Direct match for the requested Dubai South location.",
+        "Exact Dubai South location.",
+        "Warehouse format matches the request profile."
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+South",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Dubai South is being positioned around airport, free zone, logistics, and mixed-use residential growth.",
+    "Commercial comparisons should weigh use alignment, launch speed, and operational friction before brand polish."
+  ],
+  "compliance_gates": [
+    "Usage, fit-out, and authority approvals must match the target business activity before deal commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 29 rows matching the area signal 'dubai south'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "AIOS acquisition index recovered 29 internal source assets tied to dubai south.",
+    "Internal source mix: 29 jpg."
+  ],
+  "internal_inventory_matches": [
+    {
+      "project": "Damac",
+      "area": "Al Quoz; Damac Hills; Dubai Silicon Oasis; Dubai South; JVC; JVT; Jumeirah; Jumeirah Park; Nad Al Sheba; Palm Jumeirah; Umm Suqeim",
+      "developer": "Damac",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "UAE COMMERCIAL ONLY Rent - Sale",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/9e5c25684c3f__cbb60342-25f7-4736-99ae-d8bc9c169a4b.jpg",
+      "score": 65.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Zoya Development 🤝 HSH",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/c3ec4c4e7360__ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg",
+      "score": 65.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Professional Realtors ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "0b6d5056-6676-49bd-95d3-8aa95b9e9645.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Professional Realtors ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8152f8d531d5__0b6d5056-6676-49bd-95d3-8aa95b9e9645.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "0e85731d-fe51-4c70-aab0-90e3b4503a7e.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Dubai broker's 💪",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/b4396aa5dc38__50f20635-686d-452e-9ffb-37e946b273f5.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Emaar",
+      "area": "Emaar South",
+      "developer": "Emaar",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Dubai broker's 💪",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/5e63f289f20a__1ea53360-5334-4fdd-8377-f6e95b810bcb.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "23b3ce0c-8fce-4e8b-8748-194b21f93532.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "🔵Fliplux properties _ listing2️⃣",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/63d4a79b31f7__23b3ce0c-8fce-4e8b-8748-194b21f93532.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "3736732d-aea9-441c-86e3-719a99ab3d4f.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Dubai broker's 💪",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/825824589e43__3736732d-aea9-441c-86e3-719a99ab3d4f.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    }
+  ],
+  "internal_market_snapshot": {
+    "match_count": 29,
+    "asset_match_count": 8,
+    "file_type_counts": {
+      "jpg": 29
+    },
+    "top_projects": [
+      "Damac",
+      "Emaar"
+    ],
+    "source_groups": [
+      "UAE COMMERCIAL ONLY Rent - Sale",
+      "Zoya Development 🤝 HSH",
+      "Professional Realtors",
+      "Dubai broker's 💪"
+    ]
+  },
+  "next_steps": [
+    "Confirm exact live availability and current commercial terms before client send.",
+    "Collect floor plan, service-charge, fit-out, and authority-use information for the shortlisted options.",
+    "Run final approval and risk review before presenting the recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Bayut - Warehouses for Rent in Dubai South",
+      "url": "https://www.bayut.com/to-rent/warehouses/dubai/dubai-south/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Warehouses for Rent in Logistics City, Dubai South",
+      "url": "https://www.bayut.com/to-rent/warehouses/dubai/dubai-south/logistics-city/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Commercial Properties for Rent in Dubai South",
+      "url": "https://www.bayut.com/to-rent/commercial/dubai/dubai-south/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Dubai South - Office Space in Dubai South | Free Zone Offices & Business Park",
+      "url": "https://www.dubaisouth.ae/en/work/commercial-property/offices",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "I need a warehouse in Dubai South",
+    "source_mode": "text",
+    "area": "dubai south",
+    "use_case": "warehouse",
+    "property_preference": "warehouse",
+    "bedroom_preference": "",
+    "intent": "discovery",
+    "source_url": "",
+    "max_price_aed": 0.0
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 29,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8152f8d531d5__0b6d5056-6676-49bd-95d3-8aa95b9e9645.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/9a67a30158f8__45f01248-d6bd-4073-bfd8-929c2ac71298.jpg"
+      ]
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "CONDITIONAL: resolve review notes before client send",
+    "review_notes": [
+      "Lead option Warehouses for Rent in Dubai South still requires written use and approval confirmation.",
+      "Lead option Warehouses for Rent in Dubai South still needs live pricing confirmation.",
+      "One or more shortlisted options still lack full area or layout detail."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-warehouse-dubai-south.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-warehouse-dubai-south.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-warehouse-dubai-south.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/validate-text-warehouse-dubai-south.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T19:07:53.006389+00:00",
+    "request_profile": {
+      "raw_request": "I need a warehouse in Dubai South",
+      "source_mode": "text",
+      "area": "dubai south",
+      "use_case": "warehouse",
+      "property_preference": "warehouse",
+      "bedroom_preference": "",
+      "intent": "discovery",
+      "source_url": "",
+      "max_price_aed": 0.0
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": false,
+      "internal_evidence_rows": 1
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/validate-text-warehouse-dubai-south.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

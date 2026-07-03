@@ -1,0 +1,302 @@
+{
+  "validated_at": "2026-06-27T15:38:43.092131+00:00",
+  "base_url": "https://aios-runtime-production.up.railway.app",
+  "auth_mode": "none",
+  "passed": false,
+  "hosted_surface_ready": false,
+  "checks_passed": 10,
+  "checks_total": 18,
+  "checks": [
+    {
+      "name": "website",
+      "path": "AIOS-WEBSITE.html",
+      "passed": true,
+      "status": 200,
+      "bytes": 15486,
+      "elapsed_ms": 1255.26,
+      "url": "https://aios-runtime-production.up.railway.app/AIOS-WEBSITE.html",
+      "max_bytes": 180000
+    },
+    {
+      "name": "command_center",
+      "path": "AIOS-DASHBOARD.html?screen=eye",
+      "passed": false,
+      "status": 200,
+      "bytes": 3252,
+      "elapsed_ms": 2303.89,
+      "url": "https://aios-runtime-production.up.railway.app/AIOS-LOGIN.html"
+    },
+    {
+      "name": "mobile_pwa",
+      "path": "AIOS-MOBILE-APP.html",
+      "passed": false,
+      "status": 200,
+      "bytes": 3252,
+      "elapsed_ms": 2630.44,
+      "url": "https://aios-runtime-production.up.railway.app/AIOS-LOGIN.html"
+    },
+    {
+      "name": "pwa_manifest",
+      "path": "aios.webmanifest",
+      "passed": true,
+      "status": 200,
+      "bytes": 1330,
+      "elapsed_ms": 1126.18,
+      "url": "https://aios-runtime-production.up.railway.app/aios.webmanifest"
+    },
+    {
+      "name": "service_worker",
+      "path": "aios-service-worker.js",
+      "passed": true,
+      "status": 200,
+      "bytes": 1873,
+      "elapsed_ms": 1737.52,
+      "url": "https://aios-runtime-production.up.railway.app/aios-service-worker.js",
+      "expected_cache": "aios-presence-v86",
+      "cache_version_match": true,
+      "cache_control": "no-store",
+      "cache_control_no_store": true,
+      "protected_precache": false,
+      "protected_runtime_cache_excluded": true,
+      "eye_video_precache": false
+    },
+    {
+      "name": "offline_shell",
+      "path": "offline.html",
+      "passed": true,
+      "status": 200,
+      "bytes": 2721,
+      "elapsed_ms": 743.37,
+      "url": "https://aios-runtime-production.up.railway.app/offline.html"
+    },
+    {
+      "name": "website_gzip_delivery",
+      "path": "AIOS-WEBSITE.html",
+      "passed": true,
+      "status": 200,
+      "content_encoding": "gzip",
+      "wire_bytes": 3819,
+      "wire_bytes_budget": 35000,
+      "uncompressed_bytes": 15486,
+      "elapsed_ms": 1575.24
+    },
+    {
+      "name": "service_worker_gzip_delivery",
+      "path": "aios-service-worker.js",
+      "passed": true,
+      "status": 200,
+      "content_encoding": "gzip",
+      "wire_bytes": 688,
+      "wire_bytes_budget": 2000,
+      "uncompressed_bytes": 1873,
+      "elapsed_ms": 781.1
+    },
+    {
+      "name": "health",
+      "passed": true,
+      "status": 200,
+      "runtime_status": "ready",
+      "runtime_ready": true,
+      "runtime_ready_percent": 100,
+      "production_ready_percent": 0,
+      "health_endpoint": "/api/health",
+      "components_seen": [
+        "AIOS Live API Server",
+        "Health Monitor",
+        "Knowledge Runtime",
+        "Permission Runtime",
+        "Personality Runtime",
+        "Router"
+      ],
+      "missing_components": [],
+      "auto_start_checks": [
+        {
+          "name": "python_version",
+          "passed": true,
+          "detail": "3.12.13 · minimum 3.9"
+        },
+        {
+          "name": "reports_directory",
+          "passed": true,
+          "detail": "reports_dir_writable"
+        },
+        {
+          "name": "dashboard_file",
+          "passed": true,
+          "detail": "AIOS-DASHBOARD.html"
+        },
+        {
+          "name": "permission_runtime",
+          "passed": true,
+          "detail": "aios_interaction_architecture_runtime.apply_permission_layer"
+        },
+        {
+          "name": "router",
+          "passed": true,
+          "detail": "READ_ONLY_HEALTH"
+        },
+        {
+          "name": "personality_runtime",
+          "passed": true,
+          "detail": "warm_direct_short"
+        },
+        {
+          "name": "knowledge_runtime",
+          "passed": true,
+          "detail": "503 assets indexed"
+        }
+      ],
+      "blocked_items": [],
+      "elapsed_ms": 797.03
+    },
+    {
+      "name": "runtime_status",
+      "passed": true,
+      "status": 200,
+      "runtime_status": "ready",
+      "permission_endpoint": "/api/permission/evaluate",
+      "audit_endpoint": "/api/permission/audit",
+      "mac_dependency": false,
+      "elapsed_ms": 683.91
+    },
+    {
+      "name": "deployment_status",
+      "passed": true,
+      "status": 200,
+      "runtime_ready": true,
+      "runtime_ready_percent": 100,
+      "production_deployment": "pending",
+      "public_beta_ready": false,
+      "temporary_preview": true,
+      "hosted_backend": "validated",
+      "hosted_frontend": "validated",
+      "auth_status": "basic",
+      "domain": "pending",
+      "whatsapp_hosted_test": "pass",
+      "whatsapp_live_provider": "ready_for_provider",
+      "eye_motion": "pending_or_failed",
+      "eye_motion_checks": "not_validated",
+      "elapsed_ms": 673.91
+    },
+    {
+      "name": "launch_readiness",
+      "passed": true,
+      "status": 200,
+      "runtime_ready": true,
+      "runtime_ready_percent": 100,
+      "production_deployment": "pending",
+      "public_beta_ready": false,
+      "launch_status": "runtime_ready_pending_external_launch",
+      "blocker_count": 5,
+      "elapsed_ms": 859.66
+    },
+    {
+      "name": "command_center_data_api",
+      "passed": false,
+      "status": 401,
+      "search_records": 0,
+      "workflow_records": 0,
+      "api_route": null,
+      "content_encoding": null,
+      "wire_bytes": null,
+      "wire_bytes_budget": 250000,
+      "uncompressed_bytes": 0,
+      "uncompressed_bytes_budget": 2400000,
+      "compression_ratio": 0.0,
+      "elapsed_ms": 1327.28
+    },
+    {
+      "name": "permission_api_restricted_consistency",
+      "passed": false,
+      "same_result_everywhere": true,
+      "decisions": [
+        {
+          "channel": "whatsapp",
+          "status": 401,
+          "blocked": null,
+          "eye_state": null,
+          "source_of_truth": null,
+          "audit_logged": null,
+          "hits": [],
+          "elapsed_ms": 1291.58
+        },
+        {
+          "channel": "website",
+          "status": 401,
+          "blocked": null,
+          "eye_state": null,
+          "source_of_truth": null,
+          "audit_logged": null,
+          "hits": [],
+          "elapsed_ms": 2148.07
+        },
+        {
+          "channel": "mobile_app",
+          "status": 401,
+          "blocked": null,
+          "eye_state": null,
+          "source_of_truth": null,
+          "audit_logged": null,
+          "hits": [],
+          "elapsed_ms": 727.84
+        },
+        {
+          "channel": "future_voice",
+          "status": 401,
+          "blocked": null,
+          "eye_state": null,
+          "source_of_truth": null,
+          "audit_logged": null,
+          "hits": [],
+          "elapsed_ms": 1111.56
+        }
+      ]
+    },
+    {
+      "name": "permission_audit_trail",
+      "passed": false,
+      "status": 401,
+      "restricted_decision_count": null,
+      "elapsed_ms": 1115.36
+    },
+    {
+      "name": "whatsapp_hosted_ingress_test",
+      "passed": false,
+      "status": 401,
+      "message_received": null,
+      "eye_state": null,
+      "permission_source": null,
+      "provider_live_connection": null,
+      "external_side_effects": {},
+      "elapsed_ms": 908.33
+    },
+    {
+      "name": "whatsapp_webhook_verification",
+      "passed": false,
+      "status": 403,
+      "challenge_bytes": 126,
+      "verify_token_configured": false,
+      "elapsed_ms": 1002.9
+    },
+    {
+      "name": "whatsapp_provider_webhook_route",
+      "passed": false,
+      "status": 401,
+      "message_received": null,
+      "eye_state": null,
+      "permission_source": null,
+      "gateway_used": null,
+      "reply_delivery_enabled": null,
+      "provider_live_connection": null,
+      "external_side_effects": {},
+      "elapsed_ms": 981.42
+    }
+  ],
+  "production_beta_ready": false,
+  "production_beta_blockers": [
+    "Hosted backend/frontend validation did not pass.",
+    "Attach custom domain.",
+    "Production authentication checks did not pass.",
+    "Hosted WhatsApp ingress, verification, or provider webhook checks did not pass."
+  ]
+}

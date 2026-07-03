@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-06-23T17:59:01.887792+00:00",
+  "status": "PASS",
+  "request": {
+    "sender": "971595009876",
+    "message_id": "aim-led-identity-20260623T175859Z",
+    "text": "Need 1BR for rent in DAMAC Hills, tell me next step.",
+    "endpoint": "http://127.0.0.1:9400/webhook/whatsapp/simple"
+  },
+  "response_status_ok": true,
+  "response_payload": {
+    "ok": true,
+    "reply": "I can shortlist options now. Shall I send 3 matching units or schedule a call?",
+    "send": {
+      "success": true,
+      "data": {
+        "msgId": 39821233,
+        "jid": "971595009876@s.whatsapp.net",
+        "status": "in_progress"
+      },
+      "text_preview": "I can shortlist options now. Shall I send 3 matching units or schedule a call?"
+    },
+    "relationship": "Existing Client",
+    "intent": "property_search",
+    "policy_decision": "allow",
+    "personality_profile": "OMAR_PERSONALITY_PROFILE_V1",
+    "data_shield": "ok"
+  },
+  "request_start_utc": "2026-06-23T17:58:59.098870+00:00",
+  "delivery_confirmation": {
+    "exists": true,
+    "event_ts": 1782237541257,
+    "status": 200,
+    "result": {
+      "success": true,
+      "data": {
+        "msgId": 39821233,
+        "jid": "971595009876@s.whatsapp.net",
+        "status": "in_progress"
+      },
+      "text_preview": "I can shortlist options now. Shall I send 3 matching units or schedule a call?"
+    }
+  }
+}

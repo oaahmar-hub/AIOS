@@ -1,0 +1,178 @@
+{
+  "971506794299": {
+    "desktop_chat_name": "H M Hasaan Noc Palm",
+    "history_seed": "user: Nakheel Account Access\nassistant: On it now.\nuser: ضروري",
+    "jid_aliases": [
+      "14869344551137@lid"
+    ],
+    "known_chat": true,
+    "known_contact_name": "H M Hasaan Noc Palm",
+    "locked": true,
+    "notes": "Old NOC/Palm/Nakheel chat. Load previous subject before reply.",
+    "old_chat_subject_summary": "Nakheel/Palm portal or NOC case; portal/account access; urgent follow-up",
+    "relationship": "Existing Client",
+    "source": "manual_contact_alias",
+    "updated_at_ms": 1782292545424
+  },
+  "971599999989": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "last_expected_next": "shortlist_or_check_options",
+    "last_message_excerpt": "Need 1BR in JVC under 900k",
+    "last_next_action": "recommend",
+    "last_seen_ms": 1782343111680,
+    "last_social_context": "business_or_general",
+    "last_unresolved_topic": "shortlist_or_check_options",
+    "latest_message_language": "english",
+    "persisted_system_context": {
+      "identity_dna": {
+        "communication_style": {},
+        "investor_profile": {}
+      },
+      "persistence_meta": {
+        "identity_dna": {},
+        "weather": {}
+      },
+      "weather": {}
+    },
+    "preferred_detail_level": "short_with_next_step",
+    "preferred_language": "english",
+    "preferred_tone": "premium_reassuring",
+    "relationship": "New Client",
+    "source": "new_sender",
+    "updated_at_ms": 1782343101305
+  },
+  "971599999991": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "last_expected_next": "shortlist_or_check_options",
+    "last_message_excerpt": "Need 1BR in JVC under 900k",
+    "last_next_action": "recommend",
+    "last_seen_ms": 1782317575756,
+    "last_social_context": "business_or_general",
+    "last_unresolved_topic": "shortlist_or_check_options",
+    "latest_message_language": "english",
+    "persisted_system_context": {
+      "identity_dna": {
+        "communication_style": {},
+        "investor_profile": {}
+      },
+      "persistence_meta": {
+        "identity_dna": {},
+        "weather": {}
+      },
+      "weather": {}
+    },
+    "preferred_detail_level": "short_with_next_step",
+    "preferred_language": "english",
+    "preferred_tone": "premium_reassuring",
+    "relationship": "New Client",
+    "source": "new_sender",
+    "updated_at_ms": 1782317546526
+  },
+  "971599999992": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "last_expected_next": "shortlist_or_check_options",
+    "last_message_excerpt": "Need 1BR in JVC under 900k",
+    "last_next_action": "recommend",
+    "last_seen_ms": 1782317947169,
+    "last_social_context": "business_or_general",
+    "last_unresolved_topic": "shortlist_or_check_options",
+    "latest_message_language": "english",
+    "persisted_system_context": {
+      "identity_dna": {
+        "communication_style": {},
+        "investor_profile": {}
+      },
+      "persistence_meta": {
+        "identity_dna": {},
+        "weather": {}
+      },
+      "weather": {}
+    },
+    "preferred_detail_level": "short_with_next_step",
+    "preferred_language": "english",
+    "preferred_tone": "premium_reassuring",
+    "relationship": "New Client",
+    "source": "new_sender",
+    "updated_at_ms": 1782317935590
+  },
+  "971599999993": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "last_expected_next": "shortlist_or_check_options",
+    "last_message_excerpt": "Need 1BR in JVC under 900k",
+    "last_next_action": "recommend",
+    "last_seen_ms": 1782319551483,
+    "last_social_context": "business_or_general",
+    "last_unresolved_topic": "shortlist_or_check_options",
+    "latest_message_language": "english",
+    "persisted_system_context": {
+      "identity_dna": {
+        "communication_style": {},
+        "investor_profile": {}
+      },
+      "persistence_meta": {
+        "identity_dna": {},
+        "weather": {}
+      },
+      "weather": {}
+    },
+    "preferred_detail_level": "short_with_next_step",
+    "preferred_language": "english",
+    "preferred_tone": "premium_reassuring",
+    "relationship": "New Client",
+    "source": "new_sender",
+    "updated_at_ms": 1782319538803
+  },
+  "971599999994": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "last_expected_next": "shortlist_or_check_options",
+    "last_message_excerpt": "Need 1BR in JVC under 900k",
+    "last_next_action": "recommend",
+    "last_seen_ms": 1782320040460,
+    "last_social_context": "business_or_general",
+    "last_unresolved_topic": "shortlist_or_check_options",
+    "latest_message_language": "english",
+    "persisted_system_context": {
+      "identity_dna": {
+        "communication_style": {},
+        "investor_profile": {}
+      },
+      "persistence_meta": {
+        "identity_dna": {},
+        "weather": {}
+      },
+      "weather": {}
+    },
+    "preferred_detail_level": "short_with_next_step",
+    "preferred_language": "english",
+    "preferred_tone": "premium_reassuring",
+    "relationship": "New Client",
+    "source": "new_sender",
+    "updated_at_ms": 1782320019528
+  },
+  "knowledge-first-test-doc": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "relationship": "New Client",
+    "source": "new_sender",
+    "updated_at_ms": 1782292544180
+  },
+  "knowledge-first-test-roi": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "relationship": "New Client",
+    "source": "new_sender",
+    "updated_at_ms": 1782292544169
+  },
+  "knowledge-first-test-unit": {
+    "known_chat": false,
+    "known_contact_name": "",
+    "relationship": "New Client",
+    "source": "new_sender",
+    "updated_at_ms": 1782292541960
+  }
+}

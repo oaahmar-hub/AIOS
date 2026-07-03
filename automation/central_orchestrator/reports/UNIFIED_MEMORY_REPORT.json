@@ -1,0 +1,391 @@
+{
+  "generated_at": "2026-07-03T11:11:15.097754+00:00",
+  "context_version": "2.0",
+  "mode": "safe_local_unified_memory_no_external_side_effects",
+  "memory_packet_count": 7,
+  "memory_types": [
+    "content",
+    "conversation",
+    "crm",
+    "executive",
+    "knowledge",
+    "operations",
+    "property"
+  ],
+  "context_packets": [
+    {
+      "packet_id": "MEM-EXEC-OMAR",
+      "subject": "Omar Executive Operating Context",
+      "memory_type": "executive",
+      "priority": "P1",
+      "summary": "0 CEO priorities, 0 pending approvals, 0 projected weekly hours saved.",
+      "evidence": [
+        "CEO_OPERATING_REPORT.json",
+        "IMPACT_METRICS_REPORT.json",
+        "APPROVAL_STATE.json"
+      ],
+      "retrieval_commands": [
+        "@ceo",
+        "@impact",
+        "@approve-local"
+      ],
+      "writeback_contracts": [
+        "airtable_task",
+        "notion_page",
+        "dashboard_log"
+      ],
+      "writeback_enabled": false
+    },
+    {
+      "packet_id": "MEM-CRM-HOT-LEADS",
+      "subject": "CRM Follow-Up Context",
+      "memory_type": "crm",
+      "priority": "P1",
+      "summary": "0 hot leads, 0 open tasks, 0 stale-risk cases.",
+      "evidence": [
+        "CRM_FOLLOWUP_REPORT.json",
+        "MOBILE_COMMAND_REPORT.json"
+      ],
+      "retrieval_commands": [
+        "@crm-followup",
+        "@mobile-command"
+      ],
+      "writeback_contracts": [
+        "airtable_lead_update",
+        "gmail_draft",
+        "whatsapp_draft"
+      ],
+      "writeback_enabled": false
+    },
+    {
+      "packet_id": "MEM-PROPERTY-RECOMMENDATION",
+      "subject": "Property Recommendation Context",
+      "memory_type": "property",
+      "priority": "P2",
+      "summary": "0 matched options and 0 market contexts loaded.",
+      "evidence": [
+        "PROPERTY_INTELLIGENCE_REPORT.json",
+        "KNOWLEDGE_VAULT_REPORT.json"
+      ],
+      "retrieval_commands": [
+        "@property-intel",
+        "@knowledge-vault"
+      ],
+      "writeback_contracts": [
+        "airtable_opportunity",
+        "whatsapp_draft",
+        "drive_draft"
+      ],
+      "writeback_enabled": false
+    },
+    {
+      "packet_id": "MEM-OPERATIONS-COMPLIANCE",
+      "subject": "Operations and Compliance Context",
+      "memory_type": "operations",
+      "priority": "P1",
+      "summary": "0 operations cases, AED 0 validation cash-to-close model.",
+      "evidence": [
+        "OPERATIONS_ASSISTANT_REPORT.json",
+        "KNOWLEDGE_VAULT_REPORT.json"
+      ],
+      "retrieval_commands": [
+        "@operations",
+        "@dld",
+        "@noc",
+        "@knowledge-vault"
+      ],
+      "writeback_contracts": [
+        "notion_case_note",
+        "drive_draft",
+        "airtable_task"
+      ],
+      "writeback_enabled": false
+    },
+    {
+      "packet_id": "MEM-CONTENT-CAMPAIGN",
+      "subject": "Content Factory Context",
+      "memory_type": "content",
+      "priority": "P2",
+      "summary": "0 draft artifacts and 0 compliance checks staged.",
+      "evidence": [
+        "CONTENT_FACTORY_REPORT.json",
+        "IMPACT_METRICS_REPORT.json"
+      ],
+      "retrieval_commands": [
+        "@content-factory",
+        "@impact"
+      ],
+      "writeback_contracts": [
+        "drive_draft",
+        "instagram_draft",
+        "airtable_content_task"
+      ],
+      "writeback_enabled": false
+    },
+    {
+      "packet_id": "MEM-KNOWLEDGE-VAULT",
+      "subject": "Knowledge Retrieval Context",
+      "memory_type": "knowledge",
+      "priority": "P2",
+      "summary": "3723 assets across 13 categories with 7 validation queries.",
+      "evidence": [
+        "KNOWLEDGE_VAULT_REPORT.json",
+        "COMMAND_CENTER_DATA.json"
+      ],
+      "retrieval_commands": [
+        "@knowledge-vault",
+        "@ask"
+      ],
+      "writeback_contracts": [
+        "notion_page",
+        "vector_index_future",
+        "drive_sync_future"
+      ],
+      "writeback_enabled": false
+    },
+    {
+      "packet_id": "MEM-WHATSAPP-CONTEXT",
+      "subject": "WhatsApp Conversation Context",
+      "memory_type": "conversation",
+      "priority": "P1",
+      "summary": "0 conversations, 0 messages, 0 reply decisions available read-only.",
+      "evidence": [
+        "conversation_state.sqlite",
+        "MOBILE_COMMAND_REPORT.json"
+      ],
+      "retrieval_commands": [
+        "@whatsapp",
+        "@mobile-command",
+        "@crm-followup"
+      ],
+      "writeback_contracts": [
+        "whatsapp_draft",
+        "airtable_contact_update",
+        "conversation_state_future"
+      ],
+      "writeback_enabled": false
+    }
+  ],
+  "retrieval_map": [
+    {
+      "command": "@ceo",
+      "packet_id": "MEM-EXEC-OMAR",
+      "subject": "Omar Executive Operating Context",
+      "memory_type": "executive",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@impact",
+      "packet_id": "MEM-EXEC-OMAR",
+      "subject": "Omar Executive Operating Context",
+      "memory_type": "executive",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@approve-local",
+      "packet_id": "MEM-EXEC-OMAR",
+      "subject": "Omar Executive Operating Context",
+      "memory_type": "executive",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@crm-followup",
+      "packet_id": "MEM-CRM-HOT-LEADS",
+      "subject": "CRM Follow-Up Context",
+      "memory_type": "crm",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@mobile-command",
+      "packet_id": "MEM-CRM-HOT-LEADS",
+      "subject": "CRM Follow-Up Context",
+      "memory_type": "crm",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@property-intel",
+      "packet_id": "MEM-PROPERTY-RECOMMENDATION",
+      "subject": "Property Recommendation Context",
+      "memory_type": "property",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@knowledge-vault",
+      "packet_id": "MEM-PROPERTY-RECOMMENDATION",
+      "subject": "Property Recommendation Context",
+      "memory_type": "property",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@operations",
+      "packet_id": "MEM-OPERATIONS-COMPLIANCE",
+      "subject": "Operations and Compliance Context",
+      "memory_type": "operations",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@dld",
+      "packet_id": "MEM-OPERATIONS-COMPLIANCE",
+      "subject": "Operations and Compliance Context",
+      "memory_type": "operations",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@noc",
+      "packet_id": "MEM-OPERATIONS-COMPLIANCE",
+      "subject": "Operations and Compliance Context",
+      "memory_type": "operations",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@knowledge-vault",
+      "packet_id": "MEM-OPERATIONS-COMPLIANCE",
+      "subject": "Operations and Compliance Context",
+      "memory_type": "operations",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@content-factory",
+      "packet_id": "MEM-CONTENT-CAMPAIGN",
+      "subject": "Content Factory Context",
+      "memory_type": "content",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@impact",
+      "packet_id": "MEM-CONTENT-CAMPAIGN",
+      "subject": "Content Factory Context",
+      "memory_type": "content",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@knowledge-vault",
+      "packet_id": "MEM-KNOWLEDGE-VAULT",
+      "subject": "Knowledge Retrieval Context",
+      "memory_type": "knowledge",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@ask",
+      "packet_id": "MEM-KNOWLEDGE-VAULT",
+      "subject": "Knowledge Retrieval Context",
+      "memory_type": "knowledge",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@whatsapp",
+      "packet_id": "MEM-WHATSAPP-CONTEXT",
+      "subject": "WhatsApp Conversation Context",
+      "memory_type": "conversation",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@mobile-command",
+      "packet_id": "MEM-WHATSAPP-CONTEXT",
+      "subject": "WhatsApp Conversation Context",
+      "memory_type": "conversation",
+      "writeback_enabled": false
+    },
+    {
+      "command": "@crm-followup",
+      "packet_id": "MEM-WHATSAPP-CONTEXT",
+      "subject": "WhatsApp Conversation Context",
+      "memory_type": "conversation",
+      "writeback_enabled": false
+    }
+  ],
+  "conversation_state": {
+    "db_path": "automation/whatsapp_provider_gateway/state/conversation_state.sqlite",
+    "db_exists": false,
+    "conversation_count": 0,
+    "message_count": 0,
+    "reply_decision_count": 0,
+    "recent_conversations": [],
+    "recent_messages": [],
+    "recent_reply_decisions": [],
+    "read_only": true
+  },
+  "focus_view": {
+    "contact_phone": null,
+    "matched_packets": [
+      "MEM-EXEC-OMAR",
+      "MEM-CRM-HOT-LEADS",
+      "MEM-PROPERTY-RECOMMENDATION",
+      "MEM-OPERATIONS-COMPLIANCE",
+      "MEM-CONTENT-CAMPAIGN",
+      "MEM-KNOWLEDGE-VAULT",
+      "MEM-WHATSAPP-CONTEXT"
+    ],
+    "conversation_state": {
+      "db_path": "automation/whatsapp_provider_gateway/state/conversation_state.sqlite",
+      "db_exists": false,
+      "conversation_count": 0,
+      "message_count": 0,
+      "reply_decision_count": 0,
+      "recent_conversations": [],
+      "recent_messages": [],
+      "recent_reply_decisions": [],
+      "read_only": true
+    },
+    "context_object": {
+      "status": "not_available",
+      "history_summary": "No contact selected for context object.",
+      "required_fields": [
+        "relationship",
+        "dna",
+        "weather",
+        "history_summary",
+        "confidence",
+        "source",
+        "decay_metadata"
+      ]
+    }
+  },
+  "context_object": {
+    "status": "not_available",
+    "history_summary": "No contact selected for context object.",
+    "required_fields": [
+      "relationship",
+      "dna",
+      "weather",
+      "history_summary",
+      "confidence",
+      "source",
+      "decay_metadata"
+    ]
+  },
+  "source_reports": {
+    "command_center": "COMMAND_CENTER_DATA.json",
+    "property_intelligence": "PROPERTY_INTELLIGENCE_REPORT.json",
+    "operations_assistant": "OPERATIONS_ASSISTANT_REPORT.json",
+    "crm_followup": "CRM_FOLLOWUP_REPORT.json",
+    "knowledge_vault": "KNOWLEDGE_VAULT_REPORT.json",
+    "content_factory": "CONTENT_FACTORY_REPORT.json",
+    "mobile_command": "MOBILE_COMMAND_REPORT.json",
+    "ceo_operating": "CEO_OPERATING_REPORT.json",
+    "impact_metrics": "IMPACT_METRICS_REPORT.json",
+    "approval_state": "APPROVAL_STATE.json",
+    "action_queue": "ACTION_QUEUE.json"
+  },
+  "recommended_next_actions": [
+    "Use memory packets before drafting client replies, property recommendations, NOC answers, or campaign copy.",
+    "Promote writeback contracts to live Airtable/Notion/Drive/vector sync only after connector credentials and explicit approval.",
+    "Keep WhatsApp conversation state read-only until the live provider path is approved."
+  ],
+  "external_side_effects": {
+    "messages_sent": false,
+    "whatsapp_messages_sent": false,
+    "gmail_drafts_created": false,
+    "gmail_messages_sent": false,
+    "calendar_events_created": false,
+    "drive_files_created": false,
+    "drive_files_modified": false,
+    "airtable_rows_written": false,
+    "crm_rows_written": false,
+    "notion_pages_created": false,
+    "vector_db_written": false,
+    "documents_uploaded": false,
+    "external_search_called": false,
+    "conversation_state_written": false
+  }
+}

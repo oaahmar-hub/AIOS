@@ -1,0 +1,9 @@
+check,status,evidence
+plot_pj_p_vp_018_present,PASS,local indexed evidence
+return_rejection_present,PASS,local indexed evidence
+swimming_pool_present,PASS,local indexed evidence
+undertaking_present,PASS,local indexed evidence
+title_deed_present,PASS,local indexed evidence
+new_pages_present,PASS,local indexed evidence
+portal_upload_map_present,PASS,local indexed evidence
+required_checklist_present,PASS,local indexed evidence

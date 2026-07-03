@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-06-25T13:08:05.968310+00:00",
+  "product": "AIOS Runtime",
+  "status": "ready",
+  "start_command": "python3 -m aios_runtime_production_up --host 0.0.0.0 --port ${PORT:-8888}",
+  "health_endpoint": "/api/health",
+  "runtime_status_endpoint": "/api/runtime/status",
+  "deployment_status_endpoint": "/api/deployment/status",
+  "permission_endpoint": "/api/permission/evaluate",
+  "audit_endpoint": "/api/permission/audit",
+  "whatsapp_webhook_endpoint": "/webhook/whatsapp/provider/gateway",
+  "whatsapp_webhook_verification": "AIOS_WHATSAPP_VERIFY_TOKEN",
+  "host": "0.0.0.0",
+  "port": 8899,
+  "mac_dependency": false,
+  "mac_dependency_reason": "No macOS-only runtime dependency; uses Python standard library and local files.",
+  "runtime_ready_percent": 100,
+  "runtime_ready": true,
+  "production_deployment": "pending",
+  "public_beta_ready": false,
+  "production_ready_percent": 0,
+  "production_status": "deployment_pending",
+  "production_blockers": [],
+  "components": [
+    {
+      "name": "AIOS Live API Server",
+      "kind": "api",
+      "status": "ready",
+      "capability": "single HTTP surface for AIOS runtime endpoints",
+      "file": "automation/central_orchestrator/runtime/aios_live_api_server.py",
+      "file_exists": true,
+      "import": "import_ok"
+    },
+    {
+      "name": "Router",
+      "kind": "router",
+      "status": "ready",
+      "capability": "channel detection and safe route contract",
+      "file": "automation/central_orchestrator/runtime/gd_core_orchestrator.py",
+      "file_exists": true,
+      "import": "import_ok"
+    },
+    {
+      "name": "Permission Runtime",
+      "kind": "permission",
+      "status": "ready",
+      "capability": "central permission decisions and Eye state",
+      "file": "automation/central_orchestrator/runtime/aios_interaction_architecture_runtime.py",
+      "file_exists": true,
+      "import": "import_ok"
+    },
+    {
+      "name": "Personality Runtime",
+      "kind": "personality",
+      "status": "ready",
+      "capability": "Omar-style response behavior",
+      "file": "automation/central_orchestrator/runtime/aios_interaction_architecture_runtime.py",
+      "file_exists": true,
+      "import": "import_ok"
+    },
+    {
+      "name": "Knowledge Runtime",
+      "kind": "knowledge",
+      "status": "ready",
+      "capability": "local knowledge asset indexing and retrieval routes",
+      "file": "automation/central_orchestrator/runtime/knowledge_vault_runtime.py",
+      "file_exists": true,
+      "import": "import_ok"
+    },
+    {
+      "name": "Health Monitor",
+      "kind": "health",
+      "status": "ready",
+      "capability": "command-center health and runtime status data",
+      "file": "automation/central_orchestrator/runtime/build_command_center_data.py",
+      "file_exists": true,
+      "import": "import_ok"
+    }
+  ],
+  "auto_start_checks": [
+    {
+      "name": "python_version",
+      "passed": true,
+      "detail": "3.9.6 · minimum 3.9"
+    },
+    {
+      "name": "reports_directory",
+      "passed": true,
+      "detail": "reports_dir_writable"
+    },
+    {
+      "name": "dashboard_file",
+      "passed": true,
+      "detail": "AIOS-DASHBOARD.html"
+    },
+    {
+      "name": "permission_runtime",
+      "passed": true,
+      "detail": "aios_interaction_architecture_runtime.apply_permission_layer"
+    },
+    {
+      "name": "router",
+      "passed": true,
+      "detail": "READ_ONLY_HEALTH"
+    },
+    {
+      "name": "personality_runtime",
+      "passed": true,
+      "detail": "warm_direct_short"
+    },
+    {
+      "name": "knowledge_runtime",
+      "passed": true,
+      "detail": "3723 assets indexed"
+    }
+  ],
+  "blocked_items": []
+}

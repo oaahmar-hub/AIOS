@@ -1,0 +1,236 @@
+{
+  "passed": 14,
+  "total": 14,
+  "score_percent": 100.0,
+  "results": [
+    {
+      "test": "language_english",
+      "pass": true,
+      "detail": {
+        "text": "Hello",
+        "language": "english",
+        "reply": "Hello."
+      }
+    },
+    {
+      "test": "language_arabic",
+      "pass": true,
+      "detail": {
+        "text": "السلام عليكم",
+        "language": "arabic",
+        "reply": "وعليكم السلام، أهلاً."
+      }
+    },
+    {
+      "test": "language_german",
+      "pass": true,
+      "detail": {
+        "text": "Guten Morgen",
+        "language": "german",
+        "reply": "Guten Morgen."
+      }
+    },
+    {
+      "test": "language_russian",
+      "pass": true,
+      "detail": {
+        "text": "Доброе утро",
+        "language": "russian",
+        "reply": "Доброе утро."
+      }
+    },
+    {
+      "test": "conversation_continuity",
+      "pass": true,
+      "detail": {
+        "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+        "next_action": "escalate_or_collect_offer",
+        "expected_next": "do_not_commit_price",
+        "ask_allowed": true,
+        "stop_qualifying": false,
+        "escalation": "omar_review",
+        "signals": {
+          "conversation_objective": "negotiation",
+          "has_area": false,
+          "has_property_type": false,
+          "has_budget": false,
+          "has_process_word": false,
+          "has_developer": false,
+          "prior_property_context": true,
+          "active_history": true
+        },
+        "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+      }
+    },
+    {
+      "test": "follow_up_behavior",
+      "pass": true,
+      "detail": {
+        "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+        "next_action": "safe_answer_or_escalate",
+        "expected_next": "safe_boundary_plus_next_step",
+        "ask_allowed": true,
+        "stop_qualifying": false,
+        "escalation": "omar_review_if_private_or_commitment",
+        "signals": {
+          "conversation_objective": "document_request",
+          "has_area": false,
+          "has_property_type": false,
+          "has_budget": false,
+          "has_process_word": false,
+          "has_developer": false,
+          "prior_property_context": false,
+          "active_history": true
+        },
+        "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+      }
+    },
+    {
+      "test": "over_qualification",
+      "pass": true,
+      "detail": {
+        "judgment": {
+          "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+          "next_action": "recommend",
+          "expected_next": "shortlist_or_check_options",
+          "ask_allowed": false,
+          "stop_qualifying": true,
+          "escalation": "none",
+          "signals": {
+            "conversation_objective": "property_inquiry",
+            "has_area": true,
+            "has_property_type": true,
+            "has_budget": true,
+            "has_process_word": false,
+            "has_developer": false,
+            "prior_property_context": false,
+            "active_history": false
+          },
+          "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+        },
+        "reply": "Got it — I’ll check the best options and send you the shortlist."
+      }
+    },
+    {
+      "test": "social_correction",
+      "pass": true,
+      "detail": {
+        "category": "correction",
+        "emoji": [],
+        "emoji_meaning": "none",
+        "is_correction": true,
+        "is_joke": false,
+        "is_sarcasm": false,
+        "is_teasing_or_banter": false,
+        "is_misunderstanding": false,
+        "is_identity_intro": true,
+        "is_frustration": false,
+        "is_urgency": false,
+        "response_hint": "Acknowledge correction and continue from corrected context. Do not treat as property inquiry.",
+        "history_relevant": true
+      }
+    },
+    {
+      "test": "social_emoji_reaction",
+      "pass": true,
+      "detail": {
+        "category": "emoji_reaction",
+        "emoji": [
+          "😂"
+        ],
+        "emoji_meaning": "laughing_or_light_embarrassment",
+        "is_correction": false,
+        "is_joke": true,
+        "is_sarcasm": false,
+        "is_teasing_or_banter": false,
+        "is_misunderstanding": false,
+        "is_identity_intro": false,
+        "is_frustration": false,
+        "is_urgency": false,
+        "response_hint": "Treat as emotional signal/acknowledgement. Reply lightly or continue only if needed.",
+        "history_relevant": true
+      }
+    },
+    {
+      "test": "social_banter",
+      "pass": true,
+      "detail": {
+        "category": "banter",
+        "emoji": [],
+        "emoji_meaning": "none",
+        "is_correction": false,
+        "is_joke": false,
+        "is_sarcasm": false,
+        "is_teasing_or_banter": true,
+        "is_misunderstanding": false,
+        "is_identity_intro": false,
+        "is_frustration": false,
+        "is_urgency": false,
+        "response_hint": "Respond naturally and briefly; playful if relationship allows.",
+        "history_relevant": true
+      }
+    },
+    {
+      "test": "social_frustration",
+      "pass": true,
+      "detail": {
+        "category": "frustration",
+        "emoji": [],
+        "emoji_meaning": "none",
+        "is_correction": false,
+        "is_joke": false,
+        "is_sarcasm": false,
+        "is_teasing_or_banter": false,
+        "is_misunderstanding": false,
+        "is_identity_intro": false,
+        "is_frustration": true,
+        "is_urgency": true,
+        "response_hint": "Acknowledge calmly, avoid defensiveness, give the next concrete action.",
+        "history_relevant": true
+      }
+    },
+    {
+      "test": "response_speed_fast_path_available",
+      "pass": true,
+      "detail": "fast path callable after required layers"
+    },
+    {
+      "test": "all_chat_coverage",
+      "pass": true,
+      "detail": {
+        "conversation_history": true,
+        "relationship": true,
+        "intent": true,
+        "latest_message_language": true,
+        "social_context": true,
+        "business_judgment": true,
+        "relationship_memory": true,
+        "permission": true,
+        "personality": true
+      }
+    },
+    {
+      "test": "business_closing",
+      "pass": true,
+      "detail": {
+        "engine": "BUSINESS_JUDGMENT_ENGINE_V1",
+        "next_action": "recommend",
+        "expected_next": "shortlist_or_check_options",
+        "ask_allowed": false,
+        "stop_qualifying": true,
+        "escalation": "none",
+        "signals": {
+          "conversation_objective": "property_inquiry",
+          "has_area": true,
+          "has_property_type": true,
+          "has_budget": true,
+          "has_process_word": false,
+          "has_developer": false,
+          "prior_property_context": false,
+          "active_history": false
+        },
+        "rule": "Answer/recommend/act when enough signal exists. Ask only one sharp question when required. Escalate commitments/private/sensitive matters."
+      }
+    }
+  ]
+}

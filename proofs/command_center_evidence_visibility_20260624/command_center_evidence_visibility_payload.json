@@ -1,0 +1,77 @@
+{
+  "pass": true,
+  "errors": [],
+  "source": "/Users/hassanka/Documents/Codex/2026-06-14/ai-operating-system/outputs/AIOS/AIOS-DASHBOARD.html",
+  "screenshot": "/Users/hassanka/Downloads/AIOS/proofs/command_center_evidence_visibility_20260624/command_center_evidence_visibility.png",
+  "checks": {
+    "runtime": {
+      "Runtime Ready": true,
+      "AIOS_RUNTIME_STATUS.json": true,
+      "HOSTED_RUNTIME_VALIDATION.json": true,
+      "2026-06-23T11:48:32.147853+00:00": true
+    },
+    "intelligence": {
+      "Intelligence Ready": true,
+      "COMMAND_CENTER_DATA.json": true,
+      "intelligence_ready_scorecard_20260623T115513Z.md": true,
+      "2026-06-23T15:55:15.600914": true
+    },
+    "production": {
+      "Production Ready": true,
+      "PRODUCTION_LAUNCH_READINESS.json": true,
+      "PUBLIC_BETA_VALIDATION.json": true,
+      "2026-06-22T17:32:42.087287+00:00": true
+    },
+    "whatsapp": {
+      "WhatsApp Status": true,
+      "WHATSAPP_HOSTED_TEST_REPORT.json": true,
+      "whatsapp_delivery_verification_payload.json": true,
+      "2026-06-23T11:54:02.906983+00:00": true
+    },
+    "crm": {
+      "CRM Status": true,
+      "crm_writeback_validation_20260623T115513Z.json": true,
+      "2026-06-23T15:55:15.150322": true
+    },
+    "unitFinder": {
+      "Unit Finder": true,
+      "unit_resolver_validation_20260623T115513Z.json": true,
+      "unit_finder_verification_payload.json": true,
+      "2026-06-23T15:55:15.581192": true
+    },
+    "evidenceBundlePanel": true,
+    "systemClassificationPanel": true,
+    "lastValidationTime": true,
+    "Latest validation bundle": true,
+    "Latest proof bundle": true,
+    "Latest audit bundle": true,
+    "LIVE": true,
+    "PARTIAL": true,
+    "FAILED": true,
+    "renderEvidenceVisibility();": true,
+    "evidenceLinksHTML(commandCenterEvidence[item.evidenceKey])": true
+  },
+  "linked_files": {
+    "runtime_proof": true,
+    "runtime_validation": true,
+    "intelligence_validation": true,
+    "production_proof": true,
+    "production_validation": true,
+    "whatsapp_proof": true,
+    "whatsapp_validation": true,
+    "crm_proof": true,
+    "unit_proof": true,
+    "unit_validation": true,
+    "latest_bundle": true,
+    "audit_bundle": true
+  },
+  "required_status_cards": [
+    "runtime",
+    "intelligence",
+    "production",
+    "whatsapp",
+    "crm",
+    "unitFinder"
+  ],
+  "final_classification": "PARTIAL"
+}

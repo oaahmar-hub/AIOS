@@ -1,0 +1,439 @@
+{
+  "generated_at": "2026-06-26T17:29:10.072051+00:00",
+  "case": {
+    "case_id": "to-rent-offices-dubai-dubai-south",
+    "client_name": "Confidential Client",
+    "client_request": "to rent offices dubai dubai south",
+    "hero_image_path": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg"
+  },
+  "proposal_title": "AIOS Realty Proposal - to rent offices dubai dubai south",
+  "executive_pitch": "The strongest option today is Internal Signal - Damac because it gives the best balance of location fit, operational readiness, and alignment with the office setup. The secondary play is Internal Signal - ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg, which is stronger as a medium-term alternative than as the immediate lead recommendation.",
+  "sales_pitch": "Lead with Internal Signal - Damac as the strongest aligned option based on the current brief. Keep Internal Signal - ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg as the alternative and Internal Signal - 036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg as the fallback while approvals, pricing, and fit-out scope are verified.",
+  "top_candidates": [
+    {
+      "title": "Internal Signal - Damac",
+      "commercial_mode": "rent",
+      "price_aed": 0,
+      "price_term": "",
+      "property_type": "office",
+      "size_sqft": 0,
+      "building": "Damac",
+      "area": "Al Quoz; Damac Hills; Dubai Silicon Oasis; Dubai South; JVC; JVT; Jumeirah; Jumeirah Park; Nad Al Sheba; Palm Jumeirah; Umm Suqeim",
+      "developer": "Damac",
+      "availability": "internal_jpg_signal",
+      "delivery_timeline": "Internal acquisition evidence",
+      "launch_mode": "internal",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "strategic",
+      "summary": "Internal JPG acquisition tagged to Al Quoz; Damac Hills; Dubai Silicon Oasis; Dubai South; JVC; JVT; Jumeirah; Jumeirah Park; Nad Al Sheba; Palm Jumeirah; Umm Suqeim from UAE COMMERCIAL ONLY Rent - Sale.",
+      "pros": [
+        "Recovered from AIOS internal acquisition index.",
+        "Source channel: UAE COMMERCIAL ONLY Rent - Sale",
+        "File type: JPG"
+      ],
+      "cons": [
+        "This is an internal evidence signal, not a fully structured live listing."
+      ],
+      "source_url": "",
+      "source_links": [],
+      "map_query": "Al Quoz; Damac Hills; Dubai Silicon Oasis; Dubai South; JVC; JVT; Jumeirah; Jumeirah Park; Nad Al Sheba; Palm Jumeirah; Umm Suqeim",
+      "internal_source_file": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/9e5c25684c3f__cbb60342-25f7-4736-99ae-d8bc9c169a4b.jpg",
+      "internal_source_group": "UAE COMMERCIAL ONLY Rent - Sale",
+      "internal_match_score": 65.0,
+      "suitability_score": 51.0,
+      "investment_score": 8.0,
+      "combined_score": 39.0,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 51.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [
+        "developer: Damac"
+      ],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Al+Quoz%3B+Damac+Hills%3B+Dubai+Silicon+Oasis%3B+Dubai+South%3B+JVC%3B+JVT%3B+Jumeirah%3B+Jumeirah+Park%3B+Nad+Al+Sheba%3B+Palm+Jumeirah%3B+Umm+Suqeim",
+      "rank": 1
+    },
+    {
+      "title": "Internal Signal - ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg",
+      "commercial_mode": "rent",
+      "price_aed": 0,
+      "price_term": "",
+      "property_type": "office",
+      "size_sqft": 0,
+      "building": "ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "availability": "internal_jpg_signal",
+      "delivery_timeline": "Internal acquisition evidence",
+      "launch_mode": "internal",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "strategic",
+      "summary": "Internal JPG acquisition tagged to Dubai South from Zoya Development 🤝 HSH.",
+      "pros": [
+        "Recovered from AIOS internal acquisition index.",
+        "Source channel: Zoya Development 🤝 HSH",
+        "File type: JPG"
+      ],
+      "cons": [
+        "This is an internal evidence signal, not a fully structured live listing."
+      ],
+      "source_url": "",
+      "source_links": [],
+      "map_query": "Dubai South",
+      "internal_source_file": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/c3ec4c4e7360__ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg",
+      "internal_source_group": "Zoya Development 🤝 HSH",
+      "internal_match_score": 65.0,
+      "suitability_score": 51.0,
+      "investment_score": 0.0,
+      "combined_score": 36.7,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 51.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+South",
+      "rank": 2
+    },
+    {
+      "title": "Internal Signal - 036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+      "commercial_mode": "rent",
+      "price_aed": 0,
+      "price_term": "",
+      "property_type": "office",
+      "size_sqft": 0,
+      "building": "036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "availability": "internal_jpg_signal",
+      "delivery_timeline": "Internal acquisition evidence",
+      "launch_mode": "internal",
+      "footfall_profile": "unknown",
+      "parking_profile": "unknown",
+      "license_fit": "needs_confirmation",
+      "fit_label": "strategic",
+      "summary": "Internal JPG acquisition tagged to Dubai South from Professional Realtors .",
+      "pros": [
+        "Recovered from AIOS internal acquisition index.",
+        "Source channel: Professional Realtors ",
+        "File type: JPG"
+      ],
+      "cons": [
+        "This is an internal evidence signal, not a fully structured live listing."
+      ],
+      "source_url": "",
+      "source_links": [],
+      "map_query": "Dubai South",
+      "internal_source_file": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+      "internal_source_group": "Professional Realtors ",
+      "internal_match_score": 45.0,
+      "suitability_score": 51.0,
+      "investment_score": 0.0,
+      "combined_score": 36.7,
+      "entry_psf_aed": null,
+      "recommendation_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile"
+      ],
+      "recommendation_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct",
+        "authority use approval still needs written confirmation"
+      ],
+      "clinic_fit_score": 51.0,
+      "clinic_strengths": [
+        "exact Dubai South location",
+        "office format matches the request profile"
+      ],
+      "clinic_risks": [
+        "size and layout detail still need confirmation",
+        "handover delay pushes launch timeline",
+        "fit is strategic rather than direct",
+        "authority use approval still needs written confirmation"
+      ],
+      "investment_notes": [],
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Dubai+South",
+      "rank": 3
+    }
+  ],
+  "market_highlights": [
+    "Dubai South is being positioned around airport, free zone, logistics, and mixed-use residential growth.",
+    "Immediate-launch value depends on occupancy readiness, fit-out burden, and permit certainty.",
+    "Commercial comparisons should weigh use alignment, launch speed, and operational friction before brand polish.",
+    "Bayut blocked direct live extraction with captcha on this request, so the agent used alternate live-search sources where possible."
+  ],
+  "compliance_gates": [
+    "Usage, fit-out, and authority approvals must match the target business activity before deal commitment."
+  ],
+  "internal_evidence": [
+    "AIOS acquisition index contains 29 rows matching the area signal 'dubai south'.",
+    "Internal AIOS media evidence includes area-matched image records from broker/inventory channels.",
+    "AIOS acquisition index recovered 29 internal source assets tied to dubai south.",
+    "Internal source mix: 29 jpg."
+  ],
+  "internal_inventory_matches": [
+    {
+      "project": "Damac",
+      "area": "Al Quoz; Damac Hills; Dubai Silicon Oasis; Dubai South; JVC; JVT; Jumeirah; Jumeirah Park; Nad Al Sheba; Palm Jumeirah; Umm Suqeim",
+      "developer": "Damac",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "UAE COMMERCIAL ONLY Rent - Sale",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/9e5c25684c3f__cbb60342-25f7-4736-99ae-d8bc9c169a4b.jpg",
+      "score": 65.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Zoya Development 🤝 HSH",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/c3ec4c4e7360__ea5e1075-cd4a-4f1f-9ca3-8713758285d6.jpg",
+      "score": 65.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Professional Realtors ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "0b6d5056-6676-49bd-95d3-8aa95b9e9645.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Professional Realtors ",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8152f8d531d5__0b6d5056-6676-49bd-95d3-8aa95b9e9645.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "0e85731d-fe51-4c70-aab0-90e3b4503a7e.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Dubai broker's 💪",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/b4396aa5dc38__50f20635-686d-452e-9ffb-37e946b273f5.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "Emaar",
+      "area": "Emaar South",
+      "developer": "Emaar",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Dubai broker's 💪",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/5e63f289f20a__1ea53360-5334-4fdd-8377-f6e95b810bcb.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "23b3ce0c-8fce-4e8b-8748-194b21f93532.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "🔵Fliplux properties _ listing2️⃣",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/63d4a79b31f7__23b3ce0c-8fce-4e8b-8748-194b21f93532.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    },
+    {
+      "project": "3736732d-aea9-441c-86e3-719a99ab3d4f.jpg",
+      "area": "Dubai South",
+      "developer": "",
+      "bedrooms": "",
+      "property_type": "jpg",
+      "inventory_type": "acquisition_index",
+      "status": "internal_signal",
+      "price_aed": 0,
+      "source_group": "Dubai broker's 💪",
+      "file_name": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/825824589e43__3736732d-aea9-441c-86e3-719a99ab3d4f.jpg",
+      "score": 45.0,
+      "signal_type": "internal_asset"
+    }
+  ],
+  "internal_market_snapshot": {
+    "match_count": 29,
+    "asset_match_count": 8,
+    "file_type_counts": {
+      "jpg": 29
+    },
+    "top_projects": [
+      "Damac",
+      "Emaar"
+    ],
+    "source_groups": [
+      "UAE COMMERCIAL ONLY Rent - Sale",
+      "Zoya Development 🤝 HSH",
+      "Professional Realtors",
+      "Dubai broker's 💪"
+    ]
+  },
+  "next_steps": [
+    "Confirm exact live availability and current commercial terms before client send.",
+    "Collect floor plan, service-charge, fit-out, and authority-use information for the shortlisted options.",
+    "Run final approval and risk review before presenting the recommendation as execution-ready."
+  ],
+  "source_register": [
+    {
+      "label": "Bayut - Offices for Rent in Dubai South",
+      "url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Offices for Rent in Logistics City",
+      "url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/logistics-city/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Property Finder - Office Space for Rent in Dubai South Business Park",
+      "url": "https://www.propertyfinder.ae/en/plp/commercial-rent/office-space-for-rent-dubai-dubai-south-dubai-world-central-business-park-97364276.html",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Bayut - Commercial Properties for Rent in Dubai South",
+      "url": "https://www.bayut.com/to-rent/commercial/dubai/dubai-south/",
+      "date": "June 26, 2026"
+    },
+    {
+      "label": "Dubai South - Office Space in Dubai South | Free Zone Offices & Business Park",
+      "url": "https://www.dubaisouth.ae/en/work/commercial-property/offices",
+      "date": "June 26, 2026"
+    }
+  ],
+  "request_profile": {
+    "raw_request": "to rent offices dubai dubai south",
+    "source_mode": "url",
+    "area": "dubai south",
+    "use_case": "office",
+    "property_preference": "office",
+    "bedroom_preference": "",
+    "intent": "rent",
+    "source_url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/"
+  },
+  "evidence_trail": [
+    {
+      "source": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/acquisition_index.csv",
+      "matched_rows": 29,
+      "sample_images": [
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/adc7423471a8__036f0046-bce6-487d-82ef-47ba5ee3e1a2.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/8152f8d531d5__0b6d5056-6676-49bd-95d3-8aa95b9e9645.jpg",
+        "/Users/hassanka/Downloads/AIOS/KnowledgeBase/raw_data/images/9a67a30158f8__45f01248-d6bd-4073-bfd8-929c2ac71298.jpg"
+      ]
+    }
+  ],
+  "agent_review": {
+    "approval_posture": "CONDITIONAL: resolve review notes before client send",
+    "review_notes": [
+      "Lead option Internal Signal - Damac still requires written use and approval confirmation.",
+      "Lead option Internal Signal - Damac still needs live pricing confirmation.",
+      "One or more shortlisted options still lack full area or layout detail."
+    ]
+  },
+  "artifacts": {
+    "json": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-bayut-url-v2.json",
+    "html": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-bayut-url-v2.html",
+    "pdf": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-bayut-url-v2.pdf",
+    "screenshot": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/client_property_proposals/realty-bayut-url-v2.png"
+  },
+  "agent": {
+    "name": "AIOS Realty Intelligence Agent",
+    "generated_at": "2026-06-26T17:29:10.073931+00:00",
+    "request_profile": {
+      "raw_request": "to rent offices dubai dubai south",
+      "source_mode": "url",
+      "area": "dubai south",
+      "use_case": "office",
+      "property_preference": "office",
+      "bedroom_preference": "",
+      "intent": "rent",
+      "source_url": "https://www.bayut.com/to-rent/offices/dubai/dubai-south/"
+    },
+    "provider_summary": {
+      "strategy_used": false,
+      "propertyfinder_broker_provider": false,
+      "url_context_provider": true,
+      "internal_evidence_rows": 1
+    },
+    "run_report": "/Users/hassanka/Downloads/AIOS/automation/central_orchestrator/reports/realty_agent_runs/realty-bayut-url-v2.json"
+  },
+  "export": {
+    "chrome_available": true,
+    "pdf_exported": true,
+    "screenshot_exported": true,
+    "pdf_engine": "reportlab"
+  }
+}

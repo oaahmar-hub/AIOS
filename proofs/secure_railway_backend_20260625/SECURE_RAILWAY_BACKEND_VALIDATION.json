@@ -1,0 +1,126 @@
+{
+  "validated_at_utc": "2026-06-25T11:08:46Z",
+  "validated_at_dubai": "2026-06-25T15:08:46+04:00",
+  "scope": "AIOS hosted backend Railway security hardening",
+  "backend_path": "/Users/hassanka/Downloads/AIOS/deployment/hosted-backend",
+  "files_validated": [
+    "app.py",
+    "README.md",
+    "RAILWAY_DEPLOY.md",
+    "railway.json",
+    "Dockerfile"
+  ],
+  "result": "PASS",
+  "checks": [
+    {
+      "check": "fail-closed GET /api/status with no auth env",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS"
+    },
+    {
+      "check": "fail-closed GET /api/runtime/status with no auth env",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS"
+    },
+    {
+      "check": "fail-closed POST /api/ask with no auth env",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS"
+    },
+    {
+      "check": "public GET /health",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS"
+    },
+    {
+      "check": "public GET /api/health",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS"
+    },
+    {
+      "check": "runtime truth does not expose absolute AIOS root path",
+      "expected": "aios_root_configured present; aios_root absent",
+      "actual": "aios_root_configured present; aios_root absent",
+      "status": "PASS"
+    },
+    {
+      "check": "startup security warnings",
+      "expected": 3,
+      "actual": 3,
+      "status": "PASS"
+    },
+    {
+      "check": "oversized request body",
+      "expected": 413,
+      "actual": 413,
+      "status": "PASS"
+    },
+    {
+      "check": "local dev explicit opt-out",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS"
+    },
+    {
+      "check": "configured auth missing header",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS"
+    },
+    {
+      "check": "configured auth valid Basic header",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS"
+    },
+    {
+      "check": "500 response body",
+      "expected": "{\"ok\": false, \"error\": \"internal_error\"}",
+      "actual": "{\"ok\": false, \"error\": \"internal_error\"}",
+      "contains_trace_or_path": false,
+      "status": "PASS"
+    },
+    {
+      "check": "Python compile",
+      "command": "python3 -m py_compile app.py",
+      "status": "PASS"
+    }
+  ],
+  "security_contract": {
+    "protected_routes": [
+      "GET /api/status",
+      "GET /api/runtime/status",
+      "POST /api/ask"
+    ],
+    "public_routes": [
+      "GET /health",
+      "GET /api/health",
+      "GET /api/runtime-truth",
+      "GET /api/runtime-report"
+    ],
+    "fail_closed_default": true,
+    "local_dev_opt_out": "AIOS_REQUIRE_AUTH=0",
+    "max_body_default_bytes": 1048576,
+    "generic_500_response": true
+  },
+  "live_read_only_check": {
+    "checked_at_utc": "2026-06-25T11:11:41Z",
+    "domain": "https://aios-runtime-production.up.railway.app",
+    "health_status": 200,
+    "api_status_without_auth": 401,
+    "runtime_truth_status": 200,
+    "runtime_truth_leaks_aios_root": true,
+    "interpretation": "Live Railway service is online and API auth is fail-closed, but it is not yet running the latest local runtime-truth redaction build."
+  },
+  "deployment_blockers_remaining": [
+    "Railway CLI installed and verified as railway 5.23.0; existing Railway login is available.",
+    "Public Railway service exists at https://aios-runtime-production.up.railway.app.",
+    "Latest local hardening still needs a publish-approved railway up because live /api/runtime-truth still exposes aios_root.",
+    "Provider webhook update and frontend AIOS_API_BASE wiring still require the live deployment pass."
+  ]
+}
