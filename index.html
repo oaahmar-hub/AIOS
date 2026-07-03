@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090A0B">
+  <link rel="manifest" href="/manifest.json">
+  <title>AIOS Website Redirect</title>
+  <meta http-equiv="refresh" content="0; url=AIOS-WEBSITE.html">
+  <script>
+    window.location.replace("AIOS-WEBSITE.html");
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090a0b;
+      --panel: rgba(17, 19, 23, 0.78);
+      --panel-strong: rgba(20, 22, 27, 0.92);
+      --panel-soft: rgba(28, 31, 38, 0.62);
+      --line: rgba(216, 194, 138, 0.18);
+      --line-soft: rgba(255, 255, 255, 0.08);
+      --gold: #d8c28a;
+      --green: #18e0a2;
+      --violet: #8f7cff;
+      --text: #f5f7fa;
+      --muted: #98a0ae;
+      --danger: #ff5c7a;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(216, 194, 138, 0.12), transparent 28%),
+        radial-gradient(circle at 78% 4%, rgba(24, 224, 162, 0.10), transparent 24%),
+        radial-gradient(circle at 50% 50%, rgba(143, 124, 255, 0.08), transparent 40%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 22%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      background-image:
+        linear-gradient(rgba(216, 194, 138, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 224, 162, 0.02) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.8), transparent 80%);
+    }
+
+    body::after {
+      background:
+        radial-gradient(circle at 50% 14%, rgba(255,255,255,0.06), transparent 24%),
+        radial-gradient(circle at 50% 20%, rgba(216, 194, 138, 0.08), transparent 32%);
+      opacity: 0.9;
+    }
+
+    .shell {
+      width: min(1320px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 20px 0 44px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0;
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(216,194,138,0.16), rgba(216,194,138,0.06));
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 19px;
+      font-weight: 900;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-copy span,
+    .micro,
+    .muted {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .chip,
+    .status-pill,
+    .mode-pill,
+    .action-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.03);
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .status-pill {
+      color: var(--gold);
+      border-color: var(--line);
+      background: rgba(216,194,138,0.08);
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 14px currentColor;
+      flex: 0 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.82fr);
+      align-items: stretch;
+      margin-top: 10px;
+    }
+
+    .panel {
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: var(--panel);
+      backdrop-filter: blur(24px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-inner {
+      padding: 24px;
+    }
+
+    .hero-panel {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), transparent 28%),
+        var(--panel-strong);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      margin: 0 0 14px;
+      font-size: clamp(42px, 6.5vw, 88px);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      max-width: 9ch;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.55;
+      margin: 0 0 24px;
+    }
+
+    .command-shell {
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.24);
+      padding: 14px;
+    }
+
+    .command-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .command-input {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 15px 16px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color .18s ease, background .18s ease;
+    }
+
+    .command-input:focus {
+      border-color: rgba(216,194,138,0.35);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .command-button {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(216,194,138,0.18), rgba(216,194,138,0.08));
+      color: var(--text);
+      padding: 15px 18px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .action-pill {
+      cursor: pointer;
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .result-shell {
+      margin-top: 16px;
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+    }
+
+    .result-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .result-head strong {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    pre {
+      margin: 0;
+      min-height: 190px;
+      max-height: 420px;
+      overflow: auto;
+      padding: 16px;
+      color: #d9dee8;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .eye-panel {
+      position: relative;
+      min-height: 640px;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(216,194,138,0.11), transparent 20%),
+        radial-gradient(circle at 50% 42%, rgba(24,224,162,0.12), transparent 28%),
+        radial-gradient(circle at 50% 50%, rgba(143,124,255,0.09), transparent 36%),
+        rgba(10, 11, 13, 0.88);
+    }
+
+    .eye-stage {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .eye-stage::before,
+    .eye-stage::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      inset: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .eye-stage::before {
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(216,194,138,0.20);
+      box-shadow:
+        0 0 120px rgba(24,224,162,0.18),
+        inset 0 0 90px rgba(216,194,138,0.10);
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    .eye-stage::after {
+      width: 182px;
+      height: 182px;
+      border: 1px solid rgba(216,194,138,0.42);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(24,224,162,0.30), rgba(24,224,162,0.03) 34%, rgba(0,0,0,0.86) 72%),
+        linear-gradient(180deg, rgba(216,194,138,0.16), rgba(0,0,0,0.06));
+      box-shadow:
+        0 0 30px rgba(216,194,138,0.12),
+        inset 0 0 40px rgba(24,224,162,0.15);
+      animation: pulse 3.8s ease-in-out infinite;
+    }
+
+    .eye-label {
+      position: absolute;
+      bottom: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      letter-spacing: 0.42em;
+      color: var(--gold);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .stage-particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.72);
+      opacity: 0.34;
+      animation: drift 12s linear infinite;
+    }
+
+    .stage-particle.green { background: rgba(24,224,162,0.78); }
+    .stage-particle.gold { background: rgba(216,194,138,0.82); }
+
+    .eye-meta {
+      display: grid;
+      gap: 12px;
+      padding: 0 24px 24px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stack-card {
+      border: 1px solid var(--line-soft);
+      border-radius: 16px;
+      background: var(--panel-soft);
+      padding: 14px;
+    }
+
+    .stack-card strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .stack-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .telemetry {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 16px;
+    }
+
+    .telemetry-card,
+    .module-card {
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      background: var(--panel);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 30px 0 16px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(20px, 2.2vw, 28px);
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 560px;
+      text-align: right;
+    }
+
+    .telemetry-card .label,
+    .module-card .label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .telemetry-card .value {
+      display: block;
+      margin-top: 10px;
+      font-size: 30px;
+      letter-spacing: -0.04em;
+    }
+
+    .telemetry-card .caption,
+    .module-card .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .telemetry-card .signal {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--green);
+    }
+
+    .module-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .module-card {
+      min-height: 150px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 36%),
+        var(--panel);
+    }
+
+    .module-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .module-top strong {
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .state-live,
+    .state-ready,
+    .state-prep,
+    .state-blocked {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .state-live,
+    .state-ready { color: var(--green); }
+    .state-prep { color: var(--gold); }
+    .state-blocked { color: var(--danger); }
+
+    .footnote {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    @keyframes pulse {
+      50% { transform: translate(-50%, -50%) scale(1.06); opacity: 0.84; }
+    }
+
+    @keyframes breathe {
+      50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.72; }
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0, 12px, 0); }
+      50% { transform: translate3d(0, -14px, 0); }
+      to { transform: translate3d(0, 12px, 0); }
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .telemetry,
+      .module-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .eye-panel {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100%, calc(100% - 20px));
+      }
+
+      .topbar,
+      .section-head,
+      .command-row,
+      .telemetry,
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        position: static;
+        display: grid;
+        justify-content: stretch;
+      }
+
+      .topbar-right {
+        justify-content: flex-start;
+      }
+
+      .section-head {
+        display: grid;
+      }
+
+      .section-head p {
+        text-align: left;
+      }
+
+      .hero-title {
+        max-width: none;
+      }
+
+      .command-row {
+        display: grid;
+      }
+
+      .command-button {
+        width: 100%;
+      }
+
+      .eye-stage {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <div style="position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#090a0b;color:#f5f7fa;font:16px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+      <div style="max-width:520px;padding:24px;border:1px solid rgba(216,194,138,.22);border-radius:8px;background:rgba(17,19,23,.86);">
+        <strong>AIOS Website</strong>
+        <p>JavaScript is disabled. Open the official AIOS landing page below.</p>
+        <p><a style="color:#d8c28a" href="AIOS-WEBSITE.html">Website</a></p>
+        <p><a style="color:#d8c28a" href="AIOS-DASHBOARD.html">Command Center</a></p>
+        <p><a style="color:#d8c28a" href="AIOS-RUNTIME-STATUS.html">Runtime Status</a></p>
+        <p><a style="color:#d8c28a" href="AIOS-MOBILE-APP.html">Mobile Console</a></p>
+      </div>
+    </div>
+  </noscript>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark">∞</div>
+        <div class="brand-copy">
+          <strong>AIOS Command Center</strong>
+          <span>HSH Global Dubai · The Eye · Operating System Layer</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="chip"><span class="dot" style="color: var(--green)"></span><span id="apiState">Backend unknown</span></div>
+        <div class="chip"><span class="dot" style="color: var(--gold)"></span>Private Runtime</div>
+        <div class="status-pill" id="authState">Private Beta</div>
+      </div>
+    </header>
+
+    <section class="grid hero">
+      <div class="panel hero-panel">
+        <div class="panel-inner">
+          <div class="hero-meta">
+            <div class="status-pill">Mission Control</div>
+            <div class="chip">Property · Operations · WhatsApp · Memory</div>
+          </div>
+
+          <h1 class="hero-title">Operate the company from one surface.</h1>
+          <p class="hero-copy">
+            AIOS brings property intelligence, operating memory, workflow control, and runtime visibility into one command flow.
+            The system should feel immediate, quiet, and decisive.
+          </p>
+
+          <div class="command-shell">
+            <div class="command-row">
+              <input id="commandInput" class="command-input" placeholder="Ask AIOS: Find 2BR Yas Island under 2M">
+              <button id="runButton" class="command-button">Run Command</button>
+            </div>
+
+            <div class="quick-actions">
+              <button class="action-pill prompt-chip" data-prompt="Find 2BR Yas Island under 2M">Find Property</button>
+              <button class="action-pill prompt-chip" data-prompt="Run today’s HSH briefing">Daily Briefing</button>
+              <button class="action-pill prompt-chip" data-prompt="Check WhatsApp follow-up risks">Check Follow-ups</button>
+              <button class="action-pill prompt-chip" data-prompt="Search transfer and NOC requirements">Search Operations</button>
+            </div>
+          </div>
+
+          <div class="result-shell">
+            <div class="result-head">
+              <strong>Command Output</strong>
+              <span class="micro" id="resultHint">Waiting for runtime</span>
+            </div>
+            <pre id="result">Ready. Backend endpoint is configurable with AIOS_API_BASE.</pre>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel eye-panel">
+        <div class="eye-stage">
+          <span class="stage-particle gold" style="width:6px;height:6px;left:20%;top:24%;animation-delay:-2s"></span>
+          <span class="stage-particle green" style="width:8px;height:8px;left:74%;top:18%;animation-delay:-5s"></span>
+          <span class="stage-particle" style="width:4px;height:4px;left:32%;top:74%;animation-delay:-7s"></span>
+          <span class="stage-particle gold" style="width:5px;height:5px;left:80%;top:68%;animation-delay:-3s"></span>
+          <span class="stage-particle green" style="width:3px;height:3px;left:58%;top:82%;animation-delay:-9s"></span>
+          <div class="eye-label">The Eye</div>
+        </div>
+        <div class="eye-meta">
+          <div class="stack">
+            <div class="stack-card">
+              <strong>Presence</strong>
+              <p>The entry state should hold attention before the interface starts asking for it.</p>
+            </div>
+            <div class="stack-card">
+              <strong>Command Layer</strong>
+              <p>Request moves into routing, memory, policy, and action without exposing the model stack to the user.</p>
+            </div>
+            <div class="stack-card">
+              <strong>Runtime Truth</strong>
+              <p>Current validation focus: memory persistence, CRM write-back, WhatsApp replay stability, and resolver quality.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <div class="section-head">
+      <h2>System State</h2>
+      <p>One surface for runtime posture, deployment posture, and intelligence posture.</p>
+    </div>
+    <section class="grid telemetry">
+      <div class="telemetry-card">
+        <span class="label">Runtime</span>
+        <span class="value">Stable</span>
+        <div class="caption">Gateway replay and local shell are operational after path and state-session fixes.</div>
+        <div class="signal"><span class="dot"></span>Command runtime ready for direct use</div>
+      </div>
+      <div class="telemetry-card">
+        <span class="label">Memory</span>
+        <span class="value">Persistent</span>
+        <div class="caption">Relationship, DNA, and weather context now restore from persisted store during proof replay.</div>
+        <div class="signal"><span class="dot"></span>Context survives reload path</div>
+      </div>
+      <div class="telemetry-card">
+        <span class="label">Intelligence</span>
+        <span class="value">In Progress</span>
+        <div class="caption">Resolver quality still needs direct URL-to-unit improvement before the surface can claim full intelligence readiness.</div>
+        <div class="signal" style="color: var(--gold)"><span class="dot"></span>One major proof gap remains</div>
+      </div>
+    </section>
+
+    <div class="section-head">
+      <h2>Capability Grid</h2>
+      <p>Same modules, cleaner grouping and tighter status hierarchy.</p>
+    </div>
+    <section class="grid module-grid">
+      <article class="module-card">
+        <div class="module-top">
+          <strong>Brain Router</strong>
+          <span class="state-live">Operational</span>
+        </div>
+        <div class="caption">Routing, personality, policy, and permission handling run through one backend runtime path.</div>
+      </article>
+      <article class="module-card">
+        <div class="module-top">
+          <strong>Property Intelligence</strong>
+          <span class="state-live">Operational</span>
+        </div>
+        <div class="caption">Property database, area mapping, and retrieval layer are active behind the command flow.</div>
+      </article>
+      <article class="module-card">
+        <div class="module-top">
+          <strong>Operations Brain</strong>
+          <span class="state-live">Operational</span>
+        </div>
+        <div class="caption">DLD, RERA, NOC, transfer, and mortgage corpus remain available through the runtime.</div>
+      </article>
+      <article class="module-card">
+        <div class="module-top">
+          <strong>WhatsApp</strong>
+          <span class="state-live">Live</span>
+        </div>
+        <div class="caption">Gateway path is functioning locally with replay validation back to full-pass status.</div>
+      </article>
+      <article class="module-card">
+        <div class="module-top">
+          <strong>Knowledge Vault</strong>
+          <span class="state-ready">Ready</span>
+        </div>
+        <div class="caption">Cases, playbooks, and operating memory remain attached to the command surface through backend retrieval.</div>
+      </article>
+      <article class="module-card">
+        <div class="module-top">
+          <strong>Search Everything</strong>
+          <span class="state-ready">Ready</span>
+        </div>
+        <div class="caption">Drive, Gmail, and Airtable hooks are structured for backend execution without crowding the primary experience.</div>
+      </article>
+      <article class="module-card">
+        <div class="module-top">
+          <strong>PWA Shell</strong>
+          <span class="state-ready">Prepared</span>
+        </div>
+        <div class="caption">Manifest and offline shell are in place for installable web usage.</div>
+      </article>
+      <article class="module-card">
+        <div class="module-top">
+          <strong>Native Packaging</strong>
+          <span class="state-prep">Preparation</span>
+        </div>
+        <div class="caption">Store and bundle work remains downstream of runtime and validation closure.</div>
+      </article>
+    </section>
+
+    <div class="footnote">
+      This page is the front door, not the full product map. It should stay focused on command flow, operating state, and the feeling that AIOS is one coherent runtime instead of a collection of panels.
+    </div>
+  </div>
+
+  <script src="/aios-config.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
