@@ -12,7 +12,16 @@ from pathlib import Path
 from typing import Any
 
 KB = Path(__file__).resolve().parents[3] / "KnowledgeBase"
-RESOLVER_DB = KB / "resolver" / "unit_resolver_database.sqlite"
+
+
+def _resolve_resolver_db(resolver_dir: Path) -> Path:
+    resolver_file = resolver_dir / "unit_resolver_database.resolver"
+    if resolver_file.is_file():
+        return resolver_file
+    return resolver_dir / "unit_resolver_database.sqlite"
+
+
+RESOLVER_DB = _resolve_resolver_db(KB / "resolver")
 BRIDGE_JSON = KB / "PropertyGraph" / "listing_bridge_master.json"
 
 
