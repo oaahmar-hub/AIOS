@@ -58,6 +58,14 @@ AUTH_PASSWORD = os.getenv("AIOS_BASIC_AUTH_PASSWORD", "")
 WHATSAPP_WEBHOOK_PATH = "/webhook/whatsapp/provider/gateway"
 WHATSAPP_REPLY_MODE = os.getenv("AIOS_WHATSAPP_REPLY_MODE", "hold").strip().lower()
 WHATSAPP_VERIFY_TOKEN = os.getenv("AIOS_WHATSAPP_VERIFY_TOKEN", "").strip()
+# Wasender delivers inbound events with a shared secret in the
+# ``X-Webhook-Signature`` header (see wasender_live_relay_server._verify_signature).
+# Accept either env var name so the hosted runtime authorizes provider POSTs
+# without depending on the Meta-style verify token being smuggled into them.
+WASENDER_WEBHOOK_SECRET = (
+    os.getenv("WASENDER_WEBHOOK_SECRET", "").strip()
+    or os.getenv("AIOS_WEBHOOK_SECRET", "").strip()
+)
 PUBLIC_STATIC_PATHS = {
     "/",
     "/index.html",
@@ -863,6 +871,11 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         return True
 
     def _webhook_authorized(self) -> bool:
+        # Wasender signs inbound POSTs with a shared secret in the
+        # X-Webhook-Signature header; accept it when a provider secret is set.
+        signature = self.headers.get("X-Webhook-Signature", "").strip()
+        if WASENDER_WEBHOOK_SECRET and signature and _constant_time_equal(signature, WASENDER_WEBHOOK_SECRET):
+            return True
         token = WHATSAPP_VERIFY_TOKEN
         if not token:
             # No verify token configured -> cannot authorize provider verification.
@@ -956,8 +969,9 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                     "ok": True,
                     "route": WHATSAPP_WEBHOOK_PATH,
                     "verify_token_configured": bool(WHATSAPP_VERIFY_TOKEN),
+                    "provider_signature_auth_configured": bool(WASENDER_WEBHOOK_SECRET),
                     "auth_mode": AUTH_MODE,
-                    "ready_for_provider": bool(WHATSAPP_VERIFY_TOKEN),
+                    "ready_for_provider": bool(WHATSAPP_VERIFY_TOKEN) or bool(WASENDER_WEBHOOK_SECRET),
                     "message": "Webhook route is live. Set AIOS_WHATSAPP_VERIFY_TOKEN to enable provider verification."
                     if not WHATSAPP_VERIFY_TOKEN
                     else "Webhook route is live and verify token is configured.",
