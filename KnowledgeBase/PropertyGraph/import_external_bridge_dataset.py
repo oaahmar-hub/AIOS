@@ -31,11 +31,9 @@ import json
 from pathlib import Path
 from typing import Dict, Iterable, List
 
-from openpyxl import load_workbook
-
 import sys
 
-KB = Path("/Users/hassanka/Downloads/AIOS/KnowledgeBase")
+KB = Path(__file__).resolve().parents[1]
 RESOLVER_DIR = KB / "resolver"
 GRAPH_DIR = KB / "PropertyGraph"
 IMPORT_DIR = GRAPH_DIR / "incoming_bridge_datasets"
@@ -64,6 +62,8 @@ def iter_json(path: Path) -> Iterable[Dict[str, object]]:
 
 
 def iter_xlsx(path: Path) -> Iterable[Dict[str, object]]:
+    from openpyxl import load_workbook
+
     wb = load_workbook(path, read_only=True, data_only=True)
     try:
         for ws in wb.worksheets:
@@ -94,15 +94,14 @@ def load_rows(path: Path) -> List[Dict[str, object]]:
 
 
 def import_file(path: Path) -> Dict[str, object]:
-    rows = load_rows(path)
-    normalized_rows = []
-    for raw in rows:
-        normalized_rows.append(bridge_layer.normalize_bridge_row(raw))
-    bridge_layer.import_bridge_rows(normalized_rows)
+    normalized_rows = [bridge_layer.normalize_bridge_row(raw) for raw in load_rows(path)]
+    import_counts = bridge_layer.import_bridge_rows([path])
+    bridge_layer.export_bridge_csv()
     graph_summary = graph_builder.build()
     counts = {"exact_bridge": 0, "partial_bridge": 0, "candidate_bridge": 0, "invalid_bridge": 0}
-    for row in normalized_rows:
-        counts[row.get("bridge_classification", "invalid_bridge")] = counts.get(row.get("bridge_classification", "invalid_bridge"), 0) + 1
+    for classification, value in import_counts.items():
+        if classification in counts:
+            counts[classification] = value
     report_lines = [
         "# External Bridge Import Report",
         "",

@@ -13,11 +13,19 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Iterable, List
 
-from openpyxl import load_workbook
+
+RESOLVER_DIR = Path(__file__).resolve().parent
 
 
-RESOLVER_DIR = Path("/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver")
-DB_PATH = RESOLVER_DIR / "unit_resolver_database.sqlite"
+def resolve_resolver_db(resolver_dir: Path) -> Path:
+    """Return the resolver database path, preferring the ``.resolver`` file."""
+    resolver_file = resolver_dir / "unit_resolver_database.resolver"
+    if resolver_file.is_file():
+        return resolver_file
+    return resolver_dir / "unit_resolver_database.sqlite"
+
+
+DB_PATH = resolve_resolver_db(RESOLVER_DIR)
 LISTING_IDENTITY_JSON = RESOLVER_DIR / "listing_identity_map.json"
 LISTING_IDENTITY_CSV = RESOLVER_DIR / "listing_identity_map.csv"
 INDEX_CSV = RESOLVER_DIR / "unit_resolver_index.csv"
@@ -105,28 +113,98 @@ def key(value: object) -> str:
     return re.sub(r"[^a-z0-9]", "", low(value))
 
 
+# Words that reveal a value is search-slug / listing prose rather than a real
+# property identifier (e.g. "for sale dubai dubai land majan 1583088").
+SLUG_JUNK_TOKENS = (
+    "for sale",
+    "for rent",
+    "market analysis",
+    "tru estimate",
+    "awards",
+    "blog",
+    "agent",
+    "listed",
+    "details",
+    "finder",
+    "dubai land",
+    "majan",
+)
+
+# Single-token values that are placeholders rather than identifiers.
+JUNK_IDENTIFIER_VALUES = {"details", "listed", "finder", "scaped", "-", "n/a", "na", "none", "null"}
+
+# Building names known to be corrupt placeholders injected by the broken parser.
+PLACEHOLDER_BUILDINGS = {"canal bay"}
+
+# URL path segments that indicate an auth/redirect link rather than a listing.
+NON_LISTING_URL_MARKERS = (
+    "/auth/",
+    "auth.bayut.com",
+    "passwordless-login",
+    "action-token",
+    "magic-link",
+    "/signin",
+    "/login",
+    "/callback",
+    "/go/",
+    "access_token",
+    "id_token",
+)
+
+
 def clean_identifier(value: str) -> str:
+    """Return a trimmed identifier, or "" if the value is slug/URL/junk text."""
     text = norm(value)
     if not text:
         return ""
     lowered = low(text)
-    if lowered.startswith("/details") or "propertyfinder" in lowered or "bayut" in lowered or "dubizzle" in lowered:
+    if lowered.startswith("/") or "propertyfinder" in lowered or "bayut" in lowered or "dubizzle" in lowered:
         return ""
     if "/" in text or "\\" in text:
         return ""
-    if lowered in {"details", "listed", "finder"}:
+    if lowered in JUNK_IDENTIFIER_VALUES:
+        return ""
+    if any(token in lowered for token in SLUG_JUNK_TOKENS):
+        return ""
+    # Real identifiers are compact; slug prose has many words.
+    if len(text.split()) > 3:
         return ""
     return text
+
+
+def is_placeholder_building(value: str) -> bool:
+    return low(value) in PLACEHOLDER_BUILDINGS
+
+
+def is_valid_listing_id(value: str) -> bool:
+    """True for compact portal listing ids, not JWT/auth-token fragments."""
+    text = norm(value)
+    if not text or len(text) > 24:
+        return False
+    lowered = low(text)
+    if lowered.startswith(("eyj", "action-token", "action_token")) or "token" in lowered:
+        return False
+    return bool(re.fullmatch(r"[A-Za-z0-9]{4,24}", text))
+
+
+def is_listing_url(url: str) -> bool:
+    """True only for real portal listing URLs (not auth/redirect/login links)."""
+    lowered = low(url)
+    if not lowered:
+        return False
+    if not any(portal in lowered for portal in ("propertyfinder.ae", "bayut.com", "dubizzle.com")):
+        return False
+    return not any(marker in lowered for marker in NON_LISTING_URL_MARKERS)
 
 
 def is_strong_identifier(value: str, field_name: str) -> bool:
     text = clean_identifier(value)
     if not text:
         return False
-    lowered = low(text)
-    if any(token in lowered for token in ("market analysis", "tru estimate", "awards", "blog", "agent")):
-        return False
     if len(text) > 40:
+        return False
+    # A hard identifier must contain a run of digits; pure words are locations.
+    if not re.search(r"\d{2,}", text):
         return False
     if field_name in {"permit_number", "plot_number"}:
         return bool(re.fullmatch(r"[A-Za-z0-9-]{3,30}", text))
@@ -231,9 +309,16 @@ def canonical_property_id_from_row(row: Dict[str, str]) -> str:
 
 
 def classify_bridge_row(row: Dict[str, str]) -> Dict[str, str]:
-    has_public_ref = any(norm(row.get(field, "")) for field in ("listing_url", "listing_id", "broker_reference"))
+    has_public_ref = (
+        is_listing_url(row.get("listing_url", ""))
+        or is_valid_listing_id(row.get("listing_id", ""))
+        or bool(norm(row.get("broker_reference", "")))
+    )
     has_hard_property = any(is_strong_identifier(row.get(field, ""), field) for field in ("property_number", "permit_number", "plot_number", "unit_number"))
-    has_location = any(norm(row.get(field, "")) for field in ("community", "project_name", "building_name"))
+    has_location = any(
+        norm(row.get(field, "")) and not is_placeholder_building(row.get(field, ""))
+        for field in ("community", "project_name", "building_name")
+    )
     cpid = canonical_property_id_from_row(row)
     if has_public_ref and has_hard_property and cpid:
         bridge_classification = "exact_bridge"
@@ -289,9 +374,16 @@ def normalize_bridge_row(raw_row: Dict[str, object]) -> Dict[str, str]:
     row["property_number"] = clean_identifier(row.get("property_number", ""))
     row["plot_number"] = clean_identifier(row.get("plot_number", ""))
     row["unit_number"] = clean_identifier(row.get("unit_number", ""))
+    if row["listing_url"] and not is_listing_url(row["listing_url"]):
+        row["listing_url"] = ""
+        row["normalized_url"] = ""
+    if row["listing_id"] and not is_valid_listing_id(row["listing_id"]):
+        row["listing_id"] = ""
     row["community"] = row["community"] or normalized_url_data["community"]
     row["project_name"] = row["project_name"] or normalized_url_data["project_name"]
     row["building_name"] = row["building_name"] or normalized_url_data["building_name"]
+    if is_placeholder_building(row["building_name"]):
+        row["building_name"] = ""
     row["slug_clues"] = normalized_url_data["slug_clues"]
     row["created_at"] = row["created_at"] or now_iso()
     row["source_updated_at"] = row["source_updated_at"] or ""
@@ -319,6 +411,8 @@ def iter_json_rows(path: Path) -> Iterable[Dict[str, object]]:
 
 
 def iter_xlsx_rows(path: Path) -> Iterable[Dict[str, object]]:
+    from openpyxl import load_workbook
+
     wb = load_workbook(path, read_only=True, data_only=True)
     for ws in wb.worksheets:
         rows = ws.iter_rows(values_only=True)
