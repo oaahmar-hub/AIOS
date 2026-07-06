@@ -9,16 +9,16 @@
       "percentage_of_all_rows": 3.5
     },
     "High-confidence": {
-      "count": 710,
-      "percentage_of_all_rows": 57.1
+      "count": 691,
+      "percentage_of_all_rows": 55.5
     },
     "Partial": {
-      "count": 294,
+      "count": 293,
       "percentage_of_all_rows": 23.6
     },
     "Weak": {
-      "count": 0,
-      "percentage_of_all_rows": 0.0
+      "count": 20,
+      "percentage_of_all_rows": 1.6
     },
     "Unusable": {
       "count": 197,
@@ -27,40 +27,45 @@
   },
   "status_counts": {
     "exact_bridge": 43,
-    "partial_bridge": 1004,
-    "invalid_bridge": 197
+    "partial_bridge": 984,
+    "invalid_bridge": 197,
+    "candidate_bridge": 20
   },
-  "truth_bridge_quality_score": 56.9,
+  "truth_bridge_quality_score": 56.0,
   "exact_bridge_percentage": 3.5,
   "exact_bridge_percentage_public_reference_rows": 4.1,
-  "high_confidence_percentage": 57.1,
+  "high_confidence_percentage": 55.5,
   "remaining_data_gaps": [
     {
       "gap": "missing_unit_number",
-      "count": 1031
+      "count": 1011
     },
     {
       "gap": "missing_hard_property_identifier",
-      "count": 710
+      "count": 691
     },
     {
       "gap": "missing_broker_or_building_anchor",
-      "count": 294
+      "count": 293
     },
     {
       "gap": "no_public_bridge_reference",
       "count": 197
+    },
+    {
+      "gap": "missing_cpid_link_or_hard_identifier",
+      "count": 20
     }
   ],
   "recommended_highest_value_sources": [
     {
       "source": "BAYUT OVER ALL LEAD.xlsx",
       "exact": 0,
-      "high_confidence": 635,
+      "high_confidence": 616,
       "partial": 44,
-      "weak": 0,
+      "weak": 19,
       "unusable": 1,
-      "uplift_score": 657.0
+      "uplift_score": 651.3
     },
     {
       "source": "WhatsApp ChatStorage.sqlite",
@@ -84,10 +89,10 @@
       "source": "Secondary Listings LINKS EXCEL.xlsx",
       "exact": 0,
       "high_confidence": 0,
-      "partial": 33,
-      "weak": 0,
+      "partial": 32,
+      "weak": 1,
       "unusable": 0,
-      "uplift_score": 16.5
+      "uplift_score": 16.7
     },
     {
       "source": "HSHObject1__ab20a7e9-9ee0-4f16-910a-3e6399317a74__dda2658d56.xlsx",
