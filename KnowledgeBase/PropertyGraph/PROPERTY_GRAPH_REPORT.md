@@ -1,6 +1,6 @@
 # AIOS Property Graph Report
 
-- generated_at: `2026-07-06T09:35:58+00:00`
+- generated_at: `2026-07-06T22:48:17+00:00`
 - resolver_records: `26166`
 - canonical_properties: `83`
 - source_observations: `26166`
@@ -22,9 +22,9 @@
 - waiting_for_data: `209`
 
 ## Outputs
-- `/home/ubuntu/repos/AIOS/KnowledgeBase/PropertyGraph/canonical_property_master.csv`
-- `/home/ubuntu/repos/AIOS/KnowledgeBase/PropertyGraph/listing_bridge_master.csv`
-- `/home/ubuntu/repos/AIOS/KnowledgeBase/PropertyGraph/source_observations.csv`
-- `/home/ubuntu/repos/AIOS/KnowledgeBase/PropertyGraph/match_audit_log.csv`
-- `/home/ubuntu/repos/AIOS/KnowledgeBase/PropertyGraph/verification_queue.csv`
-- `/home/ubuntu/repos/AIOS/KnowledgeBase/PropertyGraph/property_graph.sqlite`
+- `/Users/hassanka/Dev/AIOS-work/AIOS/KnowledgeBase/PropertyGraph/canonical_property_master.csv`
+- `/Users/hassanka/Dev/AIOS-work/AIOS/KnowledgeBase/PropertyGraph/listing_bridge_master.csv`
+- `/Users/hassanka/Dev/AIOS-work/AIOS/KnowledgeBase/PropertyGraph/source_observations.csv`
+- `/Users/hassanka/Dev/AIOS-work/AIOS/KnowledgeBase/PropertyGraph/match_audit_log.csv`
+- `/Users/hassanka/Dev/AIOS-work/AIOS/KnowledgeBase/PropertyGraph/verification_queue.csv`
+- `/Users/hassanka/Dev/AIOS-work/AIOS/KnowledgeBase/PropertyGraph/property_graph.sqlite`

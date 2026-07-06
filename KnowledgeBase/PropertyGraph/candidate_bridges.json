@@ -1,5 +1,85 @@
 [
   {
+    "listing_url": "https://www.bayut.com/pm/12380001/5ad66df3-6730-40a9-99e5-f11d2183b9c1",
+    "listing_id": "12380001",
+    "source_platform": "bayut.com",
+    "match_type": "area_building",
+    "matched_area": "Jvc",
+    "matched_entity": "Cello",
+    "candidate_unit_count": 1,
+    "candidate_units": "1081"
+  },
+  {
+    "listing_url": "https://www.bayut.com/pm/12380001/caf786cd-619f-4eff-9bad-2014e09c5923",
+    "listing_id": "12380001",
+    "source_platform": "bayut.com",
+    "match_type": "area_building",
+    "matched_area": "Jvc",
+    "matched_entity": "Cello",
+    "candidate_unit_count": 1,
+    "candidate_units": "1081"
+  },
+  {
+    "listing_url": "https://www.bayut.com/pm/12380981/4beda843-b1e2-4aa6-b93c-a703937070c9",
+    "listing_id": "12380981",
+    "source_platform": "bayut.com",
+    "match_type": "area_building",
+    "matched_area": "Jvc",
+    "matched_entity": "Cello",
+    "candidate_unit_count": 1,
+    "candidate_units": "1081"
+  },
+  {
+    "listing_url": "https://www.bayut.com/pm/12381101/2dba3274-dd2a-4566-be9d-0b2048fbd2b8",
+    "listing_id": "12381101",
+    "source_platform": "bayut.com",
+    "match_type": "area_building",
+    "matched_area": "Jvc",
+    "matched_entity": "Cello",
+    "candidate_unit_count": 1,
+    "candidate_units": "1081"
+  },
+  {
+    "listing_url": "https://www.bayut.com/pm/12382227/c359fcdb-17ca-4320-ae14-7f42eaaf9661",
+    "listing_id": "12382227",
+    "source_platform": "bayut.com",
+    "match_type": "area_building",
+    "matched_area": "Jvc",
+    "matched_entity": "Cello",
+    "candidate_unit_count": 1,
+    "candidate_units": "1081"
+  },
+  {
+    "listing_url": "https://www.bayut.com/pm/11981685/963285d4-38f7-4ddc-a2c1-8e9823a4c4f5",
+    "listing_id": "11981685",
+    "source_platform": "bayut.com",
+    "match_type": "area_building",
+    "matched_area": "Jvc",
+    "matched_entity": "May",
+    "candidate_unit_count": 1,
+    "candidate_units": "1585"
+  },
+  {
+    "listing_url": "https://www.bayut.com/pm/12153654/eea5be2c-eaf5-4a6f-a559-a56aba185d05",
+    "listing_id": "12153654",
+    "source_platform": "bayut.com",
+    "match_type": "area_building",
+    "matched_area": "Jvc",
+    "matched_entity": "May",
+    "candidate_unit_count": 1,
+    "candidate_units": "1585"
+  },
+  {
+    "listing_url": "https://www.bayut.com/pm/12153654/f92c2bc3-e568-4446-9237-1afad614d482",
+    "listing_id": "12153654",
+    "source_platform": "bayut.com",
+    "match_type": "area_building",
+    "matched_area": "Jvc",
+    "matched_entity": "May",
+    "candidate_unit_count": 1,
+    "candidate_units": "1585"
+  },
+  {
     "listing_url": "https://www.bayut.com/ar/pm/12895896/a9f0e907-e7ee-4655-95b5-8a07e5688f51",
     "listing_id": "12895896",
     "source_platform": "bayut.com",
@@ -118,85 +198,5 @@
     "matched_entity": "Binghatti",
     "candidate_unit_count": 13,
     "candidate_units": "1183 | 1290 | 131 | 1313 | 1358 | 2004 | 2067 | 2069 | 25 | 421 | 835 | 844 | 925"
-  },
-  {
-    "listing_url": "https://www.bayut.com/pm/12380001/5ad66df3-6730-40a9-99e5-f11d2183b9c1",
-    "listing_id": "12380001",
-    "source_platform": "bayut.com",
-    "match_type": "area_project",
-    "matched_area": "Jvc",
-    "matched_entity": "Cello Residences",
-    "candidate_unit_count": 1,
-    "candidate_units": "1081"
-  },
-  {
-    "listing_url": "https://www.bayut.com/pm/12380001/caf786cd-619f-4eff-9bad-2014e09c5923",
-    "listing_id": "12380001",
-    "source_platform": "bayut.com",
-    "match_type": "area_project",
-    "matched_area": "Jvc",
-    "matched_entity": "Cello Residences",
-    "candidate_unit_count": 1,
-    "candidate_units": "1081"
-  },
-  {
-    "listing_url": "https://www.bayut.com/pm/12380981/4beda843-b1e2-4aa6-b93c-a703937070c9",
-    "listing_id": "12380981",
-    "source_platform": "bayut.com",
-    "match_type": "area_project",
-    "matched_area": "Jvc",
-    "matched_entity": "Cello Residences",
-    "candidate_unit_count": 1,
-    "candidate_units": "1081"
-  },
-  {
-    "listing_url": "https://www.bayut.com/pm/12381101/2dba3274-dd2a-4566-be9d-0b2048fbd2b8",
-    "listing_id": "12381101",
-    "source_platform": "bayut.com",
-    "match_type": "area_project",
-    "matched_area": "Jvc",
-    "matched_entity": "Cello Residences",
-    "candidate_unit_count": 1,
-    "candidate_units": "1081"
-  },
-  {
-    "listing_url": "https://www.bayut.com/pm/12382227/c359fcdb-17ca-4320-ae14-7f42eaaf9661",
-    "listing_id": "12382227",
-    "source_platform": "bayut.com",
-    "match_type": "area_project",
-    "matched_area": "Jvc",
-    "matched_entity": "Cello Residences",
-    "candidate_unit_count": 1,
-    "candidate_units": "1081"
-  },
-  {
-    "listing_url": "https://www.bayut.com/pm/11981685/963285d4-38f7-4ddc-a2c1-8e9823a4c4f5",
-    "listing_id": "11981685",
-    "source_platform": "bayut.com",
-    "match_type": "area_project",
-    "matched_area": "Jvc",
-    "matched_entity": "May Residence",
-    "candidate_unit_count": 1,
-    "candidate_units": "1585"
-  },
-  {
-    "listing_url": "https://www.bayut.com/pm/12153654/eea5be2c-eaf5-4a6f-a559-a56aba185d05",
-    "listing_id": "12153654",
-    "source_platform": "bayut.com",
-    "match_type": "area_project",
-    "matched_area": "Jvc",
-    "matched_entity": "May Residence",
-    "candidate_unit_count": 1,
-    "candidate_units": "1585"
-  },
-  {
-    "listing_url": "https://www.bayut.com/pm/12153654/f92c2bc3-e568-4446-9237-1afad614d482",
-    "listing_id": "12153654",
-    "source_platform": "bayut.com",
-    "match_type": "area_project",
-    "matched_area": "Jvc",
-    "matched_entity": "May Residence",
-    "candidate_unit_count": 1,
-    "candidate_units": "1585"
   }
 ]

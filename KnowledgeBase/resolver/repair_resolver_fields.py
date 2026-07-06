@@ -56,6 +56,16 @@ DB_PATH = _resolve_resolver_db(RESOLVER_DIR)
 UNIT_RE = re.compile(r"\bapartment\s+([0-9]{1,6}[a-z]?)\b", re.IGNORECASE)
 _STOP_TOKENS = {"m2", "sqft", "sq", "sqm"}
 
+# JVC inventory sheets packed whole rows into ``building``, e.g.
+#   "00 350000 jumeirah village circle may residence jvc10rmra800 1 may residence tower"
+#   "towers jvc10rhra200 1 bloom towers b 35 b 3206 681"
+# The real building name appears before the jvc project code and is repeated
+# after the standalone "1" that follows it. We only recover a name when both
+# occurrences agree; anything ambiguous is left untouched.
+JVC_CODE_RE = re.compile(r"\bjvc[a-z0-9]{2,}\b", re.IGNORECASE)
+_JVC_AREA_PHRASE = "jumeirah village circle"
+_JVC_TAIL_STOP = re.compile(r"^(?:\d+(?:\.\d+)?|null)$")
+
 
 def _norm(value: object) -> str:
     return str(value or "").strip()
@@ -84,6 +94,61 @@ def extract_building_and_unit(building_raw: str) -> Optional[Tuple[str, str]]:
     return unit, building_name
 
 
+def extract_packed_jvc_building(building_raw: str) -> Optional[str]:
+    """Recover the real building name from a packed JVC inventory string.
+
+    Returns the lower-case name, or ``None`` when no name is unambiguously
+    present. Deterministic: the name before the ``jvc<code>`` token must be
+    confirmed by the repeated name after the standalone ``1`` marker.
+    """
+    text = re.sub(r"\s+", " ", _norm(building_raw).lower()).strip()
+    code = JVC_CODE_RE.search(text)
+    if not code:
+        return None
+
+    head = text[: code.start()].strip()
+    if _JVC_AREA_PHRASE in head:
+        name1 = head.split(_JVC_AREA_PHRASE)[-1].strip()
+    else:
+        # Head may be truncated; keep only the trailing run of word tokens.
+        kept = []
+        for token in reversed(head.split()):
+            if re.fullmatch(r"[a-z][a-z0-9]*", token) and token != "null":
+                kept.append(token)
+            else:
+                break
+        name1 = " ".join(reversed(kept))
+    if not name1 or not re.search(r"[a-z]{3,}", name1):
+        return None
+
+    tail_match = re.search(r"\b1\b\s+(.+)$", text[code.end():])
+    if not tail_match:
+        return None
+    tail_tokens = []
+    for token in tail_match.group(1).split():
+        if _JVC_TAIL_STOP.fullmatch(token):
+            break
+        tail_tokens.append(token)
+    name2 = " ".join(tail_tokens)
+    if not name2:
+        return None
+
+    # Case A: the repeated tail confirms name1 (allows plural drift,
+    # e.g. "hyati residence" vs "hyati residences apartment").
+    if name2 == name1 or name2.startswith(name1):
+        return name1
+
+    # Case B: head was truncated and name1 is the tail end of the full name
+    # (e.g. head "towers", tail "bloom towers b ..." -> "bloom towers").
+    name1_tokens = name1.split()
+    name2_tokens = name2.split()
+    for k in range(len(name2_tokens), len(name1_tokens), -1):
+        prefix = name2_tokens[:k]
+        if prefix[-len(name1_tokens):] == name1_tokens:
+            return " ".join(prefix)
+    return None
+
+
 def _title_case(value: str) -> str:
     return " ".join(word.capitalize() for word in value.split())
 
@@ -101,6 +166,14 @@ def repair_record(record: Dict[str, str]) -> Dict[str, str]:
                 changes["building"] = clean_building
             if not _norm(record.get("unit")) and unit:
                 changes["unit"] = unit
+            if not _norm(record.get("project")):
+                changes["project"] = clean_building
+    else:
+        jvc_name = extract_packed_jvc_building(building_raw)
+        if jvc_name:
+            clean_building = _title_case(jvc_name)
+            if building_raw != clean_building:
+                changes["building"] = clean_building
             if not _norm(record.get("project")):
                 changes["project"] = clean_building
     area = _norm(record.get("area"))

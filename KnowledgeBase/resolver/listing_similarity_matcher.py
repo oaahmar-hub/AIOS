@@ -419,7 +419,7 @@ def canonical_building(value):
         return ""
     m = re.match(r"(.+?)\s+(?:tower|building|unit|apt|apartment)$", clean, re.I)
     if m:
-        return norm(m.group(1))
+        return _finalize_building(norm(m.group(1)))
     if clean.lower() in TEXT_NOISE:
         return ""
     tokens = clean.split()
@@ -479,7 +479,64 @@ def canonical_building(value):
     if len(clean_tokens) >= 2 and clean_tokens[-1] == clean_tokens[-2]:
         clean_tokens = clean_tokens[:-1]
     clean = " ".join(clean_tokens).strip()
-    return clean[:180]
+    return _finalize_building(clean)[:180]
+
+
+# Curated, hand-verified aliases aligning inventory vs portal spellings of the
+# same JVC building. Applied only on an exact match of the fully cleaned name.
+JVC_BUILDING_ALIAS_FILE = RESOLVER_DIR / "jvc_building_aliases.json"
+
+
+def _load_curated_building_aliases():
+    try:
+        data = json.loads(JVC_BUILDING_ALIAS_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    out = {}
+    for canon, aliases in data.items():
+        canon_l = norm(canon).lower()
+        if not canon_l:
+            continue
+        for alias in list(aliases or []) + [canon_l]:
+            alias_l = norm(alias).lower()
+            if alias_l:
+                out[alias_l] = canon_l
+    return out
+
+
+BUILDING_CANON_ALIAS_MAP = _load_curated_building_aliases()
+
+
+def _finalize_building(clean):
+    """Final building-name normalization shared by all canonical_building exits.
+
+    1. Reject pure column-misalignment junk ("56 a402", "46 null 681 6238") —
+       every-token-is-junk strings must canonicalize to EMPTY, never pass
+       through as a fake building anchor.
+    2. Align inventory vs portal spellings: drop a trailing wing/block letter
+       ("cello residences tower b"), drop generic structure suffixes, unify
+       plural drift on the last word, then apply curated exact aliases.
+    """
+    clean = norm(clean).lower()
+    if not clean:
+        return ""
+    tokens = clean.split()
+    if all(tok == "null" or tok.isdigit() or re.fullmatch(r"[a-z]\d{1,4}", tok) for tok in tokens):
+        if len(tokens) >= 2 or tokens[0] == "null" or tokens[0].isdigit():
+            return ""
+    clean = re.sub(r"\s+(?:tower|towers|block|bldg|building)\s+[a-z0-9]$", "", clean)
+    parts = clean.split()
+    if len(parts) >= 2 and parts[-1] in {"residences", "towers", "apartments"}:
+        parts[-1] = parts[-1][:-1]
+        clean = " ".join(parts)
+    clean = re.sub(r"\s+(?:tower|residence|building|apartment)$", "", clean)
+    # Suffix-stripping can expose a trailing area keyword (e.g. "oakley square
+    # residences" -> "oakley square"); re-strip so all spellings converge.
+    parts = clean.split()
+    while len(parts) > 1 and parts[-1] in AREA_KEYWORDS:
+        parts = parts[:-1]
+    clean = " ".join(parts)
+    return BUILDING_CANON_ALIAS_MAP.get(clean, clean)
 
 
 def canonical_property_type(value):

@@ -1,6 +1,6 @@
 # Truth Bridge Quality Report
 
-Date: 2026-07-06
+Date: 2026-07-07
 Source CSV: `KnowledgeBase/PropertyGraph/listing_bridge_master.csv`
 
 ## Architecture Terminology
