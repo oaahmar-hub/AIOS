@@ -1,5 +1,6 @@
 queue_type,cpid,resolver_record_id,reason,severity,recommended_action,source_file
 quarantine_review,CPID-UNIT-cdb0134984698a6d,,no_resolver_signal,medium,validate polluted or noisy source row before reuse,Reportage_Inventory__0771e967-82c4-4910-bb30-d0f17d5a7ecc__d773272a73.xlsx
+quarantine_review,CPID-UNIT-91bd976b074f08a8,,generic_building_name,medium,validate polluted or noisy source row before reuse,Data_Uae_Pak_Last__Property`s Type__39eae9c864.xlsx
 cpid_review,CPID-LAND-77800826,,public_listing_without_hard_identifier,high,collect broker reference or property/permit/plot/unit bridge,WhatsApp ChatStorage.sqlite
 quarantine_review,CPID-LAND-77800826,,non_listing_public_url | polluted_property_number | polluted_property_number;non_listing_public_url,medium,validate polluted or noisy source row before reuse,WhatsApp ChatStorage.sqlite
 cpid_review,CPID-HASH-145b74c162883715,,missing_bridge_or_structural_confirmation,medium,collect broker reference or property/permit/plot/unit bridge,Reportage_Inventory__3014__ac9a52ed89.xlsx
