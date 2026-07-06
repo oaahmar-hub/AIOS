@@ -31,11 +31,9 @@ import json
 from pathlib import Path
 from typing import Dict, Iterable, List
 
-from openpyxl import load_workbook
-
 import sys
 
-KB = Path("/Users/hassanka/Downloads/AIOS/KnowledgeBase")
+KB = Path(__file__).resolve().parents[1]
 RESOLVER_DIR = KB / "resolver"
 GRAPH_DIR = KB / "PropertyGraph"
 IMPORT_DIR = GRAPH_DIR / "incoming_bridge_datasets"
@@ -64,6 +62,8 @@ def iter_json(path: Path) -> Iterable[Dict[str, object]]:
 
 
 def iter_xlsx(path: Path) -> Iterable[Dict[str, object]]:
+    from openpyxl import load_workbook
+
     wb = load_workbook(path, read_only=True, data_only=True)
     try:
         for ws in wb.worksheets:

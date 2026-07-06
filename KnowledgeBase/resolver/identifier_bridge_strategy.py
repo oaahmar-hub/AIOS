@@ -8,7 +8,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 
-RESOLVER_DIR = Path("/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver")
+RESOLVER_DIR = Path(__file__).resolve().parent
 BENCHMARK_CSV = RESOLVER_DIR / "live_listing_benchmark_results.csv"
 OUT_CSV = RESOLVER_DIR / "identifier_bridge_candidates.csv"
 OUT_REPORT = RESOLVER_DIR / "identifier_bridge_strategy_report.md"
@@ -270,7 +270,7 @@ def write_report(rows, records):
             "- Existing corpus does not support exact unit resolution for the 50 benchmark listings through meaningful permit/property/plot/land identifiers.",
             "- The only repeatable local bridge is area/project context, and it remains likely-only rather than exact.",
             "",
-            f"- candidates_csv: `{OUT_CSV}`",
+            f"- candidates_csv: `{OUT_CSV.relative_to(RESOLVER_DIR.parents[1])}`",
         ]
     )
     OUT_REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")

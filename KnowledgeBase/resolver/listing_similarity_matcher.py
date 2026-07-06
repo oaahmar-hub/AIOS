@@ -14,9 +14,18 @@ import sqlite3
 from functools import lru_cache
 
 
-KB = Path("/Users/hassanka/Downloads/AIOS/KnowledgeBase")
+KB = Path(__file__).resolve().parents[1]
 RESOLVER_DIR = KB / "resolver"
-DB_PATH = RESOLVER_DIR / "unit_resolver_database.sqlite"
+
+
+def _resolve_resolver_db(resolver_dir: Path) -> Path:
+    resolver_file = resolver_dir / "unit_resolver_database.resolver"
+    if resolver_file.is_file():
+        return resolver_file
+    return resolver_dir / "unit_resolver_database.sqlite"
+
+
+DB_PATH = _resolve_resolver_db(RESOLVER_DIR)
 LISTING_IDENTITY_JSON = RESOLVER_DIR / "listing_identity_map.json"
 LISTING_IDENTITY_CSV = RESOLVER_DIR / "listing_identity_map.csv"
 INDEX_CSV = RESOLVER_DIR / "unit_resolver_index.csv"

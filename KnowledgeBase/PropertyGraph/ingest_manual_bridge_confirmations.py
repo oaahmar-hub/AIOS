@@ -10,10 +10,19 @@ from pathlib import Path
 
 import sys
 
-KB = Path("/Users/hassanka/Downloads/AIOS/KnowledgeBase")
+KB = Path(__file__).resolve().parents[1]
 GRAPH_DIR = KB / "PropertyGraph"
 RESOLVER_DIR = KB / "resolver"
-DB_PATH = RESOLVER_DIR / "unit_resolver_database.sqlite"
+
+
+def _resolve_resolver_db(resolver_dir: Path) -> Path:
+    resolver_file = resolver_dir / "unit_resolver_database.resolver"
+    if resolver_file.is_file():
+        return resolver_file
+    return resolver_dir / "unit_resolver_database.sqlite"
+
+
+DB_PATH = _resolve_resolver_db(RESOLVER_DIR)
 INPUT_CSV = GRAPH_DIR / "manual_bridge_confirmations.csv"
 
 sys.path.append(str(RESOLVER_DIR))
