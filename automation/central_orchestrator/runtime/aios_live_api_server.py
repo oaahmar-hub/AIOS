@@ -510,6 +510,14 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     # Fallback holding line configured (so a broken brain still acks the customer).
     components["fallback_reply"] = _ok(bool(WA_FALLBACK_REPLY), "configured" if WA_FALLBACK_REPLY else "disabled")
 
+    # Conversation memory: per-contact recall store.
+    try:
+        import conversation_memory as _mem
+        _ms = _mem.stats()
+        components["conversation_memory"] = _ok(_ms.get("ok", False), f"{_ms.get('contacts',0)} contacts / {_ms.get('turns',0)} turns")
+    except Exception as exc:  # pragma: no cover
+        components["conversation_memory"] = _ok(False, f"error:{exc}")
+
     # Knowledge connection: quotable inventory available to the brain.
     try:
         import inventory_retrieval as _inv
@@ -1035,10 +1043,19 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     if not eligible and reply_detail == "no_action" and (from_me or is_self or not actionable):
         reply_detail = "not_actionable"
     if eligible:
+        # Conversation memory: recall this contact's recent turns so the brain
+        # continues the conversation instead of restarting each message.
+        convo_history = ""
+        try:
+            import conversation_memory as _mem
+            convo_history = _mem.history(sender_digits)
+            _mem.record(sender_digits, "user", text)
+        except Exception as _mem_exc:  # pragma: no cover - defensive
+            logger.warning("conversation_memory read failed: %s", _mem_exc)
         # Reconnect the real brain: build Omar's personality/relationship/
         # objective context and feed it to the LLM as the system prompt.
         system_prompt, brain_meta = _build_personality_system_prompt(
-            text, "", sender_digits, str(event.get("profile_name") or "")
+            text, convo_history, sender_digits, str(event.get("profile_name") or "")
         )
         # Knowledge connection: retrieve REAL inventory matching the message and
         # give it to the brain as the only quotable source. No matches -> the
@@ -1053,7 +1070,7 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
                 system_prompt = inv_block
         except Exception as _inv_exc:  # pragma: no cover - defensive
             logger.warning("inventory_retrieval failed: %s", _inv_exc)
-        reply_text_out, gen_detail = _generate_reply_text(text, system_prompt=system_prompt)
+        reply_text_out, gen_detail = _generate_reply_text(text, history=convo_history, system_prompt=system_prompt)
         gen_detail = f"{gen_detail}|brain:{brain_meta}|inv:{inv_count}" if brain_meta else f"{gen_detail}|inv:{inv_count}"
         used_fallback = False
         if not reply_text_out and WA_FALLBACK_REPLY:
@@ -1065,6 +1082,12 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
             reply_detail = f"generate:{gen_detail}|send:{send_detail}{fb}"
             side_effects["provider_webhook_called"] = True
             side_effects["whatsapp_messages_sent"] = reply_sent
+            if reply_sent and not used_fallback:
+                try:
+                    import conversation_memory as _mem
+                    _mem.record(sender_digits, "assistant", reply_text_out)
+                except Exception:
+                    pass
         else:
             reply_detail = f"generate:{gen_detail}|no_fallback_configured"
     result = {
