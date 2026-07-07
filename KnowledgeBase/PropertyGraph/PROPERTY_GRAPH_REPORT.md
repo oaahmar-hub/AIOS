@@ -1,17 +1,17 @@
 # AIOS Property Graph Report
 
-- generated_at: `2026-07-06T22:48:17+00:00`
-- resolver_records: `26166`
-- canonical_properties: `83`
-- source_observations: `26166`
+- generated_at: `2026-07-07T08:46:26+00:00`
+- resolver_records: `26306`
+- canonical_properties: `223`
+- source_observations: `26306`
 - listing_bridge_master_rows: `1244`
-- verification_queue_rows: `607`
+- verification_queue_rows: `747`
 - owner_contact_cpid_count: `61`
 - public_listing_cpid_count: `1`
 
 ## Verification States
 - LIKELY: `20`
-- POSSIBLE: `48`
+- POSSIBLE: `188`
 - UNRESOLVED: `14`
 - VERIFIED_STRUCTURAL: `1`
 
