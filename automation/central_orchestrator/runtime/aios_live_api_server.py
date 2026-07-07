@@ -518,6 +518,21 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover
         components["conversation_memory"] = _ok(False, f"error:{exc}")
 
+    # Group-Lead Agent store.
+    try:
+        import group_leads as _gl
+        _gs = _gl.stats()
+        components["group_leads"] = _ok(_gs.get("ok", False), f"{_gs.get('leads',0)} leads / {_gs.get('with_matches',0)} matched")
+    except Exception as exc:  # pragma: no cover
+        components["group_leads"] = _ok(False, f"error:{exc}")
+
+    # CRM lead capture wiring.
+    try:
+        import crm_leads as _crm
+        components["crm_leads"] = _ok(_crm.configured(), _crm.health().get("detail", ""))
+    except Exception as exc:  # pragma: no cover
+        components["crm_leads"] = _ok(False, f"error:{exc}")
+
     # Knowledge connection: quotable inventory available to the brain.
     try:
         import inventory_retrieval as _inv
@@ -1033,6 +1048,14 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     is_self = bool(event.get("is_self_chat"))
     actionable = bool(event.get("actionable", True))
     message_id = str(event.get("message_id") or "")
+    # Group-Lead Agent: detect real requests (incl. group messages the reply
+    # path ignores) and record ranked leads for Omar. Never replies in groups.
+    if text and not from_me:
+        try:
+            import group_leads as _gl
+            _gl.detect(sender_digits or sender, text, source=("group" if is_self is False and not actionable else "direct"))
+        except Exception:
+            pass
     eligible = (
         not hold_delivery and text and sender_digits
         and not from_me and not is_self and actionable
@@ -1088,6 +1111,14 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
                     _mem.record(sender_digits, "assistant", reply_text_out)
                 except Exception:
                     pass
+            # CRM: capture every real inbound lead (best-effort, non-blocking).
+            try:
+                import crm_leads as _crm
+                if _crm.configured():
+                    _crm.capture(sender_digits, str(event.get("profile_name") or ""), text)
+                    side_effects["crm_records_written"] = True
+            except Exception as _crm_exc:  # pragma: no cover
+                logger.warning("crm capture failed: %s", _crm_exc)
         else:
             reply_detail = f"generate:{gen_detail}|no_fallback_configured"
     result = {
@@ -1370,6 +1401,13 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return
         if path == "/api/unit/stats":
             _write_json(self, 200, get_stats())
+            return
+        if path == "/api/leads/recent":
+            try:
+                import group_leads as _gl
+                _write_json(self, 200, {"ok": True, "leads": _gl.recent(30), "stats": _gl.stats()})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
         super().do_GET()
 
