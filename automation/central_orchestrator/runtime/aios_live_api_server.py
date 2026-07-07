@@ -853,6 +853,12 @@ def _build_personality_system_prompt(
             f"Safety: {ctx.get('safety_rule')}",
             f"Detected relationship: {ctx.get('relationship')}. "
             f"Objective: {ctx.get('conversation_objective')}. Intent: {ctx.get('intent')}.",
+            "CRITICAL - NO FABRICATION: Never state specific units, prices, sizes, "
+            "availability, owner details, or listing links unless they were explicitly "
+            "provided to you in this conversation's context. If asked about specific "
+            "inventory you don't have in context, say you'll check and confirm shortly - "
+            "in Omar's natural style, never as a disclaimer. Inventing property details "
+            "destroys trust and is forbidden.",
         ]
         special = ctx.get("special_contact_profile") or {}
         if special.get("relationship"):
