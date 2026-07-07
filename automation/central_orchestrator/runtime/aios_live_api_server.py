@@ -510,6 +510,17 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     # Fallback holding line configured (so a broken brain still acks the customer).
     components["fallback_reply"] = _ok(bool(WA_FALLBACK_REPLY), "configured" if WA_FALLBACK_REPLY else "disabled")
 
+    # Knowledge connection: quotable inventory available to the brain.
+    try:
+        import inventory_retrieval as _inv
+        _qc = _inv.quotable_count()
+        components["inventory_knowledge"] = _ok(_qc > 0, f"{_qc} quotable rows")
+        if _qc == 0:
+            issues.append("Inventory retrieval loaded 0 quotable rows - brain cannot quote real units.")
+    except Exception as exc:  # pragma: no cover - defensive
+        components["inventory_knowledge"] = _ok(False, f"error:{exc}")
+        issues.append(f"Inventory retrieval failed to load: {exc}")
+
     checked = [c for c in components.values() if c.get("ok") is not None]
     reds = [c for c in checked if c.get("ok") is False]
     # The reply loop is only truly "healthy" when a customer message gets answered.
@@ -1029,8 +1040,21 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
         system_prompt, brain_meta = _build_personality_system_prompt(
             text, "", sender_digits, str(event.get("profile_name") or "")
         )
+        # Knowledge connection: retrieve REAL inventory matching the message and
+        # give it to the brain as the only quotable source. No matches -> the
+        # no-fabrication rule keeps the reply at "I'll check and confirm".
+        inv_count = 0
+        try:
+            import inventory_retrieval as _inv
+            inv_block, inv_count = _inv.build_inventory_context(text)
+            if inv_block and system_prompt:
+                system_prompt = f"{system_prompt}\n\n{inv_block}"
+            elif inv_block:
+                system_prompt = inv_block
+        except Exception as _inv_exc:  # pragma: no cover - defensive
+            logger.warning("inventory_retrieval failed: %s", _inv_exc)
         reply_text_out, gen_detail = _generate_reply_text(text, system_prompt=system_prompt)
-        gen_detail = f"{gen_detail}|brain:{brain_meta}" if brain_meta else gen_detail
+        gen_detail = f"{gen_detail}|brain:{brain_meta}|inv:{inv_count}" if brain_meta else f"{gen_detail}|inv:{inv_count}"
         used_fallback = False
         if not reply_text_out and WA_FALLBACK_REPLY:
             reply_text_out = WA_FALLBACK_REPLY
