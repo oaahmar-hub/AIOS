@@ -1,0 +1,9 @@
+listing_url,listing_id,matched_building,candidate_unit,inventory_building_raw,bedrooms,size,price,developer,plot_number,source_file,CONFIRM_YES_NO,notes,live_check_2026-07-07
+https://www.bayut.com/pm/12380001/5ad66df3-6730-40a9-99e5-f11d2183b9c1,12380001,Cello,1081,Cello Residences,,59.13,,,,JVC.xlsx,,,DELISTED - Bayut returns Not Found (checked live 2026-07-07)
+https://www.bayut.com/pm/12380001/caf786cd-619f-4eff-9bad-2014e09c5923,12380001,Cello,1081,Cello Residences,,59.13,,,,JVC.xlsx,,,DELISTED - Bayut returns Not Found (checked live 2026-07-07)
+https://www.bayut.com/pm/12380981/4beda843-b1e2-4aa6-b93c-a703937070c9,12380981,Cello,1081,Cello Residences,,59.13,,,,JVC.xlsx,,,DELISTED - Bayut returns Not Found (checked live 2026-07-07)
+https://www.bayut.com/pm/12381101/2dba3274-dd2a-4566-be9d-0b2048fbd2b8,12381101,Cello,1081,Cello Residences,,59.13,,,,JVC.xlsx,,,NOT CHECKED LIVE - same /pm/ pattern as delisted siblings
+https://www.bayut.com/pm/12382227/c359fcdb-17ca-4320-ae14-7f42eaaf9661,12382227,Cello,1081,Cello Residences,,59.13,,,,JVC.xlsx,,,NOT CHECKED LIVE - same /pm/ pattern as delisted siblings
+https://www.bayut.com/pm/11981685/963285d4-38f7-4ddc-a2c1-8e9823a4c4f5,11981685,May,1585,May Residence,,45.96,,,,JVC.xlsx,NO,,"REFUTED - live listing shows Autumn 2 Block A, Seasons Community JVC, 662 sqft (inventory unit 1585 = 45.96 sqm). Building context mismatch."
+https://www.bayut.com/pm/12153654/eea5be2c-eaf5-4a6f-a559-a56aba185d05,12153654,May,1585,May Residence,,45.96,,,,JVC.xlsx,,,DELISTED - Bayut returns Not Found (checked live 2026-07-07)
+https://www.bayut.com/pm/12153654/f92c2bc3-e568-4446-9237-1afad614d482,12153654,May,1585,May Residence,,45.96,,,,JVC.xlsx,,,DELISTED - Bayut returns Not Found (checked live 2026-07-07)
