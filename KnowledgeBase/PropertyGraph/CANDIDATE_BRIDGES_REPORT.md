@@ -1,6 +1,6 @@
 # Candidate Bridges (for review)
 
-- generated_at: `2026-07-07T01:19:49.670756+00:00`
+- generated_at: `2026-07-07T08:46:35.182448+00:00`
 - Candidate bridges anchor a public listing URL to the most likely inventory
   building/unit set via clean `area+building` or `area+project` matches.
 - **These are review candidates, not exact matches.** The audit counts them in
@@ -8,17 +8,27 @@
 
 ## Summary
 
-- inventory area+building groups: `198`
+- inventory area+building groups: `217`
 - inventory area+project groups: `78`
-- distinct candidate listing URLs: `19`
-- master rows relabelled `candidate_bridge`: `19`
+- distinct candidate listing URLs: `29`
+- master rows relabelled `candidate_bridge`: `29`
 - master rows excluded as `livecheck_refuted`: `1`
-- by match type: `{'area_building': 7, 'area_project': 12}`
+- by match type: `{'area_building': 17, 'area_project': 12}`
 
 ## Candidates
 
 | match_type | area | entity | # units | live_check | listing_url |
 | --- | --- | --- | --- | --- | --- |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221857/188f94f9-476b-43a8-8168-1cf346beb075 |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221857/2c7a05bc-7003-4378-8a83-ddfcbdaee03c |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221857/67feda4c-2467-449b-b910-8a61ebe683d5 |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221857/6ba34bfd-ebe3-4ed2-8ab4-a89fe2fc720f |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221857/90c45925-34b4-426b-9aef-18e37e75f4a6 |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221857/dbeb578b-70e3-4f79-a6b9-4ca62e677052 |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221857/f2bbe321-c739-436c-b4cc-24ddee7d4a36 |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221858/826f99a6-928d-4cd5-b6b0-686c67305ae1 |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221858/a0819a52-66d6-48b7-8be6-b4d41025e9d6 |
+| area_building | Dubai Hills | Sidra | 2 |  | https://www.bayut.com/pm/11221858/c4fed12a-af60-439e-b2e5-79dfe1e7005c |
 | area_building | Jvc | Cello | 1 | delisted 2026-07-07 | https://www.bayut.com/pm/12380001/5ad66df3-6730-40a9-99e5-f11d2183b9c1 |
 | area_building | Jvc | Cello | 1 | delisted 2026-07-07 | https://www.bayut.com/pm/12380001/caf786cd-619f-4eff-9bad-2014e09c5923 |
 | area_building | Jvc | Cello | 1 | delisted 2026-07-07 | https://www.bayut.com/pm/12380981/4beda843-b1e2-4aa6-b93c-a703937070c9 |

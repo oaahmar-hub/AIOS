@@ -9,16 +9,16 @@
       "percentage_of_all_rows": 3.5
     },
     "High-confidence": {
-      "count": 691,
-      "percentage_of_all_rows": 55.5
+      "count": 681,
+      "percentage_of_all_rows": 54.7
     },
     "Partial": {
       "count": 293,
       "percentage_of_all_rows": 23.6
     },
     "Weak": {
-      "count": 20,
-      "percentage_of_all_rows": 1.6
+      "count": 30,
+      "percentage_of_all_rows": 2.4
     },
     "Unusable": {
       "count": 197,
@@ -27,23 +27,23 @@
   },
   "status_counts": {
     "exact_bridge": 43,
-    "partial_bridge": 984,
+    "partial_bridge": 974,
     "invalid_bridge": 197,
-    "candidate_bridge": 19,
+    "candidate_bridge": 29,
     "waiting_for_data": 1
   },
-  "truth_bridge_quality_score": 56.0,
+  "truth_bridge_quality_score": 55.5,
   "exact_bridge_percentage": 3.5,
   "exact_bridge_percentage_public_reference_rows": 4.1,
-  "high_confidence_percentage": 55.5,
+  "high_confidence_percentage": 54.7,
   "remaining_data_gaps": [
     {
       "gap": "missing_unit_number",
-      "count": 1011
+      "count": 1001
     },
     {
       "gap": "missing_hard_property_identifier",
-      "count": 691
+      "count": 681
     },
     {
       "gap": "missing_broker_or_building_anchor",
@@ -55,18 +55,18 @@
     },
     {
       "gap": "missing_cpid_link_or_hard_identifier",
-      "count": 20
+      "count": 30
     }
   ],
   "recommended_highest_value_sources": [
     {
       "source": "BAYUT OVER ALL LEAD.xlsx",
       "exact": 0,
-      "high_confidence": 616,
+      "high_confidence": 606,
       "partial": 44,
-      "weak": 19,
+      "weak": 29,
       "unusable": 1,
-      "uplift_score": 651.3
+      "uplift_score": 648.3
     },
     {
       "source": "WhatsApp ChatStorage.sqlite",
