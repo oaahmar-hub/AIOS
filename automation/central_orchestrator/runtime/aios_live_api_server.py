@@ -817,11 +817,73 @@ def _load_whatsapp_provider_gateway():
     return process_whatsapp_provider
 
 
-def _generate_reply_text(message: str, history: str = "") -> tuple[str, str]:
-    """Ask the n8n brain for a reply. Returns (reply_text, detail)."""
+_PERSONALITY_DIR = RUNTIME_DIR / "personality"
+
+
+def _build_personality_system_prompt(
+    message: str,
+    history: str,
+    sender: str,
+    profile_name: str = "",
+) -> tuple[str, str]:
+    """Compose the real Omar-brain system prompt from omar_personality_engine.
+
+    Returns (system_prompt, meta). Never raises — on any failure returns ("",
+    "engine_error:…") so the n8n default prompt is used and replies still flow.
+    """
+    try:
+        if str(_PERSONALITY_DIR) not in sys.path:
+            sys.path.insert(0, str(_PERSONALITY_DIR))
+        import omar_personality_engine as pe  # type: ignore
+    except Exception as exc:  # pragma: no cover - defensive
+        return "", f"engine_import_error:{exc}"
+    try:
+        contact_context = {"phone": sender, "name": profile_name}
+        ctx = pe.build_personality_context(
+            message, history=history or "", sender_type="Customer", relationship="", contact_context=contact_context
+        )
+        parts = [
+            str(ctx.get("operations_persona_text") or "").strip(),
+            str(ctx.get("system_instruction") or "").strip(),
+            f"Tone: {ctx.get('tone')}",
+            f"Length: {ctx.get('length_rule')}",
+            f"Warmth: {ctx.get('warmth_rule')}",
+            f"Action: {ctx.get('action_rule')}",
+            f"Language: {ctx.get('language_rule')}",
+            f"Safety: {ctx.get('safety_rule')}",
+            f"Detected relationship: {ctx.get('relationship')}. "
+            f"Objective: {ctx.get('conversation_objective')}. Intent: {ctx.get('intent')}.",
+        ]
+        special = ctx.get("special_contact_profile") or {}
+        if special.get("relationship"):
+            greet = special.get("short_greeting_ar") or special.get("short_greeting_en") or ""
+            parts.append(
+                f"This is a known contact ({special.get('display_name')}, {special.get('relationship')}). "
+                f"Match their style; a natural short greeting like '{greet}' fits when appropriate."
+            )
+        restricted = ctx.get("restricted_knowledge") or []
+        if restricted:
+            parts.append("Never reveal: " + ", ".join(restricted) + ".")
+        system_prompt = "\n\n".join(p for p in parts if p)
+        meta = f"lang={ctx.get('language')};rel={ctx.get('relationship')};obj={ctx.get('conversation_objective')}"
+        return system_prompt, meta
+    except Exception as exc:  # pragma: no cover - defensive
+        return "", f"engine_error:{exc}"
+
+
+def _generate_reply_text(message: str, history: str = "", system_prompt: str = "") -> tuple[str, str]:
+    """Ask the n8n brain for a reply. Returns (reply_text, detail).
+
+    When system_prompt is provided (from the real personality engine), it is
+    sent so the LLM answers as Omar with full relationship/objective context
+    instead of the generic stub prompt.
+    """
     if not WA_REPLY_ENDPOINT or not message:
         return "", "no_endpoint_or_message"
-    body = json.dumps({"message": message, "history": history or "No prior history"}).encode("utf-8")
+    payload = {"message": message, "history": history or "No prior history"}
+    if system_prompt:
+        payload["system"] = system_prompt
+    body = json.dumps(payload).encode("utf-8")
     req = Request(
         WA_REPLY_ENDPOINT,
         data=body,
@@ -956,7 +1018,13 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     if not eligible and reply_detail == "no_action" and (from_me or is_self or not actionable):
         reply_detail = "not_actionable"
     if eligible:
-        reply_text_out, gen_detail = _generate_reply_text(text)
+        # Reconnect the real brain: build Omar's personality/relationship/
+        # objective context and feed it to the LLM as the system prompt.
+        system_prompt, brain_meta = _build_personality_system_prompt(
+            text, "", sender_digits, str(event.get("profile_name") or "")
+        )
+        reply_text_out, gen_detail = _generate_reply_text(text, system_prompt=system_prompt)
+        gen_detail = f"{gen_detail}|brain:{brain_meta}" if brain_meta else gen_detail
         used_fallback = False
         if not reply_text_out and WA_FALLBACK_REPLY:
             reply_text_out = WA_FALLBACK_REPLY

@@ -42,3 +42,18 @@ def test_dedupe_replies_once_per_message_id():
     # empty id must never be treated as a duplicate
     assert srv._already_replied("") is False
     assert srv._already_replied("") is False
+
+
+def test_personality_engine_builds_real_system_prompt():
+    import aios_live_api_server as srv
+    # Known contact (Hassan) in Arabic should produce a rich, non-empty prompt.
+    sp, meta = srv._build_personality_system_prompt("مرحبا كيف الحال يا ملك", "", "971501900771", "Hassan")
+    assert sp and len(sp) > 500          # full persona, not the stub
+    assert "lang=arabic" in meta
+    assert "rel=" in meta and "obj=" in meta
+
+
+def test_personality_prompt_generic_sender_english():
+    import aios_live_api_server as srv
+    sp, meta = srv._build_personality_system_prompt("hi, 1BR in JVC under 900k", "", "971500000000", "")
+    assert sp and "lang=english" in meta
