@@ -444,6 +444,95 @@ def get_deployment_status() -> dict[str, Any]:
     }
 
 
+def _ok(ok: bool, detail: str = "") -> dict[str, Any]:
+    return {"ok": bool(ok), "detail": detail}
+
+
+def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
+    """End-to-end chain health so failures surface instead of hiding.
+
+    Checks every link a live WhatsApp reply depends on and reports green/red
+    per component with a human-readable summary of what is broken. This is the
+    signal that was missing while every failure this project hit stayed silent
+    (dead webhook URL, frozen deploys, dead OpenAI key, unwired sender).
+
+    Public + read-only. The brain check does one short POST to the n8n endpoint
+    (skippable via ?brain=0) so an invalid OpenAI key is caught immediately.
+    No message is ever sent to a customer from this endpoint.
+    """
+    components: dict[str, Any] = {}
+    issues: list[str] = []
+
+    components["runtime"] = _ok(True, "process serving")
+
+    # Resolver DB present and readable.
+    try:
+        db_path = AIOS_ROOT / "KnowledgeBase" / "resolver" / "unit_resolver_database.resolver"
+        db_ok = db_path.is_file() and db_path.stat().st_size > 0
+    except Exception as exc:  # pragma: no cover - defensive
+        db_ok, db_path = False, None
+        issues.append(f"resolver_db error: {exc}")
+    components["resolver_db"] = _ok(db_ok, "present" if db_ok else "missing")
+    if not db_ok:
+        issues.append("Resolver database missing or empty.")
+
+    # Inbound webhook auth configured (signature secret or verify token).
+    webhook_ok = bool(WASENDER_WEBHOOK_SECRET) or bool(WHATSAPP_VERIFY_TOKEN)
+    components["webhook_auth"] = _ok(
+        webhook_ok,
+        "signature_secret_set" if WASENDER_WEBHOOK_SECRET else "verify_token_only" if WHATSAPP_VERIFY_TOKEN else "unconfigured",
+    )
+    if not webhook_ok:
+        issues.append("No webhook auth configured (set AIOS_WEBHOOK_SECRET to match Wasender).")
+
+    # Reply mode: auto means the runtime will actually answer.
+    reply_auto = WHATSAPP_REPLY_MODE == "auto"
+    components["reply_mode"] = {"ok": reply_auto, "value": WHATSAPP_REPLY_MODE}
+    if not reply_auto:
+        issues.append("Reply mode is 'hold' — inbound messages are received but never answered. Set AIOS_WHATSAPP_REPLY_MODE=auto to reply.")
+
+    # Outbound send credential present (config only; no message is sent).
+    send_ok = bool(WASENDER_API_KEY)
+    components["wasender_send"] = _ok(send_ok, "api_key_set" if send_ok else "missing_api_key")
+    if not send_ok:
+        issues.append("WASENDER_API_KEY not set — replies cannot be delivered.")
+
+    # The brain: actually call n8n so a dead OpenAI key is caught here, not in silence.
+    if check_brain and WA_REPLY_ENDPOINT:
+        reply, detail = _generate_reply_text("health check ping", history="diagnostic")
+        brain_ok = bool(reply)
+        components["brain_n8n_openai"] = _ok(brain_ok, detail)
+        if not brain_ok:
+            issues.append(f"Reply brain failed ({detail}). Common cause: invalid/expired OpenAI API key in the n8n 'OpenAI account' credential.")
+    else:
+        components["brain_n8n_openai"] = {"ok": None, "detail": "skipped"}
+
+    # Fallback holding line configured (so a broken brain still acks the customer).
+    components["fallback_reply"] = _ok(bool(WA_FALLBACK_REPLY), "configured" if WA_FALLBACK_REPLY else "disabled")
+
+    checked = [c for c in components.values() if c.get("ok") is not None]
+    reds = [c for c in checked if c.get("ok") is False]
+    # The reply loop is only truly "healthy" when a customer message gets answered.
+    reply_chain_live = all(
+        components[name]["ok"]
+        for name in ("webhook_auth", "reply_mode", "wasender_send", "brain_n8n_openai")
+        if components.get(name, {}).get("ok") is not None
+    )
+    status = "healthy" if not reds else ("down" if not reply_chain_live else "degraded")
+
+    return {
+        "status": status,
+        "reply_chain_live": reply_chain_live,
+        "checked_at": _now(),
+        "components": components,
+        "issues": issues,
+        "summary": ("All systems green — WhatsApp reply loop is live."
+                    if status == "healthy"
+                    else f"{len(issues)} issue(s) blocking the live reply loop." ),
+        "endpoint": "/api/health/deep",
+    }
+
+
 def get_launch_readiness() -> dict[str, Any]:
     readiness = _read_report(LAUNCH_READINESS_REPORT_PATH)
     if readiness:
@@ -1010,7 +1099,7 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return True
         if AUTH_MODE != "basic":
             return True
-        if path in {"/api/health", "/api/runtime/status", "/api/deployment/status", "/api/launch/readiness", "/api/client/config"}:
+        if path in {"/api/health", "/api/health/deep", "/api/runtime/status", "/api/deployment/status", "/api/launch/readiness", "/api/client/config"}:
             return True
         if (
             path in PUBLIC_STATIC_PATHS
@@ -1101,6 +1190,10 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return
         if path in {"/api/health", "/api/runtime/status"}:
             _write_json(self, 200, get_runtime_status())
+            return
+        if path == "/api/health/deep":
+            check_brain = _query(self.path).get("brain", "1") not in {"0", "false", "no"}
+            _write_json(self, 200, get_deep_health(check_brain=check_brain))
             return
         if path == "/api/deployment/status":
             _write_json(self, 200, get_deployment_status())
