@@ -31,3 +31,14 @@ def test_reply_mode_default_holds_delivery():
     assert server.WHATSAPP_REPLY_MODE != "auto" or server.WHATSAPP_REPLY_MODE == "auto"
     hold = server.WHATSAPP_REPLY_MODE != "auto" or True  # restricted path always holds
     assert hold is True
+
+
+def test_dedupe_replies_once_per_message_id():
+    import aios_live_api_server as srv
+    mid = "WA-DEDUPE-TEST-1"
+    assert srv._already_replied(mid) is False   # first sighting records it
+    assert srv._already_replied(mid) is True     # duplicate suppressed
+    assert srv._already_replied("WA-DEDUPE-TEST-2") is False
+    # empty id must never be treated as a duplicate
+    assert srv._already_replied("") is False
+    assert srv._already_replied("") is False

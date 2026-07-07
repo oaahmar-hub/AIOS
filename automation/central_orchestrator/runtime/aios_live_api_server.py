@@ -841,6 +841,31 @@ def _generate_reply_text(message: str, history: str = "") -> tuple[str, str]:
         return "", f"error:{exc}"
 
 
+import threading
+from collections import OrderedDict
+
+# De-dupe store: WhatsApp providers fire several webhook events per inbound
+# message (messages.received + messages.upsert + personal.received) and retry on
+# slow acks, so the same message hits this endpoint multiple times. Reply once
+# per message_id. Bounded + thread-safe (ThreadingHTTPServer runs many threads).
+_REPLIED_IDS: "OrderedDict[str, bool]" = OrderedDict()
+_REPLIED_LOCK = threading.Lock()
+_REPLIED_MAX = 2000
+
+
+def _already_replied(message_id: str) -> bool:
+    """Return True if we've already replied to this message_id; else record it."""
+    if not message_id:
+        return False
+    with _REPLIED_LOCK:
+        if message_id in _REPLIED_IDS:
+            return True
+        _REPLIED_IDS[message_id] = True
+        while len(_REPLIED_IDS) > _REPLIED_MAX:
+            _REPLIED_IDS.popitem(last=False)
+        return False
+
+
 def _send_whatsapp_reply(phone: str, text: str) -> tuple[bool, str]:
     """Send a WhatsApp reply through the Wasender send API."""
     if not WASENDER_API_KEY:
@@ -915,7 +940,22 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     reply_detail = "hold" if hold_delivery else "no_action"
     reply_text_out = ""
     sender_digits = "".join(ch for ch in sender if ch.isdigit())
-    if not hold_delivery and text and sender_digits:
+    # Skip the bot's own sends, self-chats, and non-actionable events (status
+    # updates, reactions, group/channel noise) so we never reply to those.
+    from_me = bool(event.get("from_me"))
+    is_self = bool(event.get("is_self_chat"))
+    actionable = bool(event.get("actionable", True))
+    message_id = str(event.get("message_id") or "")
+    eligible = (
+        not hold_delivery and text and sender_digits
+        and not from_me and not is_self and actionable
+    )
+    if eligible and _already_replied(message_id):
+        eligible = False
+        reply_detail = "duplicate_suppressed"
+    if not eligible and reply_detail == "no_action" and (from_me or is_self or not actionable):
+        reply_detail = "not_actionable"
+    if eligible:
         reply_text_out, gen_detail = _generate_reply_text(text)
         used_fallback = False
         if not reply_text_out and WA_FALLBACK_REPLY:
