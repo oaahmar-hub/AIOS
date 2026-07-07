@@ -78,6 +78,13 @@ WA_REPLY_ENDPOINT = os.getenv(
     "WA_SIMPLE_OPENAI_ENDPOINT",
     "https://hshglobaldubai.app.n8n.cloud/webhook/wa-simple-openai-reply-v4",
 ).strip()
+# Graceful fallback: if the brain fails or returns empty (OpenAI outage, bad
+# key, timeout), send this holding line instead of silently dropping the
+# message. Set to empty to disable and revert to silent-hold on failure.
+WA_FALLBACK_REPLY = os.getenv(
+    "AIOS_WHATSAPP_FALLBACK_REPLY",
+    "Thanks for your message — I'll get back to you shortly.",
+).strip()
 WASENDER_BROWSER_UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
@@ -821,13 +828,18 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     sender_digits = "".join(ch for ch in sender if ch.isdigit())
     if not hold_delivery and text and sender_digits:
         reply_text_out, gen_detail = _generate_reply_text(text)
+        used_fallback = False
+        if not reply_text_out and WA_FALLBACK_REPLY:
+            reply_text_out = WA_FALLBACK_REPLY
+            used_fallback = True
         if reply_text_out:
             reply_sent, send_detail = _send_whatsapp_reply(sender_digits, reply_text_out)
-            reply_detail = f"generate:{gen_detail}|send:{send_detail}"
+            fb = "|fallback" if used_fallback else ""
+            reply_detail = f"generate:{gen_detail}|send:{send_detail}{fb}"
             side_effects["provider_webhook_called"] = True
             side_effects["whatsapp_messages_sent"] = reply_sent
         else:
-            reply_detail = f"generate:{gen_detail}"
+            reply_detail = f"generate:{gen_detail}|no_fallback_configured"
     result = {
         "ok": True,
         "webhook_id": webhook_id,
