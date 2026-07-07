@@ -77,7 +77,10 @@ PUBLIC_STATIC_PATHS = {
     "/app/",
     "/app/index.html",
 }
-PUBLIC_STATIC_SUFFIXES = (".html",)
+# NOTE: a blanket ".html" suffix here previously made EVERY html file public,
+# including AIOS-DASHBOARD.html (the command center). Public pages must be
+# listed explicitly in PUBLIC_STATIC_PATHS; everything else requires auth.
+PUBLIC_STATIC_SUFFIXES = ()
 PUBLIC_STATIC_PREFIXES = ("/assets/", "/app/assets/")
 GZIP_STATIC_SUFFIXES = {".html", ".js", ".json", ".md", ".webmanifest", ".txt", ".css", ".svg"}
 STATIC_GZIP_CACHE: dict[str, dict[str, Any]] = {}
