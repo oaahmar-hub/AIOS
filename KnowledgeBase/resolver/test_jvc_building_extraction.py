@@ -72,3 +72,19 @@ def test_canonical_building_aliases_align_inventory_and_portal():
     # names must remain non-empty after suffix alignment
     for name in ("may residence", "cello residences", "hyati residences", "bloom towers"):
         assert canonical_building(name)
+
+
+def test_livecheck_verdicts_load_and_refuted_semantics():
+    import importlib.util
+    from pathlib import Path
+
+    graph_dir = Path(__file__).resolve().parents[1] / "PropertyGraph"
+    spec = importlib.util.spec_from_file_location("bcb", graph_dir / "build_candidate_bridges.py")
+    bcb = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(bcb)
+
+    verdicts = bcb.load_livecheck_verdicts()
+    assert verdicts, "verdict file should load at least one row"
+    refuted = [v for v in verdicts.values() if v["verdict"] == "refuted"]
+    assert refuted and all(v["evidence"] for v in refuted), "refuted rows must carry evidence"
+    assert all(v["verdict"] in {"refuted", "delisted", "confirmed"} for v in verdicts.values())

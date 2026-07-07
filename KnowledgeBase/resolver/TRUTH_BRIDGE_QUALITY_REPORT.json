@@ -29,7 +29,8 @@
     "exact_bridge": 43,
     "partial_bridge": 984,
     "invalid_bridge": 197,
-    "candidate_bridge": 20
+    "candidate_bridge": 19,
+    "waiting_for_data": 1
   },
   "truth_bridge_quality_score": 56.0,
   "exact_bridge_percentage": 3.5,

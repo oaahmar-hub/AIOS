@@ -13224,10 +13224,10 @@
     "cpid": "CPID-HASH-77bd65f1cf496253",
     "source": "BAYUT OVER ALL LEAD.xlsx",
     "freshness": "2026-06-27",
-    "confidence": "60",
-    "verified_by": "anchor_candidate",
-    "bridge_status": "candidate_bridge",
-    "missing_bridge_fields": "candidate_area_building | units=1"
+    "confidence": "10",
+    "verified_by": "livecheck_refuted",
+    "bridge_status": "waiting_for_data",
+    "missing_bridge_fields": "livecheck_refuted 2026-07-07 | Live Bayut listing shows Autumn 2 Block A Seasons Community JVC 662 sqft 1BR - not May Residence; inventory unit 1585 is"
   },
   {
     "source_platform": "bayut.com",

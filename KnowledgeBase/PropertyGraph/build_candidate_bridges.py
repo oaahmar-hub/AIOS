@@ -57,6 +57,7 @@ MASTER_JSON = OUT_DIR / "listing_bridge_master.json"
 CANDIDATE_CSV = OUT_DIR / "candidate_bridges.csv"
 CANDIDATE_JSON = OUT_DIR / "candidate_bridges.json"
 CANDIDATE_REPORT = OUT_DIR / "CANDIDATE_BRIDGES_REPORT.md"
+LIVECHECK_CSV = OUT_DIR / "candidate_livecheck_verdicts.csv"
 
 # A group with too many units is not a useful "most likely set" to review.
 MAX_UNITS_FOR_CANDIDATE = 60
@@ -72,7 +73,32 @@ CANDIDATE_FIELDS = [
     "matched_entity",
     "candidate_unit_count",
     "candidate_units",
+    "live_check",
 ]
+
+
+def load_livecheck_verdicts() -> Dict[str, Dict[str, str]]:
+    """Map normalized listing_url -> {verdict, checked_on, evidence}.
+
+    Verdicts come from a human/agent checking the live portal listing.
+    ``refuted`` means the live listing demonstrably does not match the
+    anchored building — those URLs are permanently excluded from candidacy.
+    ``delisted`` keeps the candidate but surfaces the staleness in review.
+    """
+    verdicts: Dict[str, Dict[str, str]] = {}
+    if not LIVECHECK_CSV.exists():
+        return verdicts
+    with LIVECHECK_CSV.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            url = _norm(row.get("listing_url"))
+            verdict = _norm(row.get("verdict")).lower()
+            if url and verdict:
+                verdicts[normalize_url(url)] = {
+                    "verdict": verdict,
+                    "checked_on": _norm(row.get("checked_on")),
+                    "evidence": _norm(row.get("evidence")),
+                }
+    return verdicts
 
 
 def _norm(value: object) -> str:
@@ -145,6 +171,7 @@ def match_candidate(
 def build() -> Dict[str, object]:
     area_building, area_project = build_inventory_groups()
     url_context = load_url_context()
+    livecheck = load_livecheck_verdicts()
 
     with MASTER_CSV.open(newline="", encoding="utf-8") as handle:
         master_rows = list(csv.DictReader(handle))
@@ -152,6 +179,7 @@ def build() -> Dict[str, object]:
 
     candidates: List[Dict[str, object]] = []
     relabelled = 0
+    refuted = 0
     seen_urls: Set[str] = set()
 
     for row in master_rows:
@@ -162,7 +190,20 @@ def build() -> Dict[str, object]:
             continue
         if any(_norm(row.get(field)) for field in ("permit_number", "property_number", "plot_number")):
             continue
-        ctx = url_context.get(normalize_url(url))
+        key = normalize_url(url)
+        check = livecheck.get(key)
+        if check and check["verdict"] == "refuted":
+            # Live portal check demonstrably contradicted this anchor: the
+            # URL must never surface as a candidate again.
+            row["bridge_status"] = "waiting_for_data"
+            row["confidence"] = "10"
+            row["verified_by"] = "livecheck_refuted"
+            row["missing_bridge_fields"] = (
+                f"livecheck_refuted {check['checked_on']} | {check['evidence'][:120]}"
+            )
+            refuted += 1
+            continue
+        ctx = url_context.get(key)
         if not ctx:
             continue
         match = match_candidate(ctx, area_building, area_project)
@@ -178,7 +219,6 @@ def build() -> Dict[str, object]:
         row["missing_bridge_fields"] = note
         relabelled += 1
 
-        key = normalize_url(url)
         if key not in seen_urls:
             seen_urls.add(key)
             candidates.append(
@@ -191,6 +231,9 @@ def build() -> Dict[str, object]:
                     "matched_entity": match["matched_entity"].title(),
                     "candidate_unit_count": len(units),
                     "candidate_units": " | ".join(units[:MAX_UNITS_LISTED]),
+                    "live_check": (
+                        f"{check['verdict']} {check['checked_on']}" if check else ""
+                    ),
                 }
             )
 
@@ -210,17 +253,18 @@ def build() -> Dict[str, object]:
         writer.writerows(candidates)
     CANDIDATE_JSON.write_text(json.dumps(candidates, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    write_report(candidates, relabelled, len(area_building), len(area_project))
+    write_report(candidates, relabelled, refuted, len(area_building), len(area_project))
 
     return {
         "candidate_rows": len(candidates),
         "master_rows_relabelled": relabelled,
+        "livecheck_refuted_rows": refuted,
         "area_building_groups": len(area_building),
         "area_project_groups": len(area_project),
     }
 
 
-def write_report(candidates: List[Dict[str, object]], relabelled: int, ab_groups: int, ap_groups: int) -> None:
+def write_report(candidates: List[Dict[str, object]], relabelled: int, refuted: int, ab_groups: int, ap_groups: int) -> None:
     by_type: Dict[str, int] = defaultdict(int)
     for c in candidates:
         by_type[str(c["match_type"])] += 1
@@ -239,20 +283,21 @@ def write_report(candidates: List[Dict[str, object]], relabelled: int, ab_groups
         f"- inventory area+project groups: `{ap_groups}`",
         f"- distinct candidate listing URLs: `{len(candidates)}`",
         f"- master rows relabelled `candidate_bridge`: `{relabelled}`",
+        f"- master rows excluded as `livecheck_refuted`: `{refuted}`",
         f"- by match type: `{dict(by_type)}`",
         "",
         "## Candidates",
         "",
-        "| match_type | area | entity | # units | listing_url |",
-        "| --- | --- | --- | --- | --- |",
+        "| match_type | area | entity | # units | live_check | listing_url |",
+        "| --- | --- | --- | --- | --- | --- |",
     ]
     for c in candidates:
         lines.append(
             f"| {c['match_type']} | {c['matched_area']} | {c['matched_entity']} "
-            f"| {c['candidate_unit_count']} | {c['listing_url']} |"
+            f"| {c['candidate_unit_count']} | {c.get('live_check','')} | {c['listing_url']} |"
         )
     if not candidates:
-        lines.append("| _none_ | | | | |")
+        lines.append("| _none_ | | | | | |")
     CANDIDATE_REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
