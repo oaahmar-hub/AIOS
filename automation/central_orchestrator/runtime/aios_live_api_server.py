@@ -23,7 +23,9 @@ from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, urlparse
+from urllib.request import Request, urlopen
 
 from aios_interaction_architecture_runtime import evaluate_permission_request, permission_runtime_contract, process_interaction
 from aios_runtime import get_runtime_status
@@ -65,6 +67,20 @@ WHATSAPP_VERIFY_TOKEN = os.getenv("AIOS_WHATSAPP_VERIFY_TOKEN", "").strip()
 WASENDER_WEBHOOK_SECRET = (
     os.getenv("WASENDER_WEBHOOK_SECRET", "").strip()
     or os.getenv("AIOS_WEBHOOK_SECRET", "").strip()
+)
+# Outbound reply delivery. When AIOS_WHATSAPP_REPLY_MODE=auto and the message is
+# not permission-restricted, the hosted runtime generates a reply via the n8n
+# brain (WA_SIMPLE_OPENAI_ENDPOINT) and sends it back through the Wasender send
+# API. Defaults keep delivery OFF (hold) so nothing sends without explicit opt-in.
+WASENDER_API_KEY = os.getenv("WASENDER_API_KEY", "").strip()
+WASENDER_SEND_URL = os.getenv("WASENDER_SEND_URL", "https://www.wasenderapi.com/api/send-message").strip()
+WA_REPLY_ENDPOINT = os.getenv(
+    "WA_SIMPLE_OPENAI_ENDPOINT",
+    "https://hshglobaldubai.app.n8n.cloud/webhook/wa-simple-openai-reply-v4",
+).strip()
+WASENDER_BROWSER_UA = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 )
 PUBLIC_STATIC_PATHS = {
     "/",
@@ -705,6 +721,59 @@ def _load_whatsapp_provider_gateway():
     return process_whatsapp_provider
 
 
+def _generate_reply_text(message: str, history: str = "") -> tuple[str, str]:
+    """Ask the n8n brain for a reply. Returns (reply_text, detail)."""
+    if not WA_REPLY_ENDPOINT or not message:
+        return "", "no_endpoint_or_message"
+    body = json.dumps({"message": message, "history": history or "No prior history"}).encode("utf-8")
+    req = Request(
+        WA_REPLY_ENDPOINT,
+        data=body,
+        headers={"Content-Type": "application/json", "Accept": "application/json"},
+        method="POST",
+    )
+    try:
+        with urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read().decode("utf-8", errors="replace") or "{}")
+        reply = str(data.get("reply") or data.get("text") or data.get("output") or "").strip()
+        return reply, f"{resp.status}:ok" if reply else f"{resp.status}:empty"
+    except HTTPError as exc:
+        return "", f"http_error:{exc.code}"
+    except URLError as exc:
+        return "", f"url_error:{exc.reason}"
+    except Exception as exc:  # pragma: no cover - defensive
+        return "", f"error:{exc}"
+
+
+def _send_whatsapp_reply(phone: str, text: str) -> tuple[bool, str]:
+    """Send a WhatsApp reply through the Wasender send API."""
+    if not WASENDER_API_KEY:
+        return False, "missing_api_key"
+    if not phone or not text:
+        return False, "missing_phone_or_text"
+    body = json.dumps({"to": phone, "text": text}).encode("utf-8")
+    req = Request(
+        WASENDER_SEND_URL,
+        data=body,
+        headers={
+            "Authorization": f"Bearer {WASENDER_API_KEY}",
+            "Content-Type": "application/json",
+            "Accept": "application/json, text/plain, */*",
+            "User-Agent": WASENDER_BROWSER_UA,
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(req, timeout=30) as resp:
+            return True, f"{resp.status}:sent"
+    except HTTPError as exc:
+        return False, f"http_error:{exc.code}"
+    except URLError as exc:
+        return False, f"url_error:{exc.reason}"
+    except Exception as exc:  # pragma: no cover - defensive
+        return False, f"error:{exc}"
+
+
 def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any]:
     process_whatsapp_provider = _load_whatsapp_provider_gateway()
     provider_output = process_whatsapp_provider(payload)
@@ -741,6 +810,24 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
         "documents_shared": False,
         "provider_webhook_called": False,
     }
+
+    # Outbound reply: only when auto mode is on, the request is not restricted,
+    # there is inbound text, and we can resolve a real sender phone. Generates
+    # the reply via the n8n brain and sends it back through Wasender. Every step
+    # is recorded; failure never raises (the webhook still acks 200).
+    reply_sent = False
+    reply_detail = "hold" if hold_delivery else "no_action"
+    reply_text_out = ""
+    sender_digits = "".join(ch for ch in sender if ch.isdigit())
+    if not hold_delivery and text and sender_digits:
+        reply_text_out, gen_detail = _generate_reply_text(text)
+        if reply_text_out:
+            reply_sent, send_detail = _send_whatsapp_reply(sender_digits, reply_text_out)
+            reply_detail = f"generate:{gen_detail}|send:{send_detail}"
+            side_effects["provider_webhook_called"] = True
+            side_effects["whatsapp_messages_sent"] = reply_sent
+        else:
+            reply_detail = f"generate:{gen_detail}"
     result = {
         "ok": True,
         "webhook_id": webhook_id,
@@ -792,9 +879,12 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
             else "Monitor reply delivery and audit trail after explicit production approval.",
         },
         "reply_delivery": {
-            "enabled": False,
-            "mode": "hold_for_approval" if hold_delivery else "auto_mode_configured_but_external_send_disabled_here",
-            "reason": "Live provider sends remain approval-gated in AIOS Runtime.",
+            "enabled": not hold_delivery,
+            "mode": "hold_for_approval" if hold_delivery else "auto_reply_via_wasender",
+            "sent": reply_sent,
+            "detail": reply_detail,
+            "reply_text_preview": reply_text_out[:80],
+            "reason": "Held for approval." if hold_delivery else "Auto reply generated and sent via Wasender.",
         },
         "external_side_effects": side_effects,
         "public_beta_gate": {
