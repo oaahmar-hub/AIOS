@@ -64,6 +64,9 @@ Related listing folders (root): `HSH Updated Listing 2026`, `Ellingtone eltiera 
 
 ---
 
+## 3b. Airtable — Omar RE OS  (CRM / operations)
+Base `appnZ7RYBCt9wKgAT` (7 tables). Pulled 2026-07-08: **67 records** — Contacts 10, Leads 12, Tasks 17, Comms log 28 (Properties/Deals/Cases empty). Structure + aggregates in `AIRTABLE_SNAPSHOT.md`; raw per-record exports kept local-only (PII, gitignored). AIOS already writes leads here live via the CRM department.
+
 ## 4. Photos / Specs  → `04_Photos_Media/`
 - HSH Tiger Sky Tower — Unit 3902 specification (PNG) — `1YCi0REOwrv0G8syxqPBSvxHQrF19ggFk`
 - Per-project photo sets live inside each `AGENT LISTING/<project>` folder.

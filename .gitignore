@@ -19,3 +19,6 @@ KnowledgeBase/raw_data/
 proofs/premium_glow_review_*
 bin/cloudflared
 transport/cloudflared
+
+# Airtable raw exports contain customer PII — keep local only
+KnowledgeBase/HSH_CompanyVault/airtable/
