@@ -534,14 +534,6 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover
         components["content_studio"] = _ok(False, f"error:{exc}")
 
-    # Candidate inventory — verification worklist (never quoted to customers).
-    try:
-        import candidate_inventory as _ci
-        _cih = _ci.health()
-        components["candidate_inventory"] = _ok(_cih.get("ok", False), _cih.get("detail", ""))
-    except Exception as exc:  # pragma: no cover
-        components["candidate_inventory"] = _ok(False, f"error:{exc}")
-
     # CRM lead capture wiring.
     try:
         import crm_leads as _crm
@@ -1439,13 +1431,6 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return
         if path == "/api/unit/stats":
             _write_json(self, 200, get_stats())
-            return
-        if path == "/api/inventory/candidates":
-            try:
-                import candidate_inventory as _ci
-                _write_json(self, 200, {"ok": True, "note": "Unconfirmed candidates — verify before quoting; never sent to customers as fact.", "stats": _ci.stats(), "worklist": _ci.worklist(100)})
-            except Exception as exc:
-                _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
         if path == "/api/marketing/generate":
             from urllib.parse import urlparse, parse_qs
