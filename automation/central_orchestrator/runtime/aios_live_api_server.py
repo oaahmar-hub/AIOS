@@ -1365,6 +1365,10 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         if path == "/":
             self.path = "/AIOS-WEBSITE.html"
             path = "/AIOS-WEBSITE.html"
+        elif path in ("/cockpit", "/cockpit/", "/ops"):
+            # Operations cockpit — behind auth (not in PUBLIC_STATIC_PATHS).
+            self.path = "/AIOS-COCKPIT.html"
+            path = "/AIOS-COCKPIT.html"
         if path == WHATSAPP_WEBHOOK_PATH:
             query = _query(self.path)
             mode = query.get("hub.mode") or query.get("mode")

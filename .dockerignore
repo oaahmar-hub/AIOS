@@ -4,6 +4,7 @@
 !.dockerignore
 !aios_runtime_production_up.py
 !AIOS-DASHBOARD.html
+!AIOS-COCKPIT.html
 !AIOS-WEBSITE.html
 !AIOS-MOBILE-APP.html
 !AIOS-RUNTIME-STATUS.html
