@@ -1432,6 +1432,24 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         if path == "/api/unit/stats":
             _write_json(self, 200, get_stats())
             return
+        if path == "/api/marketing/campaign":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            channel = (qs.get("channel") or ["instagram"])[0]
+            try:
+                count = int((qs.get("count") or ["3"])[0])
+            except Exception:
+                count = 3
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                _write_json(self, 200, _cs.campaign(q, channel=channel, count=max(1, min(count, 10))))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         if path == "/api/marketing/generate":
             from urllib.parse import urlparse, parse_qs
             qs = parse_qs(urlparse(self.path).query)

@@ -48,3 +48,36 @@ def test_hashtags_are_deduped_and_capped():
     tags = out["hashtags"]
     assert len(tags) == len(set(t.lower() for t in tags))
     assert len(tags) <= 8
+
+
+def test_size_label_infers_unit_honestly():
+    # sqm source (small number) stays sqm; sqft source (large) stays sqft.
+    sqm = cs.compose({"area":"JVC","building":"X","unit":"1","bedrooms":"1","price":"900000","size":"82"})
+    assert "82 sqm" in sqm["en"]["facts"]
+    sqft = cs.compose({"area":"Emaar South","building":"Vista Ridge","unit":"P01","bedrooms":"2","price":"1986888","size":"1383"})
+    assert "1,383 sqft" in sqft["en"]["facts"] and "sqm)" in sqft["en"]["facts"]
+
+def test_value_picks_ranked_by_price_per_sqft():
+    picks = cs.value_picks("Emaar South", count=4)
+    if picks:
+        ppsf = [p["price_per_sqft"] for p in picks]
+        assert ppsf == sorted(ppsf)                 # ascending = best value first
+        assert all(p.get("price") and p.get("size") for p in picks)
+
+def test_campaign_real_units_and_broadcast():
+    c = cs.campaign("2BR in Emaar South", count=3)
+    assert c["ok"]
+    if c["matched"]:
+        assert c["broadcast_en"].startswith("🏠")
+        assert "Verified" in c["broadcast_en"]
+        for p in c["posts"]:
+            assert p["honest"] and p["unit_ref"]["area"]
+
+def test_campaign_no_match_composes_nothing():
+    c = cs.campaign("floating castle 88BR on mars")
+    assert c["ok"] and c["matched"] == 0 and c["posts"] == []
+
+def test_new_channels_supported():
+    for ch in ["story", "email", "broadcast"]:
+        out = cs.compose({"area":"JVC","building":"Luma22","unit":"609","bedrooms":"1","price":"850000","size":"82"}, ch)
+        assert out["ok"] and out["channel"] == ch
