@@ -109,5 +109,41 @@ def capture(phone: str, name: str, text: str, lead_score: str | None = None) -> 
     return {"ok": False, "action": "error", "reason": last}
 
 
+import time as _time
+_verify_cache: dict = {"ts": 0.0, "result": None}
+_VERIFY_TTL = 120.0  # seconds — health is polled often; don't hammer Airtable
+
+
+def verify(force: bool = False) -> dict:
+    """Actively confirm the Airtable base+table+PAT are reachable and read the
+    live schema (field names). This is a real reachability check, not a claim —
+    it runs where the PAT exists (Railway). Cached for _VERIFY_TTL seconds."""
+    if not configured():
+        return {"ok": False, "reachable": False, "reason": "not_configured"}
+    now = _time.time()
+    if not force and _verify_cache["result"] is not None and (now - _verify_cache["ts"]) < _VERIFY_TTL:
+        return _verify_cache["result"]
+    url = f"{API}/{AIRTABLE_BASE}/{quote(LEADS_TABLE)}?maxRecords=1"
+    try:
+        data = _req("GET", url)
+        recs = data.get("records") or []
+        fields = sorted({k for r in recs for k in (r.get("fields") or {})})
+        res = {"ok": True, "reachable": True, "records_seen": len(recs), "fields": fields}
+    except HTTPError as e:
+        res = {"ok": False, "reachable": False, "reason": f"http_{e.code}"}
+    except Exception as e:  # pragma: no cover
+        res = {"ok": False, "reachable": False, "reason": str(e)[:60]}
+    _verify_cache["ts"] = now
+    _verify_cache["result"] = res
+    return res
+
+
 def health() -> dict:
-    return {"ok": configured(), "detail": "airtable_configured" if configured() else "not_configured"}
+    if not configured():
+        return {"ok": False, "detail": "not_configured"}
+    v = verify()
+    if v.get("reachable"):
+        n = len(v.get("fields") or [])
+        return {"ok": True, "detail": f"airtable verified live ({n} fields, {v.get('records_seen',0)} rows seen)"}
+    # Configured but the live probe failed — surface it honestly rather than green.
+    return {"ok": False, "detail": f"configured but unreachable: {v.get('reason','?')}"}
