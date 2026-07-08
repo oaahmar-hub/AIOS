@@ -19,4 +19,8 @@ KnowledgeBase/raw_data/
 proofs/premium_glow_review_*
 bin/cloudflared
 transport/cloudflared
+# Company vault + Airtable raw exports contain customer PII — keep local only,
+# except the curated catalog/snapshot markdowns.
 KnowledgeBase/HSH_CompanyVault/
+!KnowledgeBase/HSH_CompanyVault/00_MASTER_CATALOG.md
+!KnowledgeBase/HSH_CompanyVault/AIRTABLE_SNAPSHOT.md

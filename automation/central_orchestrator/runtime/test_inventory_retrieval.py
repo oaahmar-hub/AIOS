@@ -9,8 +9,15 @@ import inventory_retrieval as inv
 
 
 def _raw_index():
+    """All rows across every real verified source (index + supplementary),
+    so the anti-fabrication check covers exactly what the brain may quote."""
+    rows = []
     path = Path(__file__).resolve().parents[3] / "KnowledgeBase" / "resolver" / "unit_resolver_index.csv"
-    return list(csv.DictReader(path.open(newline="", encoding="utf-8")))
+    rows.extend(csv.DictReader(path.open(newline="", encoding="utf-8")))
+    for extra in inv._SUPPLEMENTARY_CSVS:
+        if extra.exists():
+            rows.extend(csv.DictReader(extra.open(newline="", encoding="utf-8", errors="replace")))
+    return rows
 
 
 def test_quotable_rows_exist_and_are_clean():
@@ -52,3 +59,19 @@ def test_budget_filter_respected():
 def test_context_block_marks_only_quotable_source():
     block, n = inv.build_inventory_context("1BR in JVC")
     assert n > 0 and "ONLY listings you may quote" in block
+
+
+def test_supplementary_drive_inventory_ingested():
+    # The Drive ingest should materially widen coverage beyond the base index.
+    assert inv.quotable_count() > 1000
+    areas = {r["area"] for r in inv._load_rows()}
+    assert "Bianca" in areas  # a Drive-only project must be present
+
+
+def test_project_brand_query_matches_family():
+    for brand in ["Verdana", "Taormina", "Reportage", "Bianca"]:
+        hits = inv.search(brand)
+        assert hits, f"brand {brand} returned nothing"
+        assert all(brand.lower().split()[0] in h["building"].lower() for h in hits)
+        for h in hits:
+            assert h["price"] or h["size"]  # still real, quotable rows only

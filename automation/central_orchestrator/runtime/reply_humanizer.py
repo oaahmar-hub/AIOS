@@ -48,6 +48,7 @@ _LINE_KILLER_RES = [re.compile(p, re.IGNORECASE) for p in _LINE_KILLERS]
 # In-sentence assistant vocabulary swapped for plain speech.
 _PHRASE_SWAPS = [
     (re.compile(r"\bas of my (last )?knowledge( update)?[^,.]*[,.]?\s*", re.I), ""),
+    (re.compile(r"\b(i )?hope (this|that) helps[!.]?\s*", re.I), ""),
     (re.compile(r"\bit(?:'s| is) (important|worth) (to note|noting) that\b\s*", re.I), ""),
     (re.compile(r"\bplease note that\b\s*", re.I), ""),
     (re.compile(r"\bkindly note that\b\s*", re.I), ""),
