@@ -510,6 +510,45 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     # Fallback holding line configured (so a broken brain still acks the customer).
     components["fallback_reply"] = _ok(bool(WA_FALLBACK_REPLY), "configured" if WA_FALLBACK_REPLY else "disabled")
 
+    # Conversation memory: per-contact recall store.
+    try:
+        import conversation_memory as _mem
+        _ms = _mem.stats()
+        components["conversation_memory"] = _ok(_ms.get("ok", False), f"{_ms.get('contacts',0)} contacts / {_ms.get('turns',0)} turns")
+    except Exception as exc:  # pragma: no cover
+        components["conversation_memory"] = _ok(False, f"error:{exc}")
+
+    # Group-Lead Agent store.
+    try:
+        import group_leads as _gl
+        _gs = _gl.stats()
+        components["group_leads"] = _ok(_gs.get("ok", False), f"{_gs.get('leads',0)} leads / {_gs.get('with_matches',0)} matched")
+    except Exception as exc:  # pragma: no cover
+        components["group_leads"] = _ok(False, f"error:{exc}")
+
+    # Marketing / Content Studio.
+    try:
+        import content_studio as _cs
+        _ch = _cs.health()
+        components["content_studio"] = _ok(_ch.get("ok", False), _ch.get("detail", ""))
+    except Exception as exc:  # pragma: no cover
+        components["content_studio"] = _ok(False, f"error:{exc}")
+
+    # Truth Bridge — audit of the verified property truth the brain quotes.
+    try:
+        import truth_bridge_audit as _tb
+        _th = _tb.health()
+        components["truth_bridge"] = _ok(_th.get("ok", False), _th.get("detail", ""))
+    except Exception as exc:  # pragma: no cover
+        components["truth_bridge"] = _ok(False, f"error:{exc}")
+
+    # CRM lead capture wiring.
+    try:
+        import crm_leads as _crm
+        components["crm_leads"] = _ok(_crm.configured(), _crm.health().get("detail", ""))
+    except Exception as exc:  # pragma: no cover
+        components["crm_leads"] = _ok(False, f"error:{exc}")
+
     # Knowledge connection: quotable inventory available to the brain.
     try:
         import inventory_retrieval as _inv
@@ -1085,6 +1124,14 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     is_self = bool(event.get("is_self_chat"))
     actionable = bool(event.get("actionable", True))
     message_id = str(event.get("message_id") or "")
+    # Group-Lead Agent: detect real requests (incl. group messages the reply
+    # path ignores) and record ranked leads for Omar. Never replies in groups.
+    if text and not from_me:
+        try:
+            import group_leads as _gl
+            _gl.detect(sender_digits or sender, text, source=("group" if is_self is False and not actionable else "direct"))
+        except Exception:
+            pass
     eligible = (
         not hold_delivery and text and sender_digits
         and not from_me and not is_self and actionable
@@ -1095,6 +1142,15 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     if not eligible and reply_detail == "no_action" and (from_me or is_self or not actionable):
         reply_detail = "not_actionable"
     if eligible:
+        # Conversation memory: recall this contact's recent turns so the brain
+        # continues the conversation instead of restarting each message.
+        convo_history = ""
+        try:
+            import conversation_memory as _mem
+            convo_history = _mem.history(sender_digits)
+            _mem.record(sender_digits, "user", text)
+        except Exception as _mem_exc:  # pragma: no cover - defensive
+            logger.warning("conversation_memory read failed: %s", _mem_exc)
         try:
             import reply_humanizer as _rh
         except Exception:  # pragma: no cover - defensive
@@ -1111,7 +1167,7 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
         # Reconnect the real brain: build Omar's personality/relationship/
         # objective context and feed it to the LLM as the system prompt.
         system_prompt, brain_meta = _build_personality_system_prompt(
-            text, "", sender_digits, str(event.get("profile_name") or "")
+            text, convo_history, sender_digits, str(event.get("profile_name") or "")
         )
         # Knowledge connection: retrieve REAL inventory matching the message and
         # give it to the brain as the only quotable source. No matches -> the
@@ -1141,7 +1197,7 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
                     media_entry = None
                 if not media_entry:
                     system_prompt = f"{system_prompt}\n\n{_rh.media_prompt_rule()}"
-        reply_text_out, gen_detail = _generate_reply_text(text, system_prompt=system_prompt)
+        reply_text_out, gen_detail = _generate_reply_text(text, history=convo_history, system_prompt=system_prompt)
         gen_detail = f"{gen_detail}|brain:{brain_meta}|inv:{inv_count}" if brain_meta else f"{gen_detail}|inv:{inv_count}"
         used_fallback = False
         if not reply_text_out and WA_FALLBACK_REPLY:
@@ -1166,6 +1222,20 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
             reply_detail = f"generate:{gen_detail}|send:{send_detail}{fb}"
             side_effects["provider_webhook_called"] = True
             side_effects["whatsapp_messages_sent"] = reply_sent or media_sent
+            if reply_sent and not used_fallback:
+                try:
+                    import conversation_memory as _mem
+                    _mem.record(sender_digits, "assistant", reply_text_out)
+                except Exception:
+                    pass
+            # CRM: capture every real inbound lead (best-effort, non-blocking).
+            try:
+                import crm_leads as _crm
+                if _crm.configured():
+                    _crm.capture(sender_digits, str(event.get("profile_name") or ""), text)
+                    side_effects["crm_records_written"] = True
+            except Exception as _crm_exc:  # pragma: no cover
+                logger.warning("crm capture failed: %s", _crm_exc)
         else:
             reply_detail = f"generate:{gen_detail}|no_fallback_configured"
     result = {
@@ -1239,6 +1309,28 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     }
     _append_whatsapp_webhook(result)
     return result
+
+
+# --- Lightweight in-memory rate limiter (per client IP, sliding window) -------
+# Protects the public webhook + API POSTs from floods without any external
+# dependency. Best-effort; a restart clears the window. Tunable via env.
+_RL_WINDOW = float(os.getenv("AIOS_RL_WINDOW_SEC", "10"))
+_RL_MAX = int(os.getenv("AIOS_RL_MAX", "60"))          # requests per window per IP
+_RL_HITS: dict[str, list] = {}
+_RL_LOCK = threading.Lock()
+_RL_MAX_BODY = int(os.getenv("AIOS_MAX_BODY_BYTES", "262144"))  # 256 KB POST cap
+
+
+def _rate_limited(client_ip: str) -> bool:
+    now = time.time()
+    with _RL_LOCK:
+        hits = [t for t in _RL_HITS.get(client_ip, []) if now - t < _RL_WINDOW]
+        hits.append(now)
+        _RL_HITS[client_ip] = hits
+        if len(_RL_HITS) > 4096:  # bound memory: drop the coldest bucket
+            oldest = min(_RL_HITS, key=lambda k: _RL_HITS[k][-1] if _RL_HITS[k] else 0)
+            _RL_HITS.pop(oldest, None)
+        return len(hits) > _RL_MAX
 
 
 class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
@@ -1374,6 +1466,10 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         if path == "/":
             self.path = "/AIOS-WEBSITE.html"
             path = "/AIOS-WEBSITE.html"
+        elif path in ("/cockpit", "/cockpit/", "/ops"):
+            # Operations cockpit — behind auth (not in PUBLIC_STATIC_PATHS).
+            self.path = "/AIOS-COCKPIT.html"
+            path = "/AIOS-COCKPIT.html"
         if path == WHATSAPP_WEBHOOK_PATH:
             query = _query(self.path)
             mode = query.get("hub.mode") or query.get("mode")
@@ -1449,11 +1545,109 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         if path == "/api/unit/stats":
             _write_json(self, 200, get_stats())
             return
+        if path == "/api/truth/audit":
+            try:
+                import truth_bridge_audit as _tb
+                _write_json(self, 200, _tb.audit())
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/marketing/flyer":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            lang = (qs.get("lang") or ["en"])[0]
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                res = _cs.flyer_for(q, lang=("ar" if lang == "ar" else "en"))
+                if not res.get("html"):
+                    _write_json(self, 200, res)
+                    return
+                body = res["html"].encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Cache-Control", "no-store")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/marketing/targeting":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            try:
+                budget = int((qs.get("budget") or ["5000"])[0])
+            except Exception:
+                budget = 5000
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                _write_json(self, 200, _cs.targeting_brief(q, monthly_budget_aed=max(500, budget)))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/marketing/campaign":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            channel = (qs.get("channel") or ["instagram"])[0]
+            try:
+                count = int((qs.get("count") or ["3"])[0])
+            except Exception:
+                count = 3
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                _write_json(self, 200, _cs.campaign(q, channel=channel, count=max(1, min(count, 10))))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/marketing/generate":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            channel = (qs.get("channel") or ["property_finder"])[0]
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                _write_json(self, 200, _cs.generate(q, channel=channel))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/leads/recent":
+            try:
+                import group_leads as _gl
+                _write_json(self, 200, {"ok": True, "leads": _gl.recent(30), "stats": _gl.stats()})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         super().do_GET()
 
     def do_POST(self) -> None:
         started = time.perf_counter()
         path = _path(self.path)
+        client_ip = (self.headers.get("X-Forwarded-For", "") or self.client_address[0] if self.client_address else "?").split(",")[0].strip()
+        if _rate_limited(client_ip):
+            self._aios_skip_cache_header = True
+            _write_json(self, 429, {"ok": False, "error": "rate_limited", "retry_after_sec": _RL_WINDOW})
+            return
+        try:
+            if int(self.headers.get("Content-Length") or 0) > _RL_MAX_BODY:
+                _write_json(self, 413, {"ok": False, "error": "payload_too_large", "max_bytes": _RL_MAX_BODY})
+                return
+        except Exception:
+            pass
         if not self._require_auth():
             return
         if path not in {

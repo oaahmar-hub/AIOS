@@ -1,24 +1,24 @@
 {
-  "validated_at": "2026-06-26T17:37:29.980350+00:00",
+  "validated_at": "2026-07-07T15:06:30.416242+00:00",
   "product": "AIOS",
   "feature": "Production Launch Readiness",
   "passed": false,
-  "checks_passed": 0,
+  "checks_passed": 5,
   "checks_total": 13,
   "runtime_ready_percent": 0,
   "runtime_ready": false,
   "production_deployment": "pending",
   "public_beta_ready": false,
   "status": "runtime_not_ready",
-  "public_url": "",
+  "public_url": "https://aios-runtime-production.up.railway.app",
   "auth_status": {
-    "public_preview": "not_validated",
+    "public_preview": "basic",
     "production_proof": "not_validated",
     "production_proof_passed": false
   },
   "whatsapp_status": {
-    "backend_ingress": "pending_or_failed",
-    "provider_route": "pending"
+    "backend_ingress": "pass",
+    "provider_route": "pass"
   },
   "eye_status": {
     "motion": "pending_or_failed",
@@ -29,14 +29,14 @@
     {
       "name": "Hosted runtime surface",
       "passed": false,
-      "evidence": "0/0 hosted checks",
+      "evidence": "27/29 hosted checks",
       "blocker": "Hosted runtime validation must pass against the public URL."
     },
     {
       "name": "Backend Permission API",
-      "passed": false,
+      "passed": true,
       "evidence": "Restricted owner-phone request returns one backend decision across WhatsApp, website, mobile, and voice.",
-      "blocker": "Permission API consistency must pass."
+      "blocker": ""
     },
     {
       "name": "Eye motion",
@@ -52,9 +52,9 @@
     },
     {
       "name": "WhatsApp backend ingress",
-      "passed": false,
+      "passed": true,
       "evidence": "Hosted ingress and provider webhook route receive WhatsApp-shaped payloads in hold mode.",
-      "blocker": "WhatsApp hosted ingress and provider webhook route must pass."
+      "blocker": ""
     },
     {
       "name": "Production auth behavior",
@@ -71,31 +71,31 @@
     {
       "name": "Deployment preflight",
       "passed": false,
-      "evidence": "not_validated",
+      "evidence": "fix_preflight_failures",
       "blocker": "Deployment preflight must pass."
     },
     {
       "name": "Public hosted URL",
-      "passed": false,
-      "evidence": "",
-      "blocker": "Public hosted URL must be available."
+      "passed": true,
+      "evidence": "https://aios-runtime-production.up.railway.app",
+      "blocker": ""
     },
     {
       "name": "Public production auth",
-      "passed": false,
-      "evidence": "public auth mode: not_validated",
-      "blocker": "Hosted public URL must be validated with production Basic Auth enabled."
+      "passed": true,
+      "evidence": "public auth mode: basic",
+      "blocker": ""
     },
     {
       "name": "WhatsApp provider route",
-      "passed": false,
+      "passed": true,
       "evidence": "hosted provider webhook route validates token and accepts WhatsApp-shaped payloads in hold mode",
-      "blocker": "Connect WhatsApp provider to hosted runtime and run hosted provider route validation."
+      "blocker": ""
     },
     {
       "name": "Custom domain",
       "passed": false,
-      "evidence": "",
+      "evidence": "https://aios-runtime-production.up.railway.app",
       "blocker": "Attach the final custom domain before public beta is marked ready."
     },
     {
@@ -107,16 +107,11 @@
   ],
   "blockers": [
     "Hosted runtime validation must pass against the public URL.",
-    "Permission API consistency must pass.",
     "The 10-second Eye motion validation must pass.",
     "Visual presence validation must pass.",
-    "WhatsApp hosted ingress and provider webhook route must pass.",
     "Basic Auth must reject protected routes and keep health public.",
     "Deployment package validation must pass.",
     "Deployment preflight must pass.",
-    "Public hosted URL must be available.",
-    "Hosted public URL must be validated with production Basic Auth enabled.",
-    "Connect WhatsApp provider to hosted runtime and run hosted provider route validation.",
     "Attach the final custom domain before public beta is marked ready.",
     "Public beta gate must pass after permanent host, domain, auth, and WhatsApp provider are live."
   ],

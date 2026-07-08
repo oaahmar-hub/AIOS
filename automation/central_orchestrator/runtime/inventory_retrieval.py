@@ -26,6 +26,12 @@ from typing import Any
 RUNTIME_DIR = Path(__file__).resolve().parent
 AIOS_ROOT = RUNTIME_DIR.parents[2]
 INDEX_CSV = AIOS_ROOT / "KnowledgeBase" / "resolver" / "unit_resolver_index.csv"
+# Verified supplementary inventory ingested from the owner's Google Drive
+# (Scorpion sale sheet + developer availability book). Loaded through the same
+# quotable rule + junk filters as the main index; deduped by area/building/unit.
+_SUPPLEMENTARY_CSVS = [
+    AIOS_ROOT / "KnowledgeBase" / "TruthIngestion" / "drive_verified_inventory_2026-07-08.csv",
+]
 
 MAX_RESULTS = 5
 
@@ -53,6 +59,12 @@ AREA_ALIASES: dict[str, list[str]] = {
     "Emirates Hills": ["emirates hills"],
     "Arjan": ["arjan"],
     "Business Bay": ["business bay"],
+    "Emaar South": ["emaar south", "dubai south", "expo golf"],
+    "Rashid Yachts & Marina": ["rashid yachts", "rashid yacht", "mina rashid", "dubai maritime"],
+    "Expo City": ["expo city", "expo living"],
+    "Arabian Ranches": ["arabian ranches", "the ranches"],
+    "Grand Polo": ["grand polo", "polo club"],
+    "Dubai Marina": ["dubai marina"],
 }
 
 _BED_PATTERNS: list[tuple[re.Pattern, int]] = [
@@ -132,6 +144,35 @@ def _load_rows() -> list[dict[str, str]]:
                     )
         except Exception:
             rows = []
+        # Supplementary verified sources (owner's Drive inventory). Same quotable
+        # rule + junk filters; deduped against the index by area/building/unit.
+        seen = {(r["area"].lower(), r["building"].lower(), str(r["unit"]).lower()) for r in rows}
+        for extra in _SUPPLEMENTARY_CSVS:
+            try:
+                if not extra.exists():
+                    continue
+                with extra.open(newline="", encoding="utf-8", errors="replace") as fh:
+                    for r in csv.DictReader(fh):
+                        area = _norm(r.get("area"))
+                        building = _norm(r.get("building")) or _norm(r.get("project"))
+                        unit = _norm(r.get("unit"))
+                        price = _norm(r.get("price"))
+                        size = _norm(r.get("size"))
+                        if _is_junk_area(area) or not building or not unit:
+                            continue
+                        if _is_junk_building(building) or (not price and not size):
+                            continue
+                        key = (area.lower(), building.lower(), unit.lower())
+                        if key in seen:
+                            continue
+                        seen.add(key)
+                        rows.append({
+                            "area": area, "building": building, "unit": unit,
+                            "bedrooms": _norm(r.get("bedrooms")), "price": price,
+                            "size": size, "developer": _norm(r.get("developer")),
+                        })
+            except Exception:
+                continue
         _ROWS = rows
         return _ROWS
 
@@ -181,6 +222,16 @@ def parse_query(text: str) -> dict[str, Any]:
             hit = b
     if hit:
         out["building"] = hit
+    else:
+        # Project-brand match: many buildings are multi-word ("Verdana 6 TH",
+        # "Reportage Hills", "Taormina Village 2"). A customer typing just the
+        # brand ("Verdana") should still match the family, so match on the
+        # distinctive leading token shared across a project's buildings.
+        brands = {b.split()[0] for b in buildings if len(b.split()[0]) >= 5}
+        for w in re.findall(r"[a-z]{5,}", t):
+            if w in brands:
+                out["building"] = w
+                break
 
     return out
 
