@@ -24,3 +24,5 @@ KnowledgeBase/*
 !KnowledgeBase/resolver/**
 !KnowledgeBase/resolver/unit_resolver_database.sqlite
 !KnowledgeBase/resolver/unit_resolver_database.resolver
+!KnowledgeBase/MediaVault
+!KnowledgeBase/MediaVault/**
