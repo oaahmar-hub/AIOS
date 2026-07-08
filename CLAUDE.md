@@ -30,6 +30,7 @@ Official classification today: **PARTIAL live** (see `00_FOUNDATION/AIOS_EXECUTI
 | Unit intelligence | `automation/unit_intelligence/runtime/` | URL parsers, ingestion queue, bridge enrichment, feed adapters, CRM write-back (dry-run) |
 | Knowledge / Truth Bridge | `KnowledgeBase/` | Resolver (`resolver/`, ~26.3k records), `PropertyGraph/`, `TruthIngestion/` quality pipeline, memory layer |
 | Reports / status | repo root | `CEO_REPORT_YYYY-MM-DD.md`, `AIOS_STATUS_REPORT.md`, `CASCADE_PROGRESS_LOG.md` |
+| Full system census | repo root | `AIOS_PROJECT_INVENTORY.md` — every page, agent, engine, and KB subsystem in one map |
 
 ## Live runtime
 - Backend on Railway: `https://aios-runtime-production.up.railway.app` (LIVE per last deploy; re-verify — see below).
@@ -49,13 +50,18 @@ no-fabrication rule keeps the reply at "I'll check and confirm." Delivery loop: 
 
 ## Tests (run before deploy)
 ```bash
+# self-running suites (have a __main__ runner)
 python3 test_smoke.py
 python3 automation/unit_intelligence/runtime/test_unit_intelligence.py
 python3 automation/unit_intelligence/runtime/test_unit_intelligence_api.py
-python3 automation/central_orchestrator/runtime/test_inventory_retrieval.py
-python3 automation/central_orchestrator/runtime/test_whatsapp_reply_delivery.py
-python3 automation/central_orchestrator/runtime/test_deep_health.py
+# pytest-style suites — MUST run under pytest. `python3 <file>.py` on these
+# runs ZERO tests and exits 0 (false green). `pip install pytest` if missing.
+python3 -m pytest \
+  automation/central_orchestrator/runtime/test_inventory_retrieval.py \
+  automation/central_orchestrator/runtime/test_whatsapp_reply_delivery.py \
+  automation/central_orchestrator/runtime/test_deep_health.py -q
 ```
+Last full run (2026-07-08): all green — smoke ok · unit_intelligence 13 · api integration ok · inventory_retrieval 6 · whatsapp_reply_delivery 7 · deep_health 3.
 
 ## Autonomy (from `00_FOUNDATION/AUTONOMY_POLICY.md`)
 Proceed autonomously when the action is **reversible, local, and evidence-building** (read/index
