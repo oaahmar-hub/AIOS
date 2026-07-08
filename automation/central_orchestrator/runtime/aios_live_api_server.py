@@ -534,6 +534,14 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover
         components["content_studio"] = _ok(False, f"error:{exc}")
 
+    # Truth Bridge — audit of the verified property truth the brain quotes.
+    try:
+        import truth_bridge_audit as _tb
+        _th = _tb.health()
+        components["truth_bridge"] = _ok(_th.get("ok", False), _th.get("detail", ""))
+    except Exception as exc:  # pragma: no cover
+        components["truth_bridge"] = _ok(False, f"error:{exc}")
+
     # CRM lead capture wiring.
     try:
         import crm_leads as _crm
@@ -1431,6 +1439,13 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return
         if path == "/api/unit/stats":
             _write_json(self, 200, get_stats())
+            return
+        if path == "/api/truth/audit":
+            try:
+                import truth_bridge_audit as _tb
+                _write_json(self, 200, _tb.audit())
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
         if path == "/api/marketing/flyer":
             from urllib.parse import urlparse, parse_qs
