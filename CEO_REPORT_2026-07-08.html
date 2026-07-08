@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AIOS — CEO Report 2026-07-08</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  :root{
+    --ink:#0f1720; --muted:#5b6675; --line:#e3e8ef; --accent:#0b6b5e;
+    --accent2:#0e7c6c; --chip:#eef6f4; --good:#0b7a3b; --warn:#b06b00; --bad:#b42318;
+    --panel:#f7f9fb;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); font-size:12.5px; line-height:1.55; background:#fff;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .wrap{ max-width:820px; margin:0 auto; padding:8px 4px 40px; }
+  header.rpt{
+    border-top:5px solid var(--accent); padding-top:16px; margin-bottom:6px;
+  }
+  .eyebrow{ letter-spacing:.16em; text-transform:uppercase; font-size:10px; color:var(--accent); font-weight:700; }
+  h1{ font-size:24px; margin:6px 0 2px; letter-spacing:-.4px; }
+  .sub{ color:var(--muted); font-size:12px; }
+  .meta{ display:flex; flex-wrap:wrap; gap:6px 18px; margin:12px 0 2px; font-size:11.5px; color:var(--muted); }
+  .meta b{ color:var(--ink); font-weight:600; }
+  .principle{ margin-top:8px; font-style:italic; color:var(--accent2); font-size:12px; }
+  hr.rule{ border:0; border-top:1px solid var(--line); margin:16px 0; }
+  h2{
+    font-size:14.5px; margin:22px 0 8px; padding-bottom:5px; border-bottom:2px solid var(--line);
+    letter-spacing:-.2px;
+  }
+  h2 .n{ color:var(--accent); font-variant-numeric:tabular-nums; }
+  h3{ font-size:12.5px; margin:14px 0 4px; color:var(--ink); }
+  p{ margin:6px 0; }
+  ul{ margin:6px 0 6px 0; padding-left:18px; }
+  li{ margin:3px 0; }
+  code{ font-family:"SF Mono",Menlo,Consolas,monospace; font-size:11px; background:var(--chip); padding:1px 5px; border-radius:4px; color:#0a5248; }
+  .summary{ background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:12px 0; }
+  .summary ol{ margin:6px 0 0; padding-left:20px; }
+  .summary li{ margin:6px 0; }
+  table{ width:100%; border-collapse:collapse; margin:10px 0; font-size:11.5px; }
+  th,td{ text-align:left; padding:6px 10px; border-bottom:1px solid var(--line); }
+  th{ background:var(--chip); color:#0a5248; font-weight:600; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; font-weight:600; }
+  .chips{ display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+  .chip{ font-size:10.5px; padding:3px 9px; border-radius:20px; background:var(--chip); color:#0a5248; border:1px solid #d5e6e2; }
+  .flag{ border-left:3px solid var(--warn); background:#fff8ee; padding:8px 12px; border-radius:0 8px 8px 0; margin:8px 0; }
+  .flag.warn{ border-color:var(--warn); background:#fff8ee; }
+  .g{ color:var(--good); font-weight:600; } .w{ color:var(--warn); font-weight:600; } .b{ color:var(--bad); font-weight:600; }
+  .pill{ display:inline-block; font-size:10px; font-weight:700; padding:1px 7px; border-radius:20px; }
+  .pill.up{ background:#e6f4ea; color:var(--good); }
+  footer.rpt{ margin-top:26px; padding-top:10px; border-top:1px solid var(--line); font-size:10.5px; color:var(--muted); }
+  .avoid{ page-break-inside:avoid; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="rpt">
+    <div class="eyebrow">HSH AI OS · CEO Report</div>
+    <h1>The brain is reconnected — honest, and quoting real inventory</h1>
+    <div class="sub">AI-powered real estate business operating system</div>
+    <div class="meta">
+      <span><b>Date:</b> 2026-07-08</span>
+      <span><b>Window:</b> 2026-07-03 → 2026-07-08</span>
+      <span><b>Owner:</b> Omar Ahmar</span>
+      <span><b>Evidence:</b> merged PRs #4–#15</span>
+    </div>
+    <div class="principle">Principle this week: honesty over impressiveness — the same discipline as the Truth Bridge.</div>
+  </header>
+
+  <div class="summary avoid">
+    <h2 style="margin-top:2px;border:0;padding:0;">Executive summary</h2>
+    <p style="margin-top:2px;">The last five days turned AIOS from <em>looks live</em> into <em>actually answers a customer honestly</em>. Three things moved:</p>
+    <ol>
+      <li><b>The real brain is reconnected.</b> The live WhatsApp reply path runs through the Omar personality engine, quotes <b>real inventory</b> from the Truth Bridge, and is under a <b>hard no-fabrication rule</b> — no invented units, prices, sizes, or links.</li>
+      <li><b>The delivery loop is closed.</b> The hosted runtime now actually sends auto-replies, deduplicates them, and never goes silent when the brain fails (graceful fallback).</li>
+      <li><b>We can now see failures.</b> <code>/api/health/deep</code> checks every link in the reply chain and reports green/red per component — the silent failures behind every past outage now surface immediately.</li>
+    </ol>
+    <p style="margin-bottom:2px;">Data quality (Truth Bridge Quality) moved <span class="pill up">48.3 → 55.5 / 100</span> with an authorized inventory feed and anchor-recovery work — accounted honestly, with no fabricated links.</p>
+  </div>
+
+  <h2><span class="n">01</span> &nbsp;What shipped this week</h2>
+
+  <h3>1. The brain — reconnected, honest, and knowledgeable</h3>
+  <ul>
+    <li><b>Reconnect the real brain</b> (<code>46aa9b1</code>) — wired <code>omar_personality_engine</code> into the live reply path. Replies come from AIOS's own personality layer, not a passthrough.</li>
+    <li><b>Hard no-fabrication rule</b> (<code>c185b57</code>) — the first live reply invented a listing (800 sqft / 850k that don't exist). The prompt now forbids stating any specific unit, price, size, availability, owner, or link not present in context; the bot says it will <em>check and confirm</em> in Omar's natural style instead.</li>
+    <li><b>Knowledge connection — quotes REAL inventory</b> (<code>f8483bd</code>) — parses area / building / bedrooms / budget from the message (English <b>and</b> Arabic, incl. Arabic-Indic digits and «غرفة وصالة», ألف/مليون), searches the resolver index, and injects a <b>VERIFIED</b> context block. Only genuinely quotable rows are used; junk areas and misaligned rows filtered; sizes quoted <b>without</b> a unit (source mixes sqm/sqft). <b>237 quotable rows</b> today. No anchor in the message → no results → the no-fabrication rule keeps the reply at "I'll check."</li>
+  </ul>
+
+  <h3>2. WhatsApp delivery — the loop is closed</h3>
+  <ul>
+    <li><b>Send auto-replies</b> (<code>6d144ad</code>) — the hosted runtime now actually delivers replies to customers.</li>
+    <li><b>Graceful fallback</b> (<code>67d8f54</code>) — a failing brain never means silence.</li>
+    <li><b>Dedupe</b> (<code>7a201bb</code>) — deduplicated by <code>message_id</code> behind an actionable gate, ending duplicate-message incidents.</li>
+    <li><b>Wasender webhook signature</b> (<code>1350d06</code>) accepted on the hosted endpoint.</li>
+  </ul>
+
+  <h3>3. Observability — silent failure is over</h3>
+  <ul>
+    <li><b><code>/api/health/deep</code></b> (<code>48c6a61</code>) — public, read-only, sends nothing to customers. Checks every link the live reply depends on: <code>runtime</code>, <code>resolver_db</code>, <code>webhook_auth</code>, <code>reply_mode</code>, <code>wasender_send</code>, <code>brain_n8n_openai</code> (a real n8n ping that catches a dead OpenAI key instantly), <code>fallback_reply</code>. Returns <span class="g">healthy</span> / <span class="w">degraded</span> / <span class="b">down</span> plus <code>reply_chain_live</code> and a plain-English list of what's broken.</li>
+  </ul>
+
+  <h3>4. Security &amp; data</h3>
+  <ul>
+    <li><b>Dashboard no longer public</b> (<code>8cc832b</code>) — stopped serving every <code>.html</code> publicly; the dashboard now requires auth.</li>
+    <li><b>Authorized Scorpion inventory feed</b> (<code>63565b0</code>) — 140 de-duplicated units with provenance; idempotent content-hash IDs. Building-unit anchors <b>7 → 17</b>.</li>
+    <li><b>JVC building-name recovery</b> (<code>f43bef6</code>) &amp; <b>anchor repair</b> (<code>d2a52bc</code>) from corrupted/packed inventory strings; live-portal verdicts fed back into candidate bridges (<code>5eb29d9</code>); Unusable-rows audit documented honestly (<code>da2358b</code>).</li>
+    <li><b>The Command Deck</b> (<code>e1df4d4</code>) — honest-AI marketing site, bilingual, with a live heartbeat.</li>
+  </ul>
+
+  <h2><span class="n">02</span> &nbsp;Current state (evidence-based)</h2>
+
+  <table class="avoid">
+    <thead><tr><th>Property Graph — generated 2026-07-07</th><th style="text-align:right;">Value</th></tr></thead>
+    <tbody>
+      <tr><td>Resolver records</td><td class="num">26,306</td></tr>
+      <tr><td>Canonical properties</td><td class="num">223</td></tr>
+      <tr><td>Listing bridge master rows</td><td class="num">1,244</td></tr>
+      <tr><td>Verification queue rows</td><td class="num">747</td></tr>
+      <tr><td>Exact bridges</td><td class="num">54</td></tr>
+      <tr><td>Partial bridges</td><td class="num">795</td></tr>
+      <tr><td>Invalid bridges</td><td class="num">186</td></tr>
+      <tr><td>Waiting for data</td><td class="num">209</td></tr>
+      <tr><td>Owner-contact CPIDs</td><td class="num">61</td></tr>
+      <tr><td>Public-listing CPIDs</td><td class="num">1</td></tr>
+    </tbody>
+  </table>
+
+  <div class="chips">
+    <span class="chip">Truth Bridge Quality: 55.5 / 100 (was 48.28)</span>
+    <span class="chip">Quotable rows feeding the brain: 237</span>
+    <span class="chip">Tests: 39 passing</span>
+  </div>
+  <p>Distribution is still Partial-heavy: the bottleneck is public listings that rarely carry a same-row unit / property / permit number.</p>
+
+  <div class="flag warn avoid">
+    <b>Runtime — not independently re-verified in this report.</b> Production endpoints (<code>/api/health</code>, <code>/api/health/deep</code>, <code>/api/unit/stats</code>) were <b>not reachable from the reporting environment</b> (sandbox outbound is proxied; Railway is not allowlisted here). This is an environment limitation, <b>not</b> evidence that production is down. Recommend hitting <code>/api/health/deep</code> to confirm <code>reply_chain_live: true</code>.
+  </div>
+
+  <h2><span class="n">03</span> &nbsp;Honest gaps — what is NOT done</h2>
+  <ul>
+    <li><b>Public listing → exact unit bridge is still thin.</b> 1 public-listing CPID; 54 exact bridges vs 795 partials. A <em>data</em> gap (needs same-row unit/permit/property linkage), not a code gap.</li>
+    <li><b>No live portal scraping</b> — by design, authorized feeds/exports only.</li>
+    <li><b>CRM write-back remains approval-gated / dry-run by default</b> — live mutation needs explicit confirmation and Airtable config.</li>
+    <li><b>Production not re-probed this cycle</b> (see runtime note) — needs one confirming call.</li>
+    <li><b>Custom domain</b> still not attached (last known production blocker).</li>
+  </ul>
+
+  <h2><span class="n">04</span> &nbsp;Next 3 priorities &amp; blockers</h2>
+  <h3>Next 3 priorities</h3>
+  <ul>
+    <li><b>Confirm the live reply chain end-to-end.</b> Hit <code>/api/health/deep</code>; if <code>reply_chain_live: true</code>, run one real WhatsApp round-trip and capture it as a proof artifact.</li>
+    <li><b>Grow the exact bridge.</b> Prioritize CRM/Bitrix structured exports carrying broker reference + permit + property + unit in one row to convert Partial → Exact.</li>
+    <li><b>Attach the custom domain</b> and re-run public-beta validation without skips.</li>
+  </ul>
+  <h3>Blockers owned by Omar</h3>
+  <ul>
+    <li>Provide (or approve) the CRM/Bitrix structured export carrying unit + permit + listing reference in one row — the single highest-leverage input for bridge quality.</li>
+    <li>Approve custom-domain attachment in Railway.</li>
+    <li>Approve turning CRM write-back from dry-run to live when ready.</li>
+  </ul>
+
+  <footer class="rpt">
+    Prepared from repository evidence and merged PRs #4–#15 only. Figures cited from <code>PROPERTY_GRAPH_REPORT.md</code>, the Truth Bridge quality reports, and commit records. Where a claim could not be independently re-verified in this environment, it is flagged rather than asserted.
+  </footer>
+
+</div>
+</body>
+</html>
