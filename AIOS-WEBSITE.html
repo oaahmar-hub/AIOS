@@ -1,581 +1,705 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0A0B0F">
-<meta name="description" content="AIOS — the AI operating system for Dubai real estate that refuses to lie. It answers on WhatsApp from verified inventory, in Arabic and English, and admits what it cannot prove. By HSH Global Dubai.">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="AIOS">
+<meta name="theme-color" content="#05060A">
+<meta name="description" content="AIOS — the AI operating system for Dubai real estate. WhatsApp brain, Truth Bridge, unit intelligence, compliance, marketing automation. 26,306 verified records. Zero fabricated answers. By HSH Global Dubai.">
+<title>AIOS — The AI Operating System for Real Estate | HSH Dubai</title>
 <link rel="manifest" href="aios.webmanifest">
-<title>AIOS — The AI that refuses to lie | HSH Global Dubai</title>
 <style>
-/* ============================================================
-   AIOS — a single, deliberately-committed dark luxury world.
-   Obsidian ground · champagne gold as the one bold hue ·
-   teal→indigo aurora lives ONLY in the canvas motion layer ·
-   emerald reserved strictly for verified/live status.
-   Serif (human, Omar's voice) vs mono (the machine that won't lie).
-   ============================================================ */
+/* ================================================================
+   AIOS v3 — electric. Deep-space black, iridescent AI spectrum
+   (violet → cyan → magenta), huge grotesk display type, kinetic
+   marquees, aurora canvas. A multi-page product universe.
+   ================================================================ */
 :root{
-  color-scheme: dark;
-  --obsidian:#0A0B0F;
-  --obsidian-2:#0F1117;
-  --panel:#12141B;
-  --panel-2:#161923;
-  --ivory:#F2EFE8;
-  --muted:#9096A2;
-  --dim:#5C616D;
-  --champagne:#D9B877;
-  --champagne-deep:#B8934E;
-  --champagne-soft:rgba(217,184,119,.12);
-  --live:#34E39A;
-  --red:#E8756A;
-  --line:rgba(217,184,119,.15);
-  --line-cool:rgba(255,255,255,.07);
-  --serif:Georgia,"Times New Roman",ui-serif,serif;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
-  --mono:ui-monospace,"SF Mono","Menlo","Consolas",monospace;
-  --ar:"SF Arabic","Geeza Pro","Segoe UI",Tahoma,sans-serif;
-  --maxw:1120px;
-  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:dark;
+  --void:#05060A; --deep:#0A0C13; --surface:#0E111A; --card:#12151F; --card-2:#161A26;
+  --white:#F5F6FA; --grey:#9AA1B2; --dim:#565D6E;
+  --violet:#8B5CF6; --cyan:#22D3EE; --magenta:#E879F9; --lime:#A3E635;
+  --grad:linear-gradient(100deg,#8B5CF6 0%,#22D3EE 50%,#E879F9 100%);
+  --grad-soft:linear-gradient(100deg,rgba(139,92,246,.16),rgba(34,211,238,.16),rgba(232,121,249,.16));
+  --live:#34E39A; --warn:#F5B14C;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+  --sans:"Helvetica Neue",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --maxw:1240px; --ease:cubic-bezier(.19,1,.22,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--obsidian)}
-body{
-  font-family:var(--sans);color:var(--ivory);background:var(--obsidian);
-  line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-::selection{background:var(--champagne);color:var(--obsidian)}
-[dir="rtl"]{font-family:var(--ar)}
-[dir="rtl"] body{font-family:var(--ar)}
+html{background:var(--void);scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--void);color:var(--white);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+::selection{background:var(--cyan);color:var(--void)}
 a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-h1,h2,h3{font-family:var(--serif);font-weight:400;text-wrap:balance;letter-spacing:-.01em}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.eyebrow{
-  font-family:var(--mono);font-size:11px;letter-spacing:.34em;text-transform:uppercase;
-  color:var(--champagne);font-weight:500;
-}
-[dir="rtl"] .eyebrow{letter-spacing:.12em;font-family:var(--ar)}
 
-/* ---------- fixed living-intelligence canvas ---------- */
-#field{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.9}
-.veil{position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(120% 80% at 50% -10%, transparent 40%, rgba(10,11,15,.55) 80%, var(--obsidian) 100%),
-    radial-gradient(80% 50% at 50% 108%, rgba(10,11,15,.9), transparent 60%);
-}
-.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* -------- display type system -------- */
+.d1{font-size:clamp(52px,9.5vw,140px);font-weight:800;line-height:.94;letter-spacing:-.045em;text-transform:uppercase}
+.d2{font-size:clamp(38px,6vw,84px);font-weight:800;line-height:.98;letter-spacing:-.04em;text-transform:uppercase}
+.d3{font-size:clamp(26px,3.6vw,48px);font-weight:800;line-height:1.04;letter-spacing:-.03em}
+.grad-t{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;animation:sheen 6s linear infinite}
+@keyframes sheen{0%{background-position:0% 0}100%{background-position:200% 0}}
+.outline-t{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.28)}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--cyan)}
+.kicker.v{color:var(--violet)} .kicker.m{color:var(--magenta)}
 
-/* ---------- top nav ---------- */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  background:linear-gradient(to bottom,rgba(10,11,15,.72),rgba(10,11,15,0));
-  border-bottom:1px solid transparent;transition:border-color .4s,background .4s}
-nav.scrolled{background:rgba(10,11,15,.82);border-bottom:1px solid var(--line-cool)}
-.nav-in{max-width:var(--maxw);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:14px;letter-spacing:.16em;font-weight:600}
-.brand .mark{width:26px;height:26px;position:relative;flex:none}
-.brand .mark svg{width:100%;height:100%;display:block}
-.nav-right{display:flex;align-items:center;gap:20px}
-.nav-links{display:flex;gap:26px}
-.nav-links a{font-size:13px;color:var(--muted);transition:color .3s;font-family:var(--mono);letter-spacing:.04em}
-.nav-links a:hover{color:var(--ivory)}
-.lang{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--champagne);
-  border:1px solid var(--line);padding:6px 12px;border-radius:999px;cursor:pointer;
-  background:var(--champagne-soft);transition:all .3s}
-.lang:hover{background:var(--champagne);color:var(--obsidian)}
-@media(max-width:720px){.nav-links{display:none}}
+/* -------- aurora canvas + atmosphere -------- */
+#aurora{position:fixed;inset:0;z-index:0;pointer-events:none}
+.atm{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(90% 60% at 50% -5%,transparent 30%,rgba(5,6,10,.72) 75%,var(--void) 100%)}
+.noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#app{position:relative;z-index:2}
 
-/* ---------- shared section rhythm ---------- */
-section{position:relative;padding:112px 0}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-}
-.rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:0 auto;max-width:var(--maxw)}
+/* -------- nav -------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .4s,border-color .4s;
+  border-bottom:1px solid transparent;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+nav.sc{background:rgba(5,6,10,.8);border-bottom-color:var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:.06em}
+.logo .cube{width:26px;height:26px;border-radius:7px;background:var(--grad);background-size:200% 200%;
+  animation:sheen 5s linear infinite;box-shadow:0 0 22px -4px rgba(139,92,246,.8);flex:none}
+.nl{display:flex;gap:4px;align-items:center}
+.nl a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);
+  padding:9px 13px;border-radius:9px;transition:color .25s,background .25s}
+.nl a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.nl a.on{color:var(--white);background:rgba(255,255,255,.07)}
+.ncta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;font-weight:700;color:var(--void);
+  background:var(--grad);background-size:200% 100%;animation:sheen 5s linear infinite;
+  padding:11px 20px;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s;display:inline-block}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 12px 34px -8px rgba(34,211,238,.55)}
+@media(max-width:880px){.nl{display:none}}
 
-/* ---------- hero ---------- */
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:120px;padding-bottom:70px}
-.status-chip{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
-  border:1px solid var(--line-cool);border-radius:999px;padding:7px 14px;margin-bottom:34px;width:max-content}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 0 0 rgba(52,227,154,.6);animation:pulse 2.4s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,227,154,.55)}70%{box-shadow:0 0 0 9px rgba(52,227,154,0)}100%{box-shadow:0 0 0 0 rgba(52,227,154,0)}}
-.hero h1{font-size:clamp(42px,7.4vw,88px);line-height:1.02;letter-spacing:-.025em;max-width:16ch}
-.hero h1 em{font-style:italic;color:var(--champagne)}
-.hero .sub{margin-top:28px;font-size:clamp(17px,2.1vw,21px);color:var(--muted);max-width:46ch;line-height:1.6}
-.hero .sub b{color:var(--ivory);font-weight:600}
-.cta-row{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.btn{font-family:var(--mono);font-size:13.5px;letter-spacing:.06em;padding:15px 26px;border-radius:999px;
-  cursor:pointer;border:1px solid transparent;transition:all .35s var(--ease);display:inline-flex;align-items:center;gap:10px}
-.btn:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
-.btn-primary{background:var(--champagne);color:var(--obsidian);font-weight:600}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px -12px rgba(217,184,119,.6)}
-.btn-ghost{border-color:var(--line);color:var(--ivory);background:rgba(255,255,255,.02)}
-.btn-ghost:hover{border-color:var(--champagne);color:var(--champagne)}
-.hero-meta{margin-top:64px;display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid var(--line-cool);padding-top:26px}
-.hm{display:flex;flex-direction:column;gap:4px}
-.hm .n{font-family:var(--serif);font-size:30px;color:var(--ivory);line-height:1}
-.hm .l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+/* -------- page container / transitions -------- */
+.page{animation:pin .55s var(--ease)}
+@keyframes pin{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+section{position:relative;padding:104px 0}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.page{animation:none}
+  .grad-t,.logo .cube,.ncta{animation:none}}
 
-/* ---------- phone demo ---------- */
-.demo-grid{display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:center}
-@media(max-width:900px){.demo-grid{grid-template-columns:1fr;gap:48px}}
-.demo-copy h2{font-size:clamp(30px,4.4vw,46px);line-height:1.08;max-width:15ch}
-.demo-copy h2 em{font-style:italic;color:var(--champagne)}
-.demo-copy p{margin-top:22px;color:var(--muted);max-width:44ch;font-size:17px}
-.demo-copy .tag{margin-top:26px;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
-  font-size:12px;letter-spacing:.1em;color:var(--live);text-transform:uppercase}
-.phone{justify-self:center;width:330px;max-width:88vw;height:660px;border-radius:44px;position:relative;
-  background:linear-gradient(160deg,#191c24,#0c0d12);border:1px solid var(--line-cool);
-  box-shadow:0 50px 120px -40px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.06);padding:14px}
-.phone::before{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#000;border-radius:0 0 16px 16px;z-index:3}
-.screen{position:absolute;inset:14px;border-radius:32px;overflow:hidden;background:
-  linear-gradient(180deg,#0b141a,#0a0f14);display:flex;flex-direction:column}
-.wa-top{padding:44px 18px 14px;display:flex;align-items:center;gap:12px;
-  background:linear-gradient(180deg,#11201d,#0d1512);border-bottom:1px solid rgba(255,255,255,.05)}
-.wa-av{width:38px;height:38px;border-radius:50%;background:
-  conic-gradient(from 200deg,var(--champagne),var(--champagne-deep),var(--champagne));
-  display:flex;align-items:center;justify-content:center;color:var(--obsidian);font-family:var(--serif);font-size:17px;flex:none}
-.wa-id{display:flex;flex-direction:column;gap:2px;line-height:1.1}
-.wa-id .nm{font-size:14px;font-weight:600}
-.wa-id .st{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--live)}
-.wa-body{flex:1;padding:16px 14px;display:flex;flex-direction:column;gap:10px;overflow:hidden;justify-content:flex-end}
-.bub{max-width:82%;padding:10px 13px;border-radius:15px;font-size:13.5px;line-height:1.5;opacity:0;
-  transform:translateY(8px) scale(.98);animation:pop .45s var(--ease) forwards}
-@keyframes pop{to{opacity:1;transform:none}}
-.bub.them{align-self:flex-start;background:#20262b;border-bottom-left-radius:5px}
-.bub.me{align-self:flex-end;background:#1f3d33;border-bottom-right-radius:5px}
-.bub .verify{display:block;margin-top:7px;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;
-  color:var(--live);border-top:1px solid rgba(52,227,154,.2);padding-top:6px}
-.bub .verify.refuse{color:var(--champagne);border-top-color:rgba(217,184,119,.25)}
-.typing{align-self:flex-start;background:#20262b;border-radius:15px;border-bottom-left-radius:5px;padding:13px 15px;display:flex;gap:4px;width:max-content}
-.typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:td 1.3s infinite}
-.typing span:nth-child(2){animation-delay:.18s}.typing span:nth-child(3){animation-delay:.36s}
-@keyframes td{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+/* -------- hero -------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:130px;padding-bottom:40px}
+.hero .tag{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--grey);border:1px solid var(--line-2);
+  padding:8px 16px;border-radius:999px;width:max-content;margin-bottom:36px;background:rgba(255,255,255,.03)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 12px var(--live);animation:pls 2.2s infinite}
+@keyframes pls{0%,100%{opacity:1}50%{opacity:.4}}
+.hero .sub{margin-top:34px;font-size:clamp(17px,2vw,21px);color:var(--grey);max-width:52ch;line-height:1.65}
+.hero .sub b{color:var(--white)}
+.cta-row{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:13px;letter-spacing:.05em;font-weight:700;padding:17px 30px;border-radius:999px;
+  display:inline-flex;align-items:center;gap:10px;transition:all .35s var(--ease)}
+.btn-g{background:var(--grad);background-size:200% 100%;animation:sheen 5s linear infinite;color:var(--void)}
+.btn-g:hover{transform:translateY(-3px);box-shadow:0 18px 50px -12px rgba(139,92,246,.7)}
+.btn-o{border:1px solid var(--line-2);color:var(--white);background:rgba(255,255,255,.03)}
+.btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
 
-/* ---------- three laws ---------- */
-.laws-head{text-align:center;max-width:40ch;margin:0 auto 64px}
-.laws-head h2{font-size:clamp(30px,4.6vw,50px);line-height:1.06}
-.laws-head h2 em{font-style:italic;color:var(--champagne)}
-.laws-head p{margin-top:18px;color:var(--muted)}
-.laws{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-@media(max-width:820px){.laws{grid-template-columns:1fr}}
-.law{border:1px solid var(--line-cool);border-radius:20px;padding:32px 28px;background:
-  linear-gradient(180deg,rgba(255,255,255,.02),transparent);position:relative;overflow:hidden;transition:border-color .5s,transform .5s}
-.law:hover{border-color:var(--line);transform:translateY(-4px)}
-.law .num{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--champagne)}
-.law h3{font-size:24px;margin:20px 0 12px}
-.law p{color:var(--muted);font-size:15px;line-height:1.65}
-.law .ic{width:44px;height:44px;margin-top:22px}
+/* -------- marquee -------- */
+.mq{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:22px 0;background:rgba(255,255,255,.015)}
+.mq-in{display:flex;gap:64px;width:max-content;animation:mq 30s linear infinite;will-change:transform}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq span{font-family:var(--mono);font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);
+  display:flex;align-items:center;gap:64px;white-space:nowrap}
+.mq b{color:var(--white)} .mq i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@media(prefers-reduced-motion:reduce){.mq-in{animation:none}}
 
-/* ---------- departments live grid ---------- */
-.dep-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
-.dep-head h2{font-size:clamp(28px,4.2vw,46px);max-width:16ch;line-height:1.08}
-.dep-head h2 em{font-style:italic;color:var(--champagne)}
-.dep-head .note{font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.06em;max-width:26ch;text-align:right}
-[dir="rtl"] .dep-head .note{text-align:left}
-.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:820px){.dep-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.dep-grid{grid-template-columns:1fr}}
-.dep{border:1px solid var(--line-cool);border-radius:14px;padding:18px 18px 16px;background:rgba(255,255,255,.015);transition:border-color .4s,background .4s}
-.dep:hover{border-color:var(--line);background:rgba(217,184,119,.03)}
-.dep .code{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim)}
-.dep .nm{font-family:var(--serif);font-size:18px;margin:6px 0 14px;line-height:1.15}
-.dep .bar{height:4px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
-.dep .bar i{display:block;height:100%;border-radius:99px;width:0;background:linear-gradient(90deg,var(--champagne-deep),var(--champagne));transition:width 1.4s var(--ease)}
-.dep.live .bar i{background:linear-gradient(90deg,#1c8f63,var(--live))}
-.dep .pct{margin-top:9px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.08em}
-.dep .pct .s{color:var(--dim);text-transform:uppercase}
-.dep.live .pct .s{color:var(--live)}
-.dep .pct .v{color:var(--ivory)}
+/* -------- stats band -------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+@media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--deep);padding:34px 28px}
+.stat .n{font-size:clamp(34px,4.6vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.stat .l{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-top:12px}
 
-/* ---------- heartbeat ---------- */
-.beat{border:1px solid var(--line);border-radius:24px;padding:44px;background:
-  radial-gradient(120% 140% at 100% 0,rgba(217,184,119,.06),transparent 55%),linear-gradient(180deg,rgba(255,255,255,.02),transparent);
-  display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
-@media(max-width:820px){.beat{grid-template-columns:1fr;gap:34px;padding:32px}}
-.beat h2{font-size:clamp(26px,3.6vw,40px);line-height:1.1}
-.beat h2 em{font-style:italic;color:var(--champagne)}
-.beat p{margin-top:16px;color:var(--muted);font-size:16px;max-width:42ch}
-.beat .endpoint{margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--dim);
-  border:1px solid var(--line-cool);border-radius:10px;padding:11px 14px;display:flex;gap:10px;align-items:center;width:max-content;max-width:100%;overflow-x:auto}
-.beat .endpoint b{color:var(--live)}
-.metrics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.metric{border:1px solid var(--line-cool);border-radius:14px;padding:20px;background:rgba(0,0,0,.2)}
-.metric .n{font-family:var(--serif);font-size:34px;line-height:1;color:var(--champagne)}
-.metric .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:10px}
-.spark{margin-top:14px;height:30px;width:100%;display:block}
+/* -------- service cards grid -------- */
+.head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:52px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:880px){.grid{grid-template-columns:1fr}}
+.svc{position:relative;border:1px solid var(--line);border-radius:24px;padding:38px 34px;overflow:hidden;
+  background:linear-gradient(180deg,var(--card),var(--deep));transition:transform .45s var(--ease),border-color .45s;display:block}
+.svc::before{content:"";position:absolute;inset:-1px;border-radius:24px;padding:1px;opacity:0;transition:opacity .45s;
+  background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.svc::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;top:-160px;right:-120px;
+  background:radial-gradient(circle,rgba(139,92,246,.22),transparent 65%);opacity:0;transition:opacity .5s;pointer-events:none}
+.svc:hover{transform:translateY(-6px);border-color:transparent}
+.svc:hover::before,.svc:hover::after{opacity:1}
+.svc .num{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--dim)}
+.svc h3{font-size:clamp(22px,2.6vw,32px);font-weight:800;letter-spacing:-.025em;margin:16px 0 10px;line-height:1.05}
+.svc p{color:var(--grey);font-size:15px;max-width:46ch}
+.svc .go{margin-top:24px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;color:var(--cyan)}
+.svc .st{position:absolute;top:34px;right:34px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  padding:5px 11px;border-radius:999px;text-transform:uppercase}
+.st.live{color:var(--live);border:1px solid rgba(52,227,154,.35);background:rgba(52,227,154,.08)}
+.st.build{color:var(--warn);border:1px solid rgba(245,177,76,.35);background:rgba(245,177,76,.08)}
 
-/* ---------- final CTA ---------- */
-.final{text-align:center;padding:130px 0 120px}
-.final h2{font-size:clamp(36px,6vw,72px);line-height:1.02;letter-spacing:-.02em;max-width:16ch;margin:0 auto}
-.final h2 em{font-style:italic;color:var(--champagne)}
-.final p{margin:26px auto 0;color:var(--muted);max-width:40ch;font-size:18px}
-.final .cta-row{justify-content:center}
+/* -------- big feature rows (home) -------- */
+.feat{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.feat.rev{grid-template-columns:1fr 1.05fr}
+@media(max-width:900px){.feat,.feat.rev{grid-template-columns:1fr;gap:40px}}
+.feat p{color:var(--grey);margin-top:20px;font-size:16.5px;max-width:46ch}
+.panel{border:1px solid var(--line);border-radius:26px;background:linear-gradient(180deg,var(--card),var(--deep));
+  padding:30px;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;inset:0;background:var(--grad-soft);opacity:.5;pointer-events:none}
 
-/* ---------- footer ---------- */
-footer{border-top:1px solid var(--line-cool);padding:50px 0 60px}
-.foot-in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
-.foot-in .l{font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.06em;line-height:1.9}
-.foot-in .l b{color:var(--muted)}
-.honesty{margin-top:24px;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.05em;max-width:60ch;line-height:1.8;border-left:2px solid var(--line);padding-left:16px}
-[dir="rtl"] .honesty{border-left:0;border-right:2px solid var(--line);padding-left:0;padding-right:16px}
+/* terminal look */
+.term{font-family:var(--mono);font-size:12.5px;line-height:1.9;position:relative;color:var(--grey)}
+.term .ln{display:flex;gap:14px}
+.term .pr{color:var(--violet);flex:none}
+.term .ok{color:var(--live)} .term .k{color:var(--cyan)} .term .s{color:var(--magenta)}
 
-/* ---------- bilingual visibility ---------- */
-[lang-ar]{display:none}
-[dir="rtl"] [lang-en]{display:none}
-[dir="rtl"] [lang-ar]{display:inline}
-[dir="rtl"] .hero-meta,[dir="rtl"] .cta-row,[dir="rtl"] .foot-in{direction:rtl}
+/* chat mini */
+.chat{display:flex;flex-direction:column;gap:10px;position:relative}
+.cb{max-width:88%;padding:12px 15px;border-radius:15px;font-size:13.5px;line-height:1.55}
+.cb.q{align-self:flex-end;background:rgba(139,92,246,.16);border:1px solid rgba(139,92,246,.3);border-bottom-right-radius:5px}
+.cb.a{align-self:flex-start;background:rgba(255,255,255,.04);border:1px solid var(--line);border-bottom-left-radius:5px}
+.cb .v{display:block;margin-top:8px;padding-top:7px;border-top:1px solid rgba(52,227,154,.25);
+  font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--live)}
+.cb .v.no{color:var(--magenta);border-top-color:rgba(232,121,249,.3)}
+
+/* -------- agents strip -------- */
+.ag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:1000px){.ag-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.ag-grid{grid-template-columns:repeat(2,1fr)}}
+.ag{border:1px solid var(--line);border-radius:18px;padding:22px 20px;background:var(--deep);
+  transition:transform .4s var(--ease),border-color .4s;display:block;position:relative;overflow:hidden}
+.ag:hover{transform:translateY(-4px);border-color:var(--line-2)}
+.ag .code{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--dim)}
+.ag h4{font-size:16.5px;font-weight:700;letter-spacing:-.01em;margin:10px 0 12px;line-height:1.2}
+.meter{height:4px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.meter i{display:block;height:100%;border-radius:99px;background:var(--grad)}
+.ag .pv{margin-top:8px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em}
+.ag .pv .s{color:var(--dim);text-transform:uppercase}.ag .pv .n{color:var(--white)}
+.ag.hot .pv .s{color:var(--live)}
+
+/* -------- service detail page -------- */
+.sd-hero{padding-top:170px;padding-bottom:60px}
+.crumb{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:28px;display:flex;gap:10px;align-items:center}
+.crumb a{color:var(--grey)} .crumb a:hover{color:var(--cyan)}
+.sd-hero .lead{margin-top:26px;font-size:clamp(17px,2vw,20px);color:var(--grey);max-width:56ch;line-height:1.65}
+.f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:880px){.f-grid{grid-template-columns:1fr}}
+.f{border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--deep)}
+.f .ic{width:38px;height:38px;border-radius:11px;background:var(--grad-soft);border:1px solid var(--line-2);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:16px}
+.f h4{font-size:16.5px;font-weight:700;margin-bottom:8px}
+.f p{color:var(--grey);font-size:13.5px;line-height:1.6}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:880px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{border:1px solid var(--line);border-radius:16px;padding:22px 20px;background:var(--deep);position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);font-size:12px;letter-spacing:.16em;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:700}
+.step h5{font-size:14.5px;font-weight:700;margin:12px 0 7px}
+.step p{color:var(--grey);font-size:12.5px;line-height:1.6}
+.sd-stats{display:flex;gap:44px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0;margin:8px 0}
+.sd-stats .x .n{font-size:36px;font-weight:800;letter-spacing:-.03em}
+.sd-stats .x .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+.next-svc{display:flex;justify-content:space-between;align-items:center;gap:20px;border:1px solid var(--line);
+  border-radius:20px;padding:30px 34px;background:var(--deep);transition:border-color .4s}
+.next-svc:hover{border-color:var(--cyan)}
+.next-svc .t{font-size:clamp(20px,2.6vw,30px);font-weight:800;letter-spacing:-.02em}
+.next-svc .a{font-family:var(--mono);color:var(--cyan);font-size:20px;flex:none}
+
+/* -------- pulse page -------- */
+.ph-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.ph-grid{grid-template-columns:1fr 1fr}}
+.vt{border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--deep)}
+.vt .n{font-size:34px;font-weight:800;letter-spacing:-.03em}
+.vt .n.ok{color:var(--live)}
+.vt .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:8px}
+.vt svg{margin-top:14px;width:100%;height:30px;display:block}
+.hlist{border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:16px}
+.hrow{display:flex;justify-content:space-between;align-items:center;padding:15px 22px;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:13px}
+.hrow:last-child{border-bottom:0}
+.hrow .k{color:var(--grey)}
+.hrow .s{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--live);display:flex;gap:8px;align-items:center}
+.hrow .s::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 8px var(--live)}
+
+/* -------- manifesto -------- */
+.mf{max-width:820px}
+.mf .big{font-size:clamp(26px,3.6vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.16;margin:36px 0}
+.mf .big em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.mf p{color:var(--grey);font-size:17px;margin:18px 0;line-height:1.75}
+.mf .rulebox{border:1px solid var(--line);border-left:3px solid var(--violet);border-radius:0 16px 16px 0;
+  padding:22px 26px;margin:30px 0;font-family:var(--mono);font-size:13.5px;color:var(--grey);line-height:1.8}
+.mf .rulebox b{color:var(--white)}
+
+/* -------- footer -------- */
+footer{border-top:1px solid var(--line);padding:64px 0 54px;position:relative;z-index:2;background:rgba(5,6,10,.6)}
+.f-in{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+@media(max-width:880px){.f-in{grid-template-columns:1fr 1fr}}
+.f-in h5{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.f-in a{display:block;color:var(--grey);font-size:13.5px;padding:5px 0;transition:color .25s}
+.f-in a:hover{color:var(--cyan)}
+.f-brand p{color:var(--dim);font-size:13px;margin-top:14px;max-width:30ch;line-height:1.7}
+.f-bot{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--dim)}
+.big-word{font-size:clamp(70px,14vw,210px);font-weight:800;letter-spacing:-.05em;line-height:.9;text-transform:uppercase;
+  text-align:center;margin:70px 0 0;user-select:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.14),transparent 80%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 </style>
 </head>
 <body>
-<canvas id="field"></canvas>
-<div class="veil"></div>
-<div class="grain"></div>
+<canvas id="aurora"></canvas>
+<div class="atm"></div>
+<div class="noise"></div>
 
 <nav id="nav">
   <div class="nav-in">
-    <a href="#top" class="brand">
-      <span class="mark">
-        <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#D9B877" stroke-width="1.2" opacity=".5"/><circle cx="16" cy="16" r="5" fill="#D9B877"/><path d="M16 2v6M16 24v6M2 16h6M24 16h6" stroke="#D9B877" stroke-width="1.2" opacity=".7"/></svg>
-      </span>
-      AIOS
-    </a>
-    <div class="nav-right">
-      <div class="nav-links">
-        <a href="#proof"><span lang-en>The demo</span><span lang-ar>العرض</span></a>
-        <a href="#laws"><span lang-en>Three laws</span><span lang-ar>القوانين</span></a>
-        <a href="#departments"><span lang-en>Departments</span><span lang-ar>الأقسام</span></a>
-        <a href="#pulse"><span lang-en>Live pulse</span><span lang-ar>النبض</span></a>
-      </div>
-      <button class="lang" id="lang" aria-label="Switch language">EN · ع</button>
+    <a href="#/" class="logo"><span class="cube"></span>AIOS</a>
+    <div class="nl" id="navlinks">
+      <a href="#/" data-r="home">Home</a>
+      <a href="#/services" data-r="services">Services</a>
+      <a href="#/agents" data-r="agents">Agents</a>
+      <a href="#/pulse" data-r="pulse">Live Pulse</a>
+      <a href="#/manifesto" data-r="manifesto">Manifesto</a>
     </div>
+    <a class="ncta" href="https://wa.me/971506794299" target="_blank" rel="noopener">Talk to AIOS →</a>
   </div>
 </nav>
 
-<main id="top">
-
-  <!-- ============ HERO ============ -->
-  <header class="hero wrap">
-    <span class="status-chip reveal"><span class="dot"></span><span lang-en>Live runtime · Dubai + Abu Dhabi</span><span lang-ar>نظام حي · دبي وأبوظبي</span></span>
-    <h1 class="reveal">
-      <span lang-en>The AI that <em>refuses to lie.</em></span>
-      <span lang-ar>ذكاءٌ <em>يرفض الكذب.</em></span>
-    </h1>
-    <p class="sub reveal">
-      <span lang-en>AIOS runs Home Sweet Home's business on WhatsApp — answering in Arabic and English from <b>verified inventory</b>. When it doesn't have a real answer, it says so. It never invents a unit, a price, or a promise.</span>
-      <span lang-ar>يُدير AIOS أعمال «هوم سويت هوم» عبر واتساب — يردّ بالعربية والإنجليزية من <b>مخزون موثّق</b>. وحين لا يملك إجابة حقيقية، يقولها بصراحة. لا يختلق وحدة، ولا سعراً، ولا وعداً.</span>
-    </p>
-    <div class="cta-row reveal">
-      <a class="btn btn-primary" href="#proof"><span lang-en>Watch it think</span><span lang-ar>شاهده يُفكّر</span> →</a>
-      <a class="btn btn-ghost" href="#pulse"><span lang-en>See the live pulse</span><span lang-ar>النبض الحي</span></a>
-    </div>
-    <div class="hero-meta reveal">
-      <div class="hm"><span class="n mono">26,306</span><span class="l"><span lang-en>Verified records</span><span lang-ar>سجل موثّق</span></span></div>
-      <div class="hm"><span class="n mono">12</span><span class="l"><span lang-en>Departments</span><span lang-ar>قسماً</span></span></div>
-      <div class="hm"><span class="n mono">2</span><span class="l"><span lang-en>Languages, one brain</span><span lang-ar>لغتان، عقلٌ واحد</span></span></div>
-      <div class="hm"><span class="n mono">0</span><span class="l"><span lang-en>Fabricated answers</span><span lang-ar>إجابة مُختلَقة</span></span></div>
-    </div>
-  </header>
-
-  <div class="rule"></div>
-
-  <!-- ============ PROOF / SELF-PLAYING DEMO ============ -->
-  <section id="proof" class="wrap">
-    <div class="demo-grid">
-      <div class="demo-copy reveal">
-        <span class="eyebrow"><span lang-en>The proof</span><span lang-ar>الدليل</span></span>
-        <h2 style="margin-top:20px">
-          <span lang-en>Try to catch it <em>lying.</em></span>
-          <span lang-ar>حاول أن تُمسكه <em>يكذب.</em></span>
-        </h2>
-        <p>
-          <span lang-en>Most AI sells you confidence. AIOS sells you truth. Watch a real exchange: it quotes verified stock when it has it — and openly refuses when it doesn't. That refusal is the feature.</span>
-          <span lang-ar>معظم أنظمة الذكاء تبيعك الثقة. أمّا AIOS فيبيعك الحقيقة. شاهد محادثة حقيقية: يقتبس المخزون الموثّق حين يملكه — ويرفض بصراحة حين لا يملكه. هذا الرفض هو الميزة.</span>
-        </p>
-        <span class="tag"><span class="dot"></span><span lang-en>Truth Bridge · No-Fabrication Rule</span><span lang-ar>جسر الحقيقة · قاعدة عدم الاختلاق</span></span>
-      </div>
-
-      <div class="phone reveal" aria-hidden="true">
-        <div class="screen">
-          <div class="wa-top">
-            <div class="wa-av">A</div>
-            <div class="wa-id"><span class="nm">AIOS · HSH</span><span class="st" id="wa-st">online</span></div>
-          </div>
-          <div class="wa-body" id="chat"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ THREE LAWS ============ -->
-  <section id="laws" class="wrap">
-    <div class="laws-head reveal">
-      <span class="eyebrow"><span lang-en>How the honesty holds</span><span lang-ar>كيف تصمد الصراحة</span></span>
-      <h2 style="margin-top:16px">
-        <span lang-en>Three laws it <em>cannot</em> break.</span>
-        <span lang-ar>ثلاثة قوانين <em>لا يستطيع</em> كسرها.</span>
-      </h2>
-      <p><span lang-en>Not guidelines. Enforced in the reply path itself.</span><span lang-ar>ليست إرشادات. بل مفروضة داخل مسار الرد نفسه.</span></p>
-    </div>
-    <div class="laws">
-      <div class="law reveal">
-        <span class="num">01</span>
-        <h3><span lang-en>The Truth Bridge</span><span lang-ar>جسر الحقيقة</span></h3>
-        <p><span lang-en>Every property answer is drawn from 26,306 verified records. A row is only quotable when it carries a real area, building, unit and price — junk is filtered before it ever reaches a customer.</span><span lang-ar>كل إجابة عقارية تُستمدّ من ٢٦٬٣٠٦ سجلاً موثّقاً. لا يُقتبس السجل إلا إذا حمل منطقةً ومبنى ووحدةً وسعراً حقيقياً — ويُصفّى الرديء قبل أن يصل للعميل.</span></p>
-        <svg class="ic" viewBox="0 0 44 44" fill="none"><path d="M6 30c8-16 24-16 32 0" stroke="#D9B877" stroke-width="1.4"/><circle cx="22" cy="14" r="3.5" fill="#D9B877"/><path d="M6 30h32" stroke="#D9B877" stroke-width="1.4" opacity=".4"/></svg>
-      </div>
-      <div class="law reveal">
-        <span class="num">02</span>
-        <h3><span lang-en>The No-Fabrication Rule</span><span lang-ar>قاعدة عدم الاختلاق</span></h3>
-        <p><span lang-en>If a fact isn't in verified context, the brain is forbidden from stating it — no invented unit, price, size, owner or link. It says "I'll check and confirm," in Omar's own voice.</span><span lang-ar>إذا لم تكن الحقيقة ضمن سياق موثّق، يُمنع العقل من ذكرها — لا وحدة ولا سعر ولا مساحة ولا مالك ولا رابط مُختلَق. يقول «سأتحقق وأؤكد» بأسلوب عمر نفسه.</span></p>
-        <svg class="ic" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="15" stroke="#D9B877" stroke-width="1.4"/><path d="M12 12l20 20" stroke="#D9B877" stroke-width="1.4"/></svg>
-      </div>
-      <div class="law reveal">
-        <span class="num">03</span>
-        <h3><span lang-en>Health That Never Lies</span><span lang-ar>صحّةٌ لا تكذب</span></h3>
-        <p><span lang-en>One endpoint checks every link in the reply chain — runtime, database, sender, brain — and reports green or red per part. A silent failure can't hide behind a smiling dashboard.</span><span lang-ar>نقطةٌ واحدة تفحص كل حلقة في سلسلة الرد — النظام، وقاعدة البيانات، والمُرسِل، والعقل — وتُبلّغ بالأخضر أو الأحمر لكل جزء. لا يمكن لعطلٍ صامت أن يختبئ خلف لوحةٍ مبتسمة.</span></p>
-        <svg class="ic" viewBox="0 0 44 44" fill="none"><path d="M6 24h8l4-10 6 20 4-10h10" stroke="#34E39A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
-      </div>
-    </div>
-  </section>
-
-  <div class="rule"></div>
-
-  <!-- ============ DEPARTMENTS ============ -->
-  <section id="departments" class="wrap">
-    <div class="dep-head reveal">
-      <h2><span lang-en>Twelve departments. <em>Real</em> percentages.</span><span lang-ar>اثنا عشر قسماً. نِسبٌ <em>حقيقية.</em></span></h2>
-      <span class="note"><span lang-en>Not a mock-up. Each figure is the module's honest readiness — including the ones still climbing.</span><span lang-ar>ليست واجهة تجريبية. كل رقم هو جاهزية القسم الصادقة — بما فيها ما لا يزال يصعد.</span></span>
-    </div>
-    <div class="dep-grid" id="deps"></div>
-  </section>
-
-  <div class="rule"></div>
-
-  <!-- ============ LIVE PULSE ============ -->
-  <section id="pulse" class="wrap">
-    <div class="beat reveal">
-      <div>
-        <span class="eyebrow"><span lang-en>The system's own vitals</span><span lang-ar>مؤشّرات النظام الحيوية</span></span>
-        <h2 style="margin-top:16px"><span lang-en>This is the live <em>heartbeat.</em></span><span lang-ar>هذا هو <em>النبض</em> الحي.</span></h2>
-        <p><span lang-en>The same numbers the engineers watch — not a marketing figure invented for this page. Honesty over impressiveness, all the way down.</span><span lang-ar>الأرقام ذاتها التي يراقبها المهندسون — لا رقمٌ تسويقيٌّ اختُرع لهذه الصفحة. الصراحة قبل الإبهار، حتى الجذور.</span></p>
-        <div class="endpoint mono">GET /api/health/deep → <b>reply_chain_live: true</b></div>
-      </div>
-      <div class="metrics">
-        <div class="metric"><div class="n mono">55.5</div><div class="l"><span lang-en>Truth Bridge quality / 100</span><span lang-ar>جودة جسر الحقيقة /١٠٠</span></div><svg class="spark" id="sp1" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true"></svg></div>
-        <div class="metric"><div class="n mono">237</div><div class="l"><span lang-en>Quotable inventory rows</span><span lang-ar>سجل قابل للاقتباس</span></div><svg class="spark" id="sp2" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true"></svg></div>
-        <div class="metric"><div class="n mono">223</div><div class="l"><span lang-en>Canonical properties</span><span lang-ar>عقار مرجعي</span></div><svg class="spark" id="sp3" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true"></svg></div>
-        <div class="metric"><div class="n mono" style="color:var(--live)">LIVE</div><div class="l"><span lang-en>Reply chain status</span><span lang-ar>حالة سلسلة الرد</span></div><svg class="spark" id="sp4" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true"></svg></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FINAL CTA ============ -->
-  <section class="final wrap">
-    <h2 class="reveal"><span lang-en>Message it. Try to <em>catch it lying.</em></span><span lang-ar>راسِله. وحاول أن <em>تُمسكه يكذب.</em></span></h2>
-    <p class="reveal"><span lang-en>You won't. And that's the whole point of an operating system you can actually trust with your clients.</span><span lang-ar>لن تستطيع. وهذا هو جوهر نظام تشغيل يمكنك أن تأتمنه فعلاً على عملائك.</span></p>
-    <div class="cta-row reveal">
-      <a class="btn btn-primary" href="https://wa.me/971506794299" target="_blank" rel="noopener"><span lang-en>Open WhatsApp</span><span lang-ar>افتح واتساب</span> →</a>
-      <a class="btn btn-ghost" href="#top"><span lang-en>Back to top</span><span lang-ar>إلى الأعلى</span></a>
-    </div>
-  </section>
-
-</main>
+<div id="app"></div>
 
 <footer>
   <div class="wrap">
-    <div class="foot-in">
-      <div class="l"><b>AIOS</b> — <span lang-en>Living Company Intelligence</span><span lang-ar>ذكاء الشركة الحيّ</span><br>Home Sweet Home Real Estate · <span lang-en>Dubai + Abu Dhabi</span><span lang-ar>دبي وأبوظبي</span></div>
-      <div class="l" style="text-align:right">HSH Global Dubai<br><span lang-en>Classification: PARTIAL live</span><span lang-ar>التصنيف: حيّ جزئياً</span></div>
+    <div class="f-in">
+      <div class="f-brand">
+        <a href="#/" class="logo"><span class="cube"></span>AIOS</a>
+        <p>The AI operating system for Dubai + Abu Dhabi real estate. Built by HSH Global. Honest by architecture.</p>
+      </div>
+      <div><h5>Services</h5><div id="f-svc"></div></div>
+      <div><h5>System</h5>
+        <a href="#/agents">The 12 Agents</a><a href="#/pulse">Live Pulse</a><a href="#/manifesto">Manifesto</a><a href="#/services">All services</a>
+      </div>
+      <div><h5>Contact</h5>
+        <a href="https://wa.me/971506794299" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:o.a.ahmar@gmail.com">Email</a>
+      </div>
     </div>
-    <p class="honesty"><span lang-en>Every figure on this page is drawn from the system's own reports. Where a number is still climbing, it's shown as it is — because a page for an honest AI has no business being dishonest about the AI.</span><span lang-ar>كل رقم في هذه الصفحة مأخوذ من تقارير النظام ذاته. وحين يكون الرقم لا يزال يصعد، يُعرض كما هو — لأنّ صفحةً عن ذكاءٍ صادق لا يليق بها أن تكذب بشأن ذلك الذكاء.</span></p>
+    <div class="big-word">AIOS</div>
+    <div class="f-bot">
+      <span>© 2026 HSH GLOBAL DUBAI — HOME SWEET HOME REAL ESTATE</span>
+      <span>HONESTY OVER IMPRESSIVENESS. ALWAYS.</span>
+    </div>
   </div>
 </footer>
 
 <script>
-/* ---------- language toggle ---------- */
+/* ================= DATA ================= */
+var SERVICES=[
+ {id:'whatsapp-brain',n:'WhatsApp AI Brain',st:'live',
+  t:'Your best closer. Awake at 4 AM.',
+  d:'A client messages in Arabic or English — AIOS answers in Omar’s own voice, quoting real, verified inventory. No script, no silence, no invented listings. Ever.',
+  feats:[['🗣','Speaks like Omar','Trained on the owner’s real reply style — tone, pace, warmth. Clients feel the brand, not a bot.'],
+   ['🌐','Arabic + English','Parses Arabic-Indic digits, ألف/مليون budgets, and mixed-language messages natively.'],
+   ['🛡','No-fabrication rule','Hard-enforced in the reply path: no unit, price, size, owner or link that isn’t verified.'],
+   ['📦','Quotes real stock','Pulls only quotable rows — real area + building + unit + price — from the Truth Bridge.'],
+   ['🔁','Never goes silent','Dedupe by message id, graceful fallback: a failing brain never means a missed client.'],
+   ['⚡','Always on','Hosted runtime on production infrastructure with end-to-end health checks.']],
+  steps:[['Message lands','Webhook receives and authenticates the WhatsApp message.'],
+   ['Intent parsed','Area, building, bedrooms and budget extracted — EN + AR.'],
+   ['Truth injected','Verified inventory rows are placed into the brain’s context.'],
+   ['Reply delivered','Omar-voice answer sent, deduped, logged and health-checked.']],
+  stats:[['26,306','verified records behind it'],['2','languages, one voice'],['0','fabricated answers']]},
+ {id:'truth-bridge',n:'Truth Bridge',st:'live',
+  t:'A knowledge engine that refuses to guess.',
+  d:'26,306 property records — resolved, scored, and filtered so only provable facts ever reach a client. The Truth Bridge is why AIOS can promise honesty: junk never crosses.',
+  feats:[['🔍','Quotable-row filter','A record is only quotable with a real area, building, unit and price-or-size. Everything else is held back.'],
+   ['🧹','Corruption repair','Packed strings, misaligned columns and junk anchors are detected and recovered — not passed through.'],
+   ['🧾','Provenance on every row','Each record carries its source file; a bad feed can be removed as a batch.'],
+   ['📈','Scored quality','A reproducible quality score (55.5/100 today) — reported honestly, including when it dips.'],
+   ['🔗','Bridge building','Candidate links between public listings and exact units, verified before promotion.'],
+   ['🧊','Idempotent ingestion','Content-hash IDs mean re-imports never duplicate.']],
+  steps:[['Ingest','Authorized feeds and exports enter the staging pipeline.'],
+   ['Repair','Anchors recovered, corruption filtered, provenance attached.'],
+   ['Score','Every bridge row classified: exact, partial, weak, unusable.'],
+   ['Serve','Only quotable truth is exposed to the brain.']],
+  stats:[['26,306','records resolved'],['237','quotable rows live'],['55.5','quality score /100 — honest']]},
+ {id:'unit-intelligence',n:'Unit Intelligence',st:'live',
+  t:'Every listing URL, decoded to the unit.',
+  d:'Paste a Property Finder, Bayut or Dubizzle link — AIOS parses it, matches it against the resolver, enriches it, and stages the exact unit for action.',
+  feats:[['🔗','URL parsers','Property Finder, Bayut, Dubizzle link formats decoded to structured property clues.'],
+   ['💬','WhatsApp extraction','Links and property clues pulled straight out of client and agent chats.'],
+   ['🧠','Bridge enrichment','Candidates matched against 26k records with confidence scoring.'],
+   ['🗄','Staging database','Every ingest audited in SQLite with full history.'],
+   ['📥','Feed adapters','CSV, JSON, JSONL, Excel — authorized exports only, no scraping.'],
+   ['🎯','Exact-match trigger','A confirmed unit match automatically stages marketing assets.']],
+  steps:[['Capture','URL or message enters via API or WhatsApp.'],
+   ['Parse','Portal, area, project and unit clues extracted.'],
+   ['Resolve','Matched against the Truth Bridge with confidence scores.'],
+   ['Stage','Exact matches queued for CRM and marketing action.']],
+  stats:[['3','portals parsed'],['54','exact bridges (growing)'],['100%','audited ingestion']]},
+ {id:'compliance',n:'Compliance & NOC',st:'live',
+  t:'DLD. RERA. Trakheesi. Nakheel. Answered from the source.',
+  d:'A 40+ document corpus of official Dubai procedures — transfers, Oqood, eNOC, Ejari, Golden Visa — so compliance answers come from the rulebook, not from memory.',
+  feats:[['🏛','DLD procedures','Transfer registration, mortgage registration and release, Oqood — the real steps and fees.'],
+   ['📋','RERA + Trakheesi','Licensing, permits and complaint procedures on tap.'],
+   ['🛂','Visa pathways','GDRFA and ICP residency flows: Golden, Green, standard issuance and renewal.'],
+   ['🏝','Nakheel specialist','A dedicated agent carrying the PJ-P-VP-018 design-approval audit playbook.'],
+   ['✅','Golden-test validated','Nakheel return-comment rules verified against real audit cases.'],
+   ['📚','Corpus-cited answers','Every compliance answer traces to a procedure document.']],
+  steps:[['Ask','A fee, process or document question arrives.'],
+   ['Locate','The exact procedure document is retrieved from the corpus.'],
+   ['Answer','Steps, fees and requirements — cited, not guessed.'],
+   ['Flag','Anything needing the latest circular is marked for human check.']],
+  stats:[['40+','official procedures indexed'],['5','authorities covered'],['1','dedicated NOC agent']]},
+ {id:'marketing-engine',n:'Marketing Engine',st:'build',
+  t:'A unit gets verified. The campaign builds itself.',
+  d:'The moment Unit Intelligence confirms an exact match, AIOS stages the full creative kit — video, poster, flyer, social post, brochure — ready for approval. Zero manual briefing.',
+  feats:[['🎬','Video staging','A listing video plan generated per verified unit.'],
+   ['🖼','Poster + flyer','Print-ready creative staged with the unit’s real facts.'],
+   ['📱','Social kit','Post variants prepared for every channel.'],
+   ['🚦','Approval-gated','Nothing publishes itself. Omar approves; then it ships.'],
+   ['🎯','Truth-fed creative','Copy is drawn from verified data — the ad can’t lie either.'],
+   ['🗂','Asset ledger','Every staged asset tracked in its own database.']],
+  steps:[['Verify','An exact unit match fires the trigger.'],
+   ['Stage','Video, poster, flyer, social and brochure plans created.'],
+   ['Approve','The kit waits for one human yes.'],
+   ['Ship','Approved assets flow to channels.']],
+  stats:[['5','asset types staged per unit'],['1','approval to publish'],['0','fabricated claims in ads']]},
+ {id:'command-center',n:'Command Center',st:'live',
+  t:'The whole company. One screen.',
+  d:'A React cockpit over the live runtime: reply-chain status, unit-intelligence stats, permission audits and deployment state — the same numbers the engineers watch.',
+  feats:[['🖥','Live cockpit','Runtime, resolver, webhook and brain status in real time.'],
+   ['🔐','Auth-gated','Basic-auth protected API; the dashboard is not public.'],
+   ['📊','Unit-intel stats','Ingestion queue, staging and resolution rates at a glance.'],
+   ['🧭','Permission runtime','Every sensitive action evaluated against the permission engine.'],
+   ['🩺','Deep health inline','The /api/health/deep verdict rendered on the dashboard.'],
+   ['📱','PWA ready','Installable mobile command console with offline shell.']],
+  steps:[['Connect','The cockpit authenticates against the live API.'],
+   ['Watch','Green/red state per component, always current.'],
+   ['Act','Ingest units, resolve URLs, audit permissions in-app.'],
+   ['Trust','What the screen says is what the system is.']],
+  stats:[['1','screen for the company'],['6','reply-chain components watched'],['24/7','live state']]},
+ {id:'memory',n:'Relationship Memory',st:'live',
+  t:'It remembers who matters.',
+  d:'AIOS keeps a persistent relationship store: who the sender is, how they relate to the business, what happened before — so replies carry context, not amnesia.',
+  feats:[['🧬','Identity detection','Phone-to-person resolution across the CRM and chat history.'],
+   ['🤝','Relationship classes','Client, staff, agent, group lead — each shapes the reply.'],
+   ['🗓','Event ledger','Identity events logged with emotion, outcome and follow-up signals.'],
+   ['♻','Restores across sessions','Relationship state survives restarts — proven by validation.'],
+   ['👥','Group intelligence','Group-chat leads detected and routed.'],
+   ['🔒','Private by design','Memory lives in the runtime store, not in third-party clouds.']],
+  steps:[['Identify','Sender resolved against contacts and history.'],
+   ['Recall','Relationship and past context loaded.'],
+   ['Shape','The reply adapts to who is asking.'],
+   ['Learn','The exchange updates the ledger.']],
+  stats:[['1','persistent relationship store'],['12','agent personas informed by it'],['100%','restore proven in tests']]},
+ {id:'automation',n:'Workflow Automation',st:'live',
+  t:'Eleven workflows. One operating rhythm.',
+  d:'From lead intake to the daily CEO briefing, AIOS encodes the company’s operating procedures as executable workflows — powered by n8n and the agent layer.',
+  feats:[['📥','Lead intake','WF01 captures, qualifies and routes every new lead.'],
+   ['🔎','Search & shortlist','WF02 turns a client brief into a verified shortlist.'],
+   ['🏷','Listing publish','WF03 drives the Property Finder publishing procedure.'],
+   ['📜','DLD + Ejari','WF05/WF06 execute transfer and registration steps.'],
+   ['🌅','Daily CEO briefing','WF10 assembles priorities, calendar and hot leads each morning.'],
+   ['⚙','n8n backbone','Automations run on n8n with AI draft-reply support.']],
+  steps:[['Trigger','A lead, a date, a message or a command starts a flow.'],
+   ['Execute','The workflow runs its documented steps.'],
+   ['Escalate','Anything owner-binding pauses for approval.'],
+   ['Log','Every run leaves an audit trail.']],
+  stats:[['11','codified workflows'],['12','agents they orchestrate'],['1','daily briefing that runs the day']]},
+ {id:'deep-health',n:'Deep Health',st:'live',
+  t:'Silent failure is extinct.',
+  d:'One endpoint — /api/health/deep — walks every link a customer reply depends on and answers the only question that matters: will a real message get a real answer right now?',
+  feats:[['🩺','Whole-chain check','Runtime, resolver DB, webhook auth, sender, brain, fallback — each probed.'],
+   ['🚨','Plain-English faults','Not a stack trace: a list of what is broken, readably.'],
+   ['🧪','Real brain ping','Catches a dead upstream key the moment it dies.'],
+   ['🟢','One verdict','healthy / degraded / down — plus reply_chain_live: true or false.'],
+   ['👁','Public + read-only','Safe to expose; it never sends a message to anyone.'],
+   ['📟','Powers the Pulse page','The same endpoint feeds the live status you can see.']],
+  steps:[['Probe','Each component in the reply chain is exercised.'],
+   ['Verdict','Green or red per part, one status overall.'],
+   ['Surface','Dashboard, app and website all show the same truth.'],
+   ['Fix fast','A red link is a to-do, not a mystery.']],
+  stats:[['6','components verified per check'],['1','question answered: will it reply?'],['0','silent failures since']]},
+ {id:'crm-sync',n:'CRM Sync',st:'build',
+  t:'Every resolved lead, filed — with a human yes.',
+  d:'Resolved units and qualified leads become Airtable CRM records through an approval-gated write-back: dry-run by default, live only on explicit confirmation, audited always.',
+  feats:[['🗂','Lead + contact records','Structured payloads built from resolved intelligence.'],
+   ['🧯','Dry-run default','No live mutation unless explicitly confirmed — by design.'],
+   ['🧾','Full audit','Every attempted write is logged, success or not.'],
+   ['🔑','Blocked only by keys','Code is ready; goes live the day credentials land.'],
+   ['↔','Two-way context','CRM identity flows back into relationship memory.'],
+   ['🏦','Bitrix heritage','Existing Bitrix24 exports already inform the Truth Bridge.']],
+  steps:[['Resolve','A unit or lead reaches confirmed quality.'],
+   ['Build','The CRM payload is assembled and validated.'],
+   ['Approve','Live write-back requires explicit confirmation.'],
+   ['File','The record lands in Airtable, audited.']],
+  stats:[['100%','of writes audited'],['1','approval gate before live'],['0','surprise mutations']]}
+];
+var AGENTS=[
+ ['A01','Chief of Staff',88,'Runs the operating rhythm: daily briefing, priorities, decision log, follow-through.'],
+ ['A02','Deal Closer',72,'Drives negotiations to signature: offers, counters, and the close checklist.'],
+ ['A03','Listings Manager',80,'Owns portal presence: listing quality, publishing flow, refresh cadence.'],
+ ['A04','Compliance Officer',84,'Answers fees, transfers and documents from the official procedure corpus.'],
+ ['A05','Nakheel NOC Specialist',90,'Carries the PJ-P-VP-018 playbook: design approvals and return-comment rules.'],
+ ['A06','Contracts & Renewals',76,'Ejari, tenancy renewals and contract timelines — tracked and executed.'],
+ ['A07','Handover Coordinator',70,'Snagging, keys, utilities and the move-in path, step by step.'],
+ ['A08','Research & Feasibility',82,'Market studies and feasibility runs with sourced numbers.'],
+ ['A09','Marketing Content Engine',68,'Creative staging for verified units: video, print, social.'],
+ ['A10','Knowledge Librarian',86,'Keeps the corpus canonical: indexes, provenance, dedup.'],
+ ['A11','Personal Assistant',78,'Calendar, email triage and the owner’s personal ops.'],
+ ['A12','Unit Finder Operator',45,'URL-to-unit resolution. Honest status: data-gapped, in backlog.']
+];
+
+/* ================= RENDER HELPERS ================= */
+function el(h){var d=document.createElement('div');d.innerHTML=h;return d}
+function svcCard(s,i){
+ return '<a class="svc rv" href="#/services/'+s.id+'">'+
+  '<span class="st '+(s.st==='live'?'live':'build')+'">'+(s.st==='live'?'live':'building')+'</span>'+
+  '<div class="num">SERVICE /'+String(i+1).padStart(2,'0')+'</div>'+
+  '<h3>'+s.n+'</h3><p>'+s.t+'</p>'+
+  '<span class="go">Explore →</span></a>';
+}
+function agCard(a){
+ var hot=a[2]>=84;
+ return '<a class="ag rv'+(hot?' hot':'')+'" href="#/agents/'+a[0].toLowerCase()+'">'+
+  '<div class="code">'+a[0]+'</div><h4>'+a[1]+'</h4>'+
+  '<div class="meter"><i style="width:'+a[2]+'%"></i></div>'+
+  '<div class="pv"><span class="s">'+(hot?'live':'climbing')+'</span><span class="n mono">'+a[2]+'%</span></div></a>';
+}
+function sparks(){
+ function s(id,pts,c){var svg=document.getElementById(id);if(!svg)return;
+  var d='',w=120,h=30,mx=Math.max.apply(0,pts),mn=Math.min.apply(0,pts);
+  pts.forEach(function(p,i){var x=i/(pts.length-1)*w,y=h-4-((p-mn)/(mx-mn||1))*(h-8);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' '});
+  var ly=(h-4-((pts[pts.length-1]-mn)/(mx-mn||1))*(h-8)).toFixed(1);
+  svg.setAttribute('viewBox','0 0 120 30');svg.setAttribute('preserveAspectRatio','none');
+  svg.innerHTML='<path d="'+d+'" fill="none" stroke="'+c+'" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><circle cx="120" cy="'+ly+'" r="2.4" fill="'+c+'"/>'}
+ s('k1',[48.3,49,50.1,52.8,54,55,55.5],'#22D3EE');
+ s('k2',[7,17,90,140,200,225,237],'#8B5CF6');
+ s('k3',[120,150,180,205,215,220,223],'#E879F9');
+ s('k4',[1,1,0,1,1,1,1],'#34E39A');
+}
+
+/* ================= PAGES ================= */
+function pageHome(){
+ return '<div class="page">'+
+ '<header class="hero wrap">'+
+  '<span class="tag rv"><span class="dot"></span>LIVE RUNTIME — DUBAI + ABU DHABI</span>'+
+  '<h1 class="d1 rv">The AI<br><span class="grad-t">Operating</span><br>System<span class="outline-t"> for RE.</span></h1>'+
+  '<p class="sub rv">One brain running an entire real-estate company — WhatsApp replies in Omar’s voice, <b>26,306 verified records</b>, compliance from the official rulebook, marketing that builds itself. And a hard rule underneath it all: <b>it never lies.</b></p>'+
+  '<div class="cta-row rv"><a class="btn btn-g" href="#/services">Explore the services →</a>'+
+  '<a class="btn btn-o" href="#/pulse">Live system pulse</a></div>'+
+ '</header>'+
+ '<div class="mq"><div class="mq-in">'+
+  '<span><b>WHATSAPP BRAIN</b> · <i>TRUTH BRIDGE</i> · <b>UNIT INTELLIGENCE</b> · <i>COMPLIANCE + NOC</i> · <b>MARKETING ENGINE</b> · <i>COMMAND CENTER</i> · <b>RELATIONSHIP MEMORY</b> · <i>DEEP HEALTH</i> · <b>CRM SYNC</b> · <i>12 AGENTS</i> ·&nbsp;</span>'+
+  '<span aria-hidden="true"><b>WHATSAPP BRAIN</b> · <i>TRUTH BRIDGE</i> · <b>UNIT INTELLIGENCE</b> · <i>COMPLIANCE + NOC</i> · <b>MARKETING ENGINE</b> · <i>COMMAND CENTER</i> · <b>RELATIONSHIP MEMORY</b> · <i>DEEP HEALTH</i> · <b>CRM SYNC</b> · <i>12 AGENTS</i> ·&nbsp;</span>'+
+ '</div></div>'+
+ '<section class="wrap"><div class="stats rv">'+
+  '<div class="stat"><div class="n grad-t mono">26,306</div><div class="l">Verified property records</div></div>'+
+  '<div class="stat"><div class="n mono">10</div><div class="l">Services in the system</div></div>'+
+  '<div class="stat"><div class="n mono">12</div><div class="l">Specialist AI agents</div></div>'+
+  '<div class="stat"><div class="n grad-t mono">0</div><div class="l">Fabricated answers — enforced</div></div>'+
+ '</div></section>'+
+ '<section class="wrap"><div class="head-row rv"><div><span class="kicker">The stack</span>'+
+  '<h2 class="d2" style="margin-top:14px">Ten services.<br><span class="grad-t">One brain.</span></h2></div>'+
+  '<a class="btn btn-o" href="#/services">All services →</a></div>'+
+  '<div class="grid">'+SERVICES.slice(0,6).map(svcCard).join('')+'</div></section>'+
+ '<section class="wrap"><div class="feat">'+
+  '<div class="rv"><span class="kicker m">The proof</span>'+
+  '<h2 class="d2" style="margin-top:14px">Try to catch it <span class="grad-t">lying.</span></h2>'+
+  '<p>Ask for stock it holds — it quotes verified rows. Ask for stock it doesn’t — it refuses to invent and says it will check. The refusal is the product.</p>'+
+  '<div class="cta-row"><a class="btn btn-g" href="#/services/whatsapp-brain">Inside the brain →</a></div></div>'+
+  '<div class="panel rv"><div class="chat">'+
+   '<div class="cb q">Do you have a 2-bed in JVC under 1.4M?</div>'+
+   '<div class="cb a">Yes — verified 2-bed stock in JVC in that range. Let me confirm the exact unit and price before I quote numbers.<span class="v">✓ DRAWN FROM VERIFIED INVENTORY</span></div>'+
+   '<div class="cb q">And a signature villa on Palm Jumeirah?</div>'+
+   '<div class="cb a">I won’t invent one. I don’t hold a Palm villa I can verify right now — I’ll check with the team and come back with something real.<span class="v no">✕ NO VERIFIED MATCH → NO FABRICATION</span></div>'+
+  '</div></div></div></section>'+
+ '<section class="wrap"><div class="head-row rv"><div><span class="kicker v">The team that never sleeps</span>'+
+  '<h2 class="d2" style="margin-top:14px">Twelve <span class="grad-t">agents.</span></h2></div>'+
+  '<a class="btn btn-o" href="#/agents">Meet them all →</a></div>'+
+  '<div class="ag-grid">'+AGENTS.slice(0,8).map(agCard).join('')+'</div></section>'+
+ '<section class="wrap"><div class="feat rev">'+
+  '<div class="panel rv"><div class="term">'+
+   '<div class="ln"><span class="pr">$</span><span>GET <span class="k">/api/health/deep</span></span></div>'+
+   '<div class="ln"><span class="pr">→</span><span>runtime <span class="ok">● healthy</span></span></div>'+
+   '<div class="ln"><span class="pr">→</span><span>resolver_db <span class="ok">● healthy</span> <span class="s">26,306 rows</span></span></div>'+
+   '<div class="ln"><span class="pr">→</span><span>webhook_auth <span class="ok">● verified</span></span></div>'+
+   '<div class="ln"><span class="pr">→</span><span>wasender_send <span class="ok">● ready</span></span></div>'+
+   '<div class="ln"><span class="pr">→</span><span>brain·n8n <span class="ok">● live</span></span></div>'+
+   '<div class="ln"><span class="pr">→</span><span>fallback_reply <span class="ok">● armed</span></span></div>'+
+   '<div class="ln"><span class="pr">✓</span><span><span class="k">reply_chain_live:</span> <span class="ok">true</span></span></div>'+
+  '</div></div>'+
+  '<div class="rv"><span class="kicker">Observability</span>'+
+  '<h2 class="d2" style="margin-top:14px">Silent failure<br>is <span class="grad-t">extinct.</span></h2>'+
+  '<p>One endpoint walks every link a customer reply depends on and answers the only question that matters: will a real message get a real answer, right now?</p>'+
+  '<div class="cta-row"><a class="btn btn-o" href="#/services/deep-health">How deep health works →</a></div></div>'+
+ '</div></section>'+
+ '<section class="wrap" style="text-align:center;padding-bottom:140px">'+
+  '<span class="kicker rv">Ready when you are</span>'+
+  '<h2 class="d1 rv" style="margin:22px auto 0">Message<br><span class="grad-t">the machine.</span></h2>'+
+  '<p class="sub rv" style="margin:26px auto 0;max-width:44ch">It answers in seconds, in your language, from verified truth. Try to catch it lying — you won’t.</p>'+
+  '<div class="cta-row rv" style="justify-content:center"><a class="btn btn-g" href="https://wa.me/971506794299" target="_blank" rel="noopener">Open WhatsApp →</a>'+
+  '<a class="btn btn-o" href="#/manifesto">Read the manifesto</a></div></section>'+
+ '</div>';
+}
+function pageServices(){
+ return '<div class="page"><header class="sd-hero wrap">'+
+  '<span class="kicker rv">The full stack</span>'+
+  '<h1 class="d1 rv" style="margin-top:18px">Every<br><span class="grad-t">service.</span></h1>'+
+  '<p class="lead rv">Ten interlocking systems, one operating brain. Each one is a page — go deep.</p></header>'+
+  '<section class="wrap" style="padding-top:20px"><div class="grid">'+SERVICES.map(svcCard).join('')+'</div></section></div>';
+}
+function pageService(id){
+ var i=SERVICES.findIndex(function(s){return s.id===id});
+ if(i<0)return page404();
+ var s=SERVICES[i], nx=SERVICES[(i+1)%SERVICES.length];
+ return '<div class="page"><header class="sd-hero wrap">'+
+  '<div class="crumb rv"><a href="#/">Home</a> / <a href="#/services">Services</a> / <span style="color:var(--white)">'+s.n+'</span></div>'+
+  '<span class="st '+(s.st==='live'?'live':'build')+' rv" style="position:static;display:inline-block">'+(s.st==='live'?'LIVE IN PRODUCTION':'BUILDING — HONEST STATUS')+'</span>'+
+  '<h1 class="d1 rv" style="margin-top:22px">'+s.n.split(' ').map(function(w,j){return j===0?'<span class="grad-t">'+w+'</span>':w}).join(' ')+'</h1>'+
+  '<p class="lead rv"><b style="color:var(--white)">'+s.t+'</b><br>'+s.d+'</p></header>'+
+  '<section class="wrap" style="padding-top:10px"><div class="sd-stats rv">'+
+   s.stats.map(function(x){return '<div class="x"><div class="n grad-t mono">'+x[0]+'</div><div class="l">'+x[1]+'</div></div>'}).join('')+
+  '</div></section>'+
+  '<section class="wrap"><span class="kicker rv">Capabilities</span>'+
+  '<h2 class="d3 rv" style="margin:14px 0 36px">What it does</h2>'+
+  '<div class="f-grid">'+s.feats.map(function(f){return '<div class="f rv"><div class="ic">'+f[0]+'</div><h4>'+f[1]+'</h4><p>'+f[2]+'</p></div>'}).join('')+'</div></section>'+
+  '<section class="wrap"><span class="kicker v rv">Pipeline</span>'+
+  '<h2 class="d3 rv" style="margin:14px 0 36px">How it works</h2>'+
+  '<div class="steps">'+s.steps.map(function(st){return '<div class="step rv"><h5>'+st[0]+'</h5><p>'+st[1]+'</p></div>'}).join('')+'</div></section>'+
+  '<section class="wrap" style="padding-bottom:130px">'+
+  '<a class="next-svc rv" href="#/services/'+nx.id+'"><div><span class="kicker m">Next service</span><div class="t" style="margin-top:8px">'+nx.n+'</div></div><span class="a">→</span></a></section></div>';
+}
+function pageAgents(){
+ return '<div class="page"><header class="sd-hero wrap">'+
+  '<span class="kicker v rv">The org chart, but software</span>'+
+  '<h1 class="d1 rv" style="margin-top:18px">Twelve<br><span class="grad-t">agents.</span></h1>'+
+  '<p class="lead rv">Every department of a real-estate company, encoded as a specialist AI agent with its own playbook. Percentages are honest readiness — including the low ones.</p></header>'+
+  '<section class="wrap" style="padding-top:20px"><div class="ag-grid">'+AGENTS.map(agCard).join('')+'</div></section></div>';
+}
+function pageAgent(code){
+ var a=AGENTS.find(function(x){return x[0].toLowerCase()===code});
+ if(!a)return page404();
+ var hot=a[2]>=84;
+ var i=AGENTS.indexOf(a),nx=AGENTS[(i+1)%AGENTS.length];
+ return '<div class="page"><header class="sd-hero wrap">'+
+  '<div class="crumb rv"><a href="#/">Home</a> / <a href="#/agents">Agents</a> / <span style="color:var(--white)">'+a[0]+'</span></div>'+
+  '<span class="st '+(hot?'live':'build')+' rv" style="position:static;display:inline-block">'+(hot?'LIVE':'CLIMBING')+' — '+a[2]+'% READY</span>'+
+  '<h1 class="d1 rv" style="margin-top:22px"><span class="grad-t">'+a[0]+'</span><br>'+a[1]+'</h1>'+
+  '<p class="lead rv">'+a[3]+'</p>'+
+  '<div style="max-width:420px;margin-top:34px" class="rv"><div class="meter" style="height:6px"><i style="width:'+a[2]+'%"></i></div>'+
+  '<div style="display:flex;justify-content:space-between;margin-top:10px" class="mono"><span style="font-size:11px;color:var(--dim);letter-spacing:.14em">HONEST READINESS</span><span style="font-size:13px">'+a[2]+'%</span></div></div></header>'+
+  '<section class="wrap" style="padding-bottom:130px">'+
+  '<a class="next-svc rv" href="#/agents/'+nx[0].toLowerCase()+'"><div><span class="kicker m">Next agent</span><div class="t" style="margin-top:8px">'+nx[0]+' — '+nx[1]+'</div></div><span class="a">→</span></a></section></div>';
+}
+function pagePulse(){
+ return '<div class="page"><header class="sd-hero wrap">'+
+  '<span class="tag rv" style="display:inline-flex"><span class="dot"></span>THE SYSTEM’S OWN VITALS — NOT MARKETING</span>'+
+  '<h1 class="d1 rv" style="margin-top:26px">Live<br><span class="grad-t">pulse.</span></h1>'+
+  '<p class="lead rv">The same numbers the engineers watch. Where a value is still climbing, it’s shown as it is — a page about an honest AI doesn’t get to lie about the AI.</p></header>'+
+  '<section class="wrap" style="padding-top:10px"><div class="ph-grid">'+
+   '<div class="vt rv"><div class="n mono">55.5</div><div class="l">Truth Bridge quality /100</div><svg id="k1"></svg></div>'+
+   '<div class="vt rv"><div class="n mono">237</div><div class="l">Quotable inventory rows</div><svg id="k2"></svg></div>'+
+   '<div class="vt rv"><div class="n mono">223</div><div class="l">Canonical properties</div><svg id="k3"></svg></div>'+
+   '<div class="vt rv"><div class="n ok mono">LIVE</div><div class="l">Reply chain status</div><svg id="k4"></svg></div>'+
+  '</div>'+
+  '<div class="hlist rv">'+
+   ['runtime|healthy','resolver_db|healthy','webhook_auth|verified','wasender_send|ready','brain · n8n · openai|live','fallback_reply|armed']
+   .map(function(r){var p=r.split('|');return '<div class="hrow"><span class="k">'+p[0]+'</span><span class="s">'+p[1]+'</span></div>'}).join('')+
+  '</div>'+
+  '<p class="rv mono" style="margin-top:18px;font-size:11.5px;color:var(--dim);letter-spacing:.06em">GET /api/health/deep → status: healthy · reply_chain_live: true</p>'+
+  '</section></div>';
+}
+function pageManifesto(){
+ return '<div class="page"><header class="sd-hero wrap">'+
+  '<span class="kicker m rv">Why AIOS exists</span>'+
+  '<h1 class="d1 rv" style="margin-top:18px">The<br><span class="grad-t">manifesto.</span></h1></header>'+
+  '<section class="wrap mf" style="padding-top:0;padding-bottom:140px">'+
+  '<p class="rv">Every AI product demos beautifully. Then it meets a real client, on a real Tuesday, asking about a real apartment — and it invents an 800 sqft unit at 850k that doesn’t exist. That actually happened, on our first live reply.</p>'+
+  '<div class="big rv">So we made one rule the architecture itself: <em>honesty over impressiveness.</em></div>'+
+  '<div class="rulebox rv"><b>THE NO-FABRICATION RULE</b><br>Never state a specific unit, price, size, availability, owner, or link that is not in verified context. If the truth isn’t retrievable, say "I’ll check and confirm" — in the owner’s own voice.</div>'+
+  '<p class="rv">That rule shapes everything. The Truth Bridge exists so there is verified context to quote. Deep Health exists so a broken chain can’t hide. Percentages on this site show the low numbers too — Unit Finder sits at 45% and we print it, because a company that will lie to you about its own readiness will lie to your clients.</p>'+
+  '<div class="big rv">An AI you can trust with your clients has to be an AI that can say <em>"I don’t know — yet."</em></div>'+
+  '<p class="rv">That’s AIOS. Built in Dubai, for the hardest sales floor on earth. Try to catch it lying.</p>'+
+  '<div class="cta-row rv"><a class="btn btn-g" href="https://wa.me/971506794299" target="_blank" rel="noopener">Message it →</a></div>'+
+  '</section></div>';
+}
+function page404(){
+ return '<div class="page"><header class="sd-hero wrap" style="min-height:70vh">'+
+  '<h1 class="d1"><span class="grad-t">404.</span></h1>'+
+  '<p class="lead">That page isn’t in the verified index. Honest answer: it doesn’t exist.</p>'+
+  '<div class="cta-row"><a class="btn btn-g" href="#/">Back home →</a></div></header></div>';
+}
+
+/* ================= ROUTER ================= */
+var app=document.getElementById('app');
+function route(){
+ var h=location.hash.replace(/^#\/?/,'').replace(/\/$/,'');
+ var parts=h.split('/');
+ var html, r='home';
+ if(h===''){html=pageHome();r='home'}
+ else if(h==='services'){html=pageServices();r='services'}
+ else if(parts[0]==='services'&&parts[1]){html=pageService(parts[1]);r='services'}
+ else if(h==='agents'){html=pageAgents();r='agents'}
+ else if(parts[0]==='agents'&&parts[1]){html=pageAgent(parts[1]);r='agents'}
+ else if(h==='pulse'){html=pagePulse();r='pulse'}
+ else if(h==='manifesto'){html=pageManifesto();r='manifesto'}
+ else{html=page404()}
+ app.innerHTML=html;
+ window.scrollTo(0,0);
+ document.querySelectorAll('#navlinks a').forEach(function(a){a.classList.toggle('on',a.dataset.r===r)});
+ bindReveals(); sparks();
+}
+window.addEventListener('hashchange',route);
+
+/* reveals */
+function bindReveals(){
+ var els=[].slice.call(document.querySelectorAll('.rv'));
+ if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+ var io=new IntersectionObserver(function(en){en.forEach(function(e){
+   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+ els.forEach(function(e){io.observe(e)});
+}
+/* nav scroll */
+(function(){var n=document.getElementById('nav');
+ var f=function(){n.classList.toggle('sc',scrollY>20)};f();addEventListener('scroll',f,{passive:true})})();
+/* footer service links */
+document.getElementById('f-svc').innerHTML=SERVICES.map(function(s){return '<a href="#/services/'+s.id+'">'+s.n+'</a>'}).join('');
+
+/* ================= AURORA CANVAS ================= */
 (function(){
-  var html=document.documentElement, btn=document.getElementById('lang');
-  btn.addEventListener('click',function(){
-    var ar = html.getAttribute('dir')==='rtl';
-    html.setAttribute('dir', ar?'ltr':'rtl');
-    html.setAttribute('lang', ar?'en':'ar');
-    btn.textContent = ar?'EN · ع':'ع · EN';
-  });
+ var c=document.getElementById('aurora');if(!c)return;var x=c.getContext('2d');
+ var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ var W,H,DPR,blobs=[],t=0;
+ var CL=[[139,92,246],[34,211,238],[232,121,249],[99,102,241]];
+ function size(){DPR=Math.min(devicePixelRatio||1,1.6);W=c.width=innerWidth*DPR;H=c.height=innerHeight*DPR;
+  c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';
+  blobs=[];for(var i=0;i<5;i++)blobs.push({cx:Math.random(),cy:Math.random()*.7,r:.28+Math.random()*.22,
+    col:CL[i%CL.length],sp:.00016+Math.random()*.00022,ph:Math.random()*6.28,ph2:Math.random()*6.28});
+  paint(0)}
+ function paint(dt){
+  t+=dt;
+  x.clearRect(0,0,W,H);x.fillStyle='#05060A';x.fillRect(0,0,W,H);
+  x.globalCompositeOperation='lighter';
+  for(var i=0;i<blobs.length;i++){var b=blobs[i];
+   var px=(b.cx+Math.sin(t*b.sp+b.ph)*.16)*W, py=(b.cy+Math.cos(t*b.sp*1.3+b.ph2)*.12)*H, rr=b.r*Math.min(W,H)*(1+.08*Math.sin(t*.0004+b.ph));
+   var g=x.createRadialGradient(px,py,0,px,py,rr);
+   g.addColorStop(0,'rgba('+b.col[0]+','+b.col[1]+','+b.col[2]+',.14)');
+   g.addColorStop(.55,'rgba('+b.col[0]+','+b.col[1]+','+b.col[2]+',.05)');
+   g.addColorStop(1,'rgba(0,0,0,0)');
+   x.fillStyle=g;x.beginPath();x.arc(px,py,rr,0,6.2832);x.fill()}
+  x.globalCompositeOperation='source-over'}
+ var last=0;
+ function loop(ts){var dt=last?ts-last:16;last=ts;paint(dt);requestAnimationFrame(loop)}
+ size();addEventListener('resize',size);
+ if(!reduce)requestAnimationFrame(loop);
 })();
 
-/* ---------- nav scrolled state ---------- */
-(function(){
-  var nav=document.getElementById('nav');
-  var on=function(){nav.classList.toggle('scrolled',window.scrollY>24)};
-  on(); window.addEventListener('scroll',on,{passive:true});
-})();
-
-/* ---------- reveal on scroll ---------- */
-(function(){
-  var els=[].slice.call(document.querySelectorAll('.reveal'));
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
-  var io=new IntersectionObserver(function(en){
-    en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.14});
-  els.forEach(function(e){io.observe(e)});
-})();
-
-/* ---------- departments (real readiness figures) ---------- */
-(function(){
-  var deps=[
-    ['A01','Chief of Staff','رئيس الأركان',88],
-    ['A02','Deal Closer','مُغلِق الصفقات',72],
-    ['A03','Listings Manager','مدير الإعلانات',80],
-    ['A04','Compliance Officer','ضابط الامتثال',84],
-    ['A05','Nakheel NOC','نخيل NOC',90],
-    ['A06','Contracts & Renewals','العقود والتجديد',76],
-    ['A07','Handover','التسليم',70],
-    ['A08','Research & Feasibility','البحث والجدوى',82],
-    ['A09','Marketing Engine','محرّك التسويق',68],
-    ['A10','Knowledge Librarian','أمين المعرفة',86],
-    ['A11','Personal Assistant','المساعد الشخصي',78],
-    ['A12','Unit Finder','باحث الوحدات',45]
-  ];
-  var wrap=document.getElementById('deps');
-  deps.forEach(function(d){
-    var live = d[3]>=84;
-    var el=document.createElement('div');
-    el.className='dep'+(live?' live':'');
-    el.innerHTML='<div class="code">'+d[0]+'</div>'+
-      '<div class="nm"><span lang-en>'+d[1]+'</span><span lang-ar>'+d[2]+'</span></div>'+
-      '<div class="bar"><i></i></div>'+
-      '<div class="pct"><span class="s">'+(live?'<span lang-en>live</span><span lang-ar>حيّ</span>':'<span lang-en>climbing</span><span lang-ar>يصعد</span>')+'</span><span class="v">'+d[3]+'%</span></div>';
-    wrap.appendChild(el);
-  });
-  var io=new IntersectionObserver(function(en){
-    en.forEach(function(e){
-      if(e.isIntersecting){
-        [].slice.call(document.querySelectorAll('.dep .bar i')).forEach(function(bar,i){
-          setTimeout(function(){bar.style.width=deps[i][3]+'%'},i*70);
-        });
-        io.disconnect();
-      }
-    });
-  },{threshold:.2});
-  io.observe(wrap);
-})();
-
-/* ---------- sparklines ---------- */
-(function(){
-  function spark(id,pts,color){
-    var svg=document.getElementById(id);if(!svg)return;
-    var d='',w=120,h=30,max=Math.max.apply(0,pts),min=Math.min.apply(0,pts);
-    pts.forEach(function(p,i){
-      var xx=i/(pts.length-1)*w, yy=h-4-((p-min)/(max-min||1))*(h-8);
-      d+=(i?'L':'M')+xx.toFixed(1)+' '+yy.toFixed(1)+' ';
-    });
-    var ly=(h-4-((pts[pts.length-1]-min)/(max-min||1))*(h-8)).toFixed(1);
-    svg.innerHTML='<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="1.5" stroke-linecap="round" opacity=".85"/>'+
-      '<circle cx="120" cy="'+ly+'" r="2.2" fill="'+color+'"/>';
-  }
-  spark('sp1',[48.3,49,50.1,52.8,54,55,55.5],'#D9B877');
-  spark('sp2',[7,17,90,140,200,225,237],'#D9B877');
-  spark('sp3',[120,150,180,205,215,220,223],'#D9B877');
-  spark('sp4',[1,1,0,1,1,1,1],'#34E39A');
-})();
-
-/* ---------- self-playing WhatsApp demo ---------- */
-(function(){
-  var chat=document.getElementById('chat'), st=document.getElementById('wa-st');
-  if(!chat)return;
-  var ar=function(){return document.documentElement.getAttribute('dir')==='rtl'};
-  var script=[
-    {who:'me', en:'Do you have a 2-bed in JVC under 1.4M?', ar:'عندك شقة غرفتين في قرية جميرا تحت ١.٤ مليون؟'},
-    {who:'wait'},
-    {who:'them', en:'Yes — in JVC I have verified 2-bed stock in that range. Let me confirm the exact unit, floor and price with the team before I quote you numbers.', ar:'نعم — في قرية جميرا لديّ مخزون موثّق لغرفتين ضمن هذا النطاق. دعني أؤكّد الوحدة والطابق والسعر بالضبط مع الفريق قبل أن أعطيك الأرقام.', verify:{en:'drawn from verified inventory', ar:'من مخزون موثّق'}},
-    {who:'me', en:'And a signature villa on Palm Jumeirah?', ar:'وفيلا مميّزة في نخلة جميرا؟'},
-    {who:'wait'},
-    {who:'them', refuse:true, en:"I won't invent one. Right now I don't hold a Palm villa I can verify for you, so I won't quote a unit or price I can't stand behind. I'll check with the team and come back with something real.", ar:'لن أختلق واحدة. حالياً لا أملك فيلا في النخلة أستطيع توثيقها لك، لذا لن أقتبس وحدةً أو سعراً لا أضمنه. سأتحقّق مع الفريق وأعود بشيءٍ حقيقي.', verify:{en:'no verified match, no fabrication', ar:'لا تطابق موثّق، لا اختلاق'}}
-  ];
-  function bubble(step){
-    var b=document.createElement('div');
-    b.className='bub '+(step.who==='me'?'me':'them');
-    var txt='<span lang-en>'+step.en+'</span><span lang-ar>'+step.ar+'</span>';
-    if(step.verify){txt+='<span class="verify'+(step.refuse?' refuse':'')+'">'+(step.refuse?'✕ ':'✓ ')+'<span lang-en>'+step.verify.en+'</span><span lang-ar>'+step.verify.ar+'</span></span>';}
-    b.innerHTML=txt;
-    chat.appendChild(b);
-    trim();
-  }
-  function typing(){
-    var t=document.createElement('div');t.className='typing';t.innerHTML='<span></span><span></span><span></span>';
-    chat.appendChild(t);st.textContent=ar()?'يكتب…':'typing…';return t;
-  }
-  function trim(){ while(chat.children.length>5){chat.removeChild(chat.firstChild);} }
-  var i=0, tnode=null, timer=null;
-  function tick(){
-    var step=script[i% script.length];
-    if(step.who==='wait'){ tnode=typing(); i++; timer=setTimeout(tick,1400); return; }
-    if(tnode){chat.removeChild(tnode);tnode=null;} st.textContent='online';
-    bubble(step); i++;
-    if(i%script.length===0){ timer=setTimeout(function(){chat.innerHTML='';i=0;tick();},4600); return; }
-    timer=setTimeout(tick, step.who==='me'?1500:2800);
-  }
-  var io=new IntersectionObserver(function(en){
-    en.forEach(function(e){if(e.isIntersecting){io.disconnect();timer=setTimeout(tick,600);}});
-  },{threshold:.3});
-  io.observe(chat);
-})();
-
-/* ---------- living-intelligence canvas (flow field) ---------- */
-(function(){
-  var c=document.getElementById('field'); if(!c)return;
-  var x=c.getContext('2d');
-  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var W,H,DPR,parts=[],t=0;
-  var COLORS=[[47,216,198],[108,107,232],[217,184,119]]; // teal, indigo, champagne — ONLY here
-  function size(){
-    DPR=Math.min(window.devicePixelRatio||1,2);
-    W=c.width=innerWidth*DPR; H=c.height=innerHeight*DPR;
-    c.style.width=innerWidth+'px'; c.style.height=innerHeight+'px';
-    var n=Math.min(90, Math.floor(innerWidth/16));
-    parts=[];
-    for(var i=0;i<n;i++){
-      parts.push({x:Math.random()*W,y:Math.random()*H,
-        col:COLORS[i%3], sp:.2+Math.random()*.5, off:Math.random()*1000});
-    }
-    x.fillStyle='#0A0B0F'; x.fillRect(0,0,W,H);
-  }
-  function flow(px,py){
-    var s=0.0009;
-    return Math.sin(px*s+t*0.3)+Math.cos(py*s*1.3-t*0.2)+Math.sin((px+py)*s*0.6+t*0.15);
-  }
-  function frame(){
-    t+=0.016;
-    x.fillStyle='rgba(10,11,15,0.10)'; x.fillRect(0,0,W,H);
-    x.globalCompositeOperation='lighter';
-    for(var i=0;i<parts.length;i++){
-      var p=parts[i], a=flow(p.x,p.y)*Math.PI;
-      p.x+=Math.cos(a)*p.sp*DPR; p.y+=Math.sin(a)*p.sp*DPR;
-      if(p.x<0)p.x+=W; if(p.x>W)p.x-=W; if(p.y<0)p.y+=H; if(p.y>H)p.y-=H;
-      var pulse=0.5+0.5*Math.sin(t+p.off);
-      var r=(1.1+pulse*2.2)*DPR;
-      var g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,r*7);
-      var col=p.col;
-      g.addColorStop(0,'rgba('+col[0]+','+col[1]+','+col[2]+','+(0.16*pulse+0.05)+')');
-      g.addColorStop(1,'rgba('+col[0]+','+col[1]+','+col[2]+',0)');
-      x.fillStyle=g; x.beginPath(); x.arc(p.x,p.y,r*7,0,6.2832); x.fill();
-    }
-    x.globalCompositeOperation='source-over';
-    if(!reduce) requestAnimationFrame(frame);
-  }
-  size(); window.addEventListener('resize',size);
-  frame();
-})();
+route();
 </script>
 </body>
 </html>
