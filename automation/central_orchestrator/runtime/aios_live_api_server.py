@@ -526,6 +526,14 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover
         components["group_leads"] = _ok(False, f"error:{exc}")
 
+    # Marketing / Content Studio.
+    try:
+        import content_studio as _cs
+        _ch = _cs.health()
+        components["content_studio"] = _ok(_ch.get("ok", False), _ch.get("detail", ""))
+    except Exception as exc:  # pragma: no cover
+        components["content_studio"] = _ok(False, f"error:{exc}")
+
     # CRM lead capture wiring.
     try:
         import crm_leads as _crm
@@ -1194,6 +1202,28 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     return result
 
 
+# --- Lightweight in-memory rate limiter (per client IP, sliding window) -------
+# Protects the public webhook + API POSTs from floods without any external
+# dependency. Best-effort; a restart clears the window. Tunable via env.
+_RL_WINDOW = float(os.getenv("AIOS_RL_WINDOW_SEC", "10"))
+_RL_MAX = int(os.getenv("AIOS_RL_MAX", "60"))          # requests per window per IP
+_RL_HITS: dict[str, list] = {}
+_RL_LOCK = threading.Lock()
+_RL_MAX_BODY = int(os.getenv("AIOS_MAX_BODY_BYTES", "262144"))  # 256 KB POST cap
+
+
+def _rate_limited(client_ip: str) -> bool:
+    now = time.time()
+    with _RL_LOCK:
+        hits = [t for t in _RL_HITS.get(client_ip, []) if now - t < _RL_WINDOW]
+        hits.append(now)
+        _RL_HITS[client_ip] = hits
+        if len(_RL_HITS) > 4096:  # bound memory: drop the coldest bucket
+            oldest = min(_RL_HITS, key=lambda k: _RL_HITS[k][-1] if _RL_HITS[k] else 0)
+            _RL_HITS.pop(oldest, None)
+        return len(hits) > _RL_MAX
+
+
 class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
     server_version = "AIOSLiveAPI/1.0"
 
@@ -1402,6 +1432,20 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         if path == "/api/unit/stats":
             _write_json(self, 200, get_stats())
             return
+        if path == "/api/marketing/generate":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            channel = (qs.get("channel") or ["property_finder"])[0]
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                _write_json(self, 200, _cs.generate(q, channel=channel))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         if path == "/api/leads/recent":
             try:
                 import group_leads as _gl
@@ -1414,6 +1458,17 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
     def do_POST(self) -> None:
         started = time.perf_counter()
         path = _path(self.path)
+        client_ip = (self.headers.get("X-Forwarded-For", "") or self.client_address[0] if self.client_address else "?").split(",")[0].strip()
+        if _rate_limited(client_ip):
+            self._aios_skip_cache_header = True
+            _write_json(self, 429, {"ok": False, "error": "rate_limited", "retry_after_sec": _RL_WINDOW})
+            return
+        try:
+            if int(self.headers.get("Content-Length") or 0) > _RL_MAX_BODY:
+                _write_json(self, 413, {"ok": False, "error": "payload_too_large", "max_bytes": _RL_MAX_BODY})
+                return
+        except Exception:
+            pass
         if not self._require_auth():
             return
         if path not in {
