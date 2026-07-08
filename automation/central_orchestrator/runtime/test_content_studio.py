@@ -81,3 +81,28 @@ def test_new_channels_supported():
     for ch in ["story", "email", "broadcast"]:
         out = cs.compose({"area":"JVC","building":"Luma22","unit":"609","bedrooms":"1","price":"850000","size":"82"}, ch)
         assert out["ok"] and out["channel"] == ch
+
+
+def test_flyer_is_real_and_selfcontained():
+    f = cs.flyer_for("2BR in Emaar South")
+    if f["matched"]:
+        h = f["html"]
+        assert h.startswith("<!doctype html") and "HSH GLOBAL" in h
+        assert "http" not in h.split("aios-runtime")[0].replace("http-equiv","")  # no external asset URLs
+        for fake in ("pool", "gym", "maid", "luxury lifestyle"):
+            assert fake not in h.lower()
+
+def test_flyer_no_match_no_fabrication():
+    assert cs.flyer_for("villa on the moon 40BR")["matched"] == 0
+
+def test_targeting_brief_real_and_planning_only():
+    tb = cs.targeting_brief("apartment in Dubai Hills", monthly_budget_aed=8000)
+    if tb["matched"]:
+        assert tb["price_band"] in ("premium", "mid-market", "entry / investor")
+        assert sum(tb["budget_split_aed_per_month"].values()) <= 8000 * 1.02
+        assert "No spend" in tb["note"]
+        for v in tb["ad_copy_variants"]:
+            assert v["headline"] and v["primary_text"]
+
+def test_targeting_no_match_no_fabrication():
+    assert cs.targeting_brief("teleporter in andromeda")["matched"] == 0

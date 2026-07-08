@@ -1432,6 +1432,47 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         if path == "/api/unit/stats":
             _write_json(self, 200, get_stats())
             return
+        if path == "/api/marketing/flyer":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            lang = (qs.get("lang") or ["en"])[0]
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                res = _cs.flyer_for(q, lang=("ar" if lang == "ar" else "en"))
+                if not res.get("html"):
+                    _write_json(self, 200, res)
+                    return
+                body = res["html"].encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Cache-Control", "no-store")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/marketing/targeting":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            try:
+                budget = int((qs.get("budget") or ["5000"])[0])
+            except Exception:
+                budget = 5000
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                _write_json(self, 200, _cs.targeting_brief(q, monthly_budget_aed=max(500, budget)))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         if path == "/api/marketing/campaign":
             from urllib.parse import urlparse, parse_qs
             qs = parse_qs(urlparse(self.path).query)

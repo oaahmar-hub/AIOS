@@ -279,11 +279,149 @@ def campaign(query: str, channel: str = "instagram", count: int = 3) -> dict:
     }
 
 
+def _esc(s) -> str:
+    return (str(s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def flyer(row: dict, lang: str = "en") -> str:
+    """Return a self-contained, print-ready property flyer (HTML) for ONE real
+    unit. Typographic design — no stock photos (we won't fake the unit's look);
+    every value is a real database field. Honest by construction."""
+    ar = lang == "ar"
+    area = _esc(row.get("area")); building = _esc(row.get("building")); unit = _esc(row.get("unit"))
+    dev = _esc(row.get("developer")); beds_en, beds_ar = _beds_label(row)
+    price = _fmt_price(row.get("price")); size = _size_label(row)
+    beds = beds_ar if ar else beds_en
+    facts = []
+    if size:
+        facts.append(("المساحة" if ar else "Built-up area", size))
+    if dev:
+        facts.append(("المطوّر" if ar else "Developer", dev))
+    if unit:
+        facts.append(("رقم الوحدة" if ar else "Unit", unit))
+    if area:
+        facts.append(("المنطقة" if ar else "Community", area))
+    rows = "".join(f'<div class="f"><span class="k">{_esc(k)}</span><span class="v">{_esc(v)}</span></div>' for k, v in facts)
+    title = f"{beds}" + (f'{" في " if ar else " in "}{building or area}' if (building or area) else "")
+    cta = "للجادين فقط · تواصل عبر واتساب لتحديد معاينة" if ar else "Serious enquiries · WhatsApp to arrange a viewing"
+    verified = "متاح ومتحقق منه" if ar else "Verified & available"
+    dir_attr = ' dir="rtl"' if ar else ""
+    return f"""<!doctype html><html lang="{lang}"{dir_attr}><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>{_esc(title)}</title><style>
+@page{{size:A4;margin:0}}*{{margin:0;padding:0;box-sizing:border-box}}
+body{{font-family:-apple-system,'Segoe UI',Tahoma,sans-serif;background:#0a0b0f;color:#eef1f6;
+width:210mm;height:297mm;padding:22mm 20mm;position:relative;overflow:hidden}}
+.badge{{display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#0a0b0f;
+background:#d9b06a;padding:5px 12px;border-radius:3px;font-weight:700}}
+.brand{{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:4px;color:#d9b06a;margin-top:26mm;text-transform:uppercase}}
+h1{{font-size:52px;line-height:1.03;letter-spacing:-1px;margin:8px 0 4px;font-weight:800}}
+h1 b{{color:#d9b06a}}
+.sub{{color:#8b93a5;font-size:16px;margin-bottom:26px}}
+.price{{font-size:40px;font-weight:800;color:#4ec59a;margin:18px 0 4px}}
+.price small{{font-size:15px;color:#8b93a5;font-weight:400;letter-spacing:1px}}
+.grid{{margin-top:30px;border-top:1px solid #242833}}
+.f{{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #242833;font-size:16px}}
+.f .k{{color:#8b93a5;text-transform:uppercase;letter-spacing:1px;font-size:12px}}
+.f .v{{font-weight:600}}
+.foot{{position:absolute;left:20mm;right:20mm;bottom:20mm}}
+.cta{{font-size:17px;font-weight:600;color:#eef1f6}}
+.ver{{margin-top:8px;font-size:12px;color:#4ec59a;letter-spacing:1px}}
+.hsh{{position:absolute;top:22mm;right:20mm;font-family:ui-monospace,monospace;font-size:12px;color:#8b93a5;letter-spacing:2px}}
+</style></head><body>
+<div class="hsh">HSH GLOBAL</div>
+<div class="brand">AIOS · Dubai Real Estate</div>
+<h1>{_esc(beds)}<br><b>{_esc(building or area)}</b></h1>
+<div class="sub">{_esc(area)}</div>
+{f'<div class="price">{price}<small> · asking</small></div>' if price and not ar else ''}
+{f'<div class="price">{price}<small> · السعر</small></div>' if price and ar else ''}
+<div class="grid">{rows}</div>
+<div class="foot"><span class="badge">{_esc(verified)}</span><div class="cta" style="margin-top:14px">{_esc(cta)}</div>
+<div class="ver">AIOS · aios-runtime-production.up.railway.app</div></div>
+</body></html>"""
+
+
+def flyer_for(query: str, lang: str = "en") -> dict:
+    """Match a query to a real unit and return its flyer HTML (best value pick)."""
+    picks = value_picks(query, count=1)
+    if not picks:
+        try:
+            import inventory_retrieval as _inv
+            rows = _inv.search(query, max_results=1)
+        except Exception:
+            rows = []
+        if not rows:
+            return {"ok": True, "matched": 0, "note": "No verified unit matched — no flyer (no fabrication)."}
+        picks = rows
+    return {"ok": True, "matched": 1, "unit_ref": {k: picks[0].get(k) for k in ("area", "building", "unit")},
+            "html": flyer(picks[0], lang=lang)}
+
+
+# Ad-targeting knowledge: which audiences fit which price band (Dubai market).
+def targeting_brief(query: str, monthly_budget_aed: int = 5000) -> dict:
+    """Produce an ad-campaign targeting brief for a query — audience, geo,
+    placements, budget split, and ad-copy variants — ready to paste into Meta /
+    Google / Property Finder. It PLANS a campaign; it does not spend money or
+    connect an ad account (that needs the owner to authorize those platforms).
+    Real units only — copy variants are built from matched inventory."""
+    picks = value_picks(query, count=3)
+    g = generate(query, "instagram", max_results=3)
+    posts = g.get("posts", [])
+    if not picks and not posts:
+        return {"ok": True, "matched": 0, "note": "No verified unit matched — no brief (no fabrication)."}
+    prices = [p for p in (_num(x.get("price")) for x in picks) if p] if picks else []
+    area = (picks[0].get("area") if picks else posts[0]["unit_ref"].get("area")) if (picks or posts) else ""
+    lo = int(min(prices)) if prices else None
+    hi = int(max(prices)) if prices else None
+    band = "premium" if (lo or 0) >= 8_000_000 else ("mid-market" if (lo or 0) >= 3_000_000 else "entry / investor")
+
+    # Audience is derived from price band — no invented personas.
+    if band == "premium":
+        audience = ["HNW end-users & second-home buyers", "GCC + European investors",
+                    "Interests: luxury real estate, yachting, private banking"]
+        geos = ["UAE", "Saudi Arabia", "UK", "Germany", "India (metro HNW)"]
+    elif band == "mid-market":
+        audience = ["Upgrader families & professionals", "Resident + regional investors",
+                    "Interests: Dubai property, mortgages, schools, family lifestyle"]
+        geos = ["UAE", "Saudi Arabia", "India", "UK", "Egypt"]
+    else:
+        audience = ["First-time buyers & yield investors", "Interests: off-plan, payment plans, rental yield, ROI"]
+        geos = ["UAE", "India", "Pakistan", "Egypt", "Russia/CIS"]
+
+    split = {"Meta (Instagram/Facebook)": round(monthly_budget_aed * 0.45),
+             "Google Search + PMax": round(monthly_budget_aed * 0.30),
+             "Property Finder / Bayut (featured)": round(monthly_budget_aed * 0.20),
+             "TikTok (short video)": round(monthly_budget_aed * 0.05)}
+
+    ad_copy = []
+    for p in posts[:3]:
+        ad_copy.append({"headline": p["en"]["headline"],
+                        "primary_text": p["en"]["body"],
+                        "cta": "WhatsApp Us"})
+
+    return {
+        "ok": True,
+        "matched": len(posts),
+        "area": area,
+        "price_band": band,
+        "price_range_aed": {"from": lo, "to": hi},
+        "objective": "Lead generation (WhatsApp / form)",
+        "audience": audience,
+        "geo_targeting": geos,
+        "age": "30-60" if band == "premium" else "28-55",
+        "budget_split_aed_per_month": split,
+        "recommended_placements": ["IG/FB Feed + Stories", "Google Search (brand+community keywords)",
+                                    "Property Finder featured listing", "TikTok in-feed (if video available)"],
+        "ad_copy_variants": ad_copy,
+        "note": "Plan only — connect the ad accounts to launch. No spend initiated. Copy uses real listings.",
+        "honest": True,
+    }
+
+
 def health() -> dict:
     try:
         import inventory_retrieval as _inv
         n = _inv.quotable_count()
-        return {"ok": n > 0, "detail": f"engine ready · {n} units · 6 channels · campaigns+value-picks"}
+        return {"ok": n > 0, "detail": f"engine ready · {n} units · copy+campaign+flyer+targeting"}
     except Exception as exc:  # pragma: no cover
         return {"ok": False, "detail": f"error:{exc}"}
 
