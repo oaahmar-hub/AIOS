@@ -24,3 +24,6 @@ KnowledgeBase/*
 !KnowledgeBase/resolver/**
 !KnowledgeBase/resolver/unit_resolver_database.sqlite
 !KnowledgeBase/resolver/unit_resolver_database.resolver
+# Verified supplementary inventory ingested from the owner's Drive (runtime needs it).
+!KnowledgeBase/TruthIngestion
+!KnowledgeBase/TruthIngestion/drive_verified_inventory_2026-07-08.csv
