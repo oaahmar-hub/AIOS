@@ -521,6 +521,30 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
         components["inventory_knowledge"] = _ok(False, f"error:{exc}")
         issues.append(f"Inventory retrieval failed to load: {exc}")
 
+    # Humanizer layer: fingerprint removal + media honesty must be importable.
+    try:
+        import reply_humanizer as _rh_health
+        _probe = _rh_health.humanize("I hope this helps! The unit is 33 sqm.")
+        components["reply_humanizer"] = _ok(
+            "hope this helps" not in _probe.lower() and "33 sqm" in _probe, "active"
+        )
+    except Exception as exc:  # pragma: no cover - defensive
+        components["reply_humanizer"] = _ok(False, f"error:{exc}")
+        issues.append(f"Reply humanizer failed to load: {exc}")
+    try:
+        import media_vault as _mv_health
+        _mvh = _mv_health.health()
+        components["media_vault"] = {"ok": True, "detail": f"{_mvh['entries']} curated assets"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["media_vault"] = _ok(False, f"error:{exc}")
+    try:
+        import voice_notes as _vn_health
+        _vnh = _vn_health.health()
+        components["voice_notes"] = {"ok": None if _vnh["status"] == "not_configured" else True,
+                                     "detail": _vnh["status"]}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["voice_notes"] = _ok(False, f"error:{exc}")
+
     checked = [c for c in components.values() if c.get("ok") is not None]
     reds = [c for c in checked if c.get("ok") is False]
     # The reply loop is only truly "healthy" when a customer message gets answered.
@@ -974,6 +998,42 @@ def _send_whatsapp_reply(phone: str, text: str) -> tuple[bool, str]:
         return False, f"error:{exc}"
 
 
+def _send_whatsapp_media(phone: str, image_url: str, caption: str = "") -> tuple[bool, str]:
+    """Send a real image (by URL) through the Wasender send API.
+
+    Only called with URLs from the curated MediaVault index — never generated
+    content. Failure never raises; the text reply still goes out.
+    """
+    if not WASENDER_API_KEY:
+        return False, "missing_api_key"
+    if not phone or not image_url:
+        return False, "missing_phone_or_url"
+    payload: dict[str, Any] = {"to": phone, "imageUrl": image_url}
+    if caption:
+        payload["text"] = caption
+    body = json.dumps(payload).encode("utf-8")
+    req = Request(
+        WASENDER_SEND_URL,
+        data=body,
+        headers={
+            "Authorization": f"Bearer {WASENDER_API_KEY}",
+            "Content-Type": "application/json",
+            "Accept": "application/json, text/plain, */*",
+            "User-Agent": WASENDER_BROWSER_UA,
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(req, timeout=30) as resp:
+            return True, f"{resp.status}:sent"
+    except HTTPError as exc:
+        return False, f"http_error:{exc.code}"
+    except URLError as exc:
+        return False, f"url_error:{exc.reason}"
+    except Exception as exc:  # pragma: no cover - defensive
+        return False, f"error:{exc}"
+
+
 def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any]:
     process_whatsapp_provider = _load_whatsapp_provider_gateway()
     provider_output = process_whatsapp_provider(payload)
@@ -1035,6 +1095,19 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     if not eligible and reply_detail == "no_action" and (from_me or is_self or not actionable):
         reply_detail = "not_actionable"
     if eligible:
+        try:
+            import reply_humanizer as _rh
+        except Exception:  # pragma: no cover - defensive
+            _rh = None
+        # A bare "ok"/"thanks"/emoji gets a human thumbs-up, not an LLM essay.
+        if _rh and _rh.is_plain_ack(text):
+            reply_sent, send_detail = _send_whatsapp_reply(sender_digits, _rh.ACK_REPLY_EN)
+            reply_detail = f"ack_short_reply|send:{send_detail}"
+            side_effects["provider_webhook_called"] = True
+            side_effects["whatsapp_messages_sent"] = reply_sent
+            reply_text_out = _rh.ACK_REPLY_EN
+            eligible = False
+    if eligible:
         # Reconnect the real brain: build Omar's personality/relationship/
         # objective context and feed it to the LLM as the system prompt.
         system_prompt, brain_meta = _build_personality_system_prompt(
@@ -1053,18 +1126,46 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
                 system_prompt = inv_block
         except Exception as _inv_exc:  # pragma: no cover - defensive
             logger.warning("inventory_retrieval failed: %s", _inv_exc)
+        # Humanize at the source: WhatsApp-human style rules + honest media
+        # handling when the customer asked for photos/plans/video/location.
+        wants_media = False
+        media_entry = None
+        if _rh:
+            system_prompt = f"{system_prompt}\n\n{_rh.prompt_rules()}" if system_prompt else _rh.prompt_rules()
+            wants_media = _rh.media_intent(text)
+            if wants_media:
+                try:
+                    import media_vault as _mv
+                    media_entry = _mv.find_media(text)
+                except Exception:  # pragma: no cover - defensive
+                    media_entry = None
+                if not media_entry:
+                    system_prompt = f"{system_prompt}\n\n{_rh.media_prompt_rule()}"
         reply_text_out, gen_detail = _generate_reply_text(text, system_prompt=system_prompt)
         gen_detail = f"{gen_detail}|brain:{brain_meta}|inv:{inv_count}" if brain_meta else f"{gen_detail}|inv:{inv_count}"
         used_fallback = False
         if not reply_text_out and WA_FALLBACK_REPLY:
             reply_text_out = WA_FALLBACK_REPLY
             used_fallback = True
+        # Send REAL media when the vault has it; the reply then references it
+        # truthfully. media_sent stays False on any failure.
+        media_sent = False
+        if media_entry:
+            media_sent, media_detail = _send_whatsapp_media(
+                sender_digits, media_entry["url"], media_entry.get("caption", "")
+            )
+            gen_detail = f"{gen_detail}|media:{'sent' if media_sent else media_detail}"
+        # Strip the AI fingerprint and never claim media we didn't send.
+        if _rh and reply_text_out:
+            reply_text_out = _rh.humanize(reply_text_out)
+            if wants_media:
+                reply_text_out = _rh.enforce_media_honesty(reply_text_out, media_sent, text)
         if reply_text_out:
             reply_sent, send_detail = _send_whatsapp_reply(sender_digits, reply_text_out)
             fb = "|fallback" if used_fallback else ""
             reply_detail = f"generate:{gen_detail}|send:{send_detail}{fb}"
             side_effects["provider_webhook_called"] = True
-            side_effects["whatsapp_messages_sent"] = reply_sent
+            side_effects["whatsapp_messages_sent"] = reply_sent or media_sent
         else:
             reply_detail = f"generate:{gen_detail}|no_fallback_configured"
     result = {
