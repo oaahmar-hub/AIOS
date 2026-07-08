@@ -41,7 +41,7 @@
 **Available to ingest next (developer availability sheets, mostly PDF):**
 | Source | Format | Drive ID |
 |---|---|---|
-| Emaar Inventory 19.01.2026 | PDF | `1D71q2tC333Oi7lksVZV9wx-xmGloN0-c` |
+| Emaar Inventory 19.01.2026 ✅ INGESTED (772 units) | PDF | `1D71q2tC333Oi7lksVZV9wx-xmGloN0-c` |
 | Emaar Inventory 02.01.2026 | PDF | `16NzHEgvtEWofmrBJBr5hmM5Xul9KS6LQ` |
 | SAMANA Inventory 11-10-2025 | PDF | `1YZrZHy3SfolwPIvso1ZsZPy2HrqQy_T8` |
 | MAK Developers Availability 11.09.2025 | PDF | `1cM7DwfPtTSPmR7sxs86ZKsr7vFFPL7B2` |

@@ -59,6 +59,12 @@ AREA_ALIASES: dict[str, list[str]] = {
     "Emirates Hills": ["emirates hills"],
     "Arjan": ["arjan"],
     "Business Bay": ["business bay"],
+    "Emaar South": ["emaar south", "dubai south", "expo golf"],
+    "Rashid Yachts & Marina": ["rashid yachts", "rashid yacht", "mina rashid", "dubai maritime"],
+    "Expo City": ["expo city", "expo living"],
+    "Arabian Ranches": ["arabian ranches", "the ranches"],
+    "Grand Polo": ["grand polo", "polo club"],
+    "Dubai Marina": ["dubai marina"],
 }
 
 _BED_PATTERNS: list[tuple[re.Pattern, int]] = [
