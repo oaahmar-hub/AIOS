@@ -577,6 +577,14 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover - defensive
         components["media_vault"] = _ok(False, f"error:{exc}")
     try:
+        import reply_governor as _gov_health
+        _gh = _gov_health.health()
+        components["reply_governor"] = {"ok": True,
+                                        "detail": f"muted:{_gh['muted_contacts']} override:{_gh['override_active']}"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["reply_governor"] = _ok(False, f"error:{exc}")
+        issues.append(f"Reply governor failed to load: {exc}")
+    try:
         import voice_notes as _vn_health
         _vnh = _vn_health.health()
         components["voice_notes"] = {"ok": None if _vnh["status"] == "not_configured" else True,
@@ -1124,9 +1132,22 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     is_self = bool(event.get("is_self_chat"))
     actionable = bool(event.get("actionable", True))
     message_id = str(event.get("message_id") or "")
+    # Reply discipline (reply_governor): staleness / human-override / mute /
+    # rate limits. Omar's own outbound message in a chat silences the bot for
+    # that contact; "#off" / "#on" from Omar mute/unmute the contact.
+    event_ts = str(event.get("timestamp") or "")
+    try:
+        import reply_governor as _gov
+    except Exception:  # pragma: no cover - defensive
+        _gov = None
+    if _gov and from_me and not is_self:
+        contact = event.get("to_phone") or event.get("recipient") or ""
+        _gov.note_human_message(str(contact), text)
+    stale = bool(_gov and _gov.is_stale(event_ts))
     # Group-Lead Agent: detect real requests (incl. group messages the reply
     # path ignores) and record ranked leads for Omar. Never replies in groups.
-    if text and not from_me:
+    # Stale/backlog messages are history — never mined as fresh leads.
+    if text and not from_me and not stale:
         try:
             import group_leads as _gl
             _gl.detect(sender_digits or sender, text, source=("group" if is_self is False and not actionable else "direct"))
@@ -1136,9 +1157,20 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
         not hold_delivery and text and sender_digits
         and not from_me and not is_self and actionable
     )
+    if eligible and stale:
+        eligible = False
+        reply_detail = "stale_suppressed"
+    if eligible and _gov and _gov.human_active(sender_digits):
+        eligible = False
+        reply_detail = "human_override"
     if eligible and _already_replied(message_id):
         eligible = False
         reply_detail = "duplicate_suppressed"
+    if eligible and _gov:
+        allowed, rate_detail = _gov.allow_reply(sender_digits)
+        if not allowed:
+            eligible = False
+            reply_detail = f"rate_limited:{rate_detail}"
     if not eligible and reply_detail == "no_action" and (from_me or is_self or not actionable):
         reply_detail = "not_actionable"
     if eligible:
