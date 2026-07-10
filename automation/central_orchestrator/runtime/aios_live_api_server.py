@@ -584,6 +584,19 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover - defensive
         components["voice_notes"] = _ok(False, f"error:{exc}")
 
+    try:
+        import chat_governor as _gov_health
+        _gh = _gov_health.health()
+        components["chat_governor"] = {
+            "ok": bool(_gh.get("ok")),
+            "detail": (f"takeover:{_gh.get('takeover_active_contacts')} "
+                       f"cooldown:{_gh.get('cooldown_min')}m gap:{_gh.get('reply_min_gap_sec')}s "
+                       f"cap:{_gh.get('reply_hourly_cap')}/h fresh<{_gh.get('max_event_age_min')}m"),
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["chat_governor"] = _ok(False, f"error:{exc}")
+        issues.append(f"Chat governor failed to load: {exc}")
+
     checked = [c for c in components.values() if c.get("ok") is not None]
     reds = [c for c in checked if c.get("ok") is False]
     # The reply loop is only truly "healthy" when a customer message gets answered.
@@ -1124,9 +1137,30 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     is_self = bool(event.get("is_self_chat"))
     actionable = bool(event.get("actionable", True))
     message_id = str(event.get("message_id") or "")
+    event_ts = event.get("timestamp")
+    try:
+        import chat_governor as _gov
+    except Exception:  # pragma: no cover - defensive
+        _gov = None
+    # Freshness first: backlog / history-sync replays are NOT live customers.
+    # They must never be answered, captured as leads, or written to memory.
+    event_is_stale = bool(_gov and _gov.is_stale(event_ts))
+    # Human takeover: Omar messaging a contact himself silences the bot for
+    # that contact — two people must never type from the same number. His own
+    # turn also becomes conversation context for when the bot resumes.
+    if from_me and not is_self and _gov and not event_is_stale:
+        peer = "".join(ch for ch in str(event.get("to_phone") or "") if ch.isdigit()) or sender_digits
+        if peer:
+            _gov.record_omar_message(peer)
+            try:
+                import conversation_memory as _mem
+                _mem.record(peer, "assistant", text)
+            except Exception:
+                pass
     # Group-Lead Agent: detect real requests (incl. group messages the reply
-    # path ignores) and record ranked leads for Omar. Never replies in groups.
-    if text and not from_me:
+    # path ignores) and record ranked leads for Omar. Never replies in groups,
+    # and never mines stale backlog as fresh leads.
+    if text and not from_me and not event_is_stale:
         try:
             import group_leads as _gl
             _gl.detect(sender_digits or sender, text, source=("group" if is_self is False and not actionable else "direct"))
@@ -1136,6 +1170,23 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
         not hold_delivery and text and sender_digits
         and not from_me and not is_self and actionable
     )
+    if eligible and event_is_stale:
+        eligible = False
+        reply_detail = "stale_event_suppressed"
+    if eligible and _gov and _gov.omar_in_control(sender_digits):
+        eligible = False
+        reply_detail = "omar_in_control"
+        # Still remember what the customer said while Omar handles the chat.
+        try:
+            import conversation_memory as _mem
+            _mem.record(sender_digits, "user", text)
+        except Exception:
+            pass
+    if eligible and _gov:
+        throttle_ok, throttle_reason = _gov.allow_reply(sender_digits)
+        if not throttle_ok:
+            eligible = False
+            reply_detail = f"throttled:{throttle_reason}"
     if eligible and _already_replied(message_id):
         eligible = False
         reply_detail = "duplicate_suppressed"
@@ -1159,6 +1210,8 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
         if _rh and _rh.is_plain_ack(text):
             reply_sent, send_detail = _send_whatsapp_reply(sender_digits, _rh.ACK_REPLY_EN)
             reply_detail = f"ack_short_reply|send:{send_detail}"
+            if _gov and reply_sent:
+                _gov.note_reply(sender_digits)
             side_effects["provider_webhook_called"] = True
             side_effects["whatsapp_messages_sent"] = reply_sent
             reply_text_out = _rh.ACK_REPLY_EN
@@ -1182,6 +1235,14 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
                 system_prompt = inv_block
         except Exception as _inv_exc:  # pragma: no cover - defensive
             logger.warning("inventory_retrieval failed: %s", _inv_exc)
+        # Substance gate: no knowledge + no clear intent -> silence beats a
+        # confident-sounding nothing. (Greetings/questions still get answered.)
+        if _gov:
+            _silent, _silent_reason = _gov.should_stay_silent(text, inv_count)
+            if _silent:
+                reply_detail = f"silent:{_silent_reason}"
+                eligible = False
+    if eligible:
         # Humanize at the source: WhatsApp-human style rules + honest media
         # handling when the customer asked for photos/plans/video/location.
         wants_media = False
@@ -1222,6 +1283,8 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
             reply_detail = f"generate:{gen_detail}|send:{send_detail}{fb}"
             side_effects["provider_webhook_called"] = True
             side_effects["whatsapp_messages_sent"] = reply_sent or media_sent
+            if _gov and reply_sent:
+                _gov.note_reply(sender_digits)
             if reply_sent and not used_fallback:
                 try:
                     import conversation_memory as _mem
