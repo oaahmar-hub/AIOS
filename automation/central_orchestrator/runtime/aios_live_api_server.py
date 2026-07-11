@@ -1208,6 +1208,23 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
             _gl.detect(sender_digits or sender, text, source=("group" if is_self is False and not actionable else "direct"))
         except Exception:
             pass
+        # Autonomous Deal Agent — gated OFF by default (AIOS_DEAL_AGENT_ENABLED).
+        # When on, a real group request becomes a Deal and runs the full loop:
+        # search -> owner lookup -> outreach -> reply. Never raises into the webhook.
+        try:
+            import deal_agent as _da
+            if _da.AGENT_ENABLED:
+                import deal_wiring as _dw
+                _group = str(event.get("group_id") or event.get("chat_id") or sender_digits)
+                _agent = _dw.build_agent(
+                    send_whatsapp=_send_whatsapp_reply,
+                    reply_group=_send_whatsapp_reply,
+                )
+                _deal = _agent.intake(_group, sender_digits or sender, text)
+                if _deal:
+                    _agent.run_to_completion(_deal)
+        except Exception as _da_exc:  # pragma: no cover - defensive
+            logger.warning("deal agent intake failed: %s", _da_exc)
     eligible = (
         not hold_delivery and text and sender_digits
         and not from_me and not is_self and actionable
@@ -1789,6 +1806,33 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                 } for r in rows]
                 _write_json(self, 200, {"ok": True, "query": q, "results": results,
                                         "quotable_total": _inv.quotable_count()})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/owner/lookup":
+            # Admin-only: unit/building/permit -> REAL owner + phone. The
+            # customer-channel NEVER_DISCLOSE guard is untouched; this opens
+            # only for the authenticated operator with the admin secret.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            def _q(n): return (qs.get(n) or [""])[0]
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = (_q("admin_secret") or self.headers.get("X-AIOS-Admin-Secret") or "").strip()
+            reveal = bool(admin and provided == admin)
+            try:
+                import owner_lookup as _ol
+                res = _ol.lookup(building=_q("building"), unit=_q("unit"),
+                                 property_number=_q("property_number"), area=_q("area"),
+                                 reveal=reveal, limit=int(_q("limit") or "10"))
+                res["revealed"] = reveal
+                _write_json(self, 200 if res.get("ok") else 400, res)
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/deal/recent":
+            try:
+                import deal_agent as _da
+                _write_json(self, 200, {"ok": True, "deals": _da.load_deals(30), "stats": _da.stats()})
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return

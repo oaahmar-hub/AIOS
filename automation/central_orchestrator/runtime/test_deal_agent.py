@@ -124,3 +124,16 @@ def test_health_and_stats():
     assert h["component"] == "deal_agent"
     s = da.stats()
     assert "by_stage" in s
+
+
+def test_owner_lookup_endpoint_masks_without_admin(monkeypatch=None):
+    # owner_lookup.lookup already tested; here assert the reveal contract holds
+    import owner_lookup as ol
+    import tempfile
+    from pathlib import Path
+    ol.OWNER_DB_PATH = Path(tempfile.mkdtemp()) / "ol.sqlite"
+    ol.index_rows([{"building": "Test Tower", "unit": "1", "name": "X", "phone": "971500000009"}], reset=True)
+    masked = ol.lookup(building="Test Tower")
+    assert masked["owners"][0]["phone"].startswith("***")
+    real = ol.lookup(building="Test Tower", reveal=True)
+    assert real["owners"][0]["phone"] == "971500000009"
