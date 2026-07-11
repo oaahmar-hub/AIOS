@@ -30,3 +30,5 @@ KnowledgeBase/*
 # Verified supplementary inventory ingested from the owner's Drive (runtime needs it).
 !KnowledgeBase/TruthIngestion
 !KnowledgeBase/TruthIngestion/drive_verified_inventory_2026-07-08.csv
+!KnowledgeBase/EngineeringRules
+!KnowledgeBase/EngineeringRules/**
