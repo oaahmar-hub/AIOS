@@ -599,6 +599,20 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover - defensive
         components["health_alerts"] = _ok(False, f"error:{exc}")
     try:
+        import owner_lookup as _ol_health
+        _olh = _ol_health.health()
+        components["owner_lookup"] = {"ok": None if _olh.get("records",0)==0 else True,
+                                      "detail": f"{_olh.get('with_phone',0)} phones / {_olh.get('areas',0)} areas"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["owner_lookup"] = _ok(False, f"error:{exc}")
+    try:
+        import deal_agent as _dl_health
+        _dlh = _dl_health.health()
+        components["deal_agent"] = {"ok": None if not _dlh.get("enabled") else True,
+                                    "detail": _dlh.get("status")}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["deal_agent"] = _ok(False, f"error:{exc}")
+    try:
         import daily_brief as _db_health
         _dbh = _db_health.health()
         components["daily_brief"] = {"ok": None if _dbh["status"] == "not_configured" else True,
