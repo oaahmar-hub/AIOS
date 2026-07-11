@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+"""The AIOS mobile command app - one phone-first page served at /app.
+
+Vanilla HTML/JS (no CDN, no build step) calling the runtime's own APIs
+same-origin, so the browser's basic-auth session covers everything.
+Add-to-Home-Screen turns it into Omar's app icon.
+"""
+
+APP_HTML = r"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>AIOS</title>
+<style>
+:root{--bg:#0b1220;--card:#121a2c;--line:#22304d;--txt:#e8eefc;--dim:#8fa3c8;--acc:#4fd1c5;--warn:#f6ad55;--bad:#fc8181;--ok:#68d391}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--txt);font:16px/1.45 -apple-system,system-ui,sans-serif;padding-bottom:84px}
+header{padding:18px 16px 10px}h1{font-size:22px}h1 span{color:var(--acc)}
+#status{font-size:13px;color:var(--dim);margin-top:2px}
+.tabs{position:fixed;bottom:0;left:0;right:0;display:flex;background:#0e1626;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+.tabs button{flex:1;background:none;border:0;color:var(--dim);font-size:11px;padding:10px 2px 12px;cursor:pointer}
+.tabs button.on{color:var(--acc)}.tabs .ico{display:block;font-size:20px;margin-bottom:2px}
+main{padding:8px 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.row{display:flex;gap:8px;margin:10px 0}
+input,select{flex:1;background:#0e1626;border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:12px;font-size:16px}
+.btn{background:var(--acc);color:#04222b;border:0;border-radius:10px;padding:12px 16px;font-weight:700;font-size:15px;cursor:pointer}
+.btn:disabled{opacity:.5}
+.item{border-bottom:1px solid var(--line);padding:10px 0;font-size:14px}
+.item:last-child{border-bottom:0}
+.item b{display:block;font-size:15px}
+.dim{color:var(--dim);font-size:12.5px}
+.pill{display:inline-block;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:700;margin:2px 4px 2px 0}
+.ok{background:#123c2a;color:var(--ok)}.bad{background:#43181c;color:var(--bad)}.na{background:#243048;color:var(--dim)}
+.warnbox{background:#3a2b12;color:var(--warn);border-radius:8px;padding:6px 10px;font-size:12.5px;margin-top:6px}
+pre{white-space:pre-wrap;font-size:13px;color:var(--txt)}
+.hide{display:none}
+a{color:var(--acc)}
+.loading{color:var(--dim);padding:14px;text-align:center}
+</style>
+</head>
+<body>
+<header><h1>AIOS <span>·</span> Command</h1><div id="status">checking system…</div></header>
+<main>
+<!-- UNITS -->
+<section id="tab-units">
+  <div class="card"><div class="row">
+    <input id="uq" placeholder="e.g. 1BR JVC under 900k / verdana / palm villa" enterkeyhint="search">
+    <button class="btn" onclick="findUnits()">Find</button></div>
+    <div class="dim">Searches your 2,900+ verified units only — never portal guesses.</div>
+  </div>
+  <div class="card" id="ur"><div class="loading">Search your real inventory ↑</div></div>
+</section>
+<!-- OWNERS -->
+<section id="tab-owners" class="hide">
+  <div class="card"><div class="row">
+    <input id="oq" placeholder="building / area, e.g. beach tower" enterkeyhint="search">
+    <button class="btn" onclick="findOwners()">Owners</button></div>
+    <div class="dim">Finds owners on file with a ready offer draft. Mobiles stay masked. Sending needs your approval in chat with the main brain.</div>
+  </div>
+  <div class="card" id="or"><div class="loading">Search the 23k owner-contact vault ↑</div></div>
+</section>
+<!-- LEADS -->
+<section id="tab-leads" class="hide">
+  <div class="card"><button class="btn" onclick="loadLeads()">Refresh leads</button></div>
+  <div class="card" id="lr"><div class="loading">Tap refresh to load group leads</div></div>
+</section>
+<!-- CHECK (engineering) -->
+<section id="tab-eng" class="hide">
+  <div class="card">
+    <div class="row"><input id="eplot" placeholder="Plot area m²" inputmode="decimal"><input id="egfa" placeholder="GFA m²" inputmode="decimal"></div>
+    <div class="row"><input id="efloors" placeholder="Floors e.g. B+G+2"><button class="btn" onclick="checkDesign()">Check</button></div>
+    <div class="dim">Audits vs verified Nakheel DCR (Palm Jumeirah villa rules).</div>
+  </div>
+  <div class="card" id="er"><div class="loading">Enter a design to audit ↑</div></div>
+</section>
+<!-- HEALTH -->
+<section id="tab-health" class="hide">
+  <div class="card"><button class="btn" onclick="loadHealth()">Refresh health</button></div>
+  <div class="card" id="hr"><div class="loading">Tap refresh</div></div>
+</section>
+</main>
+<nav class="tabs">
+  <button id="tb-units" class="on" onclick="show('units')"><span class="ico">🔍</span>Units</button>
+  <button id="tb-owners" onclick="show('owners')"><span class="ico">✉️</span>Owners</button>
+  <button id="tb-leads" onclick="show('leads')"><span class="ico">🎯</span>Leads</button>
+  <button id="tb-eng" onclick="show('eng')"><span class="ico">🏗️</span>Check</button>
+  <button id="tb-health" onclick="show('health')"><span class="ico">❤️</span>Health</button>
+</nav>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function show(t){for(const x of ['units','owners','leads','eng','health']){$('tab-'+x).classList.toggle('hide',x!==t);$('tb-'+x).classList.toggle('on',x===t);}}
+async function api(p){const r=await fetch(p,{headers:{'Accept':'application/json'}});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
+async function boot(){try{const h=await api('/api/health/deep');$('status').textContent=h.status==='healthy'?'all departments green ✅':'status: '+h.status+' ⚠️';}catch(e){$('status').textContent='cannot reach system';}}
+async function findUnits(){const q=$('uq').value.trim();if(!q)return;$('ur').innerHTML='<div class="loading">searching…</div>';
+ try{const d=await api('/api/units/search?q='+encodeURIComponent(q));
+  if(!d.results||!d.results.length){$('ur').innerHTML='<div class="item">Nothing verified matches. The system never guesses — try another area/project.</div>';return;}
+  $('ur').innerHTML=d.results.map(r=>`<div class="item"><b>${esc(r.building||r.project||r.area)}</b>
+   <span class="dim">${esc([r.area,r.unit&&('unit '+r.unit),r.bedrooms&&(r.bedrooms+'BR'),r.size,r.price].filter(Boolean).join(' · '))}</span>
+   <div class="dim">src: ${esc(r.source||'')}</div></div>`).join('');
+ }catch(e){$('ur').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
+async function findOwners(){const q=$('oq').value.trim();if(!q)return;$('or').innerHTML='<div class="loading">searching owners…</div>';
+ try{const d=await api('/api/outreach/queue?q='+encodeURIComponent(q)+'&limit=10');
+  if(!d.queue||!d.queue.length){$('or').innerHTML='<div class="item">No owners on file for that.</div>';return;}
+  $('or').innerHTML=d.queue.map(r=>`<div class="item"><b>${esc(r.owner_name||'Owner (name n/a)')} · ${esc(r.mobile_masked)}</b>
+   <span class="dim">${esc([r.building,r.project&&('proj: '+r.project),r.unit&&('unit '+r.unit),r.area].filter(Boolean).join(' · '))}</span>
+   ${r.data_note?`<div class="warnbox">⚠ ${esc(r.data_note)}</div>`:''}
+   <div class="dim" style="margin-top:4px">Draft: ${esc(r.draft)}</div></div>`).join('');
+ }catch(e){$('or').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
+async function loadLeads(){$('lr').innerHTML='<div class="loading">loading…</div>';
+ try{const d=await api('/api/leads/recent');
+  if(!d.leads||!d.leads.length){$('lr').innerHTML='<div class="item">No group leads captured yet.</div>';return;}
+  $('lr').innerHTML=d.leads.map(l=>`<div class="item"><b>${esc(l.contact||l.phone||'lead')}</b><span class="dim">${esc(l.text||l.request||'')}</span></div>`).join('');
+ }catch(e){$('lr').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
+async function checkDesign(){const p=$('eplot').value,g=$('egfa').value,f=$('efloors').value;
+ $('er').innerHTML='<div class="loading">auditing…</div>';
+ try{const d=await api('/api/engineering/evaluate?community=palm+jumeirah&plot_area='+encodeURIComponent(p)+'&gfa='+encodeURIComponent(g)+'&floors='+encodeURIComponent(f));
+  if(!d.ok){$('er').innerHTML='<div class="item">'+esc(d.verdict||d.error)+'</div>';return;}
+  $('er').innerHTML='<div class="item"><b>'+(d.verdict==='breach'?'❌ BREACH':'✅ '+esc(d.verdict))+'</b></div>'+
+   d.checks.map(c=>`<div class="item"><span class="pill ${c.status==='complies'?'ok':(c.status==='breach'?'bad':'na')}">${esc(c.status)}</span>
+   ${esc(c.rule)} <span class="dim">(limit ${esc(c.limit_label||c.limit)}${c.proposed!==undefined?' / yours '+esc(c.proposed_label||c.proposed):''})</span></div>`).join('');
+ }catch(e){$('er').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
+async function loadHealth(){$('hr').innerHTML='<div class="loading">checking…</div>';
+ try{const d=await api('/api/health/deep');
+  $('hr').innerHTML='<div class="item"><b>'+(d.status==='healthy'?'✅ all green':'⚠️ '+esc(d.status))+'</b></div>'+
+   Object.entries(d.components).map(([k,v])=>`<div class="item"><span class="pill ${v.ok===true?'ok':(v.ok===false?'bad':'na')}">${v.ok===true?'ok':(v.ok===false?'FAIL':'—')}</span>${esc(k)} <span class="dim">${esc(v.detail||v.value||'')}</span></div>`).join('');
+ }catch(e){$('hr').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
+$('uq').addEventListener('keydown',e=>{if(e.key==='Enter')findUnits()});
+$('oq').addEventListener('keydown',e=>{if(e.key==='Enter')findOwners()});
+boot();
+</script>
+</body>
+</html>"""
