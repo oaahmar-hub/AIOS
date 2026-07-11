@@ -592,6 +592,13 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover - defensive
         components["design_compliance"] = _ok(False, f"error:{exc}")
     try:
+        import owner_outreach as _oo_health
+        _ooh = _oo_health.health()
+        components["owner_outreach"] = {"ok": _ooh.get("status") == "ok",
+                                        "detail": f"{_ooh.get('restricted_contacts', 0)} restricted contacts"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["owner_outreach"] = _ok(False, f"error:{exc}")
+    try:
         import chat_governor as _gov_health
         _gh = _gov_health.health()
         components["chat_governor"] = {
@@ -1722,6 +1729,24 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
+        if path == "/api/outreach/queue":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or [""])[0]
+            lang = (qs.get("lang") or ["en"])[0]
+            try:
+                limit = int((qs.get("limit") or ["20"])[0])
+            except Exception:
+                limit = 20
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import owner_outreach as _oo
+                _write_json(self, 200, _oo.queue(q, limit=limit, lang=("ar" if lang == "ar" else "en")))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         if path == "/api/leads/recent":
             try:
                 import group_leads as _gl
@@ -1754,6 +1779,7 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             "/api/unit/ingest",
             "/api/property/resolve",
             "/api/unit/enrich",
+            "/api/outreach/send",
         }:
             _write_json(self, 404, {"ok": False, "error": "unknown_api_route", "path": path})
             return
@@ -1778,6 +1804,39 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                 result = enrich_pending(payload)
                 result["api"] = {"elapsed_ms": round((time.perf_counter() - started) * 1000, 2)}
                 _write_json(self, 200 if result.get("ok") else 400, result)
+                return
+            if path == "/api/outreach/send":
+                # One approved owner-outreach message. Requires the admin
+                # secret on top of basic auth; every send is journaled and
+                # rate-limited per contact via chat_governor.
+                admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+                if not admin or (payload.get("admin_secret") or self.headers.get("X-AIOS-Admin-Secret") or "").strip() != admin:
+                    _write_json(self, 403, {"ok": False, "error": "admin_secret_required"})
+                    return
+                import owner_outreach as _oo
+                ref = str(payload.get("restricted_ref") or "").strip()
+                message = str(payload.get("message") or "").strip()
+                if not ref or not message:
+                    _write_json(self, 400, {"ok": False, "error": "restricted_ref and message required"})
+                    return
+                mobile = _oo.resolve_mobile(ref)
+                if not mobile:
+                    _write_json(self, 404, {"ok": False, "error": "unknown restricted_ref"})
+                    return
+                allowed, rate_detail = True, "no_governor"
+                try:
+                    import chat_governor as _cg
+                    if hasattr(_cg, "allow_reply"):
+                        allowed, rate_detail = _cg.allow_reply(mobile)
+                except Exception:
+                    pass
+                if not allowed:
+                    _write_json(self, 429, {"ok": False, "error": f"rate_limited:{rate_detail}"})
+                    return
+                sent, detail = _send_whatsapp_reply(mobile, message)
+                _oo.journal_send(ref, mobile, message, sent, detail)
+                _write_json(self, 200 if sent else 502,
+                            {"ok": sent, "detail": detail, "mobile_masked": _oo._mask(mobile)})
                 return
             if path == "/api/whatsapp/hosted-test":
                 result = evaluate_whatsapp_hosted_test(payload)
