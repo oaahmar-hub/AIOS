@@ -599,6 +599,13 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover - defensive
         components["health_alerts"] = _ok(False, f"error:{exc}")
     try:
+        import daily_brief as _db_health
+        _dbh = _db_health.health()
+        components["daily_brief"] = {"ok": None if _dbh["status"] == "not_configured" else True,
+                                     "detail": f"{_dbh['status']} (hour {_dbh['hour_dubai']:02d} Dubai)"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["daily_brief"] = _ok(False, f"error:{exc}")
+    try:
         import owner_outreach as _oo_health
         _ooh = _oo_health.health()
         components["owner_outreach"] = {"ok": _ooh.get("status") == "ok",
@@ -1866,6 +1873,14 @@ def run_server(host: str = DEFAULT_HOST, port: int = DEFAULT_PORT) -> int:
             logger.info("health alert monitor started (every %s min)", _ha.INTERVAL_MIN)
     except Exception as _ha_exc:  # pragma: no cover - defensive
         logger.warning("health alert monitor failed to start: %s", _ha_exc)
+    # Daily CEO brief: one WhatsApp digest every morning (gated on
+    # AIOS_DAILY_BRIEF_ENABLED + AIOS_ALERT_PHONE).
+    try:
+        import daily_brief as _db
+        if _db.start_monitor(lambda: get_deep_health(check_brain=False), _send_whatsapp_reply):
+            logger.info("daily brief scheduled for %02d:00 Dubai", _db.BRIEF_HOUR)
+    except Exception as _db_exc:  # pragma: no cover - defensive
+        logger.warning("daily brief failed to start: %s", _db_exc)
     server = ThreadingHTTPServer((host, port), AIOSLiveAPIHandler)
     print(f"AIOS Runtime serving {AIOS_ROOT} at http://{host}:{port}")
     try:
