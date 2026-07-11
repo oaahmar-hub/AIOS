@@ -144,6 +144,22 @@ def evaluate(community: str, proposal: dict) -> dict:
                 check["proposed_label"] = str(proposal.get("floors"))
             checks.append(check)
 
+        # Pergola areas: percentages of GF BUA / total BUA per the form
+        for rule_name, area_field, base_field in (
+            ("max_pergola_area_garden_pct_of_gf_bua", "pergola_garden_sqm", "gf_bua_sqm"),
+            ("max_pergola_area_upper_pct_of_bua", "pergola_upper_sqm", "bua_sqm"),
+        ):
+            rule = rules.get(rule_name, {})
+            a = _num(proposal.get(area_field))
+            # no pergola declared -> nothing to check (not a gap)
+            if rule and a is not None:
+                b = _num(proposal.get(base_field))
+                pct = round(a / b * 100, 2) if b else None
+                check = _check(rule_name, pct, float(rule["limit"]), rule["citation"], "max")
+                if pct is None:
+                    check["reason"] = f"needs {base_field} to compute the percentage"
+                checks.append(check)
+
         for name, field, mode in (
             ("min_setback_front_m", "setback_front_m", "min"),
             ("min_setback_side_m", "setback_side_m", "min"),

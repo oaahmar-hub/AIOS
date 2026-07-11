@@ -92,3 +92,21 @@ def test_health():
     h = dc.health()
     assert h["component"] == "design_compliance"
     assert "palm_jumeirah_villa" in h["rulesets"]
+
+
+def test_pergola_over_limit_is_breach():
+    res = dc.evaluate("palm jumeirah", dict(PJ_VP_018, pergola_garden_sqm=40.0, gf_bua_sqm=500.0))
+    pg = next(c for c in res["checks"] if c["rule"] == "max_pergola_area_garden_pct_of_gf_bua")
+    assert pg["status"] == "breach"  # 8% > 5%
+
+
+def test_pergola_within_limit_complies():
+    res = dc.evaluate("palm jumeirah", dict(PJ_VP_018, pergola_garden_sqm=20.0, gf_bua_sqm=500.0))
+    pg = next(c for c in res["checks"] if c["rule"] == "max_pergola_area_garden_pct_of_gf_bua")
+    assert pg["status"] == "complies"  # 4% <= 5%
+
+
+def test_no_pergola_declared_means_no_pergola_check():
+    res = dc.evaluate("palm jumeirah", PJ_VP_018)
+    assert not any("pergola" in c["rule"] for c in res["checks"])
+    assert res["verdict"] == "complies"

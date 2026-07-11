@@ -113,28 +113,59 @@ def queue(query: str, limit: int = 20, lang: str = "en") -> dict:
                 WHERE r.owner_contact_available = 'YES' AND {like}
                 LIMIT ?
                 """,
-                [f"%{t}%" for t in tokens] + [limit * 3],
+                [f"%{t}%" for t in tokens] + [limit * 10],
             ).fetchall()
         finally:
             con.close()
+
+        def _score(r) -> int:
+            """Rank by WHERE the query matched: building beats project beats
+            area/unit, owner name presence beats anonymous."""
+            building = (r["building"] or "").lower()
+            project = (r["project"] or "").lower()
+            area = (r["area"] or "").lower()
+            score = 0
+            if all(t in building for t in tokens):
+                score += 30
+            elif any(t in building for t in tokens):
+                score += 12
+            if all(t in project for t in tokens):
+                score += 20
+            elif any(t in project for t in tokens):
+                score += 8
+            if any(t in area for t in tokens):
+                score += 4
+            if (r["owner_name"] or "").strip():
+                score += 5
+            return score
+
         seen: set = set()
         out = []
-        for r in rows:
+        for r in sorted(rows, key=_score, reverse=True):
             mob = _normalize_mobile(r["mobile"])
             if not mob or mob in seen:
                 continue
             seen.add(mob)
-            out.append({
+            building = r["building"] or ""
+            project = r["project"] or ""
+            entry = {
                 "restricted_ref": r["restricted_ref"],
                 "owner_name": (r["owner_name"] or "").title(),
                 "mobile_masked": _mask(mob),
                 "area": r["area"] or "",
-                "building": r["building"] or "",
+                "building": building,
+                "project": project,
                 "unit": r["unit"] or "",
                 "bedrooms": r["bedrooms"] or "",
+                "match_score": _score(r),
                 "draft": draft_message(r["owner_name"] or "", r["area"] or "",
-                                       r["building"] or "", r["unit"] or "", lang),
-            })
+                                       building or project, r["unit"] or "", lang),
+            }
+            # source rows sometimes carry contradictory building/project
+            # (packed-sheet damage) - surface it instead of hiding it
+            if building and project and building.lower() != project.lower():
+                entry["data_note"] = "building and project fields disagree in the source sheet - verify before quoting specifics"
+            out.append(entry)
             if len(out) >= limit:
                 break
         return {
