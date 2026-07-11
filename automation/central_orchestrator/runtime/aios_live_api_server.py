@@ -1743,6 +1743,41 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
+        if path == "/app" or path == "/app/":
+            try:
+                from mobile_app_page import APP_HTML
+                body = APP_HTML.encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Cache-Control", "no-store")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/units/search":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or [""])[0]
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import inventory_retrieval as _inv
+                rows = _inv.search(q, max_results=15)
+                results = [{
+                    "area": r.get("area", ""), "project": r.get("project", ""),
+                    "building": r.get("building", ""), "unit": r.get("unit", ""),
+                    "bedrooms": r.get("bedrooms", ""), "size": r.get("size", ""),
+                    "price": r.get("price", ""),
+                    "source": (r.get("source_file", "") or "")[:60],
+                } for r in rows]
+                _write_json(self, 200, {"ok": True, "query": q, "results": results,
+                                        "quotable_total": _inv.quotable_count()})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         if path == "/api/outreach/queue":
             from urllib.parse import urlparse, parse_qs
             qs = parse_qs(urlparse(self.path).query)
