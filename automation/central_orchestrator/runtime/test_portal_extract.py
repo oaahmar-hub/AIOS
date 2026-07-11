@@ -41,3 +41,9 @@ def test_non_listing_url_rejected():
 def test_empty_is_safe():
     assert extract("")["ok"] is False
     assert detect_portal("") is None
+
+
+def test_deal_wiring_resolves_url_to_building():
+    import deal_wiring as dw
+    units = dw._units_from_url("check this https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-jumeirah-village-circle-binghatti-rose-15190451.html")
+    assert units and units[0]["area"] == "JVC" and "binghatti" in units[0]["building"].lower()

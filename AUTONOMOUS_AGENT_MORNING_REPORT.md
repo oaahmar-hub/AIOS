@@ -48,6 +48,22 @@ via the lookup). Deep-health now reports `owner_lookup` and `deal_agent`.
 
 ---
 
+## ➕ Built in the second overnight pass (branch `deal-agent-wiring-live`, PR #29)
+- **Loop now closes end to end** — `handle_owner_reply` matches a landlord's reply
+  to its deal, reads availability + price (EN+AR), and posts the confirmed match
+  back to the requesting agent's group.
+- **Portal link → owner** — `portal_extract.py` turns a Bayut/PF/Dubizzle link into
+  area+building; wired into both the live search and a new endpoint.
+- **Live endpoints (admin-gated):** `GET /api/owner/lookup` (building/unit/permit →
+  owner+phone), `GET /api/owner/from-url` (paste a link → owner), `GET /api/deal/recent`
+  (pipeline visibility). Phones masked unless the admin secret is supplied.
+- **The app's Owners tab now uses the REAL DLD lookup** (not the old junk queue) —
+  search a building or paste a listing link → owner name + phone; tap to reveal with
+  your admin key.
+- **Webhook wired (still OFF)** — real group requests + owner replies flow through the
+  agent the moment `AIOS_DEAL_AGENT_ENABLED=true`.
+- **133 tests green.**
+
 ## ▶️ To switch the agent ON (once the plugs above are in)
 Set on Railway: `AIOS_DEAL_AGENT_ENABLED=true` (and `AIOS_DEAL_CALLS_ENABLED=true` for voice).
 It stays OFF by default so nothing texts owners before you're ready.
