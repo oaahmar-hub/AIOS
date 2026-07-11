@@ -592,6 +592,13 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover - defensive
         components["design_compliance"] = _ok(False, f"error:{exc}")
     try:
+        import health_alerts as _ha_health
+        _hah = _ha_health.health()
+        components["health_alerts"] = {"ok": None if _hah["status"] == "not_configured" else True,
+                                       "detail": _hah["status"]}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["health_alerts"] = _ok(False, f"error:{exc}")
+    try:
         import owner_outreach as _oo_health
         _ooh = _oo_health.health()
         components["owner_outreach"] = {"ok": _ooh.get("status") == "ok",
@@ -1851,6 +1858,14 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
 
 def run_server(host: str = DEFAULT_HOST, port: int = DEFAULT_PORT) -> int:
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    # Health alerting: WhatsApp Omar when a department goes red (gated on
+    # AIOS_HEALTH_ALERTS_ENABLED + AIOS_ALERT_PHONE; never blocks serving).
+    try:
+        import health_alerts as _ha
+        if _ha.start_monitor(lambda: get_deep_health(check_brain=False), _send_whatsapp_reply):
+            logger.info("health alert monitor started (every %s min)", _ha.INTERVAL_MIN)
+    except Exception as _ha_exc:  # pragma: no cover - defensive
+        logger.warning("health alert monitor failed to start: %s", _ha_exc)
     server = ThreadingHTTPServer((host, port), AIOSLiveAPIHandler)
     print(f"AIOS Runtime serving {AIOS_ROOT} at http://{host}:{port}")
     try:
