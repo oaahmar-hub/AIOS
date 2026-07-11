@@ -1829,6 +1829,31 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
+        if path == "/api/owner/from-url":
+            # Admin-only: paste a Bayut/PF/Dubizzle link -> extract unit ->
+            # owner + phone. Masked unless the admin secret is supplied.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            url = (qs.get("url") or [""])[0]
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = (qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0].strip()
+            reveal = bool(admin and provided == admin)
+            if not url.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing url= param"})
+                return
+            try:
+                import portal_extract as _pe, owner_lookup as _ol
+                info = _pe.extract(url)
+                if not info.get("ok"):
+                    _write_json(self, 200, {"ok": False, "reason": info.get("reason"), "extracted": info})
+                    return
+                owners = _ol.lookup(building=info.get("building", ""), area=info.get("area", ""),
+                                    reveal=reveal, limit=10)
+                _write_json(self, 200, {"ok": True, "extracted": info, "owners": owners.get("owners", []),
+                                        "matches": owners.get("matches", 0), "revealed": reveal})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         if path == "/api/deal/recent":
             try:
                 import deal_agent as _da

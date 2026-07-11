@@ -137,3 +137,25 @@ def test_owner_lookup_endpoint_masks_without_admin(monkeypatch=None):
     assert masked["owners"][0]["phone"].startswith("***")
     real = ol.lookup(building="Test Tower", reveal=True)
     assert real["owners"][0]["phone"] == "971500000009"
+
+
+def test_parse_owner_response():
+    r = da.parse_owner_response("Yes still available, 90k")
+    assert r["available"] is True and r["price"] == 90000
+    r = da.parse_owner_response("sorry it's rented")
+    assert r["available"] is False
+    r = da.parse_owner_response("available 1,250,000")
+    assert r["available"] is True and r["price"] == 1250000
+
+
+def test_owner_reply_matches_deal_and_posts_confirmation():
+    spy = Spy()
+    agent = _agent(spy)
+    deal = agent.intake("group-xyz", "971509999999", "Need 2BR JVC rent 90k")
+    agent.run_to_completion(deal)
+    # an owner we texted replies "available 88k"
+    owner_phone = "971500000001"
+    posted = []
+    res = da.handle_owner_reply(owner_phone, "yes available 88k", lambda gid, t: posted.append((gid, t)) or (True, "ok"))
+    assert res["matched"] is True
+    assert posted and "available" in posted[0][1].lower()
