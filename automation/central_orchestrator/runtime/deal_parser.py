@@ -32,6 +32,15 @@ AREAS = {
     "meydan": "Meydan", "mbr": "MBR City", "sports city": "Sports City",
     "silicon": "Silicon Oasis", "damac hills": "Damac Hills", "town square": "Town Square",
     "creek": "Dubai Creek", "expo": "Expo City", "zabeel": "Zabeel",
+    # full Dubai coverage (matches the area files in the owner data)
+    "damac hills 2": "Damac Hills 2", "town square": "Town Square",
+    "tilal al ghaf": "Tilal Al Ghaf", "villa nova": "Villa Nova",
+    "mudon": "Mudon", "motor city": "Motor City", "mjl": "MJL",
+    "marsa": "Marsa", "jge": "Jumeirah Golf Estates", "jumeirah golf": "Jumeirah Golf Estates",
+    "impz": "IMPZ", "greens": "Greens", "the greens": "Greens",
+    "emaar beach front": "Emaar Beach Front", "beachfront": "Emaar Beach Front",
+    "dubai south": "Dubai South", "district one": "District One",
+    "burj khalifa": "Downtown", "jvc district": "JVC", "seasons": "JVC",
 }
 AREA_AR = {
     "الخليج التجاري": "Business Bay", "دبي مارينا": "Dubai Marina", "مارينا": "Dubai Marina",
