@@ -1215,14 +1215,18 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
             import deal_agent as _da
             if _da.AGENT_ENABLED:
                 import deal_wiring as _dw
-                _group = str(event.get("group_id") or event.get("chat_id") or sender_digits)
-                _agent = _dw.build_agent(
-                    send_whatsapp=_send_whatsapp_reply,
-                    reply_group=_send_whatsapp_reply,
-                )
-                _deal = _agent.intake(_group, sender_digits or sender, text)
-                if _deal:
-                    _agent.run_to_completion(_deal)
+                # First: is this an owner we contacted replying? If so, capture
+                # the availability/price and post the confirmed match to the group.
+                _owner_reply = _da.handle_owner_reply(sender_digits, text, _send_whatsapp_reply)
+                if not _owner_reply.get("matched"):
+                    _group = str(event.get("group_id") or event.get("chat_id") or sender_digits)
+                    _agent = _dw.build_agent(
+                        send_whatsapp=_send_whatsapp_reply,
+                        reply_group=_send_whatsapp_reply,
+                    )
+                    _deal = _agent.intake(_group, sender_digits or sender, text)
+                    if _deal:
+                        _agent.run_to_completion(_deal)
         except Exception as _da_exc:  # pragma: no cover - defensive
             logger.warning("deal agent intake failed: %s", _da_exc)
     eligible = (
