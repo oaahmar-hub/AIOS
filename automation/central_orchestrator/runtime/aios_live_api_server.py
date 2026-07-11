@@ -585,6 +585,13 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
         components["voice_notes"] = _ok(False, f"error:{exc}")
 
     try:
+        import design_compliance as _dc_health
+        _dch = _dc_health.health()
+        components["design_compliance"] = {"ok": bool(_dch["rulesets"]),
+                                           "detail": f"rulesets:{','.join(_dch['rulesets']) or 'none'}"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["design_compliance"] = _ok(False, f"error:{exc}")
+    try:
         import chat_governor as _gov_health
         _gh = _gov_health.health()
         components["chat_governor"] = {
@@ -1685,6 +1692,33 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             try:
                 import content_studio as _cs
                 _write_json(self, 200, _cs.generate(q, channel=channel))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/engineering/evaluate":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            def _q(name):
+                return (qs.get(name) or [None])[0]
+            community = _q("community") or ""
+            proposal = {
+                "plot_area_sqm": _q("plot_area"),
+                "gfa_sqm": _q("gfa"),
+                "coverage_sqm": _q("coverage_sqm"),
+                "coverage_pct": _q("coverage_pct"),
+                "floors": _q("floors"),
+                "setback_front_m": _q("setback_front"),
+                "setback_side_m": _q("setback_side"),
+                "setback_rear_m": _q("setback_rear"),
+                "parking_spaces": _q("parking"),
+                "pool_boundary_setback_m": _q("pool_setback"),
+            }
+            if not community:
+                _write_json(self, 400, {"ok": False, "error": "missing community= param"})
+                return
+            try:
+                import design_compliance as _dc
+                _write_json(self, 200, _dc.evaluate(community, proposal))
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return

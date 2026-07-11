@@ -1,0 +1,29 @@
+{
+  "palm_jumeirah_villa": {
+    "ruleset_name": "Palm Jumeirah - Private Residential Villa (Nakheel DCR)",
+    "verified_from": [
+      "PJ-P-VP-018 Project Evaluation Sheet REC/PJ-VP-018/REV-01/2026 (owner-signed 25-Jun-2026)",
+      "Nakheel Villa-Townhouse Evaluation Form (Dr. Ahmed Ragab, NCPM DC&PA)",
+      "PJ-P-VP-018 Swimming Pool Undertaking (25-Jun-2026)",
+      "Nakheel 22-May-2026 return comments"
+    ],
+    "rules": {
+      "max_far": {"limit": 0.80, "unit": "ratio", "citation": "Evaluation sheet: Permitted FAR / GFA 0.80"},
+      "max_coverage_pct": {"limit": 50.0, "unit": "percent", "citation": "Evaluation sheet: Permitted coverage 50%"},
+      "max_floors_above_ground": {"limit": "G+2", "unit": "floors", "citation": "Evaluation sheet: Permitted floors G+2 (basement excluded from count, included in GFA)"},
+      "min_setback_front_m": {"limit": 6.0, "unit": "m", "citation": "Evaluation sheet: Setbacks Front 6.00 m"},
+      "min_setback_side_m": {"limit": 3.0, "unit": "m", "citation": "Evaluation sheet: Setbacks Sides 3.00 m"},
+      "min_setback_rear_m": {"limit": 6.0, "unit": "m", "citation": "Evaluation sheet: Setbacks Rear 6.00 m"},
+      "min_parking_spaces": {"limit": 2, "unit": "spaces", "citation": "Evaluation sheet: Parking requirement 2 spaces"},
+      "min_pool_boundary_setback_m": {"limit": 1.5, "unit": "m", "citation": "Pool undertaking clause 2: min 1.50 m from all plot boundary walls"},
+      "height_datum": {"limit": "gate_level_+0.00", "unit": "datum", "citation": "Nakheel 22-May return: all heights from gate level +0.00"}
+    },
+    "rules_named_but_value_not_on_file": {
+      "boundary_wall_max_height_solid": "Villa-Townhouse form lists 'Front & Rear boundary wall / Maximum height for solid part' - numeric limit not yet verified",
+      "boundary_wall_max_height_transparent": "Villa-Townhouse form: 'Maximum height for transparent part (60% transparency)' - numeric limit not yet verified",
+      "pergola_max_height": "Villa-Townhouse form: 'Maximum pergola height' - numeric limit not yet verified",
+      "pergola_max_area_garden_pct_of_gf_bua": "Villa-Townhouse form: 5% of GF BUA (garden) - confirm before relying",
+      "pergola_max_area_upper_pct_of_bua": "Villa-Townhouse form: 10% of BUA (upper floors) - confirm before relying"
+    }
+  }
+}
