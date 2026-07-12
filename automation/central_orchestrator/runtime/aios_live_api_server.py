@@ -617,6 +617,16 @@ def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
         components["voice_notes"] = _ok(False, f"error:{exc}")
 
     try:
+        import renewal_agent as _ra_health
+        _rah = _ra_health.health()
+        components["renewal_agent"] = {
+            "ok": None if _rah["status"] == "awaiting_ejari_data" else (_rah["status"] == "ok"),
+            "detail": _rah["status"] if _rah["status"] != "ok" else f"{_rah.get('contracts', 0)} contracts",
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["renewal_agent"] = _ok(False, f"error:{exc}")
+
+    try:
         import market_index as _mi_health
         _mih = _mi_health.health()
         components["market_index"] = {"ok": _mih["status"] == "ok",
@@ -2014,6 +2024,25 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             try:
                 import deal_agent as _da
                 _write_json(self, 200, {"ok": True, "deals": _da.load_deals(30), "stats": _da.stats()})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/renewals":
+            # Expiring tenancies -> warm leads (owner phone revealed w/ admin key).
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = ((qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0]).strip()
+            reveal = bool(admin and provided == admin)
+            try:
+                days = int((qs.get("days") or ["60"])[0])
+            except Exception:
+                days = 60
+            try:
+                import renewal_agent as _ra
+                _write_json(self, 200, _ra.build_leads(
+                    within_days=days, reveal=reveal,
+                    lang=("ar" if (qs.get("lang") or ["en"])[0] == "ar" else "en")))
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
