@@ -1798,8 +1798,8 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
     def do_GET(self) -> None:
         path = _path(self.path)
         if path == "/":
-            self.path = "/AIOS-WEBSITE.html"
-            path = "/AIOS-WEBSITE.html"
+            # Root (and the eyriq.com domain) serves the public investor site.
+            path = "/site"
         elif path in ("/cockpit", "/cockpit/", "/ops"):
             # Operations cockpit — behind auth (not in PUBLIC_STATIC_PATHS).
             self.path = "/AIOS-COCKPIT.html"
