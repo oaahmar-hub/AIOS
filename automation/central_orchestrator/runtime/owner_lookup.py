@@ -75,14 +75,27 @@ def _maybe_restore_seed() -> None:
     if not key or not _SEED_PATH.exists():
         return
     try:
+        # Version marker = seed size; re-restore when the shipped seed changes
+        # (e.g. JVC-only -> all-Dubai) even if a stale DB already sits on the
+        # persistent volume.
+        seed_sig = str(_SEED_PATH.stat().st_size)
+        marker = OWNER_DB_PATH.with_name(OWNER_DB_PATH.name + ".seedver")
         if OWNER_DB_PATH.exists() and _db_count_safe() > 0:
-            return  # already populated (e.g. mounted volume)
+            try:
+                if marker.exists() and marker.read_text().strip() == seed_sig:
+                    return  # DB already matches this seed
+            except Exception:
+                return
         import gzip
         blob = _SEED_PATH.read_bytes()
         nonce, ct = blob[:16], blob[16:]
         raw = gzip.decompress(_seed_crypt(ct, key, nonce))
         OWNER_DB_PATH.parent.mkdir(parents=True, exist_ok=True)
         OWNER_DB_PATH.write_bytes(raw)
+        try:
+            marker.write_text(seed_sig)
+        except Exception:
+            pass
     except Exception:
         pass
 
