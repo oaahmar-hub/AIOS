@@ -102,6 +102,37 @@ def _maybe_restore_seed() -> None:
 _OWNER_COLS = ["NameEn", "Owner Name", "OwnerName"]
 _PHONE_COLS = ["Mobile 1", "Mobile 2", "Phone 1", "Phone 2", "Mobile", "Phone"]
 
+# Column aliases (matched case-insensitively) covering every DLD/developer export
+# format seen in Omar's data: transaction sheets, plot "P-NUMBER" exports (owner +
+# property split across two sheets, joined on P-NUMBER), single "P & O" sheets, and
+# developer master files. This is what lets ONE ingest swallow every area file.
+_ALIAS = {
+    "name":  ["nameen", "owner name", "ownername", "name", "primary applicant name", "owner"],
+    "phone": ["mobile 1", "mobile 2", "mobile", "primary mobile number", "secondary mobile",
+              "mobile number", "phone 1", "phone 2", "phone"],
+    "building": ["buildingname 2", "buildingnameen", "building name", "tower name", "tower",
+                 "building 1", "building no", "sub project", "master project", "project"],
+    "unit": ["unitnumber", "unit number", "unit", "flat number"],
+    "pnum": ["property_number", "p-number", "pnumber", "plot pre reg no",
+             "registration number", "municipality number"],
+    "plot": ["plot number", "land number", "landnumber"],
+    "area": ["area", "master location"],
+    "country": ["countrynameen", "residence country", "nationality"],
+    "role": ["procedurepartytypenameen"],
+}
+
+
+def _hmap(header: list) -> dict:
+    """lowercased-header -> column index."""
+    return {_norm(h).lower(): i for i, h in enumerate(header) if h is not None}
+
+
+def _col(hm: dict, key: str):
+    for a in _ALIAS[key]:
+        if a in hm:
+            return hm[a]
+    return None
+
 
 # ---------------------------------------------------------------------------
 # helpers
@@ -186,7 +217,14 @@ def index_rows(rows: list, source: str = "manual", reset: bool = False) -> int:
 
 
 def ingest_dld_xlsx(path: str, area: str = "") -> dict:
-    """Parse a DLD ownership xlsx (either schema, all sheets) into the index."""
+    """Parse ANY DLD/developer xlsx (all known formats) into the index.
+
+    Handles: transaction sheets (BuildingNameEn/NameEn/Mobile), owner sheets
+    (Owner Name/property_number/Phone), plot "P-NUMBER" exports where owner and
+    property live in SEPARATE sheets (joined on P-NUMBER), single "P & O" sheets,
+    and developer master files (Tower/Unit/Applicant/Mobile). Column names are
+    matched case-insensitively via _ALIAS, so one code path swallows every file.
+    """
     try:
         import openpyxl
     except Exception as exc:  # pragma: no cover
@@ -197,44 +235,65 @@ def ingest_dld_xlsx(path: str, area: str = "") -> dict:
         wb = openpyxl.load_workbook(str(p), read_only=True, data_only=True)
     except Exception as exc:
         return {"ok": False, "error": str(exc)}
-    total = 0
+
+    # Read every sheet once: (name, header-map, list-of-rows).
+    sheets = []
     for sheet in wb.sheetnames:
-        ws = wb[sheet]
-        it = ws.iter_rows(values_only=True)
+        it = wb[sheet].iter_rows(values_only=True)
         try:
-            header = [_norm(h) for h in next(it)]
+            hm = _hmap(list(next(it)))
         except StopIteration:
             continue
-        I = {h: i for i, h in enumerate(header)}
+        sheets.append((sheet, hm, list(it)))
 
-        def g(row, name):
-            i = I.get(name)
-            return _norm(row[i]) if i is not None and i < len(row) else ""
+    def gv(row, idx):
+        return _norm(row[idx]) if idx is not None and idx < len(row) else ""
 
-        owner_col = next((c for c in _OWNER_COLS if c in I), None)
-        if not owner_col:
+    # Pass 1: build a property lookup keyed by P-NUMBER / plot, from any sheet
+    # that carries building/unit — so owner rows lacking building/unit can join.
+    prop_by_key: dict = {}
+    for _name, hm, rows in sheets:
+        b, u, pn, pl = _col(hm, "building"), _col(hm, "unit"), _col(hm, "pnum"), _col(hm, "plot")
+        if (b is None and u is None) or (pn is None and pl is None):
             continue
-        building_col = next((c for c in ("BuildingName 2", "BuildingNameEn", "Building 1", "Building No") if c in I), None)
-        unit_col = next((c for c in ("UnitNumber", "Unit Number", "Unit") if c in I), None)
-        pn_col = next((c for c in ("property_number", "Plot Pre Reg No") if c in I), None)
-        rows = []
-        for r in it:
-            name = g(r, owner_col)
+        for r in rows:
+            bldg, unit = gv(r, b), gv(r, u)
+            if not bldg and not unit:
+                continue
+            for k in (gv(r, pn), gv(r, pl)):
+                if k and k not in prop_by_key:
+                    prop_by_key[k] = (bldg, unit)
+
+    # Pass 2: emit owner rows from any sheet that has a name column.
+    total = 0
+    for _name, hm, rows in sheets:
+        ni = _col(hm, "name")
+        if ni is None:
+            continue
+        bi, ui, pni, pli = _col(hm, "building"), _col(hm, "unit"), _col(hm, "pnum"), _col(hm, "plot")
+        ri, ci = _col(hm, "role"), _col(hm, "country")
+        phone_idx = [hm[a] for a in _ALIAS["phone"] if a in hm]
+        out = []
+        for r in rows:
+            name = gv(r, ni)
             if not name:
                 continue
-            phone = _first_phone(*[g(r, c) for c in _PHONE_COLS if c in I])
-            rows.append({
-                "area": area,
-                "building": g(r, building_col) if building_col else "",
-                "unit": g(r, unit_col) if unit_col else "",
-                "project": g(r, "Project"),
-                "property_number": g(r, pn_col) if pn_col else "",
-                "role": g(r, "ProcedurePartyTypeNameEn") or "Owner",
-                "name": name,
-                "phone": phone,
-                "country": g(r, "CountryNameEn"),
+            bldg, unit = gv(r, bi), gv(r, ui)
+            pnum = gv(r, pni)
+            if not bldg or not unit:  # join from the property sheet
+                for k in (pnum, gv(r, pli)):
+                    if k and k in prop_by_key:
+                        jb, ju = prop_by_key[k]
+                        bldg = bldg or jb
+                        unit = unit or ju
+                        break
+            phone = _first_phone(*[gv(r, i) for i in phone_idx])
+            out.append({
+                "area": area, "building": bldg, "unit": unit, "project": "",
+                "property_number": pnum, "role": gv(r, ri) or "Owner",
+                "name": name, "phone": phone, "country": gv(r, ci),
             })
-        total += index_rows(rows, source=f"dld:{p.name}")
+        total += index_rows(out, source=f"dld:{p.name}:{_name}")
     return {"ok": True, "file": p.name, "area": area, "indexed": total}
 
 
@@ -288,6 +347,40 @@ def lookup(building: str = "", unit: str = "", property_number: str = "",
         return {"ok": True, "matches": len(out), "owners": out}
     except Exception as exc:  # pragma: no cover
         return {"ok": False, "error": str(exc)}
+
+
+def search_units(query: str = "", area: str = "", building: str = "", limit: int = 25) -> list:
+    """Find DLD-registered UNITS (distinct building/unit/area) across every
+    ingested area — this turns the owner index into a Dubai-wide unit finder.
+    Never returns phones; use lookup() for owner contact."""
+    try:
+        con = _connect()
+        try:
+            _ensure_schema(con)
+            clauses, params = [], []
+            if area.strip():
+                clauses.append("lower(area) LIKE ?"); params.append(f"%{area.strip().lower()}%")
+            if building.strip():
+                for t in [t for t in re.split(r"[^a-z0-9]+", building.lower()) if len(t) > 1]:
+                    clauses.append("lower(building) LIKE ?"); params.append(f"%{t}%")
+            if query.strip():
+                for t in [t for t in re.split(r"[^a-z0-9]+", query.lower()) if len(t) > 2]:
+                    clauses.append("(lower(building) LIKE ? OR lower(area) LIKE ?)")
+                    params += [f"%{t}%", f"%{t}%"]
+            where = " AND ".join(clauses) if clauses else "1=1"
+            rows = con.execute(
+                f"SELECT DISTINCT area,building,unit,property_number FROM owners "
+                f"WHERE {where} AND building != '' LIMIT ?",
+                params + [max(1, min(limit, 100))],
+            ).fetchall()
+        finally:
+            con.close()
+        return [{
+            "area": r["area"], "building": r["building"], "unit": r["unit"],
+            "property_number": r["property_number"], "source": "DLD registered",
+        } for r in rows]
+    except Exception:
+        return []
 
 
 def owners_for_unit(unit: dict) -> list:

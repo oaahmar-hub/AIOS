@@ -1916,8 +1916,26 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                     "price": r.get("price", ""),
                     "source": (r.get("source_file", "") or "")[:60],
                 } for r in rows]
+                # City-wide fallback: the sales sheet only covers listed units.
+                # Back it with the DLD unit index so ANY area/building resolves to
+                # real registered units (owner reachable via /api/owner/lookup).
+                dld_total = 0
+                if len(results) < 10:
+                    try:
+                        import owner_lookup as _ol
+                        for u in _ol.search_units(query=q, limit=15 - len(results)):
+                            results.append({
+                                "area": u.get("area", ""), "project": "",
+                                "building": u.get("building", ""), "unit": u.get("unit", ""),
+                                "bedrooms": "", "size": "", "price": "",
+                                "source": "DLD registered (owner on file)",
+                            })
+                        dld_total = _ol.health().get("records", 0)
+                    except Exception:
+                        pass
                 _write_json(self, 200, {"ok": True, "query": q, "results": results,
-                                        "quotable_total": _inv.quotable_count()})
+                                        "quotable_total": _inv.quotable_count(),
+                                        "dld_units_indexed": dld_total})
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
