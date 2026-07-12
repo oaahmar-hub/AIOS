@@ -1045,42 +1045,54 @@ def _generate_reply_text(message: str, history: str = "", system_prompt: str = "
     sent so the LLM answers as Omar with full relationship/objective context
     instead of the generic stub prompt.
 
-    Prefers a DIRECT LLM call (Groq/OpenAI) when a key is configured — no n8n,
-    no execution cap. Falls back to the n8n brain only if no direct key is set
-    or the direct call fails.
+    Three tiers, best-first, so the system NEVER goes silent and NEVER needs a
+    paid dependency to keep working:
+      1) DIRECT LLM (Groq/OpenAI) if GROQ_API_KEY/OPENAI_API_KEY is set — no n8n,
+         no execution cap.
+      2) n8n brain, if WA_SIMPLE_OPENAI_ENDPOINT is set and has quota.
+      3) LOCAL brain (local_reply) — intent + real inventory, no external call.
+         Always available; free; honest (unknown -> "I'll check").
     """
     if not message:
         return "", "no_message"
+
+    # Tier 1: direct LLM
     if _DIRECT_LLM_KEY:
         reply, detail = _generate_reply_direct(message, history, system_prompt)
         if reply:
             return reply, detail
-        # direct configured but failed — fall through to n8n if available
-        if not WA_REPLY_ENDPOINT:
-            return "", detail
-    if not WA_REPLY_ENDPOINT or not message:
-        return "", "no_endpoint_or_message"
-    payload = {"message": message, "history": history or "No prior history"}
-    if system_prompt:
-        payload["system"] = system_prompt
-    body = json.dumps(payload).encode("utf-8")
-    req = Request(
-        WA_REPLY_ENDPOINT,
-        data=body,
-        headers={"Content-Type": "application/json", "Accept": "application/json"},
-        method="POST",
-    )
-    try:
-        with urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read().decode("utf-8", errors="replace") or "{}")
-        reply = str(data.get("reply") or data.get("text") or data.get("output") or "").strip()
-        return reply, f"{resp.status}:ok" if reply else f"{resp.status}:empty"
-    except HTTPError as exc:
-        return "", f"http_error:{exc.code}"
-    except URLError as exc:
-        return "", f"url_error:{exc.reason}"
-    except Exception as exc:  # pragma: no cover - defensive
-        return "", f"error:{exc}"
+
+    # Tier 2: n8n brain
+    if WA_REPLY_ENDPOINT:
+        payload = {"message": message, "history": history or "No prior history"}
+        if system_prompt:
+            payload["system"] = system_prompt
+        body = json.dumps(payload).encode("utf-8")
+        req = Request(
+            WA_REPLY_ENDPOINT,
+            data=body,
+            headers={"Content-Type": "application/json", "Accept": "application/json"},
+            method="POST",
+        )
+        try:
+            with urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode("utf-8", errors="replace") or "{}")
+            reply = str(data.get("reply") or data.get("text") or data.get("output") or "").strip()
+            if reply:
+                return reply, f"{resp.status}:ok"
+        except Exception:
+            pass  # fall through to local brain
+
+    # Tier 3: local brain (always available, no external dependency)
+    if os.getenv("AIOS_LOCAL_BRAIN_ENABLED", "1") not in {"0", "false", "no"}:
+        try:
+            import local_reply as _lr
+            reply, detail = _lr.reply(message, history)
+            if reply:
+                return reply, detail
+        except Exception as exc:  # pragma: no cover - defensive
+            return "", f"local_err:{exc}"
+    return "", "no_brain_available"
 
 
 def _generate_reply_direct(message: str, history: str = "", system_prompt: str = "") -> tuple[str, str]:

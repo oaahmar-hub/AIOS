@@ -20,10 +20,17 @@ def test_send_reply_gated_without_phone_or_text(monkeypatch):
     assert server._send_whatsapp_reply("971500000000", "")[0] is False
 
 
-def test_generate_reply_gated_without_endpoint(monkeypatch):
+def test_generate_reply_falls_back_to_local_brain_without_endpoint(monkeypatch):
+    # With no direct LLM key and no n8n endpoint, the local brain (tier 3) must
+    # still answer — the system never goes silent and needs no paid dependency.
     monkeypatch.setattr(server, "WA_REPLY_ENDPOINT", "")
+    monkeypatch.setattr(server, "_DIRECT_LLM_KEY", "")
     text, detail = server._generate_reply_text("hello")
-    assert text == "" and detail == "no_endpoint_or_message"
+    assert text and detail.startswith("local:")
+
+
+def test_generate_reply_empty_message_still_gated(monkeypatch):
+    assert server._generate_reply_text("")[0] == ""
 
 
 def test_reply_mode_default_holds_delivery():
