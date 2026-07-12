@@ -59,9 +59,9 @@ a{color:var(--acc)}
   <div class="card"><div class="row">
     <input id="oq" placeholder="building name · permit # · or paste a Bayut/PF/Dubizzle link" enterkeyhint="search">
     <button class="btn" onclick="findOwners()">Owners</button></div>
-    <div class="dim">Finds owners on file with a ready offer draft. Mobiles stay masked. Sending needs your approval in chat with the main brain.</div>
+    <div class="dim">Real DLD owners across 46 Dubai areas (370k+ phones). Mobiles masked — tap to reveal with your admin key.</div>
   </div>
-  <div class="card" id="or"><div class="loading">Search the 23k owner-contact vault ↑</div></div>
+  <div class="card" id="or"><div class="loading">Search building / permit / paste a link ↑</div></div>
 </section>
 <!-- LEADS -->
 <section id="tab-leads" class="hide">
@@ -77,6 +77,25 @@ a{color:var(--acc)}
   </div>
   <div class="card" id="er"><div class="loading">Enter a design to audit ↑</div></div>
 </section>
+<!-- MARKET -->
+<section id="tab-market" class="hide">
+  <div class="card" id="mkt"><div class="loading">Loading live market…</div></div>
+  <div class="card"><div class="row">
+    <input id="lq" placeholder="paste a Bayut/PF link → asking vs market" enterkeyhint="go">
+    <button class="btn" onclick="assessListing()">Check</button></div>
+    <div class="dim">Official DLD sale index + listing price check.</div>
+  </div>
+  <div class="card hide" id="lr2"></div>
+</section>
+<!-- RENEWALS -->
+<section id="tab-renew" class="hide">
+  <div class="card"><div class="row">
+    <select id="rd"><option value="30">next 30 days</option><option value="60" selected>next 60 days</option><option value="90">next 90 days</option></select>
+    <button class="btn" onclick="loadRenewals()">Find</button></div>
+    <div class="dim">Tenancies expiring soon → owner + re-let pitch. (Needs DLD Ejari data.)</div>
+  </div>
+  <div class="card" id="rr"><div class="loading">Tap Find ↑</div></div>
+</section>
 <!-- HEALTH -->
 <section id="tab-health" class="hide">
   <div class="card"><button class="btn" onclick="loadHealth()">Refresh health</button></div>
@@ -86,6 +105,8 @@ a{color:var(--acc)}
 <nav class="tabs">
   <button id="tb-units" class="on" onclick="show('units')"><span class="ico">🔍</span>Units</button>
   <button id="tb-owners" onclick="show('owners')"><span class="ico">✉️</span>Owners</button>
+  <button id="tb-market" onclick="show('market')"><span class="ico">📈</span>Market</button>
+  <button id="tb-renew" onclick="show('renew')"><span class="ico">🔁</span>Renewals</button>
   <button id="tb-leads" onclick="show('leads')"><span class="ico">🎯</span>Leads</button>
   <button id="tb-eng" onclick="show('eng')"><span class="ico">🏗️</span>Check</button>
   <button id="tb-health" onclick="show('health')"><span class="ico">❤️</span>Health</button>
@@ -93,8 +114,28 @@ a{color:var(--acc)}
 <script>
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function show(t){for(const x of ['units','owners','leads','eng','health']){$('tab-'+x).classList.toggle('hide',x!==t);$('tb-'+x).classList.toggle('on',x===t);}}
+function show(t){for(const x of ['units','owners','market','renew','leads','eng','health']){$('tab-'+x).classList.toggle('hide',x!==t);$('tb-'+x).classList.toggle('on',x===t);}if(t==='market')loadMarket();}
 async function api(p){const r=await fetch(p,{headers:{'Accept':'application/json'}});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
+async function loadMarket(){if($('mkt').dataset.done)return;
+ try{const d=await api('/api/market');
+  $('mkt').innerHTML=`<div class="item"><b>📈 ${esc(d.brief||'market')}</b>
+   <div class="dim">avg flat AED ${d.flat_avg_price?d.flat_avg_price.toLocaleString():'—'} · avg villa AED ${d.villa_avg_price?d.villa_avg_price.toLocaleString():'—'} · ${esc(d.direction||'')}</div>
+   <div class="dim">source: ${esc(d.source||'DLD')}</div></div>`;$('mkt').dataset.done=1;
+ }catch(e){$('mkt').innerHTML='<div class="item">market data unavailable</div>';}}
+async function assessListing(){const u=$('lq').value.trim();if(!u)return;$('lr2').classList.remove('hide');$('lr2').innerHTML='<div class="loading">reading listing…</div>';
+ try{const d=await api('/api/listing/assess?url='+encodeURIComponent(u));
+  if(!d.asking_price){$('lr2').innerHTML='<div class="item">'+esc(d.note||'could not read the asking price')+'</div>';return;}
+  const v=d.verdict?`<span class="pill ${d.verdict.includes('above')?'bad':(d.verdict.includes('below')?'ok':'na')}">${esc(d.verdict)}</span>`:'';
+  $('lr2').innerHTML=`<div class="item"><b>${esc(d.building||d.area)} — AED ${Number(d.asking_price).toLocaleString()}</b> ${v}
+   <div class="dim">${esc(d.area)} · ${esc(d.portal)} ${d.vs_market_flat_pct!=null?('· '+d.vs_market_flat_pct+'% vs city avg flat'):''}</div></div>`;
+ }catch(e){$('lr2').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
+async function loadRenewals(){const days=$('rd').value;$('rr').innerHTML='<div class="loading">finding expiring tenancies…</div>';
+ try{const d=await api('/api/renewals?days='+days+adminKey());
+  if(!d.leads||!d.leads.length){$('rr').innerHTML='<div class="item">No expiring tenancies on file yet. (Needs the DLD Ejari feed — request in progress.)</div>';return;}
+  $('rr').innerHTML=d.leads.map(l=>`<div class="item"><b>${esc(l.building||l.area)} ${l.unit?('· '+esc(l.unit)):''}</b>
+   <span class="dim">ends ${esc(l.end_date)}${l.owner&&l.owner.phone?(' · owner '+esc(l.owner.name||'')+' '+esc(l.owner.phone)):''}</span>
+   <div class="dim">${esc(l.draft||'')}</div></div>`).join('');
+ }catch(e){$('rr').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
 async function boot(){try{const h=await api('/api/health/deep');$('status').textContent=h.status==='healthy'?'all departments green ✅':'status: '+h.status+' ⚠️';}catch(e){$('status').textContent='cannot reach system';}}
 async function findUnits(){const q=$('uq').value.trim();if(!q)return;$('ur').innerHTML='<div class="loading">searching…</div>';
  try{const d=await api('/api/units/search?q='+encodeURIComponent(q));
