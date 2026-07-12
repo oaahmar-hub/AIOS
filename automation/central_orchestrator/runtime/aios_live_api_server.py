@@ -2027,6 +2027,20 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
+        if path == "/api/listing/assess":
+            # Paste a Bayut/PF link -> asking price vs official market read.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            url = (qs.get("url") or [""])[0]
+            if not url.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing url= param"})
+                return
+            try:
+                import listing_price as _lp
+                _write_json(self, 200, _lp.assess(url))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         if path == "/api/renewals":
             # Expiring tenancies -> warm leads (owner phone revealed w/ admin key).
             from urllib.parse import urlparse, parse_qs
