@@ -45,12 +45,17 @@ a{color:var(--acc)}
 <body>
 <header><h1>AIOS <span>·</span> Command</h1><div id="status">checking system…</div></header>
 <main>
+<!-- HOME / COMMAND CENTER -->
+<section id="tab-home">
+  <div class="card" id="hero"><div class="loading">loading your system…</div></div>
+  <div id="depts"><div class="loading">loading departments…</div></div>
+</section>
 <!-- UNITS -->
-<section id="tab-units">
+<section id="tab-units" class="hide">
   <div class="card"><div class="row">
-    <input id="uq" placeholder="e.g. 1BR JVC under 900k / verdana / palm villa" enterkeyhint="search">
+    <input id="uq" placeholder="e.g. 1BR Business Bay / Palm villa / building name" enterkeyhint="search">
     <button class="btn" onclick="findUnits()">Find</button></div>
-    <div class="dim">Searches your 2,900+ verified units only — never portal guesses.</div>
+    <div class="dim">Units across all 46 Dubai areas.</div>
   </div>
   <div class="card" id="ur"><div class="loading">Search your real inventory ↑</div></div>
 </section>
@@ -103,19 +108,33 @@ a{color:var(--acc)}
 </section>
 </main>
 <nav class="tabs">
-  <button id="tb-units" class="on" onclick="show('units')"><span class="ico">🔍</span>Units</button>
+  <button id="tb-home" class="on" onclick="show('home')"><span class="ico">🏠</span>Home</button>
+  <button id="tb-units" onclick="show('units')"><span class="ico">🔍</span>Units</button>
   <button id="tb-owners" onclick="show('owners')"><span class="ico">✉️</span>Owners</button>
   <button id="tb-market" onclick="show('market')"><span class="ico">📈</span>Market</button>
-  <button id="tb-renew" onclick="show('renew')"><span class="ico">🔁</span>Renewals</button>
+  <button id="tb-renew" onclick="show('renew')"><span class="ico">🔁</span>Renew</button>
   <button id="tb-leads" onclick="show('leads')"><span class="ico">🎯</span>Leads</button>
   <button id="tb-eng" onclick="show('eng')"><span class="ico">🏗️</span>Check</button>
-  <button id="tb-health" onclick="show('health')"><span class="ico">❤️</span>Health</button>
 </nav>
 <script>
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function show(t){for(const x of ['units','owners','market','renew','leads','eng','health']){$('tab-'+x).classList.toggle('hide',x!==t);$('tb-'+x).classList.toggle('on',x===t);}if(t==='market')loadMarket();}
+const TABS=['home','units','owners','market','renew','leads','eng','health'];
+function show(t){for(const x of TABS){const s=$('tab-'+x),b=$('tb-'+x);if(s)s.classList.toggle('hide',x!==t);if(b)b.classList.toggle('on',x===t);}if(t==='market')loadMarket();if(t==='home')loadHome();}
 async function api(p){const r=await fetch(p,{headers:{'Accept':'application/json'}});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
+const DEPT={runtime:['⚙️','Server'],resolver_db:['🗄️','Resolver DB'],webhook_auth:['🔐','Webhook'],reply_mode:['💬','Reply mode'],wasender_send:['📤','WhatsApp send'],brain_n8n_openai:['🧠','Reply brain'],fallback_reply:['🛟','Fallback'],conversation_memory:['🧵','Memory'],group_leads:['🎯','Group leads'],content_studio:['🎨','Marketing'],truth_bridge:['🔗','Truth bridge'],crm_leads:['📇','CRM'],inventory_knowledge:['🏢','Unit finder'],reply_humanizer:['🫧','Humanizer'],media_vault:['🖼️','Media'],voice_notes:['🎙️','Voice'],design_compliance:['🏗️','Engineering'],dubai_pulse:['🏛️','DLD prices'],market_index:['📈','Market'],renewal_agent:['🔁','Renewals'],owner_lookup:['👤','Owner lookup'],deal_agent:['🤝','Deal agent'],daily_brief:['🌅','Daily brief'],owner_outreach:['✉️','Outreach'],health_alerts:['🚨','Alerts'],chat_governor:['🎛️','Chat governor']};
+async function loadHome(){
+ try{const h=await api('/api/health/deep');const c=h.components||{};
+  const ok=Object.values(c).filter(v=>v.ok===true).length,tot=Object.keys(c).length;
+  $('status').textContent=h.status==='healthy'?'all systems green ✅':'status: '+h.status;
+  $('hero').innerHTML=`<div class="item"><b style="font-size:19px">${h.status==='healthy'?'🟢 All systems green':'🟠 '+esc(h.status)}</b>
+   <div class="dim">${ok} of ${tot} departments online · tap a tool below</div></div>`;
+  const order=['owner_lookup','inventory_knowledge','market_index','renewal_agent','dubai_pulse','brain_n8n_openai','crm_leads','conversation_memory','group_leads','content_studio','design_compliance','truth_bridge','daily_brief','health_alerts','chat_governor','deal_agent'];
+  const keys=[...order.filter(k=>k in c),...Object.keys(c).filter(k=>!order.includes(k))];
+  $('depts').innerHTML='<div class="card"><b>Departments</b>'+keys.map(k=>{const v=c[k]||{};const d=DEPT[k]||['•',k];
+   const dot=v.ok===true?'<span class="pill ok">on</span>':(v.ok===false?'<span class="pill bad">FAIL</span>':'<span class="pill na">idle</span>');
+   return `<div class="item"><b>${d[0]} ${esc(d[1])}</b> ${dot}<div class="dim">${esc(v.detail||v.value||'')}</div></div>`;}).join('')+'</div>';
+ }catch(e){$('hero').innerHTML='<div class="item">cannot reach system — pull down to refresh</div>';$('status').textContent='cannot reach system';}}
 async function loadMarket(){if($('mkt').dataset.done)return;
  try{const d=await api('/api/market');
   $('mkt').innerHTML=`<div class="item"><b>📈 ${esc(d.brief||'market')}</b>
@@ -136,7 +155,7 @@ async function loadRenewals(){const days=$('rd').value;$('rr').innerHTML='<div c
    <span class="dim">ends ${esc(l.end_date)}${l.owner&&l.owner.phone?(' · owner '+esc(l.owner.name||'')+' '+esc(l.owner.phone)):''}</span>
    <div class="dim">${esc(l.draft||'')}</div></div>`).join('');
  }catch(e){$('rr').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
-async function boot(){try{const h=await api('/api/health/deep');$('status').textContent=h.status==='healthy'?'all departments green ✅':'status: '+h.status+' ⚠️';}catch(e){$('status').textContent='cannot reach system';}}
+async function boot(){show('home');}
 async function findUnits(){const q=$('uq').value.trim();if(!q)return;$('ur').innerHTML='<div class="loading">searching…</div>';
  try{const d=await api('/api/units/search?q='+encodeURIComponent(q));
   if(!d.results||!d.results.length){$('ur').innerHTML='<div class="item">Nothing verified matches. The system never guesses — try another area/project.</div>';return;}
