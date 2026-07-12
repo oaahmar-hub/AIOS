@@ -1199,6 +1199,18 @@ _REPLIED_IDS: "OrderedDict[str, bool]" = OrderedDict()
 _REPLIED_LOCK = threading.Lock()
 _REPLIED_MAX = 2000
 
+# Last few inbound WhatsApp events (debug the owner command center). Bounded.
+_WA_DEBUG: list = []
+_WA_DEBUG_LOCK = threading.Lock()
+OWNER_ALERT_PHONE_TAIL = "".join(ch for ch in os.getenv("AIOS_ALERT_PHONE", "") if ch.isdigit())[-9:]
+
+
+def _wa_debug(entry: dict) -> None:
+    with _WA_DEBUG_LOCK:
+        _WA_DEBUG.append(entry)
+        while len(_WA_DEBUG) > 25:
+            _WA_DEBUG.pop(0)
+
 
 def _already_replied(message_id: str) -> bool:
     """Return True if we've already replied to this message_id; else record it."""
@@ -1355,14 +1367,20 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     # comps/renewals/link), run the real tool and reply in WhatsApp — his phone IS
     # the command center. Runs before the customer brain; owner-only.
     command_handled = False
-    # Works both ways: (a) AIOS on a SEPARATE number -> owner texts it (not
-    # from_me, from the owner's number); (b) AIOS on the owner's OWN number ->
-    # owner types in the "Message Yourself" chat (from_me + is_self_chat).
-    _owner_channel = (not from_me and sender_digits and _is_owner_sender(sender_digits)) or (from_me and is_self)
+    _to_digits = "".join(ch for ch in str(event.get("to_phone") or "") if ch.isdigit())
+    # Owner reaches the command center in any topology:
+    #  (a) AIOS on a SEPARATE number -> owner texts it (not from_me, from owner's #)
+    #  (b) AIOS on the owner's OWN number, self-chat -> from_me + (is_self OR
+    #      sender==recipient, both the owner's number). The sender==recipient guard
+    #      means a normal outgoing message to a CLIENT never triggers a command.
+    _owner_self = bool(from_me and sender_digits and _to_digits and sender_digits[-9:] == _to_digits[-9:])
+    _owner_channel = (not from_me and sender_digits and _is_owner_sender(sender_digits)) or _owner_self or (from_me and is_self)
+    _cmd_matched = None
     if text and sender_digits and _owner_channel:
         try:
             import whatsapp_commands as _wc
             _cmd_reply, _cmd_detail = _wc.handle(text)
+            _cmd_matched = _cmd_detail
             if _cmd_reply:
                 _send_whatsapp_reply(sender_digits, _cmd_reply)
                 command_handled = True
@@ -1370,6 +1388,16 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
                 side_effects["provider_webhook_called"] = True
         except Exception as _wc_exc:  # pragma: no cover - defensive
             logger.warning("wa command failed: %s", _wc_exc)
+    try:
+        _wa_debug({
+            "text": (text or "")[:80], "sender": sender_digits, "to": _to_digits,
+            "from_me": from_me, "is_self": is_self,
+            "is_owner": _is_owner_sender(sender_digits), "owner_channel": _owner_channel,
+            "cmd_matched": _cmd_matched, "command_handled": command_handled,
+            "owner_env": OWNER_ALERT_PHONE_TAIL,
+        })
+    except Exception:
+        pass
 
     # and never mines stale backlog as fresh leads.
     if text and not from_me and not event_is_stale and not command_handled:
@@ -2075,6 +2103,18 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                                         "matches": owners.get("matches", 0), "revealed": reveal})
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/whatsapp/recent":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = ((qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0]).strip()
+            if not (admin and provided == admin):
+                _write_json(self, 403, {"ok": False, "error": "admin_secret required"})
+                return
+            with _WA_DEBUG_LOCK:
+                events = list(_WA_DEBUG)
+            _write_json(self, 200, {"ok": True, "owner_tail": OWNER_ALERT_PHONE_TAIL, "events": events})
             return
         if path == "/api/deal/recent":
             try:
