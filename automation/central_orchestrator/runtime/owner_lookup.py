@@ -158,6 +158,12 @@ def _first_phone(*vals) -> str:
     return ""
 
 
+def _clean(v: str) -> str:
+    """Blank out junk placeholders ('null'/'none'/'nan') from DLD cells."""
+    s = _norm(v)
+    return "" if s.lower() in ("null", "none", "nan", "n/a", "-") else s
+
+
 def mask(phone: str) -> str:
     d = "".join(c for c in _norm(phone) if c.isdigit())
     return f"***{d[-3:]}" if len(d) >= 3 else "***"
@@ -350,9 +356,9 @@ def lookup(building: str = "", unit: str = "", property_number: str = "",
         out = []
         for r in rows:
             out.append({
-                "area": r["area"], "building": r["building"], "unit": r["unit"],
-                "property_number": r["property_number"], "role": r["role"],
-                "name": r["name"], "country": r["country"],
+                "area": _clean(r["area"]), "building": _clean(r["building"]), "unit": _clean(r["unit"]),
+                "property_number": _clean(r["property_number"]), "role": r["role"],
+                "name": r["name"], "country": _clean(r["country"]),
                 "phone": r["phone"] if reveal else mask(r["phone"]),
             })
         return {"ok": True, "matches": len(out), "owners": out}
@@ -387,8 +393,8 @@ def search_units(query: str = "", area: str = "", building: str = "", limit: int
         finally:
             con.close()
         return [{
-            "area": r["area"], "building": r["building"], "unit": r["unit"],
-            "property_number": r["property_number"], "source": "DLD registered",
+            "area": _clean(r["area"]), "building": _clean(r["building"]), "unit": _clean(r["unit"]),
+            "property_number": _clean(r["property_number"]), "source": "DLD registered",
         } for r in rows]
     except Exception:
         return []
