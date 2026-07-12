@@ -645,6 +645,15 @@ def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
         }
     except Exception as exc:  # pragma: no cover - defensive
         components["agent_identity"] = _ok(False, f"error:{exc}")
+    try:
+        import agent_closer as _acl_health
+        _aclh = _acl_health.health()
+        components["agent_closer"] = {
+            "ok": None if _aclh["status"] != "armed" else True,
+            "detail": _aclh["status"],
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["agent_closer"] = _ok(False, f"error:{exc}")
 
     try:
         import renewal_agent as _ra_health
@@ -1425,7 +1434,22 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     if text and not from_me and not event_is_stale and not command_handled:
         try:
             import group_leads as _gl
-            _gl.detect(sender_digits or sender, text, source=("group" if is_self is False and not actionable else "direct"))
+            _lead = _gl.detect(sender_digits or sender, text, source=("group" if is_self is False and not actionable else "direct"))
+        except Exception:
+            _lead = None
+        # Independent agent closer — gated OFF by default. When armed (its own
+        # Wasender number + AIOS_AGENT_AUTOCLOSE_ENABLED), a detected request gets
+        # a human, in-persona reply sent FROM the agent's own number — never HSH.
+        try:
+            if _lead and _lead.get("is_lead"):
+                import agent_closer as _ac
+                if _ac.is_armed():
+                    _ac.respond_to_lead(
+                        sender_digits or sender, text,
+                        intent=_lead.get("intent", "inquiry"),
+                        cards=_lead.get("cards", []),
+                        reply_fn=_generate_reply_direct,
+                    )
         except Exception:
             pass
         # Autonomous Deal Agent — gated OFF by default (AIOS_DEAL_AGENT_ENABLED).
