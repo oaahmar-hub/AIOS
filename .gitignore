@@ -13,7 +13,9 @@ __pycache__/
 *.zip
 *.log
 *.log.*
-node_modules/
+# no trailing slash: also matches node_modules symlinks, which broke the Pages build
+node_modules
+.chrome-headless-profile/
 KnowledgeBase/Raw/
 KnowledgeBase/raw_data/
 proofs/premium_glow_review_*
