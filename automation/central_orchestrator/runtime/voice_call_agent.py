@@ -119,6 +119,13 @@ def place_call(to_number: str, message_text: str) -> dict:
     """
     to_number = (to_number or "").strip()
     message_text = (message_text or "").strip()
+    # Independent-identity guard: never let the real HSH/Omar brand ride out on a
+    # call from the sandbox agent. No-op if agent_identity is absent.
+    try:
+        import agent_identity as _ai
+        message_text = _ai.scrub(message_text)
+    except Exception:
+        pass
     if not is_configured():
         return {"ok": False, "error": "voice-calling not configured", "health": health()}
     if not to_number:

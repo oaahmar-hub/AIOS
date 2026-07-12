@@ -636,6 +636,15 @@ def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
         }
     except Exception as exc:  # pragma: no cover - defensive
         components["voice_call_agent"] = _ok(False, f"error:{exc}")
+    try:
+        import agent_identity as _ai_health
+        _aih = _ai_health.health()
+        components["agent_identity"] = {
+            "ok": None if _aih["status"] == "identity_only" else True,
+            "detail": f"{_aih['persona']}·{_aih['status']}",
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["agent_identity"] = _ok(False, f"error:{exc}")
 
     try:
         import renewal_agent as _ra_health
