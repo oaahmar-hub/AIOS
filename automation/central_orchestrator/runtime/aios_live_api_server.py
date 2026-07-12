@@ -133,7 +133,7 @@ PUBLIC_STATIC_PATHS = {
 # including AIOS-DASHBOARD.html (the command center). Public pages must be
 # listed explicitly in PUBLIC_STATIC_PATHS; everything else requires auth.
 PUBLIC_STATIC_SUFFIXES = ()
-PUBLIC_STATIC_PREFIXES = ("/assets/", "/app/assets/")
+PUBLIC_STATIC_PREFIXES = ("/assets/", "/app/assets/", "/api/voice/audio/")
 GZIP_STATIC_SUFFIXES = {".html", ".js", ".json", ".md", ".webmanifest", ".txt", ".css", ".svg"}
 STATIC_GZIP_CACHE: dict[str, dict[str, Any]] = {}
 COMMAND_CENTER_DATA_CACHE_SECONDS = int(os.getenv("AIOS_COMMAND_CENTER_DATA_CACHE_SECONDS", "30"))
@@ -627,6 +627,15 @@ def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
                                      "detail": _vnh["status"]}
     except Exception as exc:  # pragma: no cover - defensive
         components["voice_notes"] = _ok(False, f"error:{exc}")
+    try:
+        import voice_call_agent as _vc_health
+        _vch = _vc_health.health()
+        components["voice_call_agent"] = {
+            "ok": None if _vch["status"] == "not_configured" else True,
+            "detail": _vch["status"] if _vch["status"] != "ok" else f"armed·{_vch['voice']}",
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["voice_call_agent"] = _ok(False, f"error:{exc}")
 
     try:
         import renewal_agent as _ra_health
@@ -1845,6 +1854,26 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return
         if not self._require_auth():
             return
+        if path.startswith("/api/voice/audio/"):
+            # PUBLIC (allowlisted): Twilio fetches the spoken clip via <Play>.
+            # Token is unguessable and the clip ages out in minutes.
+            token = path[len("/api/voice/audio/"):].strip("/")
+            try:
+                import voice_call_agent as _vc
+                mp3 = _vc.get_audio(token)
+            except Exception:
+                mp3 = None
+            if not mp3:
+                _write_json(self, 404, {"ok": False, "error": "clip expired or not found"})
+                return
+            self._aios_skip_cache_header = True
+            self.send_response(200)
+            self.send_header("Content-Type", "audio/mpeg")
+            self.send_header("Content-Length", str(len(mp3)))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(mp3)
+            return
         if self._serve_gzip_static_if_supported(path):
             return
         if path == "/api/permission/audit":
@@ -2277,6 +2306,7 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             "/api/property/resolve",
             "/api/unit/enrich",
             "/api/outreach/send",
+            "/api/voice/call",
         }:
             _write_json(self, 404, {"ok": False, "error": "unknown_api_route", "path": path})
             return
@@ -2299,6 +2329,23 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                 return
             if path == "/api/unit/enrich":
                 result = enrich_pending(payload)
+                result["api"] = {"elapsed_ms": round((time.perf_counter() - started) * 1000, 2)}
+                _write_json(self, 200 if result.get("ok") else 400, result)
+                return
+            if path == "/api/voice/call":
+                # Outbound AI call in Omar's cloned voice, from the dedicated
+                # Twilio number. Admin-secret gated on top of basic auth so only
+                # the operator can trigger a live call.
+                admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+                if not admin or (payload.get("admin_secret") or self.headers.get("X-AIOS-Admin-Secret") or "").strip() != admin:
+                    _write_json(self, 403, {"ok": False, "error": "admin_secret_required"})
+                    return
+                to = str(payload.get("to") or payload.get("number") or "").strip()
+                message = str(payload.get("message") or payload.get("text") or "").strip()
+                if not message:
+                    message = "Hello, this is a call on behalf of HSH Real Estate. We'll follow up with you shortly."
+                import voice_call_agent as _vc
+                result = _vc.place_call(to, message)
                 result["api"] = {"elapsed_ms": round((time.perf_counter() - started) * 1000, 2)}
                 _write_json(self, 200 if result.get("ok") else 400, result)
                 return
