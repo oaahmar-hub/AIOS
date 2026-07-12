@@ -6,6 +6,10 @@ on:
   push:
     branches: ["main"]
 
+  # Validate the Jekyll build on pull requests (build only — deploy stays main-only)
+  pull_request:
+    branches: ["main"]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -40,8 +44,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
-  # Deployment job
+  # Deployment job (never runs for pull_request events)
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
