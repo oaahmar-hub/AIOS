@@ -1,0 +1,176 @@
+<title>AIOS · System Map</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{
+  --bg:#05080f;--panel:#0d1524;--line:#1a2740;--txt:#eaf0fb;--dim:#8598ba;--faint:#54648a;
+  --gold:#e6b24c;--teal:#45dcc6;--violet:#8f7bff;--rose:#f0776c;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --disp:-apple-system,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--txt);font-family:var(--disp);height:100%;overflow:hidden}
+.bar{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);
+  background:linear-gradient(var(--bg),rgba(5,8,15,.7));backdrop-filter:blur(8px)}
+.brand{display:flex;align-items:center;gap:11px}
+.logo{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--gold),#b9832b);color:#1a1204;font-weight:800;
+  box-shadow:0 0 18px rgba(230,178,76,.35)}
+.brand b{font-size:14px;letter-spacing:.12em}
+.brand span{display:block;font:600 9.5px/1 var(--mono);letter-spacing:.28em;color:var(--faint);text-transform:uppercase;margin-top:3px}
+.stat{font:600 10.5px/1.5 var(--mono);color:var(--dim);text-align:right}
+.stat b{color:var(--gold)}
+.legend{position:fixed;left:16px;bottom:16px;z-index:10;display:flex;flex-direction:column;gap:7px;
+  background:rgba(13,21,36,.82);border:1px solid var(--line);border-radius:12px;padding:12px 14px;backdrop-filter:blur(6px)}
+.legend div{display:flex;align-items:center;gap:8px;font:600 11px/1 var(--mono);color:var(--dim)}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.readout{position:fixed;right:16px;bottom:16px;z-index:10;max-width:300px;
+  background:rgba(13,21,36,.9);border:1px solid var(--line);border-left:2px solid var(--gold);
+  border-radius:12px;padding:14px 16px;backdrop-filter:blur(6px);opacity:0;transform:translateY(6px);transition:.2s}
+.readout.on{opacity:1;transform:none}
+.readout h3{font-size:15px;margin-bottom:3px}
+.readout .l{font:600 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+.readout .m{font:600 11.5px/1.7 var(--mono);color:var(--dim)}
+.readout .m b{color:var(--txt)}
+.hint{position:fixed;left:50%;top:70px;transform:translateX(-50%);z-index:9;font:600 10px/1 var(--mono);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+canvas{display:block}
+</style>
+
+<div class="bar">
+  <div class="brand"><div class="logo">A</div>
+    <div><b>AIOS · SYSTEM MAP</b><span>generated from live code</span></div></div>
+  <div class="stat"><b>95</b> modules · <b>53</b> links · <b>26</b> live departments<br>786,581 owner records · 46 areas</div>
+</div>
+<div class="hint">drag nodes · hover to inspect</div>
+<div class="legend">
+  <div><i style="background:var(--teal)"></i>Delivery</div>
+  <div><i style="background:var(--gold)"></i>Brain / Router</div>
+  <div><i style="background:var(--violet)"></i>Departments</div>
+  <div><i style="background:var(--rose)"></i>Data</div>
+</div>
+<div class="readout" id="ro"></div>
+<canvas id="c"></canvas>
+
+<script>
+const L={DELIVERY:0,BRAIN:1,DEPT:2,DATA:3};
+const COL=['#45dcc6','#e6b24c','#8f7bff','#f0776c'];
+// nodes derived from the real codebase (loc = lines of code)
+const N=[
+ // delivery
+ {id:'webhook',t:'WhatsApp Webhook',l:0,loc:'gateway',d:'inbound events from Wasender'},
+ {id:'wasender',t:'WhatsApp Send',l:0,loc:'Wasender',d:'delivers replies + broadcasts'},
+ {id:'app',t:'Command App / API',l:0,loc:'/app',d:'phone-first web app, all departments'},
+ {id:'daily_brief',t:'Daily Brief',l:0,loc:152,d:'08:00 GST digest to WhatsApp'},
+ {id:'health_alerts',t:'Health Alerts',l:0,loc:119,d:'watches every department'},
+ // brain / router
+ {id:'server',t:'Core Server',l:1,loc:2361,d:'the orchestrator — wires 24 departments'},
+ {id:'whatsapp_commands',t:'Command Center',l:1,loc:159,d:'owner texts commands, gets answers'},
+ {id:'local_reply',t:'Local Brain',l:1,loc:119,d:'no-LLM reply from real inventory'},
+ {id:'reply_humanizer',t:'Humanizer',l:1,loc:228,d:'strips AI fingerprint, EN+AR'},
+ {id:'chat_governor',t:'Chat Governor',l:1,loc:274,d:'takeover-safe, rate limits'},
+ {id:'deal_wiring',t:'Deal Wiring',l:1,loc:114,d:'connects the autonomous agent'},
+ {id:'deal_agent',t:'Deal Agent',l:1,loc:364,d:'catch→search→owner→outreach→reply'},
+ {id:'deal_parser',t:'Request Parser',l:1,loc:153,d:'EN+AR broker shorthand'},
+ // departments
+ {id:'owner_lookup',t:'Owner Lookup',l:2,loc:430,d:'46 areas · 373k phones · building/permit/area/link'},
+ {id:'inventory_retrieval',t:'Unit Finder',l:2,loc:346,d:'2,943 verified units, city-wide'},
+ {id:'market_index',t:'Market Intelligence',l:2,loc:126,d:'DLD sale index · +11% YoY'},
+ {id:'dubai_pulse',t:'DLD Prices',l:2,loc:222,d:'transaction comps (awaiting access)'},
+ {id:'renewal_agent',t:'Renewal Agent',l:2,loc:158,d:'expiring tenancy → owner + pitch'},
+ {id:'listing_price',t:'Listing Reader',l:2,loc:112,d:'asking price vs market'},
+ {id:'portal_extract',t:'Portal Extract',l:2,loc:119,d:'Bayut/PF link → unit'},
+ {id:'content_studio',t:'Marketing Studio',l:2,loc:432,d:'EN+AR copy, flyers, targeting'},
+ {id:'crm_leads',t:'CRM',l:2,loc:150,d:'Airtable sync'},
+ {id:'group_leads',t:'Lead Scout',l:2,loc:152,d:'captures group requests'},
+ {id:'conversation_memory',t:'Memory',l:2,loc:129,d:'durable per-contact recall'},
+ {id:'design_compliance',t:'Engineering',l:2,loc:204,d:'Nakheel DCR audit'},
+ {id:'owner_outreach',t:'Outreach Desk',l:2,loc:224,d:'guarded owner messaging'},
+ {id:'truth_bridge_audit',t:'Truth Bridge',l:2,loc:136,d:'95.6% verified'},
+ // data
+ {id:'owner_db',t:'Owner Database',l:3,loc:'786,581',d:'DLD owners+phones, 46 Dubai areas'},
+ {id:'inventory_db',t:'Verified Inventory',l:3,loc:'2,943',d:'real listable units'},
+ {id:'dld_index',t:'DLD Open Data',l:3,loc:'official',d:'sale index + transactions'},
+ {id:'airtable',t:'Airtable CRM',l:3,loc:'live',d:'contacts · leads · tasks'},
+];
+const E=[
+ ['server','whatsapp_commands'],['server','local_reply'],['server','reply_humanizer'],['server','chat_governor'],
+ ['server','deal_wiring'],['server','owner_lookup'],['server','inventory_retrieval'],['server','market_index'],
+ ['server','dubai_pulse'],['server','renewal_agent'],['server','listing_price'],['server','portal_extract'],
+ ['server','content_studio'],['server','crm_leads'],['server','group_leads'],['server','conversation_memory'],
+ ['server','design_compliance'],['server','owner_outreach'],['server','truth_bridge_audit'],['server','daily_brief'],
+ ['server','health_alerts'],
+ ['webhook','server'],['server','wasender'],['app','server'],
+ ['whatsapp_commands','owner_lookup'],['whatsapp_commands','market_index'],['whatsapp_commands','dubai_pulse'],
+ ['whatsapp_commands','renewal_agent'],['whatsapp_commands','listing_price'],
+ ['local_reply','inventory_retrieval'],['local_reply','market_index'],['local_reply','dubai_pulse'],['local_reply','reply_humanizer'],
+ ['renewal_agent','owner_lookup'],['renewal_agent','market_index'],
+ ['deal_wiring','deal_agent'],['deal_wiring','owner_lookup'],['deal_wiring','portal_extract'],['deal_wiring','inventory_retrieval'],
+ ['deal_agent','deal_parser'],
+ ['listing_price','market_index'],['listing_price','portal_extract'],
+ ['content_studio','inventory_retrieval'],['group_leads','inventory_retrieval'],['truth_bridge_audit','inventory_retrieval'],
+ ['daily_brief','conversation_memory'],['daily_brief','group_leads'],
+ ['owner_lookup','owner_db'],['inventory_retrieval','inventory_db'],
+ ['market_index','dld_index'],['dubai_pulse','dld_index'],['crm_leads','airtable'],
+];
+const byId={};N.forEach(n=>byId[n.id]=n);
+
+const cv=document.getElementById('c'),ctx=cv.getContext('2d'),ro=document.getElementById('ro');
+let W,H,DPR,drag=null,hover=null,ox=0,oy=0;
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function size(){DPR=Math.min(2,devicePixelRatio||1);W=innerWidth;H=innerHeight;
+  cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+function seed(){ // layered initial layout: x by layer band, y spread
+  const bands=[0.14,0.36,0.64,0.88];
+  const byL=[[],[],[],[]];N.forEach(n=>byL[n.l].push(n));
+  N.forEach(n=>{const arr=byL[n.l];const i=arr.indexOf(n);
+    n.x=W*bands[n.l]+(Math.random()*40-20);
+    n.y=H*(0.16+0.7*(i+0.5)/arr.length)+(Math.random()*20-10);
+    n.vx=0;n.vy=0;
+    n.r=(''+n.loc).match(/^\d/)&&+(''+n.loc).replace(/\D/g,'')>500?15:(n.id==='server'?18:10);});
+}
+function sim(){
+ // light force: repel + spring on edges + pull toward layer band x
+ const bands=[0.14,0.36,0.64,0.88];
+ for(const a of N){for(const b of N){if(a===b)continue;
+   const dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy+0.01;
+   if(d2<26000){const f=900/d2;a.vx+=dx*f*0.0016;a.vy+=dy*f*0.0016;}}}
+ for(const[s,t]of E){const a=byId[s],b=byId[t];if(!a||!b)continue;
+   const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1,k=(d-120)*0.006;
+   a.vx+=dx/d*k;a.vy+=dy/d*k;b.vx-=dx/d*k;b.vy-=dy/d*k;}
+ for(const n of N){n.vx+=(W*bands[n.l]-n.x)*0.004;n.vy+=(H*0.52-n.y)*0.0012;
+   if(n===drag){n.x=ox;n.y=oy;n.vx=n.vy=0;continue;}
+   n.vx*=0.86;n.vy*=0.86;n.x+=n.vx;n.y+=n.vy;
+   n.x=Math.max(30,Math.min(W-30,n.x));n.y=Math.max(96,Math.min(H-40,n.y));}
+}
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ for(const[s,t]of E){const a=byId[s],b=byId[t];if(!a||!b)continue;
+   const hot=hover&&(hover.id===s||hover.id===t);
+   ctx.strokeStyle=hot?'rgba(230,178,76,.55)':'rgba(120,140,180,.12)';
+   ctx.lineWidth=hot?1.6:1;ctx.beginPath();
+   const mx=(a.x+b.x)/2,my=(a.y+b.y)/2-18;
+   ctx.moveTo(a.x,a.y);ctx.quadraticCurveTo(mx,my,b.x,b.y);ctx.stroke();}
+ for(const n of N){const hot=hover===n;
+   ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,7);
+   ctx.fillStyle=COL[n.l];ctx.globalAlpha=hot?1:.9;
+   ctx.shadowColor=COL[n.l];ctx.shadowBlur=hot?24:9;ctx.fill();ctx.shadowBlur=0;ctx.globalAlpha=1;
+   ctx.beginPath();ctx.arc(n.x,n.y,Math.max(2,n.r*.34),0,7);ctx.fillStyle='rgba(255,255,255,.9)';ctx.fill();
+   if(n.r>12||hot||n.l===0){ctx.fillStyle=hot?'#fff':'rgba(220,230,248,.82)';
+     ctx.font=(hot?'700 ':'600 ')+'11.5px '+getComputedStyle(document.body).fontFamily;
+     ctx.textAlign='center';ctx.fillText(n.t,n.x,n.y+n.r+14);}}
+}
+function loop(){sim();draw();requestAnimationFrame(loop);}
+function pick(x,y){let best=null,bd=1e9;for(const n of N){const d=Math.hypot(n.x-x,n.y-y);if(d<Math.max(16,n.r+8)&&d<bd){bd=d;best=n;}}return best;}
+cv.addEventListener('mousemove',e=>{const n=pick(e.clientX,e.clientY);hover=n;
+  if(drag){ox=e.clientX;oy=e.clientY;}
+  if(n){ro.classList.add('on');ro.innerHTML=`<div class="l" style="color:${COL[n.l]}">${['Delivery','Brain / Router','Department','Data'][n.l]}</div><h3>${n.t}</h3><div class="m">${n.d}<br><b>${(''+n.loc).match(/^\d+$/)?n.loc+' lines':n.loc}</b></div>`;}
+  else if(!drag)ro.classList.remove('on');});
+cv.addEventListener('mousedown',e=>{const n=pick(e.clientX,e.clientY);if(n){drag=n;ox=e.clientX;oy=e.clientY;}});
+addEventListener('mouseup',()=>drag=null);
+cv.addEventListener('touchstart',e=>{const t=e.touches[0],n=pick(t.clientX,t.clientY);if(n){drag=n;ox=t.clientX;oy=t.clientY;hover=n;}},{passive:true});
+cv.addEventListener('touchmove',e=>{if(drag){const t=e.touches[0];ox=t.clientX;oy=t.clientY;}},{passive:true});
+addEventListener('touchend',()=>drag=null);
+addEventListener('resize',()=>{size();});
+size();seed();loop();
+</script>

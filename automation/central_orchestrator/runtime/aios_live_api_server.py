@@ -1987,6 +1987,28 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
+        if path in ("/map", "/map/", "/deck", "/deck/"):
+            # Serve the visual pages (system map / command deck) from the AIOS
+            # server itself, so they open on ANY device with the omar login —
+            # no dependency on a private Claude artifact link.
+            fname = "map.html" if path.startswith("/map") else "deck.html"
+            try:
+                fp = RUNTIME_DIR / "pages" / fname
+                body = fp.read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Cache-Control", "no-store")
+                if _SESSION_TOKEN:
+                    self.send_header("Set-Cookie",
+                        f"aios_session={_SESSION_TOKEN}; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            except FileNotFoundError:
+                _write_json(self, 404, {"ok": False, "error": f"{fname} not on server yet"})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         if path == "/app" or path == "/app/":
             try:
                 from mobile_app_page import APP_HTML
