@@ -301,16 +301,27 @@ def ingest_dld_xlsx(path: str, area: str = "") -> dict:
 # lookup
 # ---------------------------------------------------------------------------
 def lookup(building: str = "", unit: str = "", property_number: str = "",
-           area: str = "", limit: int = 10, reveal: bool = False) -> dict:
+           area: str = "", q: str = "", limit: int = 10, reveal: bool = False) -> dict:
     """Return owners matching the given keys. Phones masked unless reveal=True
-    (reveal is only ever passed after admin auth at the API layer)."""
+    (reveal is only ever passed after admin auth at the API layer).
+
+    `q` is a free search matching building OR area (per token), so typing an
+    area name ("Meydan", "Business Bay") finds owners there, not just buildings.
+    """
     try:
-        if not any([building.strip(), unit.strip(), property_number.strip()]):
-            return {"ok": False, "error": "need building, unit, or property_number"}
+        if not any([building.strip(), unit.strip(), property_number.strip(), q.strip()]):
+            return {"ok": False, "error": "need building, area, unit, or property_number"}
         con = _connect()
         try:
             _ensure_schema(con)
             clauses, params = [], []
+            _filler = {"the", "of", "at", "by", "and", "dubai"}
+            if q.strip():
+                # each token must appear in building OR area
+                for t in [t for t in re.split(r"[^a-z0-9]+", q.strip().lower())
+                          if len(t) > 1 and t not in _filler]:
+                    clauses.append("(lower(building) LIKE ? OR lower(area) LIKE ?)")
+                    params += [f"%{t}%", f"%{t}%"]
             if property_number.strip():
                 clauses.append("lower(property_number) = ?"); params.append(property_number.strip().lower())
             if building.strip():

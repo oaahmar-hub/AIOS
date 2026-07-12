@@ -2039,8 +2039,12 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                 import re as _re
                 if building and not permit and _re.fullmatch(r"[A-Za-z0-9\-/]{6,}", building.strip()) and _re.search(r"\d", building):
                     permit, building = building.strip(), ""
-                res = _ol.lookup(building=building, unit=_q("unit"),
-                                 property_number=permit, area=_q("area"),
+                # A plain name search matches building OR area, so typing an area
+                # ("Meydan", "Business Bay") returns owners there — not just
+                # buildings. Explicit building=/area= params still work.
+                gen_q = "" if (permit or _q("area")) else building
+                res = _ol.lookup(building=("" if gen_q else building), q=gen_q,
+                                 unit=_q("unit"), property_number=permit, area=_q("area"),
                                  reveal=reveal, limit=int(_q("limit") or "10"))
                 res["revealed"] = reveal
                 _write_json(self, 200 if res.get("ok") else 400, res)
