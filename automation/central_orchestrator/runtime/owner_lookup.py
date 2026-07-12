@@ -31,6 +31,61 @@ from typing import Optional
 _DEFAULT_DB = Path(os.getenv("AIOS_PHASE4_DB_PATH", "/tmp/x")).parent / "owner_lookup.sqlite"
 OWNER_DB_PATH = Path(os.getenv("AIOS_OWNER_DB_PATH", str(_DEFAULT_DB)))
 
+# Encrypted seed DB shipped in the repo (ciphertext only — never plaintext PII).
+# On boot, if the live DB is empty and AIOS_OWNER_SEED_KEY is set, the server
+# restores the real owner index from this seed. The key lives ONLY in the
+# Railway env, so the git blob is useless without it.
+_SEED_PATH = Path(__file__).resolve().parent / "data" / "owner_seed.db.gz.enc"
+_SEED_RESTORED = False
+
+
+def _seed_crypt(data: bytes, key: str, nonce: bytes) -> bytes:
+    """Symmetric stream cipher (HMAC-SHA256 keystream, CTR mode) — stdlib only.
+    XOR is its own inverse, so this both encrypts and decrypts."""
+    import hashlib
+    import hmac
+    kb = hashlib.sha256(key.encode("utf-8")).digest()
+    out = bytearray()
+    i = 0
+    while len(out) < len(data):
+        out.extend(hmac.new(kb, nonce + i.to_bytes(8, "big"), hashlib.sha256).digest())
+        i += 1
+    return bytes(a ^ b for a, b in zip(data, out))
+
+
+def _db_count_safe() -> int:
+    try:
+        con = sqlite3.connect(str(OWNER_DB_PATH))
+        try:
+            return con.execute("SELECT count(*) FROM owners").fetchone()[0]
+        finally:
+            con.close()
+    except Exception:
+        return 0
+
+
+def _maybe_restore_seed() -> None:
+    """Restore the real owner DB from the encrypted seed when the live DB is
+    empty. Idempotent, best-effort, never raises into callers."""
+    global _SEED_RESTORED
+    if _SEED_RESTORED:
+        return
+    _SEED_RESTORED = True
+    key = os.getenv("AIOS_OWNER_SEED_KEY", "")
+    if not key or not _SEED_PATH.exists():
+        return
+    try:
+        if OWNER_DB_PATH.exists() and _db_count_safe() > 0:
+            return  # already populated (e.g. mounted volume)
+        import gzip
+        blob = _SEED_PATH.read_bytes()
+        nonce, ct = blob[:16], blob[16:]
+        raw = gzip.decompress(_seed_crypt(ct, key, nonce))
+        OWNER_DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+        OWNER_DB_PATH.write_bytes(raw)
+    except Exception:
+        pass
+
 _OWNER_COLS = ["NameEn", "Owner Name", "OwnerName"]
 _PHONE_COLS = ["Mobile 1", "Mobile 2", "Phone 1", "Phone 2", "Mobile", "Phone"]
 
@@ -65,6 +120,7 @@ def mask(phone: str) -> str:
 
 
 def _connect() -> sqlite3.Connection:
+    _maybe_restore_seed()
     OWNER_DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     con = sqlite3.connect(str(OWNER_DB_PATH))
     con.row_factory = sqlite3.Row
