@@ -240,9 +240,18 @@ def lookup(building: str = "", unit: str = "", property_number: str = "",
             _ensure_schema(con)
             clauses, params = [], []
             if property_number.strip():
-                clauses.append("property_number = ?"); params.append(property_number.strip())
+                clauses.append("lower(property_number) = ?"); params.append(property_number.strip().lower())
             if building.strip():
-                clauses.append("lower(building) LIKE ?"); params.append(f"%{building.strip().lower()}%")
+                # token-AND match: every significant word must appear in the
+                # building, in any order — so "Bloom Towers" (or a URL-derived
+                # "bloom towers") matches "BLOOM TOWERS C". Generic filler words
+                # are dropped so they don't over-constrain.
+                _filler = {"the", "of", "at", "by", "and", "dubai"}
+                toks = [t for t in re.split(r"[^a-z0-9]+", building.strip().lower())
+                        if len(t) > 1]
+                core = [t for t in toks if t not in _filler] or toks
+                for t in core:
+                    clauses.append("lower(building) LIKE ?"); params.append(f"%{t}%")
             if unit.strip():
                 clauses.append("lower(unit) = ?"); params.append(unit.strip().lower())
             if area.strip():

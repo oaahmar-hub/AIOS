@@ -1825,8 +1825,16 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             reveal = bool(admin and provided == admin)
             try:
                 import owner_lookup as _ol
-                res = _ol.lookup(building=_q("building"), unit=_q("unit"),
-                                 property_number=_q("property_number"), area=_q("area"),
+                building = _q("building")
+                permit = _q("property_number") or _q("permit") or _q("permit_number")
+                # If the "building" box actually holds a permit code (e.g.
+                # JVC12NHRS006 / a DLD reg no — alnum, has digits, no spaces),
+                # treat it as a permit so Omar can paste either into one field.
+                import re as _re
+                if building and not permit and _re.fullmatch(r"[A-Za-z0-9\-/]{6,}", building.strip()) and _re.search(r"\d", building):
+                    permit, building = building.strip(), ""
+                res = _ol.lookup(building=building, unit=_q("unit"),
+                                 property_number=permit, area=_q("area"),
                                  reveal=reveal, limit=int(_q("limit") or "10"))
                 res["revealed"] = reveal
                 _write_json(self, 200 if res.get("ok") else 400, res)

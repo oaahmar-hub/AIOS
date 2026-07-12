@@ -57,7 +57,7 @@ a{color:var(--acc)}
 <!-- OWNERS -->
 <section id="tab-owners" class="hide">
   <div class="card"><div class="row">
-    <input id="oq" placeholder="building name OR paste a Bayut/PF/Dubizzle link" enterkeyhint="search">
+    <input id="oq" placeholder="building name · permit # · or paste a Bayut/PF/Dubizzle link" enterkeyhint="search">
     <button class="btn" onclick="findOwners()">Owners</button></div>
     <div class="dim">Finds owners on file with a ready offer draft. Mobiles stay masked. Sending needs your approval in chat with the main brain.</div>
   </div>
