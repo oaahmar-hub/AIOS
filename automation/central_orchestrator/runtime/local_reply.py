@@ -62,6 +62,23 @@ def reply(message: str, history: str = "") -> tuple[str, str]:
     except Exception:
         q, rows = {}, []
 
+    # Price / valuation intent -> real DLD comparable sales (if synced).
+    price_q = any(w in low for w in ("price", "worth", "value", "how much", "market")) or any(
+        w in m for w in ("سعر", "قيمة", "كم سعر", "بكم"))
+    if price_q:
+        try:
+            import dubai_pulse as _dp
+            area = q.get("area") or ""
+            bld = q.get("project") or ""
+            c = _dp.comps(area=str(area), building=str(bld)) if (area or bld) else {"count": 0}
+            if c.get("count"):
+                head = ("حسب آخر تعاملات مسجلة" if ar else "Based on recent registered sales")
+                body = (f"~AED {c['median']:,} median ({c['count']} deals, "
+                        f"range {c['min']:,}–{c['max']:,})")
+                return _hz(f"{head}: {body}." + ("\nتحب تحليل أدق؟" if ar else "\nWant a full breakdown?")), "local:comps"
+        except Exception:
+            pass
+
     if rows:
         try:
             import inventory_retrieval as inv

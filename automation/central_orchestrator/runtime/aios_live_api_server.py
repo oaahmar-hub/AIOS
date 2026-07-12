@@ -617,6 +617,16 @@ def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
         components["voice_notes"] = _ok(False, f"error:{exc}")
 
     try:
+        import dubai_pulse as _dp_health
+        _dph = _dp_health.health()
+        components["dubai_pulse"] = {
+            "ok": None if _dph["status"] in ("not_configured",) else (_dph["status"] == "ok"),
+            "detail": _dph["status"] if _dph["status"] != "ok" else f"{_dph.get('sales', 0)} sales / {_dph.get('areas', 0)} areas",
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["dubai_pulse"] = _ok(False, f"error:{exc}")
+
+    try:
         import design_compliance as _dc_health
         _dch = _dc_health.health()
         components["design_compliance"] = {"ok": bool(_dch["rulesets"]),
@@ -1996,6 +2006,41 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             try:
                 import deal_agent as _da
                 _write_json(self, 200, {"ok": True, "deals": _da.load_deals(30), "stats": _da.stats()})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/comps":
+            # Real comparable-price valuation from DLD open transactions.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            try:
+                import dubai_pulse as _dp
+                _write_json(self, 200, _dp.comps(
+                    area=(qs.get("area") or [""])[0],
+                    building=(qs.get("building") or qs.get("q") or [""])[0]))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/pulse/sync":
+            # Admin-only: pull DLD open transactions into the local prices index.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = ((qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0]).strip()
+            if not (admin and provided == admin):
+                _write_json(self, 403, {"ok": False, "error": "admin_secret required"})
+                return
+            try:
+                import dubai_pulse as _dp
+                if not _dp.configured():
+                    _write_json(self, 200, {"ok": False, "error": "not_configured",
+                                            "hint": "set DUBAI_PULSE_API_KEY / DUBAI_PULSE_API_SECRET on Railway"})
+                    return
+                try:
+                    max_rows = int((qs.get("max") or ["50000"])[0])
+                except Exception:
+                    max_rows = 50000
+                _write_json(self, 200, _dp.sync(max_rows=max_rows))
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
