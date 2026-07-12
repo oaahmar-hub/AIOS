@@ -452,7 +452,7 @@ def _ok(ok: bool, detail: str = "") -> dict[str, Any]:
     return {"ok": bool(ok), "detail": detail}
 
 
-def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
+def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
     """End-to-end chain health so failures surface instead of hiding.
 
     Checks every link a live WhatsApp reply depends on and reports green/red
@@ -518,7 +518,13 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
         if not brain_ok:
             issues.append(f"Reply brain failed ({detail}). Causes: n8n execution-limit/plan quota reached, or an invalid/expired key in the n8n LLM credential.")
     else:
-        components["brain_n8n_openai"] = {"ok": None, "detail": "skipped"}
+        # No live probe this call (default) — surface the last cached probe so
+        # the dashboard still reflects reality without spending an execution.
+        cached = _BRAIN_PROBE_CACHE.get("v")
+        if cached:
+            components["brain_n8n_openai"] = _ok(cached[1], cached[2] + " (cached, no execution spent)")
+        else:
+            components["brain_n8n_openai"] = {"ok": None, "detail": "not probed (add ?brain=1 for a live check)"}
 
     # Fallback holding line configured (so a broken brain still acks the customer).
     components["fallback_reply"] = _ok(bool(WA_FALLBACK_REPLY), "configured" if WA_FALLBACK_REPLY else "disabled")
@@ -1666,7 +1672,10 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             _write_json(self, 200, get_runtime_status())
             return
         if path == "/api/health/deep":
-            check_brain = _query(self.path).get("brain", "1") not in {"0", "false", "no"}
+            # Default OFF: a routine health poll must NOT spend a real n8n
+            # execution (the customer's quota is finite — see _BRAIN_PROBE_TTL).
+            # Opt in with ?brain=1 for an explicit live probe.
+            check_brain = _query(self.path).get("brain", "0") in {"1", "true", "yes"}
             _write_json(self, 200, get_deep_health(check_brain=check_brain))
             return
         if path == "/api/deployment/status":
