@@ -124,6 +124,8 @@ PUBLIC_STATIC_PATHS = {
     "/offline.html",
     "/app/",
     "/app/index.html",
+    "/site",
+    "/site/",
 }
 # NOTE: a blanket ".html" suffix here previously made EVERY html file public,
 # including AIOS-DASHBOARD.html (the command center). Public pages must be
@@ -1987,11 +1989,11 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
-        if path in ("/map", "/map/", "/deck", "/deck/"):
-            # Serve the visual pages (system map / command deck) from the AIOS
-            # server itself, so they open on ANY device with the omar login —
-            # no dependency on a private Claude artifact link.
-            fname = "map.html" if path.startswith("/map") else "deck.html"
+        if path in ("/map", "/map/", "/deck", "/deck/", "/site", "/site/"):
+            # Serve the visual pages from the AIOS server itself. /map and /deck
+            # sit behind auth; /site is the PUBLIC investor website (allowlisted).
+            fname = "site.html" if path.startswith("/site") else (
+                "map.html" if path.startswith("/map") else "deck.html")
             try:
                 fp = RUNTIME_DIR / "pages" / fname
                 body = fp.read_bytes()
