@@ -856,6 +856,15 @@ def _whatsapp_sender(payload: dict[str, Any]) -> str:
     return str(payload.get("From") or payload.get("from") or payload.get("waId") or payload.get("phone") or "unknown").strip()
 
 
+def _is_owner_sender(sender_digits: str) -> bool:
+    """True if the message is from Omar's own number (AIOS_ALERT_PHONE)."""
+    try:
+        import whatsapp_commands as _wc
+        return _wc.is_owner(sender_digits)
+    except Exception:
+        return False
+
+
 def _append_whatsapp_test(entry: dict[str, Any]) -> None:
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     with WHATSAPP_TEST_LOG_PATH.open("a", encoding="utf-8") as fh:
@@ -1346,16 +1355,19 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     # comps/renewals/link), run the real tool and reply in WhatsApp — his phone IS
     # the command center. Runs before the customer brain; owner-only.
     command_handled = False
-    if text and not from_me and sender_digits:
+    # Works both ways: (a) AIOS on a SEPARATE number -> owner texts it (not
+    # from_me, from the owner's number); (b) AIOS on the owner's OWN number ->
+    # owner types in the "Message Yourself" chat (from_me + is_self_chat).
+    _owner_channel = (not from_me and sender_digits and _is_owner_sender(sender_digits)) or (from_me and is_self)
+    if text and sender_digits and _owner_channel:
         try:
             import whatsapp_commands as _wc
-            if _wc.is_owner(sender_digits):
-                _cmd_reply, _cmd_detail = _wc.handle(text)
-                if _cmd_reply:
-                    _send_whatsapp_reply(sender_digits, _cmd_reply)
-                    command_handled = True
-                    reply_detail = f"owner_command:{_cmd_detail}"
-                    side_effects["provider_webhook_called"] = True
+            _cmd_reply, _cmd_detail = _wc.handle(text)
+            if _cmd_reply:
+                _send_whatsapp_reply(sender_digits, _cmd_reply)
+                command_handled = True
+                reply_detail = f"owner_command:{_cmd_detail}"
+                side_effects["provider_webhook_called"] = True
         except Exception as _wc_exc:  # pragma: no cover - defensive
             logger.warning("wa command failed: %s", _wc_exc)
 
