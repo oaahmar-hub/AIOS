@@ -1342,8 +1342,25 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
                 pass
     # Group-Lead Agent: detect real requests (incl. group messages the reply
     # path ignores) and record ranked leads for Omar. Never replies in groups,
+    # Owner command center: when Omar messages AIOS a command (owner/find/market/
+    # comps/renewals/link), run the real tool and reply in WhatsApp — his phone IS
+    # the command center. Runs before the customer brain; owner-only.
+    command_handled = False
+    if text and not from_me and sender_digits:
+        try:
+            import whatsapp_commands as _wc
+            if _wc.is_owner(sender_digits):
+                _cmd_reply, _cmd_detail = _wc.handle(text)
+                if _cmd_reply:
+                    _send_whatsapp_reply(sender_digits, _cmd_reply)
+                    command_handled = True
+                    reply_detail = f"owner_command:{_cmd_detail}"
+                    side_effects["provider_webhook_called"] = True
+        except Exception as _wc_exc:  # pragma: no cover - defensive
+            logger.warning("wa command failed: %s", _wc_exc)
+
     # and never mines stale backlog as fresh leads.
-    if text and not from_me and not event_is_stale:
+    if text and not from_me and not event_is_stale and not command_handled:
         try:
             import group_leads as _gl
             _gl.detect(sender_digits or sender, text, source=("group" if is_self is False and not actionable else "direct"))
@@ -1373,6 +1390,7 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     eligible = (
         not hold_delivery and text and sender_digits
         and not from_me and not is_self and actionable
+        and not command_handled
     )
     if eligible and event_is_stale:
         eligible = False
