@@ -17,7 +17,7 @@ def test_app_page_is_selfcontained_html():
 
 
 def test_app_page_covers_all_departments():
-    for anchor in ("/api/units/search", "/api/outreach/queue", "/api/leads/recent",
+    for anchor in ("/api/units/search", "/api/owner/lookup", "/api/leads/recent",
                    "/api/engineering/evaluate", "/api/health/deep"):
         assert anchor in APP_HTML
 

@@ -44,6 +44,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import time
 import uuid
 from dataclasses import dataclass, asdict, field
@@ -194,7 +195,11 @@ class DealAgent:
                         continue
                     msg = _owner_message(deal.criteria, o)
                     ok, det = self.send_whatsapp(phone, msg)
-                    rec = {"phone_masked": _mask(phone), "sent": ok, "detail": det, "called": False}
+                    # store the real phone server-side for reply-matching; the
+                    # API layer masks it before returning to any client.
+                    rec = {"phone": phone, "phone_masked": _mask(phone), "name": o.get("name", ""),
+                           "unit": o.get("unit", {}), "sent": ok, "detail": det, "called": False,
+                           "response": None}
                     if CALLS_ENABLED and self.place_call:
                         try:
                             call = self.place_call(phone, _owner_call_script(deal.criteria, o))
@@ -228,6 +233,63 @@ class DealAgent:
             self.advance(deal)
             steps += 1
         return deal
+
+
+# ---------------------------------------------------------------------------
+# Owner-reply capture — the back half of the loop
+# ---------------------------------------------------------------------------
+_PRICE_RE = re.compile(r"(\d+(?:[.,]\d+)?)\s*([km])?", re.IGNORECASE)
+
+
+def parse_owner_response(text: str) -> dict:
+    """Read a landlord's reply: available? price? Deterministic, best-effort."""
+    t = (text or "").lower()
+    available = None
+    if re.search(r"\b(available|yes|still|vacant|ready|نعم|متاح|متوفر)\b", t):
+        available = True
+    if re.search(r"\b(not available|sold|rented|gone|taken|no longer|مباع|مؤجر|غير متاح)\b", t):
+        available = False
+    price = None
+    m = re.search(r"(\d{1,3}(?:,\d{3})+|\d+(?:\.\d+)?\s*[km])", t)
+    if m:
+        raw = m.group(1).replace(",", "").replace(" ", "")
+        if raw.endswith("k"):
+            price = int(float(raw[:-1]) * 1_000)
+        elif raw.endswith("m"):
+            price = int(float(raw[:-1]) * 1_000_000)
+        else:
+            price = int(float(raw))
+    return {"available": available, "price": price, "text": (text or "")[:200]}
+
+
+def handle_owner_reply(phone: str, text: str,
+                       reply_group: Callable[[str, str], tuple]) -> dict:
+    """An owner we contacted replied. Match it to the deal, record it, and post
+    the confirmed option back to the requesting agent's group. Never raises."""
+    try:
+        digits = "".join(c for c in str(phone or "") if c.isdigit())[-9:]
+        if not digits:
+            return {"matched": False}
+        for raw in load_deals(200):
+            for rec in raw.get("outreach", []):
+                if digits and digits in "".join(c for c in str(rec.get("phone", "")) if c.isdigit()):
+                    parsed = parse_owner_response(text)
+                    rec["response"] = parsed
+                    raw["updated_at"] = time.time()
+                    try:
+                        (_STATE_DIR / f"{raw['deal_id']}.json").write_text(json.dumps(raw), encoding="utf-8")
+                    except Exception:
+                        pass
+                    if parsed["available"] and reply_group:
+                        u = rec.get("unit", {})
+                        where = " ".join(str(x) for x in (u.get("building"), u.get("unit")) if x).strip() or "the unit"
+                        price = f" at {parsed['price']:,}" if parsed.get("price") else ""
+                        reply_group(raw.get("group_id", ""),
+                                    f"Confirmed: {where} is available{price}. Want me to arrange a viewing?")
+                    return {"matched": True, "deal_id": raw["deal_id"], "response": parsed}
+        return {"matched": False}
+    except Exception:  # pragma: no cover
+        return {"matched": False}
 
 
 # ---------------------------------------------------------------------------

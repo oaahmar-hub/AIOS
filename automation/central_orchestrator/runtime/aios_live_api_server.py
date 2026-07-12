@@ -1215,14 +1215,18 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
             import deal_agent as _da
             if _da.AGENT_ENABLED:
                 import deal_wiring as _dw
-                _group = str(event.get("group_id") or event.get("chat_id") or sender_digits)
-                _agent = _dw.build_agent(
-                    send_whatsapp=_send_whatsapp_reply,
-                    reply_group=_send_whatsapp_reply,
-                )
-                _deal = _agent.intake(_group, sender_digits or sender, text)
-                if _deal:
-                    _agent.run_to_completion(_deal)
+                # First: is this an owner we contacted replying? If so, capture
+                # the availability/price and post the confirmed match to the group.
+                _owner_reply = _da.handle_owner_reply(sender_digits, text, _send_whatsapp_reply)
+                if not _owner_reply.get("matched"):
+                    _group = str(event.get("group_id") or event.get("chat_id") or sender_digits)
+                    _agent = _dw.build_agent(
+                        send_whatsapp=_send_whatsapp_reply,
+                        reply_group=_send_whatsapp_reply,
+                    )
+                    _deal = _agent.intake(_group, sender_digits or sender, text)
+                    if _deal:
+                        _agent.run_to_completion(_deal)
         except Exception as _da_exc:  # pragma: no cover - defensive
             logger.warning("deal agent intake failed: %s", _da_exc)
     eligible = (
@@ -1826,6 +1830,31 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                                  reveal=reveal, limit=int(_q("limit") or "10"))
                 res["revealed"] = reveal
                 _write_json(self, 200 if res.get("ok") else 400, res)
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/owner/from-url":
+            # Admin-only: paste a Bayut/PF/Dubizzle link -> extract unit ->
+            # owner + phone. Masked unless the admin secret is supplied.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            url = (qs.get("url") or [""])[0]
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = (qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0].strip()
+            reveal = bool(admin and provided == admin)
+            if not url.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing url= param"})
+                return
+            try:
+                import portal_extract as _pe, owner_lookup as _ol
+                info = _pe.extract(url)
+                if not info.get("ok"):
+                    _write_json(self, 200, {"ok": False, "reason": info.get("reason"), "extracted": info})
+                    return
+                owners = _ol.lookup(building=info.get("building", ""), area=info.get("area", ""),
+                                    reveal=reveal, limit=10)
+                _write_json(self, 200, {"ok": True, "extracted": info, "owners": owners.get("owners", []),
+                                        "matches": owners.get("matches", 0), "revealed": reveal})
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return

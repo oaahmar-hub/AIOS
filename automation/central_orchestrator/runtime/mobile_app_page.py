@@ -57,7 +57,7 @@ a{color:var(--acc)}
 <!-- OWNERS -->
 <section id="tab-owners" class="hide">
   <div class="card"><div class="row">
-    <input id="oq" placeholder="building / area, e.g. beach tower" enterkeyhint="search">
+    <input id="oq" placeholder="building name OR paste a Bayut/PF/Dubizzle link" enterkeyhint="search">
     <button class="btn" onclick="findOwners()">Owners</button></div>
     <div class="dim">Finds owners on file with a ready offer draft. Mobiles stay masked. Sending needs your approval in chat with the main brain.</div>
   </div>
@@ -103,13 +103,20 @@ async function findUnits(){const q=$('uq').value.trim();if(!q)return;$('ur').inn
    <span class="dim">${esc([r.area,r.unit&&('unit '+r.unit),r.bedrooms&&(r.bedrooms+'BR'),r.size,r.price].filter(Boolean).join(' · '))}</span>
    <div class="dim">src: ${esc(r.source||'')}</div></div>`).join('');
  }catch(e){$('ur').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
-async function findOwners(){const q=$('oq').value.trim();if(!q)return;$('or').innerHTML='<div class="loading">searching owners…</div>';
- try{const d=await api('/api/outreach/queue?q='+encodeURIComponent(q)+'&limit=10');
-  if(!d.queue||!d.queue.length){$('or').innerHTML='<div class="item">No owners on file for that.</div>';return;}
-  $('or').innerHTML=d.queue.map(r=>`<div class="item"><b>${esc(r.owner_name||'Owner (name n/a)')} · ${esc(r.mobile_masked)}</b>
-   <span class="dim">${esc([r.building,r.project&&('proj: '+r.project),r.unit&&('unit '+r.unit),r.area].filter(Boolean).join(' · '))}</span>
-   ${r.data_note?`<div class="warnbox">⚠ ${esc(r.data_note)}</div>`:''}
-   <div class="dim" style="margin-top:4px">Draft: ${esc(r.draft)}</div></div>`).join('');
+function adminKey(){let k=localStorage.getItem('aios_admin_key')||'';return k?('&admin_secret='+encodeURIComponent(k)):'';}
+function setAdminKey(){const k=prompt('Enter your AIOS admin secret to reveal real owner phone numbers:');if(k){localStorage.setItem('aios_admin_key',k.trim());findOwners();}}
+async function findOwners(){const q=$('oq').value.trim();if(!q)return;$('or').innerHTML='<div class="loading">searching real DLD owners…</div>';
+ try{
+  // A pasted Bayut/PF/Dubizzle link -> owner via the listing; else building/unit search.
+  const isUrl=/^https?:\/\//i.test(q);
+  const url=isUrl?('/api/owner/from-url?url='+encodeURIComponent(q)+adminKey())
+                 :('/api/owner/lookup?building='+encodeURIComponent(q)+adminKey());
+  const d=await api(url);
+  const owners=d.owners||[];
+  if(!owners.length){$('or').innerHTML='<div class="item">No owner on file for that yet. (DLD area data must be ingested — JVC is loaded.)</div>';return;}
+  const note=d.revealed?'':'<div class="warnbox" onclick="setAdminKey()" style="cursor:pointer">Phones masked — tap here to enter your admin key and reveal real numbers.</div>';
+  $('or').innerHTML=note+owners.map(r=>`<div class="item"><b>${esc(r.name||'Owner')} · ${esc(r.phone)}</b>
+   <span class="dim">${esc([r.building,r.unit&&('unit '+r.unit),r.property_number&&('permit '+r.property_number),r.country].filter(Boolean).join(' · '))}</span></div>`).join('');
  }catch(e){$('or').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
 async function loadLeads(){$('lr').innerHTML='<div class="loading">loading…</div>';
  try{const d=await api('/api/leads/recent');

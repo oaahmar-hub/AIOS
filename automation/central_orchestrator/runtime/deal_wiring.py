@@ -27,11 +27,36 @@ def _criteria_to_query(criteria: dict) -> str:
     return " ".join(parts) or str(criteria.get("raw", ""))
 
 
+def _units_from_url(raw: str) -> list:
+    """If the request contains a portal listing link, resolve it to a precise
+    unit (building/area) so the owner lookup can hit it directly."""
+    import re
+    m = re.search(r"https?://\S+", raw or "")
+    if not m:
+        return []
+    try:
+        import portal_extract as pe
+        info = pe.extract(m.group(0))
+        if info.get("ok") and (info.get("building") or info.get("area")):
+            return [{
+                "building": info.get("building", ""),
+                "unit": "",
+                "area": info.get("area", ""),
+                "property_number": "",
+                "source": f"{info.get('portal')} listing {info.get('listing_id', '')}",
+            }]
+    except Exception:
+        pass
+    return []
+
+
 def _search(criteria: dict) -> list:
     try:
+        # 1) a pasted portal link -> the exact building first
+        out = _units_from_url(str(criteria.get("raw", "")))
+        # 2) plus matching verified inventory
         import inventory_retrieval as inv
         rows = inv.search(_criteria_to_query(criteria), max_results=10) or []
-        out = []
         for r in rows:
             out.append({
                 "building": r.get("building", "") or r.get("project", ""),
