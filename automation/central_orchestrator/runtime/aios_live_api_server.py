@@ -57,6 +57,14 @@ PUBLIC_API_BASE_URL = os.getenv("AIOS_PUBLIC_API_BASE_URL", "").strip().rstrip("
 AUTH_MODE = os.getenv("AIOS_AUTH_MODE", "off").strip().lower()
 AUTH_USER = os.getenv("AIOS_BASIC_AUTH_USER", "").strip()
 AUTH_PASSWORD = os.getenv("AIOS_BASIC_AUTH_PASSWORD", "")
+# Session cookie so the installed app stays logged in and its fetches carry auth
+# (basic-auth headers aren't reliably reused by fetch/XHR after a URL-credential
+# load). The token is a keyed digest of the creds — verifiable without storage.
+_SESSION_TOKEN = hmac.new(
+    (AUTH_PASSWORD or "x").encode("utf-8"),
+    (b"aios-session:" + AUTH_USER.encode("utf-8")),
+    hashlib.sha256,
+).hexdigest() if AUTH_USER else ""
 WHATSAPP_WEBHOOK_PATH = "/webhook/whatsapp/provider/gateway"
 WHATSAPP_REPLY_MODE = os.getenv("AIOS_WHATSAPP_REPLY_MODE", "hold").strip().lower()
 WHATSAPP_VERIFY_TOKEN = os.getenv("AIOS_WHATSAPP_VERIFY_TOKEN", "").strip()
@@ -1701,7 +1709,14 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return False
         header = self.headers.get("Authorization", "")
         expected = "Basic " + base64.b64encode(f"{AUTH_USER}:{AUTH_PASSWORD}".encode("utf-8")).decode("ascii")
-        return header == expected
+        if header == expected:
+            return True
+        # Accept a valid session cookie (set when the app loaded) so fetch/XHR
+        # calls stay authenticated without re-prompting.
+        cookie = self.headers.get("Cookie", "")
+        if _SESSION_TOKEN and ("aios_session=" + _SESSION_TOKEN) in cookie:
+            return True
+        return False
 
     def _require_auth(self) -> bool:
         if self._authenticated():
@@ -1921,6 +1936,13 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                 self.send_response(200)
                 self.send_header("Content-Type", "text/html; charset=utf-8")
                 self.send_header("Cache-Control", "no-store")
+                # Set the session cookie so the app's API fetches stay authed —
+                # no repeated login prompts once installed to the home screen.
+                if _SESSION_TOKEN:
+                    self.send_header(
+                        "Set-Cookie",
+                        f"aios_session={_SESSION_TOKEN}; Path=/; Max-Age=31536000; "
+                        "HttpOnly; Secure; SameSite=Lax")
                 self.send_header("Content-Length", str(len(body)))
                 self.end_headers()
                 self.wfile.write(body)
