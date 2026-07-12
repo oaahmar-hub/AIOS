@@ -82,6 +82,19 @@ WA_REPLY_ENDPOINT = os.getenv(
 # each spend an n8n execution (the customer's n8n quota is finite).
 _BRAIN_PROBE_TTL = float(os.getenv("AIOS_BRAIN_PROBE_TTL_SECONDS", "900"))
 _BRAIN_PROBE_CACHE: dict[str, tuple] = {}
+
+# Direct LLM path — bypass n8n entirely (no execution cap, unlimited testing).
+# When GROQ_API_KEY is set, the reply brain calls Groq directly (OpenAI-compatible
+# API, generous free tier) and n8n becomes an optional fallback. Get a free key at
+# console.groq.com. OpenAI works too via OPENAI_API_KEY (+ OPENAI_BASE_URL).
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile").strip()
+_DIRECT_LLM_KEY = GROQ_API_KEY or os.getenv("OPENAI_API_KEY", "").strip()
+_DIRECT_LLM_URL = (
+    "https://api.groq.com/openai/v1/chat/completions" if GROQ_API_KEY
+    else os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/") + "/chat/completions"
+)
+_DIRECT_LLM_MODEL = GROQ_MODEL if GROQ_API_KEY else os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 # Graceful fallback: if the brain fails or returns empty (OpenAI outage, bad
 # key, timeout), send this holding line instead of silently dropping the
 # message. Set to empty to disable and revert to silent-hold on failure.
@@ -1031,7 +1044,20 @@ def _generate_reply_text(message: str, history: str = "", system_prompt: str = "
     When system_prompt is provided (from the real personality engine), it is
     sent so the LLM answers as Omar with full relationship/objective context
     instead of the generic stub prompt.
+
+    Prefers a DIRECT LLM call (Groq/OpenAI) when a key is configured — no n8n,
+    no execution cap. Falls back to the n8n brain only if no direct key is set
+    or the direct call fails.
     """
+    if not message:
+        return "", "no_message"
+    if _DIRECT_LLM_KEY:
+        reply, detail = _generate_reply_direct(message, history, system_prompt)
+        if reply:
+            return reply, detail
+        # direct configured but failed — fall through to n8n if available
+        if not WA_REPLY_ENDPOINT:
+            return "", detail
     if not WA_REPLY_ENDPOINT or not message:
         return "", "no_endpoint_or_message"
     payload = {"message": message, "history": history or "No prior history"}
@@ -1055,6 +1081,54 @@ def _generate_reply_text(message: str, history: str = "", system_prompt: str = "
         return "", f"url_error:{exc.reason}"
     except Exception as exc:  # pragma: no cover - defensive
         return "", f"error:{exc}"
+
+
+def _generate_reply_direct(message: str, history: str = "", system_prompt: str = "") -> tuple[str, str]:
+    """Call an LLM directly (Groq/OpenAI-compatible) — no n8n, no execution cap.
+
+    Returns (reply_text, detail). Empty reply signals the caller to fall back.
+    """
+    if not _DIRECT_LLM_KEY or not message:
+        return "", "no_direct_key"
+    sys_p = system_prompt.strip() or (
+        "You are the WhatsApp assistant for Omar, a Dubai real-estate broker (HSH). "
+        "Reply naturally and concisely in the client's language (English or Arabic), "
+        "like a real human agent — never mention being an AI. If you don't have a "
+        "fact, say you'll check rather than inventing it."
+    )
+    messages = [{"role": "system", "content": sys_p}]
+    if history and history != "No prior history":
+        messages.append({"role": "system", "content": "Conversation so far:\n" + history})
+    messages.append({"role": "user", "content": message})
+    body = json.dumps({
+        "model": _DIRECT_LLM_MODEL,
+        "messages": messages,
+        "temperature": 0.7,
+        "max_tokens": 500,
+    }).encode("utf-8")
+    req = Request(
+        _DIRECT_LLM_URL,
+        data=body,
+        headers={
+            "Authorization": f"Bearer {_DIRECT_LLM_KEY}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read().decode("utf-8", errors="replace") or "{}")
+        reply = str(
+            (data.get("choices") or [{}])[0].get("message", {}).get("content", "")
+        ).strip()
+        return reply, (f"direct:{_DIRECT_LLM_MODEL}:ok" if reply else f"direct:{_DIRECT_LLM_MODEL}:empty")
+    except HTTPError as exc:
+        return "", f"direct_http:{exc.code}"
+    except URLError as exc:
+        return "", f"direct_url:{exc.reason}"
+    except Exception as exc:  # pragma: no cover - defensive
+        return "", f"direct_err:{exc}"
 
 
 import threading
