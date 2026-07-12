@@ -62,6 +62,22 @@ def reply(message: str, history: str = "") -> tuple[str, str]:
     except Exception:
         q, rows = {}, []
 
+    # Market intent -> official DLD index (real trend, always available).
+    market_q = (
+        any(w in low for w in ("market", "good time to buy", "prices going", "price trend",
+                               "is it a good time", "how is the market", "market update", "trend"))
+        or any(w in m for w in ("السوق", "وقت مناسب", "الأسعار طالعة", "حالة السوق"))
+    )
+    if market_q:
+        try:
+            import market_index as _mi
+            b = _mi.brief("ar" if ar else "en")
+            if b:
+                lead = "نظرة على السوق" if ar else "Quick market read"
+                return _hz(f"{lead}: {b}."), "local:market"
+        except Exception:
+            pass
+
     # Price / valuation intent -> real DLD comparable sales (if synced).
     price_q = any(w in low for w in ("price", "worth", "value", "how much", "market")) or any(
         w in m for w in ("سعر", "قيمة", "كم سعر", "بكم"))

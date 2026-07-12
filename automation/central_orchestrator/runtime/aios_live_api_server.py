@@ -617,6 +617,14 @@ def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
         components["voice_notes"] = _ok(False, f"error:{exc}")
 
     try:
+        import market_index as _mi_health
+        _mih = _mi_health.health()
+        components["market_index"] = {"ok": _mih["status"] == "ok",
+                                      "detail": f"{_mih.get('months', 0)} months DLD index"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["market_index"] = _ok(False, f"error:{exc}")
+
+    try:
         import dubai_pulse as _dp_health
         _dph = _dp_health.health()
         components["dubai_pulse"] = {
@@ -2006,6 +2014,14 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             try:
                 import deal_agent as _da
                 _write_json(self, 200, {"ok": True, "deals": _da.load_deals(30), "stats": _da.stats()})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/market":
+            try:
+                import market_index as _mi
+                s = _mi.summary(); s["brief"] = _mi.brief("en")
+                _write_json(self, 200, s)
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
