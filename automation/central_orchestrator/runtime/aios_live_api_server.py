@@ -78,6 +78,10 @@ WA_REPLY_ENDPOINT = os.getenv(
     "WA_SIMPLE_OPENAI_ENDPOINT",
     "https://hshglobaldubai.app.n8n.cloud/webhook/wa-simple-openai-reply-v4",
 ).strip()
+# Cache the health-endpoint brain probe so repeated /api/health/deep polls don't
+# each spend an n8n execution (the customer's n8n quota is finite).
+_BRAIN_PROBE_TTL = float(os.getenv("AIOS_BRAIN_PROBE_TTL_SECONDS", "900"))
+_BRAIN_PROBE_CACHE: dict[str, tuple] = {}
 # Graceful fallback: if the brain fails or returns empty (OpenAI outage, bad
 # key, timeout), send this holding line instead of silently dropping the
 # message. Set to empty to disable and revert to silent-hold on failure.
@@ -497,13 +501,22 @@ def get_deep_health(check_brain: bool = True) -> dict[str, Any]:
     if not send_ok:
         issues.append("WASENDER_API_KEY not set — replies cannot be delivered.")
 
-    # The brain: actually call n8n so a dead OpenAI key is caught here, not in silence.
+    # The brain: probe n8n so a dead key/quota is caught here, not in silence.
+    # BUT each probe spends a real n8n execution, so cache the result and re-probe
+    # at most once per _BRAIN_PROBE_TTL — frequent health polls must not burn the
+    # customer's n8n quota on pings.
     if check_brain and WA_REPLY_ENDPOINT:
-        reply, detail = _generate_reply_text("health check ping", history="diagnostic")
-        brain_ok = bool(reply)
+        now = time.time()
+        cached = _BRAIN_PROBE_CACHE.get("v")
+        if cached and (now - cached[0]) < _BRAIN_PROBE_TTL:
+            brain_ok, detail = cached[1], cached[2] + " (cached)"
+        else:
+            reply, detail = _generate_reply_text("health check ping", history="diagnostic")
+            brain_ok = bool(reply)
+            _BRAIN_PROBE_CACHE["v"] = (now, brain_ok, detail)
         components["brain_n8n_openai"] = _ok(brain_ok, detail)
         if not brain_ok:
-            issues.append(f"Reply brain failed ({detail}). Common cause: invalid/expired OpenAI API key in the n8n 'OpenAI account' credential.")
+            issues.append(f"Reply brain failed ({detail}). Causes: n8n execution-limit/plan quota reached, or an invalid/expired key in the n8n LLM credential.")
     else:
         components["brain_n8n_openai"] = {"ok": None, "detail": "skipped"}
 
