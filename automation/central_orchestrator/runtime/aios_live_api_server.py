@@ -126,6 +126,8 @@ PUBLIC_STATIC_PATHS = {
     "/app/index.html",
     "/site",
     "/site/",
+    "/pitch",
+    "/pitch/",
 }
 # NOTE: a blanket ".html" suffix here previously made EVERY html file public,
 # including AIOS-DASHBOARD.html (the command center). Public pages must be
@@ -1989,11 +1991,12 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
-        if path in ("/map", "/map/", "/deck", "/deck/", "/site", "/site/"):
+        if path in ("/map", "/map/", "/deck", "/deck/", "/site", "/site/", "/pitch", "/pitch/"):
             # Serve the visual pages from the AIOS server itself. /map and /deck
-            # sit behind auth; /site is the PUBLIC investor website (allowlisted).
-            fname = "site.html" if path.startswith("/site") else (
-                "map.html" if path.startswith("/map") else "deck.html")
+            # sit behind auth; /site and /pitch are PUBLIC (allowlisted).
+            fname = ("pitch.html" if path.startswith("/pitch")
+                     else "site.html" if path.startswith("/site")
+                     else "map.html" if path.startswith("/map") else "deck.html")
             try:
                 fp = RUNTIME_DIR / "pages" / fname
                 body = fp.read_bytes()
