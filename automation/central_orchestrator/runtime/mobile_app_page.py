@@ -125,15 +125,19 @@ async function api(p){const r=await fetch(p,{headers:{'Accept':'application/json
 const DEPT={runtime:['⚙️','Server'],resolver_db:['🗄️','Resolver DB'],webhook_auth:['🔐','Webhook'],reply_mode:['💬','Reply mode'],wasender_send:['📤','WhatsApp send'],brain_n8n_openai:['🧠','Reply brain'],fallback_reply:['🛟','Fallback'],conversation_memory:['🧵','Memory'],group_leads:['🎯','Group leads'],content_studio:['🎨','Marketing'],truth_bridge:['🔗','Truth bridge'],crm_leads:['📇','CRM'],inventory_knowledge:['🏢','Unit finder'],reply_humanizer:['🫧','Humanizer'],media_vault:['🖼️','Media'],voice_notes:['🎙️','Voice'],design_compliance:['🏗️','Engineering'],dubai_pulse:['🏛️','DLD prices'],market_index:['📈','Market'],renewal_agent:['🔁','Renewals'],owner_lookup:['👤','Owner lookup'],deal_agent:['🤝','Deal agent'],daily_brief:['🌅','Daily brief'],owner_outreach:['✉️','Outreach'],health_alerts:['🚨','Alerts'],chat_governor:['🎛️','Chat governor']};
 async function loadHome(){
  try{const h=await api('/api/health/deep');const c=h.components||{};
-  const ok=Object.values(c).filter(v=>v.ok===true).length,tot=Object.keys(c).length;
-  $('status').textContent=h.status==='healthy'?'all systems green ✅':'status: '+h.status;
-  $('hero').innerHTML=`<div class="item"><b style="font-size:19px">${h.status==='healthy'?'🟢 All systems green':'🟠 '+esc(h.status)}</b>
-   <div class="dim">${ok} of ${tot} departments online · tap a tool below</div></div>`;
-  const order=['owner_lookup','inventory_knowledge','market_index','renewal_agent','dubai_pulse','brain_n8n_openai','crm_leads','conversation_memory','group_leads','content_studio','design_compliance','truth_bridge','daily_brief','health_alerts','chat_governor','deal_agent'];
-  const keys=[...order.filter(k=>k in c),...Object.keys(c).filter(k=>!order.includes(k))];
-  $('depts').innerHTML='<div class="card"><b>Departments</b>'+keys.map(k=>{const v=c[k]||{};const d=DEPT[k]||['•',k];
-   const dot=v.ok===true?'<span class="pill ok">on</span>':(v.ok===false?'<span class="pill bad">FAIL</span>':'<span class="pill na">idle</span>');
-   return `<div class="item"><b>${d[0]} ${esc(d[1])}</b> ${dot}<div class="dim">${esc(v.detail||v.value||'')}</div></div>`;}).join('')+'</div>';
+  const ent=Object.entries(c);
+  const live=ent.filter(([k,v])=>v.ok===true);
+  const pending=ent.filter(([k,v])=>v.ok!==true&&v.ok!==false);
+  const failing=ent.filter(([k,v])=>v.ok===false);
+  $('status').textContent=failing.length?(failing.length+' need attention'):(live.length+' tools live');
+  $('hero').innerHTML=`<div class="item"><b style="font-size:19px">${live.length} tools live${pending.length?(' · '+pending.length+' need setup'):''}${failing.length?(' · '+failing.length+' down'):''}</b>
+   <div class="dim">the live tools below are ready to use — the rest are hidden from clients until set up</div></div>`;
+  const nm=k=>{const d=DEPT[k]||['•',k];return d[0]+' '+d[1];};
+  const row=(k,v,pill)=>`<div class="item"><b>${esc(nm(k))}</b> ${pill}<div class="dim">${esc(v.detail||v.value||'')}</div></div>`;
+  let html='<div class="card"><b>✅ Live now — ready to show</b>'+(live.map(([k,v])=>row(k,v,'<span class="pill ok">live</span>')).join('')||'<div class="dim">—</div>')+'</div>';
+  if(failing.length)html+='<div class="card"><b>⚠ Needs attention</b>'+failing.map(([k,v])=>row(k,v,'<span class="pill bad">down</span>')).join('')+'</div>';
+  if(pending.length)html+='<div class="card"><b>🔒 Not live yet — needs your setup</b>'+pending.map(([k,v])=>row(k,v,'<span class="pill na">needs setup</span>')).join('')+'</div>';
+  $('depts').innerHTML=html;
  }catch(e){$('hero').innerHTML='<div class="item">cannot reach system — pull down to refresh</div>';$('status').textContent='cannot reach system';}}
 async function loadMarket(){if($('mkt').dataset.done)return;
  try{const d=await api('/api/market');
@@ -150,7 +154,7 @@ async function assessListing(){const u=$('lq').value.trim();if(!u)return;$('lr2'
  }catch(e){$('lr2').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
 async function loadRenewals(){const days=$('rd').value;$('rr').innerHTML='<div class="loading">finding expiring tenancies…</div>';
  try{const d=await api('/api/renewals?days='+days+adminKey());
-  if(!d.leads||!d.leads.length){$('rr').innerHTML='<div class="item">No expiring tenancies on file yet. (Needs the DLD Ejari feed — request in progress.)</div>';return;}
+  if(!d.leads||!d.leads.length){$('rr').innerHTML='<div class="item">No tenancy list loaded yet. Add your own rentals (building · unit · end date) and this lights up instantly — no government feed needed.</div>';return;}
   $('rr').innerHTML=d.leads.map(l=>`<div class="item"><b>${esc(l.building||l.area)} ${l.unit?('· '+esc(l.unit)):''}</b>
    <span class="dim">ends ${esc(l.end_date)}${l.owner&&l.owner.phone?(' · owner '+esc(l.owner.name||'')+' '+esc(l.owner.phone)):''}</span>
    <div class="dim">${esc(l.draft||'')}</div></div>`).join('');
