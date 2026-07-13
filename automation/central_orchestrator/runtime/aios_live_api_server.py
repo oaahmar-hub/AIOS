@@ -666,6 +666,15 @@ def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
         }
     except Exception as exc:  # pragma: no cover - defensive
         components["twilio_whatsapp"] = _ok(False, f"error:{exc}")
+    try:
+        import telegram_bot as _tg_health
+        _tgh = _tg_health.health()
+        components["telegram_bot"] = {
+            "ok": None if _tgh["status"] == "no_token" else True,
+            "detail": _tgh["status"],
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["telegram_bot"] = _ok(False, f"error:{exc}")
 
     try:
         import renewal_agent as _ra_health
@@ -2532,6 +2541,16 @@ def run_server(host: str = DEFAULT_HOST, port: int = DEFAULT_PORT) -> int:
             logger.info("daily brief scheduled for %02d:00 Dubai", _db.BRIEF_HOUR)
     except Exception as _db_exc:  # pragma: no cover - defensive
         logger.warning("daily brief failed to start: %s", _db_exc)
+    # AIOS Telegram bot: permit / link / building -> owner, in the same flow the
+    # DLD bots use. Runs as a daemon thread, gated on TELEGRAM_BOT_TOKEN.
+    try:
+        import telegram_bot as _tg
+        if _tg.is_configured():
+            import threading as _th
+            _th.Thread(target=_tg.run_forever, daemon=True, name="telegram-bot").start()
+            logger.info("telegram bot polling started")
+    except Exception as _tg_exc:  # pragma: no cover - defensive
+        logger.warning("telegram bot failed to start: %s", _tg_exc)
     server = ThreadingHTTPServer((host, port), AIOSLiveAPIHandler)
     print(f"AIOS Runtime serving {AIOS_ROOT} at http://{host}:{port}")
     try:
