@@ -138,6 +138,9 @@ PUBLIC_STATIC_PATHS = {
     "/hsh-hero.jpg",
     "/hsh-logo.png",
     "/hsh-brand.jpg",
+    "/tower",
+    "/tower/",
+    "/api/lead",
 }
 # NOTE: a blanket ".html" suffix here previously made EVERY html file public,
 # including AIOS-DASHBOARD.html (the command center). Public pages must be
@@ -2124,10 +2127,11 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             except Exception:
                 self.send_response(404); self.end_headers()
             return
-        if path in ("/map", "/map/", "/deck", "/deck/", "/site", "/site/", "/pitch", "/pitch/", "/peter", "/peter/", "/peter-ar", "/peter-ar/"):
+        if path in ("/map", "/map/", "/deck", "/deck/", "/site", "/site/", "/pitch", "/pitch/", "/peter", "/peter/", "/peter-ar", "/peter-ar/", "/tower", "/tower/"):
             # Serve the visual pages from the AIOS server itself. /map and /deck
-            # sit behind auth; /site, /pitch, /peter, /peter-ar are PUBLIC.
-            fname = ("peter-ar.html" if path.startswith("/peter-ar")
+            # sit behind auth; /site, /pitch, /peter, /peter-ar, /tower are PUBLIC.
+            fname = ("tower.html" if path.startswith("/tower")
+                     else "peter-ar.html" if path.startswith("/peter-ar")
                      else "peter.html" if path.startswith("/peter")
                      else "pitch.html" if path.startswith("/pitch")
                      else "site.html" if path.startswith("/site")
@@ -2422,12 +2426,32 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             "/api/unit/enrich",
             "/api/outreach/send",
             "/api/voice/call",
+            "/api/lead",
             TWILIO_WA_WEBHOOK_PATH,
         }:
             _write_json(self, 404, {"ok": False, "error": "unknown_api_route", "path": path})
             return
         try:
             payload = _read_request_body(self)
+            if path == "/api/lead":
+                # Lead capture from the 3D showroom / listing pages. Records the
+                # lead and notifies the owner on WhatsApp. Never raises.
+                unit = str(payload.get("unit") or "?")
+                proj = str(payload.get("project") or "")
+                src = str(payload.get("source") or "web")
+                try:
+                    import group_leads as _gl
+                    _gl.detect("web-lead", f"Viewing request · Unit {unit} · {proj} (via {src})", source="direct")
+                except Exception:
+                    pass
+                try:
+                    if OWNER_ALERT_PHONE_TAIL and WASENDER_API_KEY and _owner_self:
+                        _send_whatsapp_reply(_owner_self,
+                            f"🔔 New viewing request\nUnit {unit} · {proj}\nSource: {src}\nFollow up now.")
+                except Exception:
+                    pass
+                _write_json(self, 200, {"ok": True, "captured": True, "unit": unit})
+                return
             if path == TWILIO_WA_WEBHOOK_PATH:
                 # Inbound WhatsApp to the independent agent's own Twilio number.
                 # Parse -> record lead -> reply in-persona via TwiML (from its own
