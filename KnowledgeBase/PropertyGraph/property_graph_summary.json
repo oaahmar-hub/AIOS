@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-06-27T02:46:06+00:00",
-  "resolver_records": 26166,
-  "canonical_properties": 83,
-  "source_observations": 26166,
+  "generated_at": "2026-07-07T08:46:26+00:00",
+  "resolver_records": 26306,
+  "canonical_properties": 223,
+  "source_observations": 26306,
   "bridge_rows": 1244,
-  "verification_queue": 606,
+  "verification_queue": 747,
   "verification_state_counts": {
     "LIKELY": 20,
-    "POSSIBLE": 48,
+    "POSSIBLE": 188,
     "UNRESOLVED": 14,
     "VERIFIED_STRUCTURAL": 1
   },

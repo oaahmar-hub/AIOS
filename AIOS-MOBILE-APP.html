@@ -1,1153 +1,392 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#050505">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A0B0F">
+<meta name="description" content="AIOS Command Console — the operator's mobile view of an honest AI operating system for Dubai real estate. By HSH Global Dubai.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="AIOS">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icons/icon-192.svg">
-<title>AIOS Mobile Command Console</title>
+<link rel="manifest" href="aios.webmanifest">
+<title>AIOS · Command Console</title>
 <style>
-  :root {
-    color-scheme: dark;
-    --bg: #050505;
-    --surface: rgba(17, 19, 23, 0.82);
-    --surface2: rgba(24, 27, 34, 0.72);
-    --border: rgba(215, 217, 224, 0.12);
-    --border-strong: rgba(216, 194, 138, 0.36);
-    --text: #F5F7FA;
-    --text2: #A5A9B5;
-    --text3: #747987;
-    --gold: #D8C28A;
-    --gold2: #BFA46A;
-    --accent: #D8C28A;
-    --highlight: #18E0A2;
-    --green: #18E0A2;
-    --red: #FF5C7A;
-    --orange: #FFB86B;
-    --blue: #8FDCC4;
-    --radius: 8px;
-    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { min-height: 100%; background: var(--bg); }
-  body {
-    font-family: var(--font);
-    color: var(--text);
-    background:
-      linear-gradient(180deg, rgba(216,194,138,0.08), rgba(9,10,11,0) 31%),
-      radial-gradient(circle at 88% 0%, rgba(24,224,162,0.14), rgba(9,10,11,0) 30%),
-      radial-gradient(circle at 12% 12%, rgba(216,194,138,0.10), rgba(9,10,11,0) 34%),
-      var(--bg);
-    letter-spacing: 0;
-    line-height: 1.45;
-    overflow-x: hidden;
-  }
-  .narrative-shell {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    background: #050505;
-    overflow: hidden;
-  }
-  .narrative-video {
-    position: absolute;
-    inset: -4%;
-    width: 108%;
-    height: 108%;
-    object-fit: cover;
-    filter: brightness(1.15) contrast(1.25) saturate(1.1) blur(2px);
-    transform: scale(1.03);
-    opacity: .38;
-    transition: opacity 420ms ease;
-  }
-  .narrative-video.is-active {
-    opacity: .38;
-  }
-  .narrative-video-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 24% 22%, rgba(16, 24, 22, 0.14), transparent 26%),
-      radial-gradient(circle at 78% 30%, rgba(216, 194, 138, 0.12), transparent 22%),
-      linear-gradient(180deg, rgba(5,5,5,0.34), rgba(5,5,5,0.44) 44%, rgba(5,5,5,0.78));
-    backdrop-filter: blur(10px);
-  }
-  .narrative-logo-watermark {
-    position: fixed;
-    right: 16px;
-    bottom: calc(92px + env(safe-area-inset-bottom));
-    z-index: 8;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.14);
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px) saturate(150%);
-    box-shadow: 0 0 22px rgba(255,255,255,0.10);
-    color: rgba(244,244,244,0.7);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    pointer-events: none;
-  }
-  .narrative-logo-watermark strong {
-    font-size: 11px;
-    color: rgba(255,255,255,0.9);
-    text-shadow: 0 0 18px rgba(255,255,255,0.18);
-  }
-  body.entry-lock {
-    overflow: hidden;
-  }
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(216,194,138,0.026) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(24,224,162,0.022) 1px, transparent 1px);
-    background-size: 38px 38px;
-    mask-image: linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.04));
-  }
-  body::after {
-    content: "";
-    position: fixed;
-    inset: -22%;
-    pointer-events: none;
-    z-index: 0;
-    background:
-      linear-gradient(112deg, transparent 0 30%, rgba(216,194,138,.12), rgba(24,224,162,.07), transparent 58% 100%),
-      radial-gradient(ellipse at 52% 40%, rgba(245,247,250,.045), transparent 34%);
-    mix-blend-mode: screen;
-    opacity: .48;
-    transform: translate3d(-18%, 10%, 0) rotate(-7deg);
-    animation: mobileCinematicSweep 16s cubic-bezier(.2,.8,.2,1) infinite;
-  }
-  button, input, textarea { font: inherit; }
-  .app {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 480px;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: max(18px, env(safe-area-inset-top)) 14px calc(104px + env(safe-area-inset-bottom));
-    overflow-x: hidden;
-  }
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    padding: 2px 2px 14px;
-  }
-  .brand { min-width: 0; }
-  .brand-title { font-size: 20px; font-weight: 760; }
-  .brand-title span { color: var(--highlight); }
-  .brand-sub { color: var(--text3); font-size: 12px; }
-  .status-pill {
-    flex: 0 0 auto;
-    border: 1px solid rgba(61,220,151,0.26);
-    color: var(--green);
-    background: rgba(61,220,151,0.10);
-    border-radius: 999px;
-    padding: 6px 9px;
-    font-size: 11px;
-    font-weight: 700;
-  }
-  .bridge-nav {
-    display: flex;
-    gap: 7px;
-    overflow-x: auto;
-    padding: 0 0 12px;
-    position: relative;
-    z-index: 5;
-    scrollbar-width: none;
-  }
-  .bridge-nav a {
-    flex: 0 0 auto;
-    color: var(--text);
-    text-decoration: none;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: rgba(17,19,23,.72);
-    padding: 8px 10px;
-    font-size: 11px;
-    font-weight: 680;
-  }
-  .mobile-eye {
-    --mobile-eye-light-x: 50%;
-    --mobile-eye-light-y: 38%;
-    --mobile-eye-speed: .8;
-    --mobile-eye-intensity: .92;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 100%;
-    display: grid;
-    justify-items: center;
-    gap: 13px;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    min-height: min(610px, calc(100svh - 42px));
-    align-content: center;
-    padding: 26px 14px 20px;
-    isolation: isolate;
-    perspective: 1100px;
-    background:
-      radial-gradient(circle at var(--mobile-eye-light-x) var(--mobile-eye-light-y), rgba(216,194,138,0.24), transparent 30%),
-      radial-gradient(circle at 50% 42%, rgba(24,224,162,0.12), transparent 29%),
-      radial-gradient(ellipse at 50% 58%, rgba(245,247,250,0.05), transparent 38%),
-      radial-gradient(ellipse at 50% 112%, rgba(216,194,138,0.14), transparent 40%),
-      rgba(17,19,23,0.78);
-    box-shadow: 0 24px 80px rgba(0,0,0,0.44);
-    backdrop-filter: blur(24px) saturate(150%);
-    transition: border-color 360ms ease, box-shadow 360ms ease, background 360ms ease;
-  }
-  .mobile-eye::before {
-    content: "";
-    position: absolute;
-    inset: -25%;
-    background-image:
-      radial-gradient(circle, rgba(245,247,250,0.16) 1px, transparent 1.5px),
-      radial-gradient(circle, rgba(24,224,162,0.18) 1px, transparent 1.6px),
-      linear-gradient(120deg, transparent, rgba(216,194,138,0.14), transparent 34%, rgba(24,224,162,0.06), transparent 72%);
-    background-size: 42px 42px, 74px 74px, 100% 100%;
-    opacity: .30;
-    animation: mobileEyeDrift calc(18s / var(--mobile-eye-speed)) linear infinite, mobileAtmospherePulse 9s ease-in-out infinite;
-  }
-  .mobile-eye::after {
-    content: "";
-    position: absolute;
-    inset: -10%;
-    pointer-events: none;
-    background:
-      radial-gradient(circle at 18% 24%, rgba(245,247,250,0.11) 0 1px, transparent 2px),
-      radial-gradient(circle at 78% 62%, rgba(24,224,162,0.20) 0 1px, transparent 2px),
-      repeating-radial-gradient(ellipse at center, rgba(216,194,138,0.05) 0 1px, transparent 1px 24px),
-      conic-gradient(from 120deg at 50% 44%, transparent, rgba(216,194,138,0.15), transparent 28%, rgba(24,224,162,0.05), transparent 68%);
-    background-size: 54px 54px, 86px 86px, 100% 100%;
-    mask-image: radial-gradient(ellipse at center, #000 0 68%, transparent 86%);
-    opacity: calc(.45 * var(--mobile-eye-intensity));
-    animation: mobileEyeParticles calc(14s / var(--mobile-eye-speed)) ease-in-out infinite alternate;
-  }
-  .mobile-depth-lens,
-  .mobile-presence-trails {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .mobile-depth-lens {
-    z-index: 0;
-    background:
-      radial-gradient(ellipse at var(--mobile-eye-light-x) var(--mobile-eye-light-y), transparent 0 24%, rgba(216,194,138,.14) 25% 26%, transparent 27% 42%, rgba(24,224,162,.08) 43% 44%, transparent 45%),
-      radial-gradient(ellipse at 50% 63%, rgba(5,6,6,.34), transparent 34%),
-      conic-gradient(from 150deg at 50% 45%, transparent, rgba(216,194,138,.15), transparent 28%, rgba(24,224,162,.10), transparent 70%);
-    mask-image: radial-gradient(ellipse at center, #000 0 64%, transparent 88%);
-    mix-blend-mode: screen;
-    opacity: .62;
-    filter: saturate(154%) contrast(1.04);
-    animation: mobileDepthLens 12s ease-in-out infinite;
-  }
-  .mobile-presence-trails {
-    z-index: 1;
-    mix-blend-mode: screen;
-    opacity: .84;
-    filter: blur(.2px) saturate(152%);
-  }
-  .mobile-presence-trails span {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 118vw;
-    height: 1px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, transparent, rgba(216,194,138,.38), rgba(24,224,162,.30), transparent);
-    box-shadow: 0 0 20px rgba(216,194,138,.22), 0 0 48px rgba(24,224,162,.16);
-    opacity: 0;
-    transform-origin: center;
-    animation: mobilePresenceTrail 7.8s cubic-bezier(.2,.8,.2,1) infinite;
-  }
-  .mobile-presence-trails span:nth-child(1) { --mobile-trail-rotate: 18deg; animation-delay: -1s; }
-  .mobile-presence-trails span:nth-child(2) { --mobile-trail-rotate: -24deg; animation-delay: -3.5s; width: 96vw; }
-  .mobile-presence-trails span:nth-child(3) { --mobile-trail-rotate: 62deg; animation-delay: -5.4s; width: 78vw; background: linear-gradient(90deg, transparent, rgba(24,224,162,.34), rgba(216,194,138,.20), transparent); }
-  .mobile-eye-core {
-    --eye-accent: var(--gold);
-    --eye-intel: var(--green);
-    position: relative;
-    z-index: 1;
-    width: min(62vw, 256px);
-    aspect-ratio: 1;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    filter: drop-shadow(0 0 46px rgba(216,194,138,0.36)) drop-shadow(0 0 86px rgba(24,224,162,0.16));
-    animation: mobileEyeFloat 6.6s ease-in-out infinite;
-    transform-style: preserve-3d;
-  }
-  .mobile-eye-core::before,
-  .mobile-eye-core::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .mobile-eye-core::before {
-    inset: -19%;
-    z-index: 1;
-    border: 1px solid color-mix(in srgb, var(--eye-accent) 24%, transparent);
-    background:
-      radial-gradient(circle at 38% 24%, rgba(245,247,250,0.12), transparent 8%),
-      radial-gradient(circle at center, transparent 0 42%, color-mix(in srgb, var(--eye-accent) 11%, transparent) 43% 44%, transparent 58%),
-      conic-gradient(from 150deg, transparent 0 16%, color-mix(in srgb, var(--eye-accent) 18%, transparent), transparent 34% 60%, color-mix(in srgb, var(--eye-intel) 16%, transparent), transparent 84%);
-    box-shadow: 0 0 70px color-mix(in srgb, var(--eye-intel) 18%, transparent), inset 0 0 70px rgba(245,247,250,0.035);
-    opacity: .72;
-    animation: mobileEyeShell 17s ease-in-out infinite;
-  }
-  .mobile-eye-core::after {
-    inset: -6%;
-    z-index: 2;
-    background:
-      linear-gradient(118deg, transparent 12%, rgba(245,247,250,.18), transparent 28% 72%, rgba(216,194,138,.08), transparent 88%),
-      radial-gradient(ellipse at 50% 18%, rgba(245,247,250,.12), transparent 22%);
-    mix-blend-mode: screen;
-    opacity: .42;
-    animation: mobileEyeGlassGlide 11s ease-in-out infinite;
-  }
-  .mobile-eye-orbit,
-  .mobile-eye-ring,
-  .mobile-eye-iris,
-  .mobile-eye-pupil,
-  .mobile-eye-scan {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .mobile-eye-orbit { inset: 0; border: 1px solid color-mix(in srgb, var(--eye-accent) 68%, transparent); background: radial-gradient(circle, transparent 56%, color-mix(in srgb, var(--eye-accent) 12%, transparent)); box-shadow: 0 0 108px color-mix(in srgb, var(--eye-intel) 22%, transparent), 0 0 138px rgba(216,194,138,0.12), inset 0 0 92px rgba(216,194,138,0.075); animation: mobileEyeSpin calc(12s / var(--mobile-eye-speed)) linear infinite; }
-  .mobile-eye-ring { inset: 14%; border: 1px solid color-mix(in srgb, var(--eye-accent) 54%, transparent); background: conic-gradient(transparent, color-mix(in srgb, var(--eye-accent) 48%, transparent), transparent 55%, color-mix(in srgb, var(--eye-intel) 28%, transparent), transparent 76%); mask: radial-gradient(circle, transparent 58%, #000 59%); filter: drop-shadow(0 0 18px rgba(216,194,138,.20)); animation: mobileEyeSpin calc(7s / var(--mobile-eye-speed)) linear infinite reverse; }
-  .mobile-eye-iris { inset: 30%; background: radial-gradient(circle at 38% 28%, rgba(245,247,250,0.22), transparent 10%), radial-gradient(circle at 52% 52%, color-mix(in srgb, var(--eye-intel) 62%, transparent), transparent 60%); box-shadow: 0 0 62px color-mix(in srgb, var(--eye-intel) 50%, transparent), 0 0 96px rgba(216,194,138,.14); animation: mobileEyeBreath 5.8s ease-in-out infinite; }
-  .mobile-eye-pupil { inset: 43%; background: radial-gradient(circle at 50% 48%, #020303 0 48%, #090A0B 70%); border: 1px solid color-mix(in srgb, var(--eye-accent) 62%, transparent); box-shadow: inset 0 0 26px rgba(0,0,0,.95), 0 0 34px rgba(216,194,138,.20), 0 0 64px rgba(24,224,162,.14); }
-  .mobile-eye-scan { inset: 20%; opacity: 0; background: linear-gradient(180deg, transparent 44%, color-mix(in srgb, var(--eye-intel) 54%, transparent) 50%, transparent 56%); animation: mobileEyeScan 2s ease-in-out infinite; }
-  .mobile-eye-halo { position: absolute; inset: -13%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--eye-intel) 14%, transparent), transparent 58%); filter: blur(4px); opacity: .65; animation: mobileEyeHalo 5.8s ease-in-out infinite; }
-  .mobile-eye.eye-searching { --mobile-eye-speed: 1.8; --mobile-eye-intensity: 1.25; }
-  .mobile-eye.eye-searching .mobile-eye-scan { opacity: .88; }
-  .mobile-eye.eye-success { --mobile-eye-speed: .92; --mobile-eye-intensity: 1.08; border-color: rgba(24,224,162,0.34); }
-  .mobile-eye.eye-success .mobile-eye-core { --eye-accent: var(--gold); --eye-intel: var(--green); }
-  .mobile-eye.eye-alert { --mobile-eye-speed: 2.25; --mobile-eye-intensity: 1.4; border-color: rgba(255,92,122,0.42); box-shadow: 0 22px 84px rgba(255,92,122,0.14), 0 24px 80px rgba(0,0,0,0.44); }
-  .mobile-eye.eye-alert .mobile-eye-core { --eye-accent: var(--red); }
-  .mobile-eye.eye-restricted { --mobile-eye-speed: 2.15; --mobile-eye-intensity: 1.46; border-color: rgba(255,92,122,0.50); box-shadow: 0 22px 86px rgba(255,92,122,0.18), 0 24px 80px rgba(0,0,0,0.44); }
-  .mobile-eye.eye-restricted .mobile-eye-core { --eye-accent: var(--red); --eye-intel: var(--orange); }
-  body.entry-lock .topbar,
-  body.entry-lock .hero,
-  body.entry-lock .command,
-  body.entry-lock .panel,
-  body.entry-lock .nav,
-  body.entry-lock .voice-dock {
-    opacity: 0;
-    transform: translateY(16px);
-    pointer-events: none;
-  }
-  body.entry-lock .mobile-eye {
-    position: fixed;
-    inset: 0;
-    z-index: 20;
-    width: 100vw;
-    max-width: none;
-    min-height: 100svh;
-    border: 0;
-    border-radius: 0;
-    padding: max(48px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
-    background:
-      radial-gradient(circle at 50% 34%, rgba(216,194,138,0.22), transparent 25%),
-      radial-gradient(circle at 50% 52%, rgba(24,224,162,0.17), transparent 36%),
-      radial-gradient(ellipse at 50% 112%, rgba(216,194,138,0.14), transparent 42%),
-      #050606;
-    box-shadow: none;
-  }
-  body.entry-lock .mobile-depth-lens {
-    opacity: .88;
-    filter: saturate(172%) contrast(1.08);
-  }
-  body.entry-lock .mobile-presence-trails {
-    opacity: 1;
-  }
-  body.entry-lock .bridge-nav {
-    position: fixed;
-    top: max(64px, env(safe-area-inset-top));
-    left: 14px;
-    right: 14px;
-    z-index: 21;
-  }
-  body.entry-lock .mobile-eye-core {
-    width: min(86vw, 390px);
-    filter: drop-shadow(0 0 86px rgba(24,224,162,0.30)) drop-shadow(0 0 120px rgba(216,194,138,0.18));
-  }
-  body.entry-lock .mobile-eye-actions {
-    opacity: 0;
-  }
-  .mobile-eye.mobile-eye-entry-active::before {
-    animation: mobileEyeEntryFog 2.45s cubic-bezier(.2,.8,.2,1) both;
-  }
-  .mobile-eye.mobile-eye-entry-active::after {
-    animation: mobileEyeEntryParticles 2.45s cubic-bezier(.2,.8,.2,1) both;
-  }
-  .mobile-eye.mobile-eye-entry-active .mobile-eye-core {
-    animation: mobileEyeWake 2.45s cubic-bezier(.2,.8,.2,1) both;
-  }
-  .mobile-eye.mobile-eye-entry-active .mobile-eye-iris {
-    animation: mobileEyeIrisWake 2.45s cubic-bezier(.2,.8,.2,1) both;
-  }
-  .mobile-eye-title { position: relative; z-index: 1; text-align: center; }
-  .mobile-eye-kicker { color: var(--highlight); font-size: 10px; font-weight: 760; letter-spacing: 1px; text-transform: uppercase; }
-  .mobile-eye-name { margin-top: 2px; font-size: 32px; line-height: 1; font-weight: 820; }
-  .mobile-eye-sub { color: var(--text2); font-size: 12px; }
-  .mobile-eye-actions { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; }
-  .mobile-eye-actions .chip { text-align: center; border-radius: 7px; }
-  @keyframes mobileEyeDrift { to { transform: translate3d(-70px, -70px, 0); } }
-  @keyframes mobileAtmospherePulse { 0%, 100% { opacity: .22; } 46% { opacity: .44; } 72% { opacity: .31; } }
-  @keyframes mobileEyeParticles { from { transform: rotate(-3deg) scale(1); } to { transform: rotate(5deg) scale(1.08); } }
-  @keyframes mobileEyeFloat { 0%, 100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-5px,0); } }
-  @keyframes mobileEyeSpin { to { transform: rotate(360deg); } }
-  @keyframes mobileEyeBreath { 0%, 100% { transform: scale(.94); opacity: .78; } 50% { transform: scale(1.06); opacity: 1; } }
-  @keyframes mobileEyeScan { 0%, 100% { transform: translateY(-16%); } 50% { transform: translateY(16%); } }
-  @keyframes mobileEyeHalo { 0%, 100% { transform: scale(.94); opacity: .38; } 50% { transform: scale(1.08); opacity: .82; } }
-  @keyframes mobileEyeShell { 0%, 100% { transform: rotateX(0deg) rotateY(0deg) rotate(0deg) scale(.98); opacity: .58; } 42% { transform: rotateX(8deg) rotateY(-10deg) rotate(17deg) scale(1.04); opacity: .86; } 72% { transform: rotateX(-6deg) rotateY(8deg) rotate(-12deg) scale(1.01); opacity: .70; } }
-  @keyframes mobileEyeGlassGlide { 0%, 100% { transform: rotate(-14deg) translate3d(-4%, -2%, 0); opacity: .22; } 50% { transform: rotate(12deg) translate3d(5%, 3%, 0); opacity: .56; } }
-  @keyframes mobileCinematicSweep {
-    0%, 100% { opacity: .18; transform: translate3d(-34%, 12%, 0) rotate(-8deg); }
-    42% { opacity: .62; transform: translate3d(18%, -6%, 0) rotate(-4deg); }
-    68% { opacity: .36; transform: translate3d(34%, -12%, 0) rotate(2deg); }
-  }
-  @keyframes mobileDepthLens {
-    0%, 100% { opacity: .48; transform: scale(.98) rotate(-1deg); }
-    48% { opacity: .86; transform: scale(1.04) rotate(2deg); }
-    74% { opacity: .64; transform: scale(1.01) rotate(-2deg); }
-  }
-  @keyframes mobilePresenceTrail {
-    0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--mobile-trail-rotate, 18deg)) translateX(-44%) scaleX(.22); filter: blur(1.3px); }
-    18% { opacity: .22; }
-    44% { opacity: .82; filter: blur(.2px); }
-    74% { opacity: .18; }
-    100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--mobile-trail-rotate, 18deg)) translateX(44%) scaleX(1.04); filter: blur(1.8px); }
-  }
-  @keyframes mobileEyeEntryFog {
-    0% { opacity: 0; transform: scale(1.18) translate3d(18px, 22px, 0); filter: blur(18px); }
-    42% { opacity: .62; }
-    100% { opacity: .25; transform: scale(1) translate3d(-18px, -18px, 0); filter: blur(0); }
-  }
-  @keyframes mobileEyeEntryParticles {
-    0% { opacity: 0; transform: scale(.88) rotate(-9deg); }
-    58% { opacity: .76; }
-    100% { opacity: calc(.45 * var(--mobile-eye-intensity)); transform: scale(1) rotate(0deg); }
-  }
-  @keyframes mobileEyeWake {
-    0% { opacity: .08; transform: scale(.62) translateY(12px); filter: drop-shadow(0 0 0 rgba(24,224,162,0)); }
-    46% { opacity: 1; transform: scale(1.08) translateY(-2px); filter: drop-shadow(0 0 58px rgba(24,224,162,0.40)); }
-    100% { opacity: 1; transform: scale(1) translateY(0); filter: drop-shadow(0 0 36px rgba(216,194,138,0.30)); }
-  }
-  @keyframes mobileEyeIrisWake {
-    0% { opacity: 0; transform: scale(.36); box-shadow: 0 0 0 rgba(24,224,162,0); }
-    52% { opacity: 1; transform: scale(1.16); box-shadow: 0 0 74px rgba(24,224,162,0.52); }
-    100% { opacity: 1; transform: scale(1); box-shadow: 0 0 46px color-mix(in srgb, var(--eye-intel) 36%, transparent); }
-  }
-  .hero {
-    max-width: 100%;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    padding: 16px;
-    background: linear-gradient(135deg, rgba(216,194,138,0.16), rgba(17,19,23,0.86) 46%);
-    box-shadow: 0 24px 80px rgba(0,0,0,0.44);
-    backdrop-filter: blur(24px) saturate(150%);
-  }
-  .hero-kicker { color: var(--highlight); font-size: 11px; font-weight: 740; text-transform: uppercase; letter-spacing: 0.5px; }
-  .hero-title { margin-top: 8px; font-size: 28px; line-height: 1.08; font-weight: 780; }
-  .hero-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
-  .metric {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 10px 8px;
-    background: rgba(10,10,11,0.30);
-    min-width: 0;
-    overflow: hidden;
-  }
-  .metric strong { display: block; font-size: 17px; }
-  .metric span { color: var(--text3); font-size: 10px; }
-  .command {
-    max-width: 100%;
-    margin-top: 12px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 10px;
-    background: var(--surface);
-    backdrop-filter: blur(22px) saturate(150%);
-  }
-  .voice-dock {
-    position: fixed;
-    left: 50%;
-    bottom: calc(64px + env(safe-area-inset-bottom));
-    z-index: 6;
-    transform: translateX(-50%);
-    width: min(452px, calc(100vw - 28px));
-    display: grid;
-    grid-template-columns: 54px minmax(0, 1fr) 78px;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(216,194,138,0.30);
-    border-radius: 999px;
-    padding: 8px;
-    background: rgba(5,6,6,0.70);
-    box-shadow: 0 18px 70px rgba(0,0,0,0.48), inset 0 1px 0 rgba(245,247,250,0.07);
-    backdrop-filter: blur(24px) saturate(150%);
-    transition: opacity 420ms ease, transform 420ms cubic-bezier(.2,.8,.2,1);
-  }
-  .voice-orb {
-    width: 42px;
-    aspect-ratio: 1;
-    border: 1px solid rgba(24,224,162,0.42);
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 50% 45%, rgba(24,224,162,0.86), transparent 42%),
-      radial-gradient(circle, rgba(216,194,138,0.24), transparent 72%),
-      #050606;
-    box-shadow: 0 0 34px rgba(24,224,162,0.26);
-    animation: voiceOrbPulse 2.8s ease-in-out infinite;
-  }
-  .voice-copy { min-width: 0; }
-  .voice-title { font-size: 12px; font-weight: 760; }
-  .voice-sub { color: var(--text3); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .voice-run {
-    border: 1px solid rgba(216,194,138,0.34);
-    border-radius: 999px;
-    min-height: 38px;
-    color: #050606;
-    background: linear-gradient(135deg, rgba(216,194,138,.96), rgba(24,224,162,.84));
-    font-size: 12px;
-    font-weight: 800;
-  }
-  @keyframes voiceOrbPulse { 0%, 100% { transform: scale(.94); opacity: .76; } 50% { transform: scale(1.06); opacity: 1; } }
-  .command-row { display: grid; grid-template-columns: 1fr 44px; gap: 8px; }
-  .command input {
-    width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 11px 12px;
-    background: rgba(10,10,11,0.42);
-    color: var(--text);
-    outline: none;
-  }
-  .command input:focus { border-color: var(--highlight); box-shadow: 0 0 0 3px rgba(24,224,162,0.13); }
-  .icon-btn {
-    border: 1px solid var(--border-strong);
-    border-radius: 7px;
-    color: var(--text);
-    background: rgba(216,194,138,0.14);
-    min-height: 42px;
-    font-weight: 760;
-  }
-  .chips { display: flex; gap: 7px; overflow-x: auto; padding: 12px 0 2px; scrollbar-width: none; }
-  .chip {
-    white-space: nowrap;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 7px 10px;
-    background: rgba(17,19,23,0.68);
-    color: var(--text2);
-    font-size: 12px;
-    font-weight: 650;
-  }
-  .chip.active { color: var(--text); border-color: var(--border-strong); background: rgba(216,194,138,0.16); }
-  .panel { display: none; margin-top: 12px; }
-  .panel.active { display: grid; gap: 10px; animation: panelIn 220ms ease both; }
-  @keyframes panelIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-  .card {
-    max-width: 100%;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
-    padding: 12px;
-    box-shadow: 0 18px 54px rgba(0,0,0,0.34);
-    backdrop-filter: blur(22px) saturate(150%);
-  }
-  .card-head { display: flex; justify-content: space-between; gap: 10px; align-items: center; margin-bottom: 9px; }
-  .card-title { font-size: 12px; font-weight: 760; text-transform: uppercase; color: var(--text2); letter-spacing: 0.5px; }
-  .card-action { font-size: 11px; color: var(--highlight); font-weight: 700; }
-  .list { display: grid; gap: 8px; }
-  .item {
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 10px;
-    background: rgba(10,10,11,0.25);
-    min-width: 0;
-  }
-  .item-title { font-size: 13px; font-weight: 720; overflow-wrap: anywhere; }
-  .item-meta { margin-top: 3px; color: var(--text3); font-size: 11px; overflow-wrap: anywhere; }
-  .health-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .health {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 9px 10px;
-    background: rgba(10,10,11,0.25);
-    color: var(--text2);
-    font-size: 12px;
-  }
-  .dot { width: 7px; height: 7px; border-radius: 999px; background: var(--green); box-shadow: 0 0 18px rgba(61,220,151,0.80); margin-top: 5px; flex: 0 0 auto; }
-  .nav {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    z-index: 5;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 480px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
-    padding: 9px 10px max(9px, env(safe-area-inset-bottom));
-    background: rgba(10,10,11,0.76);
-    border-top: 1px solid var(--border);
-    backdrop-filter: blur(22px) saturate(150%);
-  }
-  .nav button {
-    border: 1px solid transparent;
-    border-radius: 7px;
-    padding: 8px 4px;
-    color: var(--text3);
-    background: transparent;
-    font-size: 10px;
-    font-weight: 720;
-  }
-  .nav button.active { color: var(--text); border-color: var(--border-strong); background: rgba(216,194,138,0.14); }
-  .notice { color: var(--orange); font-size: 11px; }
-  @media (min-width: 481px) {
-    .app { border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
-  }
-  @media (max-width: 360px) {
-    .app { padding-left: 10px; padding-right: 10px; }
-    .mobile-eye-actions { grid-template-columns: 1fr; }
-    .hero { padding: 12px; }
-    .hero-title { font-size: 24px; }
-    .metric { padding: 8px 6px; }
-    .metric strong { font-size: 15px; }
-    .metric span { font-size: 9px; }
-    .mobile-eye-core { width: min(58vw, 210px); }
-    .voice-dock { grid-template-columns: 48px minmax(0, 1fr) 66px; }
-  }
+/* ============================================================
+   AIOS Command Console — the operator's cockpit.
+   Same world as the site: obsidian · champagne · emerald=live.
+   But this is a TOOL: status-first, state encoded in form,
+   scanned not read. Mono for data, serif only for headline moments.
+   ============================================================ */
+:root{
+  color-scheme:dark;
+  --obsidian:#0A0B0F; --obsidian-2:#0F1117; --panel:#12141B; --panel-2:#171A22;
+  --ivory:#F2EFE8; --muted:#9096A2; --dim:#5C616D;
+  --champagne:#D9B877; --champagne-deep:#B8934E; --champagne-soft:rgba(217,184,119,.12);
+  --live:#34E39A; --live-soft:rgba(52,227,154,.12); --warn:#E0A951; --red:#E8756A;
+  --line:rgba(217,184,119,.15); --line-cool:rgba(255,255,255,.07);
+  --serif:Georgia,"Times New Roman",ui-serif,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Menlo","Consolas",monospace;
+  --ar:"SF Arabic","Geeza Pro","Segoe UI",Tahoma,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --app:460px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--obsidian);height:100%}
+body{font-family:var(--sans);color:var(--ivory);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow:hidden}
+::selection{background:var(--champagne);color:var(--obsidian)}
+[dir="rtl"] body{font-family:var(--ar)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+button:focus-visible{outline:2px solid var(--champagne);outline-offset:2px;border-radius:8px}
+
+/* ambient canvas behind the app frame (desktop) */
+#field{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7}
+.stage{position:fixed;inset:0;z-index:1;display:flex;align-items:center;justify-content:center}
+
+/* the phone-sized app column */
+.app{position:relative;width:var(--app);max-width:100vw;height:100svh;max-height:920px;
+  background:linear-gradient(180deg,#0c0e13,#0a0b0f);display:flex;flex-direction:column;overflow:hidden;
+  border-left:1px solid var(--line-cool);border-right:1px solid var(--line-cool)}
+@media(min-width:520px){.app{height:900px;border-radius:38px;border:1px solid var(--line-cool);
+  box-shadow:0 60px 140px -50px rgba(0,0,0,.95),inset 0 1px 0 rgba(255,255,255,.05)}}
+
+/* ---------- top bar ---------- */
+.bar{padding:calc(env(safe-area-inset-top,12px) + 14px) 20px 14px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--line-cool);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);flex:none}
+.bar .id{display:flex;align-items:center;gap:11px}
+.bar .mark{width:32px;height:32px;flex:none}
+.bar .who .g{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.bar .who .n{font-family:var(--serif);font-size:17px;line-height:1.1;margin-top:1px}
+.bar .lang{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--champagne);
+  border:1px solid var(--line);background:var(--champagne-soft);padding:6px 10px;border-radius:999px}
+
+/* ---------- scroll body ---------- */
+.view{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:20px 18px 28px}
+.view::-webkit-scrollbar{width:0}
+.screen{display:none;animation:fade .5s var(--ease)}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne)}
+.sec-t{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:26px 4px 12px;display:flex;justify-content:space-between}
+
+/* ---------- live status card ---------- */
+.status{border:1px solid var(--line);border-radius:20px;padding:20px;position:relative;overflow:hidden;
+  background:radial-gradient(120% 130% at 100% 0,var(--live-soft),transparent 55%),linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+.status .row1{display:flex;align-items:center;gap:10px}
+.pulse{width:9px;height:9px;border-radius:50%;background:var(--live);box-shadow:0 0 0 0 rgba(52,227,154,.6);animation:pl 2.2s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(52,227,154,.5)}70%{box-shadow:0 0 0 11px rgba(52,227,154,0)}100%{box-shadow:0 0 0 0 rgba(52,227,154,0)}}
+.status .st{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--live)}
+.status h2{font-family:var(--serif);font-size:25px;font-weight:400;margin:12px 0 4px;line-height:1.15}
+.status .sub{color:var(--muted);font-size:13px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;padding:5px 9px;border-radius:8px;
+  border:1px solid var(--line-cool);color:var(--muted);display:flex;align-items:center;gap:5px}
+.chip .d{width:5px;height:5px;border-radius:50%;background:var(--live)}
+.chip.ok{color:var(--live);border-color:rgba(52,227,154,.25);background:var(--live-soft)}
+
+/* ---------- metric tiles ---------- */
+.tiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+.tile{border:1px solid var(--line-cool);border-radius:14px;padding:14px 12px;background:rgba(255,255,255,.015)}
+.tile .n{font-family:var(--serif);font-size:23px;color:var(--champagne);line-height:1}
+.tile .l{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.3}
+
+/* ---------- department rows ---------- */
+.dep{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line-cool)}
+.dep:last-child{border-bottom:0}
+.dep .code{font-family:var(--mono);font-size:10px;color:var(--dim);width:26px;flex:none}
+.dep .body{flex:1;min-width:0}
+.dep .nm{font-size:13.5px;margin-bottom:6px}
+.dep .meter{height:5px;border-radius:99px;background:rgba(255,255,255,.09);overflow:hidden}
+.dep .meter i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#C9A25E,#EBCB88);box-shadow:0 0 10px -2px rgba(217,184,119,.5)}
+.dep.live .meter i{background:linear-gradient(90deg,#1c8f63,var(--live));box-shadow:0 0 10px -2px rgba(52,227,154,.5)}
+.dep .v{font-family:var(--mono);font-size:12px;color:var(--ivory);width:38px;text-align:right;flex:none}
+.dep.live .v{color:var(--live)}
+
+/* ---------- ASK screen (honest demo chat) ---------- */
+.ask-head{text-align:center;padding:8px 10px 4px}
+.ask-head h2{font-family:var(--serif);font-size:24px;font-weight:400;line-height:1.2}
+.ask-head h2 em{font-style:italic;color:var(--champagne)}
+.ask-head p{color:var(--muted);font-size:13px;margin-top:8px}
+.thread{display:flex;flex-direction:column;gap:10px;margin:18px 0 14px;min-height:180px}
+.msg{max-width:86%;padding:11px 14px;border-radius:16px;font-size:13.5px;line-height:1.55;opacity:0;transform:translateY(8px);animation:pop .4s var(--ease) forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+.msg.me{align-self:flex-end;background:#1f3d33;border-bottom-right-radius:5px}
+.msg.ai{align-self:flex-start;background:var(--panel-2);border:1px solid var(--line-cool);border-bottom-left-radius:5px}
+.msg .verify{display:block;margin-top:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;padding-top:7px;border-top:1px solid rgba(52,227,154,.2);color:var(--live)}
+.msg .verify.no{color:var(--champagne);border-top-color:rgba(217,184,119,.25)}
+.typing{align-self:flex-start;background:var(--panel-2);border:1px solid var(--line-cool);border-radius:16px;border-bottom-left-radius:5px;padding:13px 15px;display:flex;gap:4px;width:max-content}
+.typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:td 1.3s infinite}
+.typing span:nth-child(2){animation-delay:.18s}.typing span:nth-child(3){animation-delay:.36s}
+@keyframes td{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.suggest{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.sg{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;padding:9px 13px;border-radius:999px;
+  border:1px solid var(--line);color:var(--ivory);background:rgba(217,184,119,.05);transition:all .3s}
+.sg:hover,.sg:active{background:var(--champagne);color:var(--obsidian)}
+
+/* ---------- PULSE screen ---------- */
+.vitals{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vital{border:1px solid var(--line-cool);border-radius:16px;padding:16px;background:rgba(0,0,0,.2)}
+.vital .n{font-family:var(--serif);font-size:28px;color:var(--champagne);line-height:1}
+.vital .n.live{color:var(--live)}
+.vital .l{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:9px;line-height:1.35}
+.vital .spark{margin-top:12px;height:28px;width:100%;display:block}
+.health{margin-top:16px;border:1px solid var(--line-cool);border-radius:16px;overflow:hidden}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line-cool);font-size:13px}
+.hrow:last-child{border-bottom:0}
+.hrow .k{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.03em}
+.hrow .s{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.hrow .s .d{width:6px;height:6px;border-radius:50%}
+.hrow .s.up{color:var(--live)} .hrow .s.up .d{background:var(--live)}
+.endpoint{margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--dim);border:1px solid var(--line-cool);
+  border-radius:12px;padding:12px 14px;overflow-x:auto;white-space:nowrap}
+.endpoint b{color:var(--live)}
+.note{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.03em;line-height:1.7;margin-top:16px;
+  border-left:2px solid var(--line);padding-left:12px}
+[dir="rtl"] .note{border-left:0;border-right:2px solid var(--line);padding-left:0;padding-right:12px}
+
+/* ---------- bottom tab bar ---------- */
+.tabs{display:flex;border-top:1px solid var(--line-cool);background:rgba(10,11,15,.9);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding:8px 8px calc(env(safe-area-inset-bottom,8px) + 8px);flex:none}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 0;color:var(--dim);transition:color .3s}
+.tab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.5}
+.tab .t{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase}
+.tab.on{color:var(--champagne)}
+.tab.on svg{filter:drop-shadow(0 0 8px rgba(217,184,119,.4))}
+
+/* bilingual */
+[lang-ar]{display:none}
+[dir="rtl"] [lang-en]{display:none}[dir="rtl"] [lang-ar]{display:inline}
+[dir="rtl"] .dep .v,[dir="rtl"] .hrow{direction:rtl}
 </style>
 </head>
 <body>
-<div class="narrative-shell" aria-hidden="true">
-  <video class="narrative-video is-active" data-layer="primary" autoplay muted loop playsinline preload="auto">
-    <source src="assets/aios-eye-cinematic-loop-phase55.mp4" type="video/mp4">
-  </video>
-  <video class="narrative-video" data-layer="secondary" autoplay muted loop playsinline preload="auto"></video>
-  <div class="narrative-video-overlay"></div>
-</div>
-<div class="narrative-logo-watermark" aria-hidden="true"><strong>AIOS</strong><span>HSH Life Forever</span></div>
-<main class="app">
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-title">AI<span>OS</span></div>
-      <div class="brand-sub">Mobile Operating Console</div>
-    </div>
-    <div class="status-pill" id="routerStatus">Local</div>
-  </header>
-  <nav class="bridge-nav" aria-label="AIOS page navigation">
-    <a href="AIOS-WEBSITE.html">Website</a>
-    <a href="AIOS-DASHBOARD.html" title="Return to Command Center" aria-label="Return to Command Center">Command Center</a>
-    <a href="AIOS-RUNTIME-STATUS.html">Runtime Status</a>
-    <a href="AIOS-MOBILE-APP.html">Mobile Console</a>
-  </nav>
+<canvas id="field"></canvas>
+<div class="stage">
+<div class="app">
 
-  <section class="mobile-eye eye-idle mobile-eye-entry-active" id="mobileEye">
-    <div class="mobile-depth-lens" aria-hidden="true"></div>
-    <div class="mobile-presence-trails" aria-hidden="true"><span></span><span></span><span></span></div>
-    <div class="mobile-eye-core">
-      <div class="mobile-eye-halo"></div>
-      <div class="mobile-eye-orbit"></div>
-      <div class="mobile-eye-ring"></div>
-      <div class="mobile-eye-iris"></div>
-      <div class="mobile-eye-pupil"></div>
-      <div class="mobile-eye-scan"></div>
-    </div>
-    <div class="mobile-eye-title">
-      <div class="mobile-eye-kicker" id="mobileEyeStatus">IDLE · EXECUTIVE</div>
-      <div class="mobile-eye-name">AIOS</div>
-      <div class="mobile-eye-sub">Operating Console</div>
-    </div>
-    <div class="mobile-eye-actions">
-      <button class="chip active" onclick="mobileEyeAction('Search everything')">Search</button>
-      <button class="chip" onclick="mobileEyeAction('Find property intelligence')">Property</button>
-      <button class="chip" onclick="mobileEyeAction('Show operations checklists')">Ops</button>
-      <button class="chip" onclick="mobileEyeAction('Prepare voice command note')">Voice</button>
-    </div>
-  </section>
-
-  <section class="hero">
-    <div class="hero-kicker">Executive Control</div>
-    <div class="hero-title">Run HSH from the phone.</div>
-    <div class="hero-grid">
-      <div class="metric"><strong id="recordCount">0</strong><span>records</span></div>
-      <div class="metric"><strong id="taskCount">0</strong><span>tasks</span></div>
-      <div class="metric"><strong id="approvalCount">0</strong><span>approvals</span></div>
-    </div>
-  </section>
-
-  <section class="command">
-    <div class="command-row">
-      <input id="askInput" placeholder="Enter request..." autocomplete="off">
-      <button class="icon-btn" onclick="askMobileAIOS()" aria-label="Run request">Run</button>
-    </div>
-    <div class="chips" id="quickChips">
-      <button class="chip active" onclick="setQuery('Find property intelligence')">Property Search</button>
-      <button class="chip" onclick="setQuery('Find lead and client records')">Lead Search</button>
-      <button class="chip" onclick="setQuery('Show operations checklists')">Operations Assistant</button>
-      <button class="chip" onclick="setQuery('Find documents and contracts')">Documents</button>
-      <button class="chip" onclick="setQuery('Prepare voice command note')">Voice Command</button>
-    </div>
-  </section>
-
-  <section class="voice-dock" aria-label="AIOS voice command dock">
-    <div class="voice-orb" aria-hidden="true"></div>
-    <div class="voice-copy">
-      <div class="voice-title">Voice Command</div>
-      <div class="voice-sub" id="voiceDockStatus">Ready for local command note</div>
-    </div>
-    <button class="voice-run" onclick="runVoiceDock()">Hold</button>
-  </section>
-
-  <section class="panel active" id="panel-home">
-    <div class="card">
-      <div class="card-head"><div class="card-title">CEO Report</div><div class="card-action">latest</div></div>
-      <div class="list">
-        <a class="row" href="CEO_REPORT_2026-07-03_LATE.html" style="text-decoration:none;color:inherit;">
-          <div class="row-title">Latest CEO Report</div>
-          <div class="row-path">Railway deployed · WhatsApp live · Resolver matching</div>
-        </a>
+  <!-- top bar -->
+  <div class="bar">
+    <div class="id">
+      <span class="mark"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#D9B877" stroke-width="1.2" opacity=".5"/><circle cx="16" cy="16" r="5" fill="#D9B877"/><path d="M16 2v6M16 24v6M2 16h6M24 16h6" stroke="#D9B877" stroke-width="1.2" opacity=".7"/></svg></span>
+      <div class="who">
+        <div class="g"><span lang-en>Command Console</span><span lang-ar>لوحة القيادة</span></div>
+        <div class="n"><span lang-en>Good evening, Omar</span><span lang-ar>مساء الخير، عمر</span></div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-head"><div class="card-title">System Health</div><div class="card-action">live local</div></div>
-      <div class="health-grid" id="healthGrid"></div>
-    </div>
-    <div class="card">
-      <div class="card-head"><div class="card-title">Notifications</div><div class="card-action" id="notificationCount">0</div></div>
-      <div class="list" id="notificationsList"></div>
-    </div>
-  </section>
+    <button class="lang" id="lang" aria-label="Switch language">EN · ع</button>
+  </div>
 
-  <section class="panel" id="panel-search">
-    <div class="card">
-      <div class="card-head"><div class="card-title">Search Everything</div><div class="card-action" id="searchScope">local index</div></div>
-      <div class="list" id="searchResults"></div>
-    </div>
-    <div class="card">
-      <div class="card-head"><div class="card-title">Property Search</div><div class="card-action">inventory</div></div>
-      <div class="list" id="propertyResults"></div>
-    </div>
-    <div class="card">
-      <div class="card-head"><div class="card-title">Lead Search</div><div class="card-action">Pipeline</div></div>
-      <div class="list" id="leadResults"></div>
-    </div>
-  </section>
+  <!-- scroll body -->
+  <div class="view">
 
-  <section class="panel" id="panel-work">
-    <div class="card">
-      <div class="card-head"><div class="card-title">Tasks</div><div class="card-action" id="workTaskCount">pending</div></div>
-      <div class="list" id="taskList"></div>
-    </div>
-    <div class="card">
-      <div class="card-head"><div class="card-title">Calendar</div><div class="card-action">read contract</div></div>
-      <div class="list" id="calendarList"></div>
-    </div>
-  </section>
+    <!-- ========== CONSOLE ========== -->
+    <div class="screen on" id="s-console">
+      <div class="status">
+        <div class="row1"><span class="pulse"></span><span class="st"><span lang-en>Reply chain live</span><span lang-ar>سلسلة الرد حيّة</span></span></div>
+        <h2><span lang-en>The system is answering.</span><span lang-ar>النظام يُجيب.</span></h2>
+        <div class="sub"><span lang-en>Every link in the WhatsApp path is up. A real message gets a real, verified reply.</span><span lang-ar>كل حلقة في مسار واتساب تعمل. الرسالة الحقيقية تحصل على ردٍّ حقيقيٍّ موثّق.</span></div>
+        <div class="chips">
+          <span class="chip ok"><span class="d"></span>runtime</span>
+          <span class="chip ok"><span class="d"></span>resolver_db</span>
+          <span class="chip ok"><span class="d"></span>webhook_auth</span>
+          <span class="chip ok"><span class="d"></span>wasender_send</span>
+          <span class="chip ok"><span class="d"></span>brain</span>
+          <span class="chip ok"><span class="d"></span>fallback</span>
+        </div>
+      </div>
 
-  <section class="panel" id="panel-comms">
-    <div class="card">
-      <div class="card-head"><div class="card-title">Gmail</div><div class="card-action">draft only</div></div>
-      <div class="list" id="gmailList"></div>
-    </div>
-    <div class="card">
-      <div class="card-head"><div class="card-title">Documents</div><div class="card-action">Drive</div></div>
-      <div class="list" id="documentList"></div>
-    </div>
-  </section>
+      <div class="sec-t"><span><span lang-en>Truth Bridge</span><span lang-ar>جسر الحقيقة</span></span><span class="mono">/ live</span></div>
+      <div class="tiles">
+        <div class="tile"><div class="n mono">55.5</div><div class="l"><span lang-en>Quality /100</span><span lang-ar>الجودة /١٠٠</span></div></div>
+        <div class="tile"><div class="n mono">237</div><div class="l"><span lang-en>Quotable rows</span><span lang-ar>سجل قابل للاقتباس</span></div></div>
+        <div class="tile"><div class="n mono">26,306</div><div class="l"><span lang-en>Verified records</span><span lang-ar>سجل موثّق</span></div></div>
+      </div>
 
-  <section class="panel" id="panel-ops">
-    <div class="card">
-      <div class="card-head"><div class="card-title">Operations Assistant</div><div class="card-action">DLD RERA NOC</div></div>
-      <div class="list" id="operationsList"></div>
+      <div class="sec-t"><span><span lang-en>Twelve departments</span><span lang-ar>الأقسام الاثنا عشر</span></span><span class="mono"><span lang-en>real readiness</span><span lang-ar>جاهزية حقيقية</span></span></div>
+      <div id="deps"></div>
     </div>
-    <div class="card">
-      <div class="card-head"><div class="card-title">Voice Commands</div><div class="card-action">local note</div></div>
-      <div class="list" id="voiceCommandList"></div>
+
+    <!-- ========== ASK ========== -->
+    <div class="screen" id="s-ask">
+      <div class="ask-head">
+        <span class="eyebrow"><span lang-en>Ask it anything</span><span lang-ar>اسأله أيّ شيء</span></span>
+        <h2 style="margin-top:10px"><span lang-en>Try to catch it <em>lying.</em></span><span lang-ar>حاول أن تُمسكه <em>يكذب.</em></span></h2>
+        <p><span lang-en>Tap a question. It quotes verified stock — or admits when it can't.</span><span lang-ar>اضغط سؤالاً. يقتبس المخزون الموثّق — أو يعترف حين لا يستطيع.</span></p>
+      </div>
+      <div class="thread" id="thread"></div>
+      <div class="suggest" id="suggest"></div>
     </div>
-  </section>
-</main>
 
-<nav class="nav">
-  <button class="active" onclick="showPanel('home', this)">Home</button>
-  <button onclick="showPanel('search', this)">Search</button>
-  <button onclick="showPanel('work', this)">Work</button>
-  <button onclick="showPanel('comms', this)">Comms</button>
-  <button onclick="showPanel('ops', this)">Ops</button>
-</nav>
+    <!-- ========== PULSE ========== -->
+    <div class="screen" id="s-pulse">
+      <span class="eyebrow"><span lang-en>The system's own vitals</span><span lang-ar>مؤشّرات النظام الحيوية</span></span>
+      <div class="vitals" style="margin-top:14px">
+        <div class="vital"><div class="n mono">55.5</div><div class="l"><span lang-en>Truth Bridge /100</span><span lang-ar>جسر الحقيقة /١٠٠</span></div><svg class="spark" id="v1" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+        <div class="vital"><div class="n mono">237</div><div class="l"><span lang-en>Quotable rows</span><span lang-ar>سجل قابل للاقتباس</span></div><svg class="spark" id="v2" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+        <div class="vital"><div class="n mono">223</div><div class="l"><span lang-en>Canonical properties</span><span lang-ar>عقار مرجعي</span></div><svg class="spark" id="v3" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+        <div class="vital"><div class="n mono live">LIVE</div><div class="l"><span lang-en>Reply chain</span><span lang-ar>سلسلة الرد</span></div><svg class="spark" id="v4" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+      </div>
 
-<script src="aios-config.js"></script>
+      <div class="sec-t"><span><span lang-en>Deep health</span><span lang-ar>الصحة العميقة</span></span><span class="mono">/api/health/deep</span></div>
+      <div class="health">
+        <div class="hrow"><span class="k">runtime</span><span class="s up"><span class="d"></span>healthy</span></div>
+        <div class="hrow"><span class="k">resolver_db</span><span class="s up"><span class="d"></span>healthy</span></div>
+        <div class="hrow"><span class="k">webhook_auth</span><span class="s up"><span class="d"></span>verified</span></div>
+        <div class="hrow"><span class="k">wasender_send</span><span class="s up"><span class="d"></span>ready</span></div>
+        <div class="hrow"><span class="k">brain · n8n · openai</span><span class="s up"><span class="d"></span>live</span></div>
+        <div class="hrow"><span class="k">fallback_reply</span><span class="s up"><span class="d"></span>armed</span></div>
+      </div>
+      <div class="endpoint mono">GET /api/health/deep → status: healthy · <b>reply_chain_live: true</b></div>
+      <p class="note"><span lang-en>These are the system's own numbers, pulled from its reports — not marketing figures. Where a value is still climbing, it's shown as it is.</span><span lang-ar>هذه أرقام النظام نفسه، مأخوذة من تقاريره — لا أرقام تسويقية. وحين تكون القيمة لا تزال تصعد، تُعرض كما هي.</span></p>
+    </div>
+
+  </div>
+
+  <!-- tab bar -->
+  <nav class="tabs" role="tablist">
+    <button class="tab on" data-s="console" role="tab" aria-selected="true">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      <span class="t"><span lang-en>Console</span><span lang-ar>اللوحة</span></span>
+    </button>
+    <button class="tab" data-s="ask" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5Z"/></svg>
+      <span class="t"><span lang-en>Ask</span><span lang-ar>اسأل</span></span>
+    </button>
+    <button class="tab" data-s="pulse" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24"><path d="M2 12h4l3-8 5 16 3-8h5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="t"><span lang-en>Pulse</span><span lang-ar>النبض</span></span>
+    </button>
+  </nav>
+
+</div>
+</div>
+
 <script>
-  let data = { health: {}, search_index: [], workflows: [], activity: [], action_queue: { actions: [] }, approval_state: { approvals: [] }, mobile_command_report: { actions: [], notifications: [], mobile_panels: {} } };
-  let activeQuery = "";
-  let activeMobileScene = "idle";
-  let activeMobileLayer = "primary";
-  const mobileSceneLibrary = {
-    idle: "assets/aios-eye-cinematic-loop-phase55.mp4",
-    thinking: "assets/aios-eye-cinematic-loop-phase54.mp4",
-    searching: "assets/aios-eye-cinematic-loop-phase54.mp4",
-    success: "assets/aios-eye-cinematic-loop-phase53.mp4",
-    alert: "assets/aios-eye-cinematic-loop-phase52.mp4",
-    restricted: "assets/aios-eye-cinematic-loop-phase52.mp4"
-  };
-  const featureKeywords = {
-    property: ["property", "listing", "inventory", "developer", "market", "investment", "buyer"],
-    lead: ["lead", "client", "contact", "crm", "follow"],
-    operations: ["dld", "rera", "noc", "ejari", "transfer", "mortgage", "visa", "operation"],
-    documents: ["document", "contract", "drive", "knowledge", "sop", "playbook"],
-    gmail: ["gmail", "email", "draft"],
-    calendar: ["calendar", "viewing", "appointment"],
-  };
-
-  function escapeHTML(value) {
-    return String(value || "").replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
-  }
-
-  function mobileSceneShell() {
-    return {
-      shell: document.querySelector(".narrative-shell"),
-      primary: document.querySelector('.narrative-video[data-layer="primary"]'),
-      secondary: document.querySelector('.narrative-video[data-layer="secondary"]')
-    };
-  }
-
-  function setMobileScene(nextScene, reason = "data") {
-    const { shell, primary, secondary } = mobileSceneShell();
-    if (!shell || !primary || !secondary) return;
-    const scene = mobileSceneLibrary[nextScene] ? nextScene : "idle";
-    const nextSrc = mobileSceneLibrary[scene];
-    const active = activeMobileLayer === "primary" ? primary : secondary;
-    const standby = activeMobileLayer === "primary" ? secondary : primary;
-    const activeSrc = active.currentSrc || active.getAttribute("src") || active.querySelector("source")?.getAttribute("src") || "";
-    if (activeMobileScene === scene && activeSrc.includes(nextSrc)) return;
-    standby.pause();
-    standby.removeAttribute("src");
-    standby.load();
-    standby.src = nextSrc;
-    standby.dataset.scene = scene;
-    standby.muted = true;
-    standby.loop = true;
-    standby.playsInline = true;
-    const playPromise = standby.play();
-    if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
-    standby.classList.add("is-active");
-    active.classList.remove("is-active");
-    activeMobileLayer = activeMobileLayer === "primary" ? "secondary" : "primary";
-    activeMobileScene = scene;
-    shell.dataset.scene = scene;
-    shell.dataset.sceneReason = reason;
-  }
-
-  function deriveMobileScene() {
-    const params = new URLSearchParams(window.location.search);
-    const forced = params.get("scene");
-    if (forced && mobileSceneLibrary[forced]) return { scene: forced, reason: "query" };
-    const approvals = ((data.approval_state || {}).approvals || []).length;
-    const actions = (((data.mobile_command_report || {}).actions) || (data.action_queue || {}).actions || []).length;
-    const records = (data.search_index || []).length;
-    if (!navigator.onLine) return { scene: "alert", reason: "offline" };
-    if (approvals > 0) return { scene: "alert", reason: "pending_approvals" };
-    if (actions > 0) return { scene: "success", reason: "staged_actions" };
-    if (records > 0) return { scene: "success", reason: "mobile_ready" };
-    return { scene: "idle", reason: "idle" };
-  }
-
-  function itemHTML(title, meta) {
-    return `<div class="item"><div class="item-title">${escapeHTML(title)}</div><div class="item-meta">${escapeHTML(meta)}</div></div>`;
-  }
-
-  function matches(row, needles) {
-    const haystack = `${row.title || ""} ${row.path || ""} ${(row.tags || []).join(" ")} ${row.excerpt || ""}`.toLowerCase();
-    return needles.some(needle => haystack.includes(needle));
-  }
-
-  function rowsFor(kind, limit = 5) {
-    const needles = featureKeywords[kind] || [];
-    return (data.search_index || []).filter(row => matches(row, needles)).slice(0, limit);
-  }
-
-  function renderRows(id, rows, emptyTitle, emptyMeta) {
-    const box = document.getElementById(id);
-    if (!box) return;
-    box.innerHTML = rows.length
-      ? rows.map(row => itemHTML(row.title || row.name, row.path || row.summary || row.category)).join("")
-      : itemHTML(emptyTitle, emptyMeta);
-  }
-
-  function renderHealth() {
-    const keys = ["brain", "router", "crm", "database", "whatsapp", "calendar", "gmail", "drive", "follow_up", "content_factory"];
-    const box = document.getElementById("healthGrid");
-    box.innerHTML = keys.map(key => `<div class="health"><span>${escapeHTML(key.replaceAll("_", " "))}</span><span class="dot"></span></div>`).join("");
-    document.getElementById("routerStatus").textContent = data.health && data.health.router ? "Online" : "Local";
-  }
-
-  function renderAll() {
-    const mobile = data.mobile_command_report || {};
-    const mobilePanels = mobile.mobile_panels || {};
-    const actions = mobile.actions || (data.action_queue || {}).actions || [];
-    const notifications = mobile.notifications || (data.activity || []);
-    const mobileTasks = (mobilePanels.work || {}).tasks || [];
-    const comms = mobilePanels.comms || {};
-    const ops = mobilePanels.ops || {};
-    const approvals = (data.approval_state || {}).approvals || [];
-    document.getElementById("recordCount").textContent = (data.search_index || []).length;
-    document.getElementById("taskCount").textContent = actions.length;
-    document.getElementById("approvalCount").textContent = approvals.length;
-    document.getElementById("workTaskCount").textContent = (mobileTasks.length || actions.length) + " staged";
-    document.getElementById("notificationCount").textContent = notifications.length;
-    renderHealth();
-    renderRows("notificationsList", notifications.slice(0, 5).map(row => ({ title: row.title, path: row.summary || row.panel || row.path })), "No notifications", "Local activity appears here.");
-    renderRows("searchResults", (data.search_index || []).slice(0, 6), "No index records", "Run command-center data build.");
-    renderRows("propertyResults", rowsFor("property"), "No property records", "Property intelligence records will appear here.");
-    renderRows("leadResults", rowsFor("lead"), "No lead records", "Pipeline, lead, client, and follow-up records appear here.");
-    renderRows("taskList", (mobileTasks.length ? mobileTasks : actions).slice(0, 5).map(action => ({ title: action.title || action.suggested_reply, path: `${action.task_id || action.command_id || action.action_id} · ${action.status}` })), "No staged tasks", "Approval-safe tasks appear here.");
-    renderRows("calendarList", rowsFor("calendar"), "Calendar review ready", "Calendar access remains read-contract only.");
-    renderRows("gmailList", (comms.gmail_contracts || []).map(row => ({ title: "Gmail draft contract", path: `network: ${row.network_call_enabled} · execution: ${row.execution_enabled}` })).concat(rowsFor("gmail", 3)), "Gmail draft review ready", "Drafts remain local until approval.");
-    renderRows("documentList", (comms.document_contracts || []).map(row => ({ title: `${row.connector} contract`, path: `network: ${row.network_call_enabled} · execution: ${row.execution_enabled}` })).concat(rowsFor("documents", 3)), "No document records", "Drive and knowledge records appear here.");
-    renderRows("operationsList", (ops.operations_actions || []).map(row => ({ title: row.raw_text, path: `${row.handoff_command} · ${row.status}` })).concat(rowsFor("operations", 3)), "No operations records", "DLD, RERA, NOC, transfers, mortgages, off-plan, and visa workflows appear here.");
-    renderRows("voiceCommandList", (ops.voice_commands || []).map(row => ({ title: row.normalized_command, path: `audio: ${row.audio_recorded} · transcription: ${row.external_transcription_called} · permission: ${row.device_permission_required_for_live_voice}` })), "Hold-to-talk contract ready", "Voice capture is represented as a local command note until device permissions and live transcription are explicitly approved.");
-    const derived = deriveMobileScene();
-    setMobileScene(derived.scene, derived.reason);
-  }
-
-  function runSearch(query) {
-    const q = (query || activeQuery || document.getElementById("askInput").value || "").toLowerCase();
-    const terms = q.split(/\s+/).filter(Boolean);
-    const rows = (data.search_index || []).filter(row => {
-      const text = `${row.title || ""} ${row.path || ""} ${(row.tags || []).join(" ")} ${row.excerpt || ""}`.toLowerCase();
-      return terms.length ? terms.every(term => text.includes(term)) : true;
-    }).slice(0, 8);
-    renderRows("searchResults", rows, "No matching AIOS records", "Try a broader command.");
-    showPanel("search", document.querySelector(".nav button:nth-child(2)"));
-  }
-
-  function setQuery(query) {
-    activeQuery = query;
-    document.getElementById("askInput").value = query;
-    document.querySelectorAll(".chip").forEach(chip => chip.classList.toggle("active", chip.textContent === query || query.includes(chip.textContent)));
-    runSearch(query);
-  }
-
-  function aiosApiBase() {
-    const configured = window.AIOS_API_BASE_URL || localStorage.getItem("AIOS_API_BASE_URL") || "";
-    return String(configured || "").replace(/\/$/, "");
-  }
-
-  function aiosApiUrl(path) {
-    return `${aiosApiBase()}${path}`;
-  }
-
-  async function backendPermissionDecisionFor(text, channel = "mobile_app") {
-    const request = String(text || "").trim();
-    if (!request) return { blocked: false, request, channel, hits: [], rules: [], allowedAlternatives: [], sourceRuntime: "backend_api" };
-    try {
-      const res = await fetch(aiosApiUrl("/api/permission/evaluate"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        cache: "no-store",
-        body: JSON.stringify({ request, channel, identity_type: "Unknown", surface: "mobile_console" })
-      });
-      if (!res.ok) throw new Error("permission_api_" + res.status);
-      const decision = await res.json();
-      return {
-        blocked: decision.blocked === true,
-        request: decision.request || request,
-        channel: decision.channel || channel,
-        hits: decision.hits || [],
-        rules: decision.rules || [],
-        reason: decision.reason || "",
-        allowedAlternatives: decision.allowed_alternatives || [],
-        sourceRuntime: decision.runtime || decision.source_runtime || "backend_permission_api",
-        auditLogged: decision.audit_logged === true,
-        eyeState: decision.eye_state || (decision.blocked ? "restricted" : "idle")
-      };
-    } catch (_) {
-      return {
-        blocked: true,
-        request,
-        channel,
-        hits: ["permission_api_unavailable"],
-        rules: ["Permission Layer"],
-        reason: "AIOS could not reach the backend permission API, so the mobile request is held instead of being allowed locally.",
-        allowedAlternatives: ["Try again when AIOS API is online", "Ask Omar to review manually"],
-        sourceRuntime: "permission_api_unavailable",
-        auditLogged: false,
-        eyeState: "restricted"
-      };
-    }
-  }
-
-  function setMobileEyeState(state, detail = "") {
-    const eye = document.getElementById("mobileEye");
-    const status = document.getElementById("mobileEyeStatus");
-    if (!eye) return;
-    eye.classList.remove("eye-idle", "eye-searching", "eye-success", "eye-alert", "eye-restricted");
-    eye.classList.add("eye-" + state);
-    if (status) status.textContent = `${String(state || "idle").toUpperCase()} · ${detail || "EXECUTIVE"}`;
-    const scene = state === "restricted" ? "restricted" : state === "alert" ? "alert" : state === "success" ? "success" : state === "searching" ? "searching" : "idle";
-    setMobileScene(scene, "eye_state");
-  }
-
-  function updateVoiceDockStatus(message) {
-    const voiceStatus = document.getElementById("voiceDockStatus");
-    if (voiceStatus) voiceStatus.textContent = message;
-  }
-
-  function mobileRuntimePresenceSignal(source = "runtime") {
-    const standalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
-    if (!navigator.onLine) {
-      setMobileEyeState("alert", "OFFLINE");
-      updateVoiceDockStatus("Offline console active · cached shell available");
-      return;
-    }
-    if (standalone) {
-      setMobileEyeState("success", "INSTALLED");
-      updateVoiceDockStatus("Installed operating console active");
-      setTimeout(() => setMobileEyeState("idle", "EXECUTIVE"), 1200);
-      return;
-    }
-    if (source === "service_worker_ready") {
-      setMobileEyeState("success", "CACHED");
-      updateVoiceDockStatus("AIOS shell cached for mobile return");
-      setTimeout(() => setMobileEyeState("idle", "EXECUTIVE"), 1200);
-    }
-  }
-
-  function bindMobileEyeLight() {
-    const eye = document.getElementById("mobileEye");
-    if (!eye || eye.dataset.lightBound === "true") return;
-    eye.dataset.lightBound = "true";
-    eye.addEventListener("pointermove", event => {
-      const rect = eye.getBoundingClientRect();
-      const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
-      const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
-      eye.style.setProperty("--mobile-eye-light-x", `${x.toFixed(1)}%`);
-      eye.style.setProperty("--mobile-eye-light-y", `${y.toFixed(1)}%`);
-    });
-    eye.addEventListener("pointerleave", () => {
-      eye.style.setProperty("--mobile-eye-light-x", "50%");
-      eye.style.setProperty("--mobile-eye-light-y", "38%");
-    });
-  }
-
-  function startMobileEyeEntry() {
-    const eye = document.getElementById("mobileEye");
-    if (!eye) return;
-    document.body.classList.add("entry-lock");
-    eye.classList.remove("mobile-eye-entry-active");
-    void eye.offsetWidth;
-    eye.classList.add("mobile-eye-entry-active");
-    setTimeout(() => eye.classList.remove("mobile-eye-entry-active"), 2550);
-    setTimeout(() => document.body.classList.remove("entry-lock"), 2850);
-  }
-
-  async function mobileEyeAction(query) {
-    const permission = await backendPermissionDecisionFor(query, "mobile_app");
-    if (permission.blocked) {
-      setMobileEyeState("restricted", "PERMISSION");
-      const voiceStatus = document.getElementById("voiceDockStatus");
-      if (voiceStatus) voiceStatus.textContent = permission.reason || "Restricted by Permission Layer";
-      return;
-    }
-    setMobileEyeState(query.toLowerCase().includes("operations") ? "searching" : "searching");
-    setTimeout(() => {
-      setQuery(query);
-      setMobileEyeState("success");
-      setTimeout(() => setMobileEyeState("idle"), 1200);
-    }, 450);
-  }
-
-  async function askMobileAIOS() {
-    const query = document.getElementById("askInput").value;
-    const permission = await backendPermissionDecisionFor(query, "mobile_app");
-    if (permission.blocked) {
-      setMobileEyeState("restricted", "PERMISSION");
-      renderRows("searchResults", [{ title: `Restricted by ${permission.rules.join(" · ") || "Permission Layer"}`, path: `${permission.reason} Allowed: ${permission.allowedAlternatives.join(" · ")}` }], "Restricted", "Permission API blocked this request.");
-      showPanel("search", document.querySelector(".nav button:nth-child(2)"));
-      const voiceStatus = document.getElementById("voiceDockStatus");
-      if (voiceStatus) voiceStatus.textContent = "Restricted request held";
-      return;
-    }
-    setMobileEyeState("searching");
-    runSearch(query);
-    setTimeout(() => setMobileEyeState("success"), 600);
-    setTimeout(() => setMobileEyeState("idle"), 1500);
-  }
-
-  function runVoiceDock() {
-    const input = document.getElementById("askInput");
-    const voiceStatus = document.getElementById("voiceDockStatus");
-    const command = "Prepare voice command note";
-    if (input) input.value = command;
-    if (voiceStatus) voiceStatus.textContent = "Local voice note staged · no audio recorded";
-    mobileEyeAction(command);
-    showPanel("ops", document.querySelector(".nav button:nth-child(5)"));
-  }
-
-  function showPanel(name, button) {
-    document.querySelectorAll(".panel").forEach(panel => panel.classList.remove("active"));
-    const panel = document.getElementById(`panel-${name}`);
-    if (panel) panel.classList.add("active");
-    document.querySelectorAll(".nav button").forEach(btn => btn.classList.remove("active"));
-    if (button) button.classList.add("active");
-  }
-
-  async function loadData() {
-    setMobileScene("thinking", "load_start");
-    try {
-      const res = await fetch("automation/central_orchestrator/reports/COMMAND_CENTER_DATA.json", { cache: "no-store" });
-      if (res.ok) data = await res.json();
-    } catch (_) {}
-    renderAll();
-    bindMobileEyeLight();
-    startMobileEyeEntry();
-  }
-
-  setMobileScene("idle", "initial_boot");
-  loadData();
-  if ("serviceWorker" in navigator && location.protocol !== "file:") {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("sw.js")
-        .then(() => mobileRuntimePresenceSignal("service_worker_ready"))
-        .catch(() => updateVoiceDockStatus("Runtime cache unavailable · live mode only"));
-    });
-  }
-  window.addEventListener("online", () => mobileRuntimePresenceSignal("online"));
-  window.addEventListener("offline", () => mobileRuntimePresenceSignal("offline"));
-  window.addEventListener("beforeinstallprompt", event => {
-    event.preventDefault();
-    window.aiosDeferredInstallPrompt = event;
-    updateVoiceDockStatus("Install-ready mobile console");
+/* ---------- language ---------- */
+(function(){
+  var h=document.documentElement,b=document.getElementById('lang');
+  b.addEventListener('click',function(){
+    var ar=h.getAttribute('dir')==='rtl';
+    h.setAttribute('dir',ar?'ltr':'rtl');h.setAttribute('lang',ar?'en':'ar');
+    b.textContent=ar?'EN · ع':'ع · EN';
   });
-  window.addEventListener("appinstalled", () => mobileRuntimePresenceSignal("appinstalled"));
-  mobileRuntimePresenceSignal("initial");
+})();
+
+/* ---------- tab switching ---------- */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var view=document.querySelector('.view');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected','false')});
+      t.classList.add('on');t.setAttribute('aria-selected','true');
+      document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on')});
+      document.getElementById('s-'+t.dataset.s).classList.add('on');
+      view.scrollTop=0;
+      if(t.dataset.s==='ask') startAsk();
+      if(t.dataset.s==='pulse') drawSparks();
+    });
+  });
+})();
+
+/* ---------- departments ---------- */
+(function(){
+  var deps=[
+    ['A01','Chief of Staff','رئيس الأركان',88],['A02','Deal Closer','مُغلِق الصفقات',72],
+    ['A03','Listings Manager','مدير الإعلانات',80],['A04','Compliance Officer','ضابط الامتثال',84],
+    ['A05','Nakheel NOC','نخيل NOC',90],['A06','Contracts & Renewals','العقود والتجديد',76],
+    ['A07','Handover','التسليم',70],['A08','Research & Feasibility','البحث والجدوى',82],
+    ['A09','Marketing Engine','محرّك التسويق',68],['A10','Knowledge Librarian','أمين المعرفة',86],
+    ['A11','Personal Assistant','المساعد الشخصي',78],['A12','Unit Finder','باحث الوحدات',45]
+  ];
+  var wrap=document.getElementById('deps');
+  deps.forEach(function(d){
+    var live=d[3]>=84,el=document.createElement('div');el.className='dep'+(live?' live':'');
+    el.innerHTML='<span class="code mono">'+d[0]+'</span><div class="body">'+
+      '<div class="nm"><span lang-en>'+d[1]+'</span><span lang-ar>'+d[2]+'</span></div>'+
+      '<div class="meter"><i style="width:'+d[3]+'%"></i></div></div>'+
+      '<span class="v mono">'+d[3]+'%</span>';
+    wrap.appendChild(el);
+  });
+})();
+
+/* ---------- sparklines ---------- */
+function drawSparks(){
+  function s(id,pts,c){var svg=document.getElementById(id);if(!svg||svg.dataset.done)return;svg.dataset.done=1;
+    var d='',w=120,h=28,mx=Math.max.apply(0,pts),mn=Math.min.apply(0,pts);
+    pts.forEach(function(p,i){var x=i/(pts.length-1)*w,y=h-4-((p-mn)/(mx-mn||1))*(h-8);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';});
+    var ly=(h-4-((pts[pts.length-1]-mn)/(mx-mn||1))*(h-8)).toFixed(1);
+    svg.innerHTML='<path d="'+d+'" fill="none" stroke="'+c+'" stroke-width="1.5" stroke-linecap="round" opacity=".85"/><circle cx="120" cy="'+ly+'" r="2.2" fill="'+c+'"/>';
+  }
+  s('v1',[48.3,49,50.1,52.8,54,55,55.5],'#D9B877');s('v2',[7,17,90,140,200,225,237],'#D9B877');
+  s('v3',[120,150,180,205,215,220,223],'#D9B877');s('v4',[1,1,0,1,1,1,1],'#34E39A');
+}
+
+/* ---------- ASK: honest scripted answers ---------- */
+var askStarted=false;
+function startAsk(){
+  if(askStarted)return;askStarted=true;
+  var thread=document.getElementById('thread'),sug=document.getElementById('suggest');
+  var qs=[
+    {q_en:'2-bed in JVC under 1.4M?',q_ar:'غرفتين في قرية جميرا تحت ١.٤ مليون؟',
+     a_en:'Yes — in JVC I have verified 2-bed stock in that range. Let me confirm the exact unit, floor and price with the team before I quote numbers.',
+     a_ar:'نعم — في قرية جميرا لديّ مخزون موثّق لغرفتين ضمن هذا النطاق. دعني أؤكّد الوحدة والطابق والسعر قبل أن أعطيك الأرقام.',
+     v_en:'drawn from verified inventory',v_ar:'من مخزون موثّق',no:false},
+    {q_en:'A signature villa on Palm Jumeirah?',q_ar:'فيلا مميّزة في نخلة جميرا؟',
+     a_en:"I won't invent one. Right now I don't hold a Palm villa I can verify, so I won't quote a unit or price I can't stand behind. I'll check and come back with something real.",
+     a_ar:'لن أختلق واحدة. حالياً لا أملك فيلا في النخلة أستطيع توثيقها، لذا لن أقتبس وحدةً أو سعراً لا أضمنه. سأتحقّق وأعود بشيءٍ حقيقي.',
+     v_en:'no verified match → no fabrication',v_ar:'لا تطابق موثّق ← لا اختلاق',no:true},
+    {q_en:'What are the DLD transfer fees?',q_ar:'كم رسوم نقل الملكية في دائرة الأراضي؟',
+     a_en:'That runs through the Compliance department against the DLD procedure corpus. I answer it from the documented fee rules — not a guess — and flag anything that needs the latest circular.',
+     a_ar:'يمرّ ذلك عبر قسم الامتثال مقابل مرجعية إجراءات دائرة الأراضي. أُجيب من قواعد الرسوم الموثّقة — لا تخميناً — وأُنبّه لأي شيء يحتاج آخر تعميم.',
+     v_en:'answered from the DLD procedure corpus',v_ar:'من مرجعية إجراءات دائرة الأراضي',no:false}
+  ];
+  var ar=function(){return document.documentElement.getAttribute('dir')==='rtl'};
+  function bubble(cls,en,arT,v){
+    var m=document.createElement('div');m.className='msg '+cls;
+    var t='<span lang-en>'+en+'</span><span lang-ar>'+arT+'</span>';
+    if(v){t+='<span class="verify'+(v.no?' no':'')+'">'+(v.no?'✕ ':'✓ ')+'<span lang-en>'+v.en+'</span><span lang-ar>'+v.ar+'</span></span>';}
+    m.innerHTML=t;thread.appendChild(m);thread.scrollIntoView&&0;
+    var view=document.querySelector('.view');view.scrollTop=view.scrollHeight;
+  }
+  function typing(){var t=document.createElement('div');t.className='typing';t.innerHTML='<span></span><span></span><span></span>';thread.appendChild(t);var view=document.querySelector('.view');view.scrollTop=view.scrollHeight;return t;}
+  function ask(item){
+    bubble('me',item.q_en,item.q_ar,null);
+    var t=typing();
+    setTimeout(function(){thread.removeChild(t);bubble('ai',item.a_en,item.a_ar,{en:item.v_en,ar:item.v_ar,no:item.no});},1300);
+  }
+  qs.forEach(function(item){
+    var b=document.createElement('button');b.className='sg';
+    b.innerHTML='<span lang-en>'+item.q_en+'</span><span lang-ar>'+item.q_ar+'</span>';
+    b.addEventListener('click',function(){ask(item);});
+    sug.appendChild(b);
+  });
+  // auto-play the first exchange so the screen is never empty
+  setTimeout(function(){ask(qs[0]);},500);
+}
+
+/* ---------- ambient canvas (same flow field, calmer) ---------- */
+(function(){
+  var c=document.getElementById('field');if(!c)return;var x=c.getContext('2d');
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var W,H,DPR,ps=[],t=0,COL=[[47,216,198],[108,107,232],[217,184,119]];
+  function size(){DPR=Math.min(devicePixelRatio||1,2);W=c.width=innerWidth*DPR;H=c.height=innerHeight*DPR;
+    c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';
+    var n=Math.min(64,Math.floor(innerWidth/22));ps=[];
+    for(var i=0;i<n;i++)ps.push({x:Math.random()*W,y:Math.random()*H,col:COL[i%3],sp:.15+Math.random()*.4,off:Math.random()*1000});
+    x.fillStyle='#0A0B0F';x.fillRect(0,0,W,H);}
+  function fl(px,py){var s=0.001;return Math.sin(px*s+t*0.3)+Math.cos(py*s*1.3-t*0.2)+Math.sin((px+py)*s*0.6+t*0.15);}
+  function fr(){t+=0.014;x.fillStyle='rgba(10,11,15,0.12)';x.fillRect(0,0,W,H);x.globalCompositeOperation='lighter';
+    for(var i=0;i<ps.length;i++){var p=ps[i],a=fl(p.x,p.y)*Math.PI;p.x+=Math.cos(a)*p.sp*DPR;p.y+=Math.sin(a)*p.sp*DPR;
+      if(p.x<0)p.x+=W;if(p.x>W)p.x-=W;if(p.y<0)p.y+=H;if(p.y>H)p.y-=H;
+      var pu=0.5+0.5*Math.sin(t+p.off),r=(1+pu*2)*DPR,g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,r*7),cl=p.col;
+      g.addColorStop(0,'rgba('+cl[0]+','+cl[1]+','+cl[2]+','+(0.14*pu+0.04)+')');g.addColorStop(1,'rgba('+cl[0]+','+cl[1]+','+cl[2]+',0)');
+      x.fillStyle=g;x.beginPath();x.arc(p.x,p.y,r*7,0,6.2832);x.fill();}
+    x.globalCompositeOperation='source-over';if(!reduce)requestAnimationFrame(fr);}
+  size();addEventListener('resize',size);fr();
+})();
 </script>
 </body>
 </html>

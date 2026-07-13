@@ -23,4 +23,4 @@
 - Existing corpus does not support exact unit resolution for the 50 benchmark listings through meaningful permit/property/plot/land identifiers.
 - The only repeatable local bridge is area/project context, and it remains likely-only rather than exact.
 
-- candidates_csv: `/Users/hassanka/Downloads/AIOS/KnowledgeBase/resolver/identifier_bridge_candidates.csv`
+- candidates_csv: `KnowledgeBase/resolver/identifier_bridge_candidates.csv`

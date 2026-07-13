@@ -28,7 +28,7 @@ from typing import Dict, Iterable, List, Tuple
 
 import sys
 
-KB = Path("/Users/hassanka/Downloads/AIOS/KnowledgeBase")
+KB = Path(__file__).resolve().parents[1]
 RESOLVER_DIR = KB / "resolver"
 OUT_DIR = KB / "PropertyGraph"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -40,7 +40,7 @@ import listing_similarity_matcher as matcher  # noqa: E402
 INDEX_CSV = RESOLVER_DIR / "unit_resolver_index.csv"
 CLUSTERS_CSV = RESOLVER_DIR / "same_unit_clusters.csv"
 UNRESOLVED_CSV = RESOLVER_DIR / "unresolved_records_review.csv"
-DB_PATH = RESOLVER_DIR / "unit_resolver_database.sqlite"
+DB_PATH = bridge_layer.resolve_resolver_db(RESOLVER_DIR)
 
 OUT_MASTER_CSV = OUT_DIR / "canonical_property_master.csv"
 OUT_MASTER_JSON = OUT_DIR / "canonical_property_master.json"

@@ -1,0 +1,27 @@
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-github-metadata
+  - jekyll-seo-tag
+  - jekyll-gist
+
+# Exclude unnecessary files from the build
+exclude:
+  - node_modules/
+  - .git/
+  - .github/
+  - "*.gemfile*"
+  - "*.lock"
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Site settings
+title: AIOS
+description: AI Operating System
+baseurl: ""
+url: "https://oaahmar-hub.github.io/AIOS"
+
+# GitHub Pages settings
+repository: oaahmar-hub/AIOS

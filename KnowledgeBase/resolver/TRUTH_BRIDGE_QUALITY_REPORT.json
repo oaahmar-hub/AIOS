@@ -1,80 +1,81 @@
 {
-  "generated_on": "2026-06-27",
-  "source_csv": "/Users/hassanka/Downloads/AIOS/KnowledgeBase/PropertyGraph/listing_bridge_master.csv",
+  "generated_on": "2026-07-07",
+  "source_csv": "KnowledgeBase/PropertyGraph/listing_bridge_master.csv",
   "total_bridge_rows": 1244,
-  "public_reference_rows": 1058,
+  "public_reference_rows": 1047,
   "quality_buckets": {
     "Exact": {
-      "count": 54,
-      "percentage_of_all_rows": 4.3
+      "count": 43,
+      "percentage_of_all_rows": 3.5
     },
     "High-confidence": {
-      "count": 711,
-      "percentage_of_all_rows": 57.2
+      "count": 681,
+      "percentage_of_all_rows": 54.7
     },
     "Partial": {
-      "count": 84,
-      "percentage_of_all_rows": 6.8
+      "count": 293,
+      "percentage_of_all_rows": 23.6
     },
     "Weak": {
-      "count": 209,
-      "percentage_of_all_rows": 16.8
+      "count": 30,
+      "percentage_of_all_rows": 2.4
     },
     "Unusable": {
-      "count": 186,
-      "percentage_of_all_rows": 15.0
+      "count": 197,
+      "percentage_of_all_rows": 15.8
     }
   },
   "status_counts": {
-    "exact_bridge": 54,
-    "invalid_bridge": 186,
-    "partial_bridge": 795,
-    "waiting_for_data": 209
+    "exact_bridge": 43,
+    "partial_bridge": 974,
+    "invalid_bridge": 197,
+    "candidate_bridge": 29,
+    "waiting_for_data": 1
   },
-  "truth_bridge_quality_score": 52.8,
-  "exact_bridge_percentage": 4.3,
-  "exact_bridge_percentage_public_reference_rows": 5.1,
-  "high_confidence_percentage": 57.2,
+  "truth_bridge_quality_score": 55.5,
+  "exact_bridge_percentage": 3.5,
+  "exact_bridge_percentage_public_reference_rows": 4.1,
+  "high_confidence_percentage": 54.7,
   "remaining_data_gaps": [
     {
       "gap": "missing_unit_number",
-      "count": 833
+      "count": 1001
     },
     {
       "gap": "missing_hard_property_identifier",
-      "count": 711
-    },
-    {
-      "gap": "missing_cpid_link_or_hard_identifier",
-      "count": 209
-    },
-    {
-      "gap": "no_public_bridge_reference",
-      "count": 186
+      "count": 681
     },
     {
       "gap": "missing_broker_or_building_anchor",
-      "count": 84
+      "count": 293
+    },
+    {
+      "gap": "no_public_bridge_reference",
+      "count": 197
+    },
+    {
+      "gap": "missing_cpid_link_or_hard_identifier",
+      "count": 30
     }
   ],
   "recommended_highest_value_sources": [
     {
       "source": "BAYUT OVER ALL LEAD.xlsx",
       "exact": 0,
-      "high_confidence": 636,
-      "partial": 43,
-      "weak": 0,
+      "high_confidence": 606,
+      "partial": 44,
+      "weak": 29,
       "unusable": 1,
-      "uplift_score": 657.5
+      "uplift_score": 648.3
     },
     {
       "source": "WhatsApp ChatStorage.sqlite",
-      "exact": 12,
+      "exact": 1,
       "high_confidence": 0,
-      "partial": 1,
-      "weak": 209,
-      "unusable": 0,
-      "uplift_score": 146.8
+      "partial": 210,
+      "weak": 0,
+      "unusable": 11,
+      "uplift_score": 105.0
     },
     {
       "source": "Listings (1).xlsx",
@@ -89,10 +90,10 @@
       "source": "Secondary Listings LINKS EXCEL.xlsx",
       "exact": 0,
       "high_confidence": 0,
-      "partial": 33,
-      "weak": 0,
+      "partial": 32,
+      "weak": 1,
       "unusable": 0,
-      "uplift_score": 16.5
+      "uplift_score": 16.7
     },
     {
       "source": "HSHObject1__ab20a7e9-9ee0-4f16-910a-3e6399317a74__dda2658d56.xlsx",

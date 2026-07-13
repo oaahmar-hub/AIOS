@@ -23,7 +23,9 @@ from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, urlparse
+from urllib.request import Request, urlopen
 
 from aios_interaction_architecture_runtime import evaluate_permission_request, permission_runtime_contract, process_interaction
 from aios_runtime import get_runtime_status
@@ -55,9 +57,63 @@ PUBLIC_API_BASE_URL = os.getenv("AIOS_PUBLIC_API_BASE_URL", "").strip().rstrip("
 AUTH_MODE = os.getenv("AIOS_AUTH_MODE", "off").strip().lower()
 AUTH_USER = os.getenv("AIOS_BASIC_AUTH_USER", "").strip()
 AUTH_PASSWORD = os.getenv("AIOS_BASIC_AUTH_PASSWORD", "")
+# Session cookie so the installed app stays logged in and its fetches carry auth
+# (basic-auth headers aren't reliably reused by fetch/XHR after a URL-credential
+# load). The token is a keyed digest of the creds — verifiable without storage.
+_SESSION_TOKEN = hmac.new(
+    (AUTH_PASSWORD or "x").encode("utf-8"),
+    (b"aios-session:" + AUTH_USER.encode("utf-8")),
+    hashlib.sha256,
+).hexdigest() if AUTH_USER else ""
 WHATSAPP_WEBHOOK_PATH = "/webhook/whatsapp/provider/gateway"
 WHATSAPP_REPLY_MODE = os.getenv("AIOS_WHATSAPP_REPLY_MODE", "hold").strip().lower()
 WHATSAPP_VERIFY_TOKEN = os.getenv("AIOS_WHATSAPP_VERIFY_TOKEN", "").strip()
+# Wasender delivers inbound events with a shared secret in the
+# ``X-Webhook-Signature`` header (see wasender_live_relay_server._verify_signature).
+# Accept either env var name so the hosted runtime authorizes provider POSTs
+# without depending on the Meta-style verify token being smuggled into them.
+WASENDER_WEBHOOK_SECRET = (
+    os.getenv("WASENDER_WEBHOOK_SECRET", "").strip()
+    or os.getenv("AIOS_WEBHOOK_SECRET", "").strip()
+)
+# Outbound reply delivery. When AIOS_WHATSAPP_REPLY_MODE=auto and the message is
+# not permission-restricted, the hosted runtime generates a reply via the n8n
+# brain (WA_SIMPLE_OPENAI_ENDPOINT) and sends it back through the Wasender send
+# API. Defaults keep delivery OFF (hold) so nothing sends without explicit opt-in.
+WASENDER_API_KEY = os.getenv("WASENDER_API_KEY", "").strip()
+WASENDER_SEND_URL = os.getenv("WASENDER_SEND_URL", "https://www.wasenderapi.com/api/send-message").strip()
+WA_REPLY_ENDPOINT = os.getenv(
+    "WA_SIMPLE_OPENAI_ENDPOINT",
+    "https://hshglobaldubai.app.n8n.cloud/webhook/wa-simple-openai-reply-v4",
+).strip()
+# Cache the health-endpoint brain probe so repeated /api/health/deep polls don't
+# each spend an n8n execution (the customer's n8n quota is finite).
+_BRAIN_PROBE_TTL = float(os.getenv("AIOS_BRAIN_PROBE_TTL_SECONDS", "900"))
+_BRAIN_PROBE_CACHE: dict[str, tuple] = {}
+
+# Direct LLM path — bypass n8n entirely (no execution cap, unlimited testing).
+# When GROQ_API_KEY is set, the reply brain calls Groq directly (OpenAI-compatible
+# API, generous free tier) and n8n becomes an optional fallback. Get a free key at
+# console.groq.com. OpenAI works too via OPENAI_API_KEY (+ OPENAI_BASE_URL).
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile").strip()
+_DIRECT_LLM_KEY = GROQ_API_KEY or os.getenv("OPENAI_API_KEY", "").strip()
+_DIRECT_LLM_URL = (
+    "https://api.groq.com/openai/v1/chat/completions" if GROQ_API_KEY
+    else os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/") + "/chat/completions"
+)
+_DIRECT_LLM_MODEL = GROQ_MODEL if GROQ_API_KEY else os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+# Graceful fallback: if the brain fails or returns empty (OpenAI outage, bad
+# key, timeout), send this holding line instead of silently dropping the
+# message. Set to empty to disable and revert to silent-hold on failure.
+WA_FALLBACK_REPLY = os.getenv(
+    "AIOS_WHATSAPP_FALLBACK_REPLY",
+    "Thanks for your message — I'll get back to you shortly.",
+).strip()
+WASENDER_BROWSER_UA = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+)
 PUBLIC_STATIC_PATHS = {
     "/",
     "/index.html",
@@ -68,9 +124,16 @@ PUBLIC_STATIC_PATHS = {
     "/offline.html",
     "/app/",
     "/app/index.html",
+    "/site",
+    "/site/",
+    "/pitch",
+    "/pitch/",
 }
-PUBLIC_STATIC_SUFFIXES = (".html",)
-PUBLIC_STATIC_PREFIXES = ("/assets/", "/app/assets/")
+# NOTE: a blanket ".html" suffix here previously made EVERY html file public,
+# including AIOS-DASHBOARD.html (the command center). Public pages must be
+# listed explicitly in PUBLIC_STATIC_PATHS; everything else requires auth.
+PUBLIC_STATIC_SUFFIXES = ()
+PUBLIC_STATIC_PREFIXES = ("/assets/", "/app/assets/", "/api/voice/audio/")
 GZIP_STATIC_SUFFIXES = {".html", ".js", ".json", ".md", ".webmanifest", ".txt", ".css", ".svg"}
 STATIC_GZIP_CACHE: dict[str, dict[str, Any]] = {}
 COMMAND_CENTER_DATA_CACHE_SECONDS = int(os.getenv("AIOS_COMMAND_CENTER_DATA_CACHE_SECONDS", "30"))
@@ -410,6 +473,294 @@ def get_deployment_status() -> dict[str, Any]:
     }
 
 
+def _ok(ok: bool, detail: str = "") -> dict[str, Any]:
+    return {"ok": bool(ok), "detail": detail}
+
+
+def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
+    """End-to-end chain health so failures surface instead of hiding.
+
+    Checks every link a live WhatsApp reply depends on and reports green/red
+    per component with a human-readable summary of what is broken. This is the
+    signal that was missing while every failure this project hit stayed silent
+    (dead webhook URL, frozen deploys, dead OpenAI key, unwired sender).
+
+    Public + read-only. The brain check does one short POST to the n8n endpoint
+    (skippable via ?brain=0) so an invalid OpenAI key is caught immediately.
+    No message is ever sent to a customer from this endpoint.
+    """
+    components: dict[str, Any] = {}
+    issues: list[str] = []
+
+    components["runtime"] = _ok(True, "process serving")
+
+    # Resolver DB present and readable.
+    try:
+        db_path = AIOS_ROOT / "KnowledgeBase" / "resolver" / "unit_resolver_database.resolver"
+        db_ok = db_path.is_file() and db_path.stat().st_size > 0
+    except Exception as exc:  # pragma: no cover - defensive
+        db_ok, db_path = False, None
+        issues.append(f"resolver_db error: {exc}")
+    components["resolver_db"] = _ok(db_ok, "present" if db_ok else "missing")
+    if not db_ok:
+        issues.append("Resolver database missing or empty.")
+
+    # Inbound webhook auth configured (signature secret or verify token).
+    webhook_ok = bool(WASENDER_WEBHOOK_SECRET) or bool(WHATSAPP_VERIFY_TOKEN)
+    components["webhook_auth"] = _ok(
+        webhook_ok,
+        "signature_secret_set" if WASENDER_WEBHOOK_SECRET else "verify_token_only" if WHATSAPP_VERIFY_TOKEN else "unconfigured",
+    )
+    if not webhook_ok:
+        issues.append("No webhook auth configured (set AIOS_WEBHOOK_SECRET to match Wasender).")
+
+    # Reply mode: auto means the runtime will actually answer.
+    reply_auto = WHATSAPP_REPLY_MODE == "auto"
+    components["reply_mode"] = {"ok": reply_auto, "value": WHATSAPP_REPLY_MODE}
+    if not reply_auto:
+        issues.append("Reply mode is 'hold' — inbound messages are received but never answered. Set AIOS_WHATSAPP_REPLY_MODE=auto to reply.")
+
+    # Outbound send credential present (config only; no message is sent).
+    send_ok = bool(WASENDER_API_KEY)
+    components["wasender_send"] = _ok(send_ok, "api_key_set" if send_ok else "missing_api_key")
+    if not send_ok:
+        issues.append("WASENDER_API_KEY not set — replies cannot be delivered.")
+
+    # The brain: probe n8n so a dead key/quota is caught here, not in silence.
+    # BUT each probe spends a real n8n execution, so cache the result and re-probe
+    # at most once per _BRAIN_PROBE_TTL — frequent health polls must not burn the
+    # customer's n8n quota on pings.
+    if check_brain and WA_REPLY_ENDPOINT:
+        now = time.time()
+        cached = _BRAIN_PROBE_CACHE.get("v")
+        if cached and (now - cached[0]) < _BRAIN_PROBE_TTL:
+            brain_ok, detail = cached[1], cached[2] + " (cached)"
+        else:
+            reply, detail = _generate_reply_text("health check ping", history="diagnostic")
+            brain_ok = bool(reply)
+            _BRAIN_PROBE_CACHE["v"] = (now, brain_ok, detail)
+        components["brain_n8n_openai"] = _ok(brain_ok, detail)
+        if not brain_ok:
+            issues.append(f"Reply brain failed ({detail}). Causes: n8n execution-limit/plan quota reached, or an invalid/expired key in the n8n LLM credential.")
+    else:
+        # No live probe this call (default) — surface the last cached probe so
+        # the dashboard still reflects reality without spending an execution.
+        cached = _BRAIN_PROBE_CACHE.get("v")
+        if cached:
+            components["brain_n8n_openai"] = _ok(cached[1], cached[2] + " (cached, no execution spent)")
+        else:
+            components["brain_n8n_openai"] = {"ok": None, "detail": "not probed (add ?brain=1 for a live check)"}
+
+    # Fallback holding line configured (so a broken brain still acks the customer).
+    components["fallback_reply"] = _ok(bool(WA_FALLBACK_REPLY), "configured" if WA_FALLBACK_REPLY else "disabled")
+
+    # Conversation memory: per-contact recall store.
+    try:
+        import conversation_memory as _mem
+        _ms = _mem.stats()
+        components["conversation_memory"] = _ok(_ms.get("ok", False), f"{_ms.get('contacts',0)} contacts / {_ms.get('turns',0)} turns")
+    except Exception as exc:  # pragma: no cover
+        components["conversation_memory"] = _ok(False, f"error:{exc}")
+
+    # Group-Lead Agent store.
+    try:
+        import group_leads as _gl
+        _gs = _gl.stats()
+        components["group_leads"] = _ok(_gs.get("ok", False), f"{_gs.get('leads',0)} leads / {_gs.get('with_matches',0)} matched")
+    except Exception as exc:  # pragma: no cover
+        components["group_leads"] = _ok(False, f"error:{exc}")
+
+    # Marketing / Content Studio.
+    try:
+        import content_studio as _cs
+        _ch = _cs.health()
+        components["content_studio"] = _ok(_ch.get("ok", False), _ch.get("detail", ""))
+    except Exception as exc:  # pragma: no cover
+        components["content_studio"] = _ok(False, f"error:{exc}")
+
+    # Truth Bridge — audit of the verified property truth the brain quotes.
+    try:
+        import truth_bridge_audit as _tb
+        _th = _tb.health()
+        components["truth_bridge"] = _ok(_th.get("ok", False), _th.get("detail", ""))
+    except Exception as exc:  # pragma: no cover
+        components["truth_bridge"] = _ok(False, f"error:{exc}")
+
+    # CRM lead capture wiring.
+    try:
+        import crm_leads as _crm
+        components["crm_leads"] = _ok(_crm.configured(), _crm.health().get("detail", ""))
+    except Exception as exc:  # pragma: no cover
+        components["crm_leads"] = _ok(False, f"error:{exc}")
+
+    # Knowledge connection: quotable inventory available to the brain.
+    try:
+        import inventory_retrieval as _inv
+        _qc = _inv.quotable_count()
+        components["inventory_knowledge"] = _ok(_qc > 0, f"{_qc} quotable rows")
+        if _qc == 0:
+            issues.append("Inventory retrieval loaded 0 quotable rows - brain cannot quote real units.")
+    except Exception as exc:  # pragma: no cover - defensive
+        components["inventory_knowledge"] = _ok(False, f"error:{exc}")
+        issues.append(f"Inventory retrieval failed to load: {exc}")
+
+    # Humanizer layer: fingerprint removal + media honesty must be importable.
+    try:
+        import reply_humanizer as _rh_health
+        _probe = _rh_health.humanize("I hope this helps! The unit is 33 sqm.")
+        components["reply_humanizer"] = _ok(
+            "hope this helps" not in _probe.lower() and "33 sqm" in _probe, "active"
+        )
+    except Exception as exc:  # pragma: no cover - defensive
+        components["reply_humanizer"] = _ok(False, f"error:{exc}")
+        issues.append(f"Reply humanizer failed to load: {exc}")
+    try:
+        import media_vault as _mv_health
+        _mvh = _mv_health.health()
+        components["media_vault"] = {"ok": True, "detail": f"{_mvh['entries']} curated assets"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["media_vault"] = _ok(False, f"error:{exc}")
+    try:
+        import voice_notes as _vn_health
+        _vnh = _vn_health.health()
+        components["voice_notes"] = {"ok": None if _vnh["status"] == "not_configured" else True,
+                                     "detail": _vnh["status"]}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["voice_notes"] = _ok(False, f"error:{exc}")
+    try:
+        import voice_call_agent as _vc_health
+        _vch = _vc_health.health()
+        components["voice_call_agent"] = {
+            "ok": None if _vch["status"] == "not_configured" else True,
+            "detail": _vch["status"] if _vch["status"] != "ok" else f"armed·{_vch['voice']}",
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["voice_call_agent"] = _ok(False, f"error:{exc}")
+    try:
+        import agent_identity as _ai_health
+        _aih = _ai_health.health()
+        components["agent_identity"] = {
+            "ok": None if _aih["status"] == "identity_only" else True,
+            "detail": f"{_aih['persona']}·{_aih['status']}",
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["agent_identity"] = _ok(False, f"error:{exc}")
+    try:
+        import agent_closer as _acl_health
+        _aclh = _acl_health.health()
+        components["agent_closer"] = {
+            "ok": None if _aclh["status"] != "armed" else True,
+            "detail": _aclh["status"],
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["agent_closer"] = _ok(False, f"error:{exc}")
+
+    try:
+        import renewal_agent as _ra_health
+        _rah = _ra_health.health()
+        components["renewal_agent"] = {
+            "ok": None if _rah["status"] == "awaiting_ejari_data" else (_rah["status"] == "ok"),
+            "detail": _rah["status"] if _rah["status"] != "ok" else f"{_rah.get('contracts', 0)} contracts",
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["renewal_agent"] = _ok(False, f"error:{exc}")
+
+    try:
+        import market_index as _mi_health
+        _mih = _mi_health.health()
+        components["market_index"] = {"ok": _mih["status"] == "ok",
+                                      "detail": f"{_mih.get('months', 0)} months DLD index"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["market_index"] = _ok(False, f"error:{exc}")
+
+    try:
+        import dubai_pulse as _dp_health
+        _dph = _dp_health.health()
+        components["dubai_pulse"] = {
+            "ok": None if _dph["status"] in ("not_configured",) else (_dph["status"] == "ok"),
+            "detail": _dph["status"] if _dph["status"] != "ok" else f"{_dph.get('sales', 0)} sales / {_dph.get('areas', 0)} areas",
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["dubai_pulse"] = _ok(False, f"error:{exc}")
+
+    try:
+        import design_compliance as _dc_health
+        _dch = _dc_health.health()
+        components["design_compliance"] = {"ok": bool(_dch["rulesets"]),
+                                           "detail": f"rulesets:{','.join(_dch['rulesets']) or 'none'}"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["design_compliance"] = _ok(False, f"error:{exc}")
+    try:
+        import health_alerts as _ha_health
+        _hah = _ha_health.health()
+        components["health_alerts"] = {"ok": None if _hah["status"] == "not_configured" else True,
+                                       "detail": _hah["status"]}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["health_alerts"] = _ok(False, f"error:{exc}")
+    try:
+        import owner_lookup as _ol_health
+        _olh = _ol_health.health()
+        components["owner_lookup"] = {"ok": None if _olh.get("records",0)==0 else True,
+                                      "detail": f"{_olh.get('with_phone',0)} phones / {_olh.get('areas',0)} areas"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["owner_lookup"] = _ok(False, f"error:{exc}")
+    try:
+        import deal_agent as _dl_health
+        _dlh = _dl_health.health()
+        components["deal_agent"] = {"ok": None if not _dlh.get("enabled") else True,
+                                    "detail": _dlh.get("status")}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["deal_agent"] = _ok(False, f"error:{exc}")
+    try:
+        import daily_brief as _db_health
+        _dbh = _db_health.health()
+        components["daily_brief"] = {"ok": None if _dbh["status"] == "not_configured" else True,
+                                     "detail": f"{_dbh['status']} (hour {_dbh['hour_dubai']:02d} Dubai)"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["daily_brief"] = _ok(False, f"error:{exc}")
+    try:
+        import owner_outreach as _oo_health
+        _ooh = _oo_health.health()
+        components["owner_outreach"] = {"ok": _ooh.get("status") == "ok",
+                                        "detail": f"{_ooh.get('restricted_contacts', 0)} restricted contacts"}
+    except Exception as exc:  # pragma: no cover - defensive
+        components["owner_outreach"] = _ok(False, f"error:{exc}")
+    try:
+        import chat_governor as _gov_health
+        _gh = _gov_health.health()
+        components["chat_governor"] = {
+            "ok": bool(_gh.get("ok")),
+            "detail": (f"takeover:{_gh.get('takeover_active_contacts')} "
+                       f"cooldown:{_gh.get('cooldown_min')}m gap:{_gh.get('reply_min_gap_sec')}s "
+                       f"cap:{_gh.get('reply_hourly_cap')}/h fresh<{_gh.get('max_event_age_min')}m"),
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["chat_governor"] = _ok(False, f"error:{exc}")
+        issues.append(f"Chat governor failed to load: {exc}")
+
+    checked = [c for c in components.values() if c.get("ok") is not None]
+    reds = [c for c in checked if c.get("ok") is False]
+    # The reply loop is only truly "healthy" when a customer message gets answered.
+    reply_chain_live = all(
+        components[name]["ok"]
+        for name in ("webhook_auth", "reply_mode", "wasender_send", "brain_n8n_openai")
+        if components.get(name, {}).get("ok") is not None
+    )
+    status = "healthy" if not reds else ("down" if not reply_chain_live else "degraded")
+
+    return {
+        "status": status,
+        "reply_chain_live": reply_chain_live,
+        "checked_at": _now(),
+        "components": components,
+        "issues": issues,
+        "summary": ("All systems green — WhatsApp reply loop is live."
+                    if status == "healthy"
+                    else f"{len(issues)} issue(s) blocking the live reply loop." ),
+        "endpoint": "/api/health/deep",
+    }
+
+
 def get_launch_readiness() -> dict[str, Any]:
     readiness = _read_report(LAUNCH_READINESS_REPORT_PATH)
     if readiness:
@@ -534,6 +885,15 @@ def _whatsapp_text(payload: dict[str, Any]) -> str:
 
 def _whatsapp_sender(payload: dict[str, Any]) -> str:
     return str(payload.get("From") or payload.get("from") or payload.get("waId") or payload.get("phone") or "unknown").strip()
+
+
+def _is_owner_sender(sender_digits: str) -> bool:
+    """True if the message is from Omar's own number (AIOS_ALERT_PHONE)."""
+    try:
+        import whatsapp_commands as _wc
+        return _wc.is_owner(sender_digits)
+    except Exception:
+        return False
 
 
 def _append_whatsapp_test(entry: dict[str, Any]) -> None:
@@ -694,6 +1054,273 @@ def _load_whatsapp_provider_gateway():
     return process_whatsapp_provider
 
 
+_PERSONALITY_DIR = RUNTIME_DIR / "personality"
+
+
+def _build_personality_system_prompt(
+    message: str,
+    history: str,
+    sender: str,
+    profile_name: str = "",
+) -> tuple[str, str]:
+    """Compose the real Omar-brain system prompt from omar_personality_engine.
+
+    Returns (system_prompt, meta). Never raises — on any failure returns ("",
+    "engine_error:…") so the n8n default prompt is used and replies still flow.
+    """
+    try:
+        if str(_PERSONALITY_DIR) not in sys.path:
+            sys.path.insert(0, str(_PERSONALITY_DIR))
+        import omar_personality_engine as pe  # type: ignore
+    except Exception as exc:  # pragma: no cover - defensive
+        return "", f"engine_import_error:{exc}"
+    try:
+        contact_context = {"phone": sender, "name": profile_name}
+        ctx = pe.build_personality_context(
+            message, history=history or "", sender_type="Customer", relationship="", contact_context=contact_context
+        )
+        parts = [
+            str(ctx.get("operations_persona_text") or "").strip(),
+            str(ctx.get("system_instruction") or "").strip(),
+            f"Tone: {ctx.get('tone')}",
+            f"Length: {ctx.get('length_rule')}",
+            f"Warmth: {ctx.get('warmth_rule')}",
+            f"Action: {ctx.get('action_rule')}",
+            f"Language: {ctx.get('language_rule')}",
+            f"Safety: {ctx.get('safety_rule')}",
+            f"Detected relationship: {ctx.get('relationship')}. "
+            f"Objective: {ctx.get('conversation_objective')}. Intent: {ctx.get('intent')}.",
+            "CRITICAL - NO FABRICATION: Never state specific units, prices, sizes, "
+            "availability, owner details, or listing links unless they were explicitly "
+            "provided to you in this conversation's context. If asked about specific "
+            "inventory you don't have in context, say you'll check and confirm shortly - "
+            "in Omar's natural style, never as a disclaimer. Inventing property details "
+            "destroys trust and is forbidden.",
+        ]
+        special = ctx.get("special_contact_profile") or {}
+        if special.get("relationship"):
+            greet = special.get("short_greeting_ar") or special.get("short_greeting_en") or ""
+            parts.append(
+                f"This is a known contact ({special.get('display_name')}, {special.get('relationship')}). "
+                f"Match their style; a natural short greeting like '{greet}' fits when appropriate."
+            )
+        restricted = ctx.get("restricted_knowledge") or []
+        if restricted:
+            parts.append("Never reveal: " + ", ".join(restricted) + ".")
+        system_prompt = "\n\n".join(p for p in parts if p)
+        meta = f"lang={ctx.get('language')};rel={ctx.get('relationship')};obj={ctx.get('conversation_objective')}"
+        return system_prompt, meta
+    except Exception as exc:  # pragma: no cover - defensive
+        return "", f"engine_error:{exc}"
+
+
+def _generate_reply_text(message: str, history: str = "", system_prompt: str = "") -> tuple[str, str]:
+    """Ask the n8n brain for a reply. Returns (reply_text, detail).
+
+    When system_prompt is provided (from the real personality engine), it is
+    sent so the LLM answers as Omar with full relationship/objective context
+    instead of the generic stub prompt.
+
+    Three tiers, best-first, so the system NEVER goes silent and NEVER needs a
+    paid dependency to keep working:
+      1) DIRECT LLM (Groq/OpenAI) if GROQ_API_KEY/OPENAI_API_KEY is set — no n8n,
+         no execution cap.
+      2) n8n brain, if WA_SIMPLE_OPENAI_ENDPOINT is set and has quota.
+      3) LOCAL brain (local_reply) — intent + real inventory, no external call.
+         Always available; free; honest (unknown -> "I'll check").
+    """
+    if not message:
+        return "", "no_message"
+
+    # Tier 1: direct LLM
+    if _DIRECT_LLM_KEY:
+        reply, detail = _generate_reply_direct(message, history, system_prompt)
+        if reply:
+            return reply, detail
+
+    # Tier 2: n8n brain
+    if WA_REPLY_ENDPOINT:
+        payload = {"message": message, "history": history or "No prior history"}
+        if system_prompt:
+            payload["system"] = system_prompt
+        body = json.dumps(payload).encode("utf-8")
+        req = Request(
+            WA_REPLY_ENDPOINT,
+            data=body,
+            headers={"Content-Type": "application/json", "Accept": "application/json"},
+            method="POST",
+        )
+        try:
+            with urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode("utf-8", errors="replace") or "{}")
+            reply = str(data.get("reply") or data.get("text") or data.get("output") or "").strip()
+            if reply:
+                return reply, f"{resp.status}:ok"
+        except Exception:
+            pass  # fall through to local brain
+
+    # Tier 3: local brain (always available, no external dependency)
+    if os.getenv("AIOS_LOCAL_BRAIN_ENABLED", "1") not in {"0", "false", "no"}:
+        try:
+            import local_reply as _lr
+            reply, detail = _lr.reply(message, history)
+            if reply:
+                return reply, detail
+        except Exception as exc:  # pragma: no cover - defensive
+            return "", f"local_err:{exc}"
+    return "", "no_brain_available"
+
+
+def _generate_reply_direct(message: str, history: str = "", system_prompt: str = "") -> tuple[str, str]:
+    """Call an LLM directly (Groq/OpenAI-compatible) — no n8n, no execution cap.
+
+    Returns (reply_text, detail). Empty reply signals the caller to fall back.
+    """
+    if not _DIRECT_LLM_KEY or not message:
+        return "", "no_direct_key"
+    sys_p = system_prompt.strip() or (
+        "You are the WhatsApp assistant for Omar, a Dubai real-estate broker (HSH). "
+        "Reply naturally and concisely in the client's language (English or Arabic), "
+        "like a real human agent — never mention being an AI. If you don't have a "
+        "fact, say you'll check rather than inventing it."
+    )
+    messages = [{"role": "system", "content": sys_p}]
+    if history and history != "No prior history":
+        messages.append({"role": "system", "content": "Conversation so far:\n" + history})
+    messages.append({"role": "user", "content": message})
+    body = json.dumps({
+        "model": _DIRECT_LLM_MODEL,
+        "messages": messages,
+        "temperature": 0.7,
+        "max_tokens": 500,
+    }).encode("utf-8")
+    req = Request(
+        _DIRECT_LLM_URL,
+        data=body,
+        headers={
+            "Authorization": f"Bearer {_DIRECT_LLM_KEY}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read().decode("utf-8", errors="replace") or "{}")
+        reply = str(
+            (data.get("choices") or [{}])[0].get("message", {}).get("content", "")
+        ).strip()
+        return reply, (f"direct:{_DIRECT_LLM_MODEL}:ok" if reply else f"direct:{_DIRECT_LLM_MODEL}:empty")
+    except HTTPError as exc:
+        return "", f"direct_http:{exc.code}"
+    except URLError as exc:
+        return "", f"direct_url:{exc.reason}"
+    except Exception as exc:  # pragma: no cover - defensive
+        return "", f"direct_err:{exc}"
+
+
+import threading
+from collections import OrderedDict
+
+# De-dupe store: WhatsApp providers fire several webhook events per inbound
+# message (messages.received + messages.upsert + personal.received) and retry on
+# slow acks, so the same message hits this endpoint multiple times. Reply once
+# per message_id. Bounded + thread-safe (ThreadingHTTPServer runs many threads).
+_REPLIED_IDS: "OrderedDict[str, bool]" = OrderedDict()
+_REPLIED_LOCK = threading.Lock()
+_REPLIED_MAX = 2000
+
+# Last few inbound WhatsApp events (debug the owner command center). Bounded.
+_WA_DEBUG: list = []
+_WA_DEBUG_LOCK = threading.Lock()
+OWNER_ALERT_PHONE_TAIL = "".join(ch for ch in os.getenv("AIOS_ALERT_PHONE", "") if ch.isdigit())[-9:]
+
+
+def _wa_debug(entry: dict) -> None:
+    with _WA_DEBUG_LOCK:
+        _WA_DEBUG.append(entry)
+        while len(_WA_DEBUG) > 25:
+            _WA_DEBUG.pop(0)
+
+
+def _already_replied(message_id: str) -> bool:
+    """Return True if we've already replied to this message_id; else record it."""
+    if not message_id:
+        return False
+    with _REPLIED_LOCK:
+        if message_id in _REPLIED_IDS:
+            return True
+        _REPLIED_IDS[message_id] = True
+        while len(_REPLIED_IDS) > _REPLIED_MAX:
+            _REPLIED_IDS.popitem(last=False)
+        return False
+
+
+def _send_whatsapp_reply(phone: str, text: str) -> tuple[bool, str]:
+    """Send a WhatsApp reply through the Wasender send API."""
+    if not WASENDER_API_KEY:
+        return False, "missing_api_key"
+    if not phone or not text:
+        return False, "missing_phone_or_text"
+    body = json.dumps({"to": phone, "text": text}).encode("utf-8")
+    req = Request(
+        WASENDER_SEND_URL,
+        data=body,
+        headers={
+            "Authorization": f"Bearer {WASENDER_API_KEY}",
+            "Content-Type": "application/json",
+            "Accept": "application/json, text/plain, */*",
+            "User-Agent": WASENDER_BROWSER_UA,
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(req, timeout=30) as resp:
+            return True, f"{resp.status}:sent"
+    except HTTPError as exc:
+        return False, f"http_error:{exc.code}"
+    except URLError as exc:
+        return False, f"url_error:{exc.reason}"
+    except Exception as exc:  # pragma: no cover - defensive
+        return False, f"error:{exc}"
+
+
+def _send_whatsapp_media(phone: str, image_url: str, caption: str = "") -> tuple[bool, str]:
+    """Send a real image (by URL) through the Wasender send API.
+
+    Only called with URLs from the curated MediaVault index — never generated
+    content. Failure never raises; the text reply still goes out.
+    """
+    if not WASENDER_API_KEY:
+        return False, "missing_api_key"
+    if not phone or not image_url:
+        return False, "missing_phone_or_url"
+    payload: dict[str, Any] = {"to": phone, "imageUrl": image_url}
+    if caption:
+        payload["text"] = caption
+    body = json.dumps(payload).encode("utf-8")
+    req = Request(
+        WASENDER_SEND_URL,
+        data=body,
+        headers={
+            "Authorization": f"Bearer {WASENDER_API_KEY}",
+            "Content-Type": "application/json",
+            "Accept": "application/json, text/plain, */*",
+            "User-Agent": WASENDER_BROWSER_UA,
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(req, timeout=30) as resp:
+            return True, f"{resp.status}:sent"
+    except HTTPError as exc:
+        return False, f"http_error:{exc.code}"
+    except URLError as exc:
+        return False, f"url_error:{exc.reason}"
+    except Exception as exc:  # pragma: no cover - defensive
+        return False, f"error:{exc}"
+
+
 def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any]:
     process_whatsapp_provider = _load_whatsapp_provider_gateway()
     provider_output = process_whatsapp_provider(payload)
@@ -730,6 +1357,258 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
         "documents_shared": False,
         "provider_webhook_called": False,
     }
+
+    # Outbound reply: only when auto mode is on, the request is not restricted,
+    # there is inbound text, and we can resolve a real sender phone. Generates
+    # the reply via the n8n brain and sends it back through Wasender. Every step
+    # is recorded; failure never raises (the webhook still acks 200).
+    reply_sent = False
+    reply_detail = "hold" if hold_delivery else "no_action"
+    reply_text_out = ""
+    sender_digits = "".join(ch for ch in sender if ch.isdigit())
+    # Skip the bot's own sends, self-chats, and non-actionable events (status
+    # updates, reactions, group/channel noise) so we never reply to those.
+    from_me = bool(event.get("from_me"))
+    is_self = bool(event.get("is_self_chat"))
+    actionable = bool(event.get("actionable", True))
+    message_id = str(event.get("message_id") or "")
+    event_ts = event.get("timestamp")
+    try:
+        import chat_governor as _gov
+    except Exception:  # pragma: no cover - defensive
+        _gov = None
+    # Freshness first: backlog / history-sync replays are NOT live customers.
+    # They must never be answered, captured as leads, or written to memory.
+    event_is_stale = bool(_gov and _gov.is_stale(event_ts))
+    # Human takeover: Omar messaging a contact himself silences the bot for
+    # that contact — two people must never type from the same number. His own
+    # turn also becomes conversation context for when the bot resumes.
+    if from_me and not is_self and _gov and not event_is_stale:
+        peer = "".join(ch for ch in str(event.get("to_phone") or "") if ch.isdigit()) or sender_digits
+        if peer:
+            _gov.record_omar_message(peer)
+            try:
+                import conversation_memory as _mem
+                _mem.record(peer, "assistant", text)
+            except Exception:
+                pass
+    # Group-Lead Agent: detect real requests (incl. group messages the reply
+    # path ignores) and record ranked leads for Omar. Never replies in groups,
+    # Owner command center: when Omar messages AIOS a command (owner/find/market/
+    # comps/renewals/link), run the real tool and reply in WhatsApp — his phone IS
+    # the command center. Runs before the customer brain; owner-only.
+    command_handled = False
+    _to_digits = "".join(ch for ch in str(event.get("to_phone") or "") if ch.isdigit())
+    # Owner reaches the command center in any topology:
+    #  (a) AIOS on a SEPARATE number -> owner texts it (not from_me, from owner's #)
+    #  (b) AIOS on the owner's OWN number, self-chat -> from_me + (is_self OR
+    #      sender==recipient, both the owner's number). The sender==recipient guard
+    #      means a normal outgoing message to a CLIENT never triggers a command.
+    _owner_self = bool(from_me and sender_digits and _to_digits and sender_digits[-9:] == _to_digits[-9:])
+    _owner_channel = (not from_me and sender_digits and _is_owner_sender(sender_digits)) or _owner_self or (from_me and is_self)
+    _cmd_matched = None
+    if text and sender_digits and _owner_channel:
+        try:
+            import whatsapp_commands as _wc
+            _cmd_reply, _cmd_detail = _wc.handle(text)
+            _cmd_matched = _cmd_detail
+            if _cmd_reply:
+                _send_whatsapp_reply(sender_digits, _cmd_reply)
+                command_handled = True
+                reply_detail = f"owner_command:{_cmd_detail}"
+                side_effects["provider_webhook_called"] = True
+        except Exception as _wc_exc:  # pragma: no cover - defensive
+            logger.warning("wa command failed: %s", _wc_exc)
+    try:
+        _wa_debug({
+            "text": (text or "")[:80], "sender": sender_digits, "to": _to_digits,
+            "from_me": from_me, "is_self": is_self,
+            "is_owner": _is_owner_sender(sender_digits), "owner_channel": _owner_channel,
+            "cmd_matched": _cmd_matched, "command_handled": command_handled,
+            "owner_env": OWNER_ALERT_PHONE_TAIL,
+        })
+    except Exception:
+        pass
+
+    # and never mines stale backlog as fresh leads.
+    if text and not from_me and not event_is_stale and not command_handled:
+        try:
+            import group_leads as _gl
+            _lead = _gl.detect(sender_digits or sender, text, source=("group" if is_self is False and not actionable else "direct"))
+        except Exception:
+            _lead = None
+        # Independent agent closer — gated OFF by default. When armed (its own
+        # Wasender number + AIOS_AGENT_AUTOCLOSE_ENABLED), a detected request gets
+        # a human, in-persona reply sent FROM the agent's own number — never HSH.
+        try:
+            if _lead and _lead.get("is_lead"):
+                import agent_closer as _ac
+                if _ac.is_armed():
+                    _ac.respond_to_lead(
+                        sender_digits or sender, text,
+                        intent=_lead.get("intent", "inquiry"),
+                        cards=_lead.get("cards", []),
+                        reply_fn=_generate_reply_direct,
+                    )
+        except Exception:
+            pass
+        # Autonomous Deal Agent — gated OFF by default (AIOS_DEAL_AGENT_ENABLED).
+        # When on, a real group request becomes a Deal and runs the full loop:
+        # search -> owner lookup -> outreach -> reply. Never raises into the webhook.
+        try:
+            import deal_agent as _da
+            if _da.AGENT_ENABLED:
+                import deal_wiring as _dw
+                # First: is this an owner we contacted replying? If so, capture
+                # the availability/price and post the confirmed match to the group.
+                _owner_reply = _da.handle_owner_reply(sender_digits, text, _send_whatsapp_reply)
+                if not _owner_reply.get("matched"):
+                    _group = str(event.get("group_id") or event.get("chat_id") or sender_digits)
+                    _agent = _dw.build_agent(
+                        send_whatsapp=_send_whatsapp_reply,
+                        reply_group=_send_whatsapp_reply,
+                    )
+                    _deal = _agent.intake(_group, sender_digits or sender, text)
+                    if _deal:
+                        _agent.run_to_completion(_deal)
+        except Exception as _da_exc:  # pragma: no cover - defensive
+            logger.warning("deal agent intake failed: %s", _da_exc)
+    eligible = (
+        not hold_delivery and text and sender_digits
+        and not from_me and not is_self and actionable
+        and not command_handled
+    )
+    if eligible and event_is_stale:
+        eligible = False
+        reply_detail = "stale_event_suppressed"
+    if eligible and _gov and _gov.omar_in_control(sender_digits):
+        eligible = False
+        reply_detail = "omar_in_control"
+        # Still remember what the customer said while Omar handles the chat.
+        try:
+            import conversation_memory as _mem
+            _mem.record(sender_digits, "user", text)
+        except Exception:
+            pass
+    if eligible and _gov:
+        throttle_ok, throttle_reason = _gov.allow_reply(sender_digits)
+        if not throttle_ok:
+            eligible = False
+            reply_detail = f"throttled:{throttle_reason}"
+    if eligible and _already_replied(message_id):
+        eligible = False
+        reply_detail = "duplicate_suppressed"
+    if not eligible and reply_detail == "no_action" and (from_me or is_self or not actionable):
+        reply_detail = "not_actionable"
+    if eligible:
+        # Conversation memory: recall this contact's recent turns so the brain
+        # continues the conversation instead of restarting each message.
+        convo_history = ""
+        try:
+            import conversation_memory as _mem
+            convo_history = _mem.history(sender_digits)
+            _mem.record(sender_digits, "user", text)
+        except Exception as _mem_exc:  # pragma: no cover - defensive
+            logger.warning("conversation_memory read failed: %s", _mem_exc)
+        try:
+            import reply_humanizer as _rh
+        except Exception:  # pragma: no cover - defensive
+            _rh = None
+        # A bare "ok"/"thanks"/emoji gets a human thumbs-up, not an LLM essay.
+        if _rh and _rh.is_plain_ack(text):
+            reply_sent, send_detail = _send_whatsapp_reply(sender_digits, _rh.ACK_REPLY_EN)
+            reply_detail = f"ack_short_reply|send:{send_detail}"
+            if _gov and reply_sent:
+                _gov.note_reply(sender_digits)
+            side_effects["provider_webhook_called"] = True
+            side_effects["whatsapp_messages_sent"] = reply_sent
+            reply_text_out = _rh.ACK_REPLY_EN
+            eligible = False
+    if eligible:
+        # Reconnect the real brain: build Omar's personality/relationship/
+        # objective context and feed it to the LLM as the system prompt.
+        system_prompt, brain_meta = _build_personality_system_prompt(
+            text, convo_history, sender_digits, str(event.get("profile_name") or "")
+        )
+        # Knowledge connection: retrieve REAL inventory matching the message and
+        # give it to the brain as the only quotable source. No matches -> the
+        # no-fabrication rule keeps the reply at "I'll check and confirm".
+        inv_count = 0
+        try:
+            import inventory_retrieval as _inv
+            inv_block, inv_count = _inv.build_inventory_context(text)
+            if inv_block and system_prompt:
+                system_prompt = f"{system_prompt}\n\n{inv_block}"
+            elif inv_block:
+                system_prompt = inv_block
+        except Exception as _inv_exc:  # pragma: no cover - defensive
+            logger.warning("inventory_retrieval failed: %s", _inv_exc)
+        # Substance gate: no knowledge + no clear intent -> silence beats a
+        # confident-sounding nothing. (Greetings/questions still get answered.)
+        if _gov:
+            _silent, _silent_reason = _gov.should_stay_silent(text, inv_count)
+            if _silent:
+                reply_detail = f"silent:{_silent_reason}"
+                eligible = False
+    if eligible:
+        # Humanize at the source: WhatsApp-human style rules + honest media
+        # handling when the customer asked for photos/plans/video/location.
+        wants_media = False
+        media_entry = None
+        if _rh:
+            system_prompt = f"{system_prompt}\n\n{_rh.prompt_rules()}" if system_prompt else _rh.prompt_rules()
+            wants_media = _rh.media_intent(text)
+            if wants_media:
+                try:
+                    import media_vault as _mv
+                    media_entry = _mv.find_media(text)
+                except Exception:  # pragma: no cover - defensive
+                    media_entry = None
+                if not media_entry:
+                    system_prompt = f"{system_prompt}\n\n{_rh.media_prompt_rule()}"
+        reply_text_out, gen_detail = _generate_reply_text(text, history=convo_history, system_prompt=system_prompt)
+        gen_detail = f"{gen_detail}|brain:{brain_meta}|inv:{inv_count}" if brain_meta else f"{gen_detail}|inv:{inv_count}"
+        used_fallback = False
+        if not reply_text_out and WA_FALLBACK_REPLY:
+            reply_text_out = WA_FALLBACK_REPLY
+            used_fallback = True
+        # Send REAL media when the vault has it; the reply then references it
+        # truthfully. media_sent stays False on any failure.
+        media_sent = False
+        if media_entry:
+            media_sent, media_detail = _send_whatsapp_media(
+                sender_digits, media_entry["url"], media_entry.get("caption", "")
+            )
+            gen_detail = f"{gen_detail}|media:{'sent' if media_sent else media_detail}"
+        # Strip the AI fingerprint and never claim media we didn't send.
+        if _rh and reply_text_out:
+            reply_text_out = _rh.humanize(reply_text_out)
+            if wants_media:
+                reply_text_out = _rh.enforce_media_honesty(reply_text_out, media_sent, text)
+        if reply_text_out:
+            reply_sent, send_detail = _send_whatsapp_reply(sender_digits, reply_text_out)
+            fb = "|fallback" if used_fallback else ""
+            reply_detail = f"generate:{gen_detail}|send:{send_detail}{fb}"
+            side_effects["provider_webhook_called"] = True
+            side_effects["whatsapp_messages_sent"] = reply_sent or media_sent
+            if _gov and reply_sent:
+                _gov.note_reply(sender_digits)
+            if reply_sent and not used_fallback:
+                try:
+                    import conversation_memory as _mem
+                    _mem.record(sender_digits, "assistant", reply_text_out)
+                except Exception:
+                    pass
+            # CRM: capture every real inbound lead (best-effort, non-blocking).
+            try:
+                import crm_leads as _crm
+                if _crm.configured():
+                    _crm.capture(sender_digits, str(event.get("profile_name") or ""), text)
+                    side_effects["crm_records_written"] = True
+            except Exception as _crm_exc:  # pragma: no cover
+                logger.warning("crm capture failed: %s", _crm_exc)
+        else:
+            reply_detail = f"generate:{gen_detail}|no_fallback_configured"
     result = {
         "ok": True,
         "webhook_id": webhook_id,
@@ -781,9 +1660,12 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
             else "Monitor reply delivery and audit trail after explicit production approval.",
         },
         "reply_delivery": {
-            "enabled": False,
-            "mode": "hold_for_approval" if hold_delivery else "auto_mode_configured_but_external_send_disabled_here",
-            "reason": "Live provider sends remain approval-gated in AIOS Runtime.",
+            "enabled": not hold_delivery,
+            "mode": "hold_for_approval" if hold_delivery else "auto_reply_via_wasender",
+            "sent": reply_sent,
+            "detail": reply_detail,
+            "reply_text_preview": reply_text_out[:80],
+            "reason": "Held for approval." if hold_delivery else "Auto reply generated and sent via Wasender.",
         },
         "external_side_effects": side_effects,
         "public_beta_gate": {
@@ -798,6 +1680,28 @@ def evaluate_whatsapp_provider_webhook(payload: dict[str, Any]) -> dict[str, Any
     }
     _append_whatsapp_webhook(result)
     return result
+
+
+# --- Lightweight in-memory rate limiter (per client IP, sliding window) -------
+# Protects the public webhook + API POSTs from floods without any external
+# dependency. Best-effort; a restart clears the window. Tunable via env.
+_RL_WINDOW = float(os.getenv("AIOS_RL_WINDOW_SEC", "10"))
+_RL_MAX = int(os.getenv("AIOS_RL_MAX", "60"))          # requests per window per IP
+_RL_HITS: dict[str, list] = {}
+_RL_LOCK = threading.Lock()
+_RL_MAX_BODY = int(os.getenv("AIOS_MAX_BODY_BYTES", "262144"))  # 256 KB POST cap
+
+
+def _rate_limited(client_ip: str) -> bool:
+    now = time.time()
+    with _RL_LOCK:
+        hits = [t for t in _RL_HITS.get(client_ip, []) if now - t < _RL_WINDOW]
+        hits.append(now)
+        _RL_HITS[client_ip] = hits
+        if len(_RL_HITS) > 4096:  # bound memory: drop the coldest bucket
+            oldest = min(_RL_HITS, key=lambda k: _RL_HITS[k][-1] if _RL_HITS[k] else 0)
+            _RL_HITS.pop(oldest, None)
+        return len(hits) > _RL_MAX
 
 
 class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
@@ -863,6 +1767,11 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         return True
 
     def _webhook_authorized(self) -> bool:
+        # Wasender signs inbound POSTs with a shared secret in the
+        # X-Webhook-Signature header; accept it when a provider secret is set.
+        signature = self.headers.get("X-Webhook-Signature", "").strip()
+        if WASENDER_WEBHOOK_SECRET and signature and _constant_time_equal(signature, WASENDER_WEBHOOK_SECRET):
+            return True
         token = WHATSAPP_VERIFY_TOKEN
         if not token:
             # No verify token configured -> cannot authorize provider verification.
@@ -892,7 +1801,7 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return True
         if AUTH_MODE != "basic":
             return True
-        if path in {"/api/health", "/api/runtime/status", "/api/deployment/status", "/api/launch/readiness", "/api/client/config"}:
+        if path in {"/api/health", "/api/health/deep", "/api/runtime/status", "/api/deployment/status", "/api/launch/readiness", "/api/client/config"}:
             return True
         if (
             path in PUBLIC_STATIC_PATHS
@@ -904,7 +1813,14 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return False
         header = self.headers.get("Authorization", "")
         expected = "Basic " + base64.b64encode(f"{AUTH_USER}:{AUTH_PASSWORD}".encode("utf-8")).decode("ascii")
-        return header == expected
+        if header == expected:
+            return True
+        # Accept a valid session cookie (set when the app loaded) so fetch/XHR
+        # calls stay authenticated without re-prompting.
+        cookie = self.headers.get("Cookie", "")
+        if _SESSION_TOKEN and ("aios_session=" + _SESSION_TOKEN) in cookie:
+            return True
+        return False
 
     def _require_auth(self) -> bool:
         if self._authenticated():
@@ -926,8 +1842,12 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
     def do_GET(self) -> None:
         path = _path(self.path)
         if path == "/":
-            self.path = "/AIOS-WEBSITE.html"
-            path = "/AIOS-WEBSITE.html"
+            # Root (and the eyriq.com domain) serves the public investor site.
+            path = "/site"
+        elif path in ("/cockpit", "/cockpit/", "/ops"):
+            # Operations cockpit — behind auth (not in PUBLIC_STATIC_PATHS).
+            self.path = "/AIOS-COCKPIT.html"
+            path = "/AIOS-COCKPIT.html"
         if path == WHATSAPP_WEBHOOK_PATH:
             query = _query(self.path)
             mode = query.get("hub.mode") or query.get("mode")
@@ -956,8 +1876,9 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                     "ok": True,
                     "route": WHATSAPP_WEBHOOK_PATH,
                     "verify_token_configured": bool(WHATSAPP_VERIFY_TOKEN),
+                    "provider_signature_auth_configured": bool(WASENDER_WEBHOOK_SECRET),
                     "auth_mode": AUTH_MODE,
-                    "ready_for_provider": bool(WHATSAPP_VERIFY_TOKEN),
+                    "ready_for_provider": bool(WHATSAPP_VERIFY_TOKEN) or bool(WASENDER_WEBHOOK_SECRET),
                     "message": "Webhook route is live. Set AIOS_WHATSAPP_VERIFY_TOKEN to enable provider verification."
                     if not WHATSAPP_VERIFY_TOKEN
                     else "Webhook route is live and verify token is configured.",
@@ -965,6 +1886,26 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             )
             return
         if not self._require_auth():
+            return
+        if path.startswith("/api/voice/audio/"):
+            # PUBLIC (allowlisted): Twilio fetches the spoken clip via <Play>.
+            # Token is unguessable and the clip ages out in minutes.
+            token = path[len("/api/voice/audio/"):].strip("/")
+            try:
+                import voice_call_agent as _vc
+                mp3 = _vc.get_audio(token)
+            except Exception:
+                mp3 = None
+            if not mp3:
+                _write_json(self, 404, {"ok": False, "error": "clip expired or not found"})
+                return
+            self._aios_skip_cache_header = True
+            self.send_response(200)
+            self.send_header("Content-Type", "audio/mpeg")
+            self.send_header("Content-Length", str(len(mp3)))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(mp3)
             return
         if self._serve_gzip_static_if_supported(path):
             return
@@ -983,6 +1924,13 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         if path in {"/api/health", "/api/runtime/status"}:
             _write_json(self, 200, get_runtime_status())
             return
+        if path == "/api/health/deep":
+            # Default OFF: a routine health poll must NOT spend a real n8n
+            # execution (the customer's quota is finite — see _BRAIN_PROBE_TTL).
+            # Opt in with ?brain=1 for an explicit live probe.
+            check_brain = _query(self.path).get("brain", "0") in {"1", "true", "yes"}
+            _write_json(self, 200, get_deep_health(check_brain=check_brain))
+            return
         if path == "/api/deployment/status":
             _write_json(self, 200, get_deployment_status())
             return
@@ -998,11 +1946,389 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         if path == "/api/unit/stats":
             _write_json(self, 200, get_stats())
             return
+        if path == "/api/truth/audit":
+            try:
+                import truth_bridge_audit as _tb
+                _write_json(self, 200, _tb.audit())
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/marketing/flyer":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            lang = (qs.get("lang") or ["en"])[0]
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                res = _cs.flyer_for(q, lang=("ar" if lang == "ar" else "en"))
+                if not res.get("html"):
+                    _write_json(self, 200, res)
+                    return
+                body = res["html"].encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Cache-Control", "no-store")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/marketing/targeting":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            try:
+                budget = int((qs.get("budget") or ["5000"])[0])
+            except Exception:
+                budget = 5000
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                _write_json(self, 200, _cs.targeting_brief(q, monthly_budget_aed=max(500, budget)))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/marketing/campaign":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            channel = (qs.get("channel") or ["instagram"])[0]
+            try:
+                count = int((qs.get("count") or ["3"])[0])
+            except Exception:
+                count = 3
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                _write_json(self, 200, _cs.campaign(q, channel=channel, count=max(1, min(count, 10))))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/marketing/generate":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or qs.get("query") or [""])[0]
+            channel = (qs.get("channel") or ["property_finder"])[0]
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import content_studio as _cs
+                _write_json(self, 200, _cs.generate(q, channel=channel))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/engineering/evaluate":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            def _q(name):
+                return (qs.get(name) or [None])[0]
+            community = _q("community") or ""
+            proposal = {
+                "plot_area_sqm": _q("plot_area"),
+                "gfa_sqm": _q("gfa"),
+                "coverage_sqm": _q("coverage_sqm"),
+                "coverage_pct": _q("coverage_pct"),
+                "floors": _q("floors"),
+                "setback_front_m": _q("setback_front"),
+                "setback_side_m": _q("setback_side"),
+                "setback_rear_m": _q("setback_rear"),
+                "parking_spaces": _q("parking"),
+                "pool_boundary_setback_m": _q("pool_setback"),
+            }
+            if not community:
+                _write_json(self, 400, {"ok": False, "error": "missing community= param"})
+                return
+            try:
+                import design_compliance as _dc
+                _write_json(self, 200, _dc.evaluate(community, proposal))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path in ("/map", "/map/", "/deck", "/deck/", "/site", "/site/", "/pitch", "/pitch/"):
+            # Serve the visual pages from the AIOS server itself. /map and /deck
+            # sit behind auth; /site and /pitch are PUBLIC (allowlisted).
+            fname = ("pitch.html" if path.startswith("/pitch")
+                     else "site.html" if path.startswith("/site")
+                     else "map.html" if path.startswith("/map") else "deck.html")
+            try:
+                fp = RUNTIME_DIR / "pages" / fname
+                body = fp.read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Cache-Control", "no-store")
+                if _SESSION_TOKEN:
+                    self.send_header("Set-Cookie",
+                        f"aios_session={_SESSION_TOKEN}; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            except FileNotFoundError:
+                _write_json(self, 404, {"ok": False, "error": f"{fname} not on server yet"})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/app" or path == "/app/":
+            try:
+                from mobile_app_page import APP_HTML
+                body = APP_HTML.encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Cache-Control", "no-store")
+                # Set the session cookie so the app's API fetches stay authed —
+                # no repeated login prompts once installed to the home screen.
+                if _SESSION_TOKEN:
+                    self.send_header(
+                        "Set-Cookie",
+                        f"aios_session={_SESSION_TOKEN}; Path=/; Max-Age=31536000; "
+                        "HttpOnly; Secure; SameSite=Lax")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/units/search":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or [""])[0]
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import inventory_retrieval as _inv
+                rows = _inv.search(q, max_results=15)
+                results = [{
+                    "area": r.get("area", ""), "project": r.get("project", ""),
+                    "building": r.get("building", ""), "unit": r.get("unit", ""),
+                    "bedrooms": r.get("bedrooms", ""), "size": r.get("size", ""),
+                    "price": r.get("price", ""),
+                    "source": (r.get("source_file", "") or "")[:60],
+                } for r in rows]
+                # City-wide fallback: the sales sheet only covers listed units.
+                # Back it with the DLD unit index so ANY area/building resolves to
+                # real registered units (owner reachable via /api/owner/lookup).
+                dld_total = 0
+                if len(results) < 10:
+                    try:
+                        import owner_lookup as _ol
+                        for u in _ol.search_units(query=q, limit=15 - len(results)):
+                            results.append({
+                                "area": u.get("area", ""), "project": "",
+                                "building": u.get("building", ""), "unit": u.get("unit", ""),
+                                "bedrooms": "", "size": "", "price": "",
+                                "source": "DLD registered (owner on file)",
+                            })
+                        dld_total = _ol.health().get("records", 0)
+                    except Exception:
+                        pass
+                _write_json(self, 200, {"ok": True, "query": q, "results": results,
+                                        "quotable_total": _inv.quotable_count(),
+                                        "dld_units_indexed": dld_total})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/owner/lookup":
+            # Admin-only: unit/building/permit -> REAL owner + phone. The
+            # customer-channel NEVER_DISCLOSE guard is untouched; this opens
+            # only for the authenticated operator with the admin secret.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            def _q(n): return (qs.get(n) or [""])[0]
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = (_q("admin_secret") or self.headers.get("X-AIOS-Admin-Secret") or "").strip()
+            reveal = bool(admin and provided == admin)
+            try:
+                import owner_lookup as _ol
+                building = _q("building")
+                permit = _q("property_number") or _q("permit") or _q("permit_number")
+                # If the "building" box actually holds a permit code (e.g.
+                # JVC12NHRS006 / a DLD reg no — alnum, has digits, no spaces),
+                # treat it as a permit so Omar can paste either into one field.
+                import re as _re
+                if building and not permit and _re.fullmatch(r"[A-Za-z0-9\-/]{6,}", building.strip()) and _re.search(r"\d", building):
+                    permit, building = building.strip(), ""
+                # A plain name search matches building OR area, so typing an area
+                # ("Meydan", "Business Bay") returns owners there — not just
+                # buildings. Explicit building=/area= params still work.
+                gen_q = "" if (permit or _q("area")) else building
+                res = _ol.lookup(building=("" if gen_q else building), q=gen_q,
+                                 unit=_q("unit"), property_number=permit, area=_q("area"),
+                                 reveal=reveal, limit=int(_q("limit") or "10"))
+                res["revealed"] = reveal
+                _write_json(self, 200 if res.get("ok") else 400, res)
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/owner/from-url":
+            # Admin-only: paste a Bayut/PF/Dubizzle link -> extract unit ->
+            # owner + phone. Masked unless the admin secret is supplied.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            url = (qs.get("url") or [""])[0]
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = (qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0].strip()
+            reveal = bool(admin and provided == admin)
+            if not url.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing url= param"})
+                return
+            try:
+                import portal_extract as _pe, owner_lookup as _ol
+                info = _pe.extract(url)
+                if not info.get("ok"):
+                    _write_json(self, 200, {"ok": False, "reason": info.get("reason"), "extracted": info})
+                    return
+                owners = _ol.lookup(building=info.get("building", ""), area=info.get("area", ""),
+                                    reveal=reveal, limit=10)
+                _write_json(self, 200, {"ok": True, "extracted": info, "owners": owners.get("owners", []),
+                                        "matches": owners.get("matches", 0), "revealed": reveal})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/whatsapp/recent":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = ((qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0]).strip()
+            if not (admin and provided == admin):
+                _write_json(self, 403, {"ok": False, "error": "admin_secret required"})
+                return
+            with _WA_DEBUG_LOCK:
+                events = list(_WA_DEBUG)
+            _write_json(self, 200, {"ok": True, "owner_tail": OWNER_ALERT_PHONE_TAIL, "events": events})
+            return
+        if path == "/api/deal/recent":
+            try:
+                import deal_agent as _da
+                _write_json(self, 200, {"ok": True, "deals": _da.load_deals(30), "stats": _da.stats()})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/listing/assess":
+            # Paste a Bayut/PF link -> asking price vs official market read.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            url = (qs.get("url") or [""])[0]
+            if not url.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing url= param"})
+                return
+            try:
+                import listing_price as _lp
+                _write_json(self, 200, _lp.assess(url))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/renewals":
+            # Expiring tenancies -> warm leads (owner phone revealed w/ admin key).
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = ((qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0]).strip()
+            reveal = bool(admin and provided == admin)
+            try:
+                days = int((qs.get("days") or ["60"])[0])
+            except Exception:
+                days = 60
+            try:
+                import renewal_agent as _ra
+                _write_json(self, 200, _ra.build_leads(
+                    within_days=days, reveal=reveal,
+                    lang=("ar" if (qs.get("lang") or ["en"])[0] == "ar" else "en")))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/market":
+            try:
+                import market_index as _mi
+                s = _mi.summary(); s["brief"] = _mi.brief("en")
+                _write_json(self, 200, s)
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/comps":
+            # Real comparable-price valuation from DLD open transactions.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            try:
+                import dubai_pulse as _dp
+                _write_json(self, 200, _dp.comps(
+                    area=(qs.get("area") or [""])[0],
+                    building=(qs.get("building") or qs.get("q") or [""])[0]))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/pulse/sync":
+            # Admin-only: pull DLD open transactions into the local prices index.
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+            provided = ((qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0]).strip()
+            if not (admin and provided == admin):
+                _write_json(self, 403, {"ok": False, "error": "admin_secret required"})
+                return
+            try:
+                import dubai_pulse as _dp
+                if not _dp.configured():
+                    _write_json(self, 200, {"ok": False, "error": "not_configured",
+                                            "hint": "set DUBAI_PULSE_API_KEY / DUBAI_PULSE_API_SECRET on Railway"})
+                    return
+                try:
+                    max_rows = int((qs.get("max") or ["50000"])[0])
+                except Exception:
+                    max_rows = 50000
+                _write_json(self, 200, _dp.sync(max_rows=max_rows))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/outreach/queue":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            q = (qs.get("q") or [""])[0]
+            lang = (qs.get("lang") or ["en"])[0]
+            try:
+                limit = int((qs.get("limit") or ["20"])[0])
+            except Exception:
+                limit = 20
+            if not q.strip():
+                _write_json(self, 400, {"ok": False, "error": "missing q= query param"})
+                return
+            try:
+                import owner_outreach as _oo
+                _write_json(self, 200, _oo.queue(q, limit=limit, lang=("ar" if lang == "ar" else "en")))
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path == "/api/leads/recent":
+            try:
+                import group_leads as _gl
+                _write_json(self, 200, {"ok": True, "leads": _gl.recent(30), "stats": _gl.stats()})
+            except Exception as exc:
+                _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
         super().do_GET()
 
     def do_POST(self) -> None:
         started = time.perf_counter()
         path = _path(self.path)
+        client_ip = (self.headers.get("X-Forwarded-For", "") or self.client_address[0] if self.client_address else "?").split(",")[0].strip()
+        if _rate_limited(client_ip):
+            self._aios_skip_cache_header = True
+            _write_json(self, 429, {"ok": False, "error": "rate_limited", "retry_after_sec": _RL_WINDOW})
+            return
+        try:
+            if int(self.headers.get("Content-Length") or 0) > _RL_MAX_BODY:
+                _write_json(self, 413, {"ok": False, "error": "payload_too_large", "max_bytes": _RL_MAX_BODY})
+                return
+        except Exception:
+            pass
         if not self._require_auth():
             return
         if path not in {
@@ -1012,6 +2338,8 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             "/api/unit/ingest",
             "/api/property/resolve",
             "/api/unit/enrich",
+            "/api/outreach/send",
+            "/api/voice/call",
         }:
             _write_json(self, 404, {"ok": False, "error": "unknown_api_route", "path": path})
             return
@@ -1037,6 +2365,56 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                 result["api"] = {"elapsed_ms": round((time.perf_counter() - started) * 1000, 2)}
                 _write_json(self, 200 if result.get("ok") else 400, result)
                 return
+            if path == "/api/voice/call":
+                # Outbound AI call in Omar's cloned voice, from the dedicated
+                # Twilio number. Admin-secret gated on top of basic auth so only
+                # the operator can trigger a live call.
+                admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+                if not admin or (payload.get("admin_secret") or self.headers.get("X-AIOS-Admin-Secret") or "").strip() != admin:
+                    _write_json(self, 403, {"ok": False, "error": "admin_secret_required"})
+                    return
+                to = str(payload.get("to") or payload.get("number") or "").strip()
+                message = str(payload.get("message") or payload.get("text") or "").strip()
+                if not message:
+                    message = "Hello, this is a call on behalf of HSH Real Estate. We'll follow up with you shortly."
+                import voice_call_agent as _vc
+                result = _vc.place_call(to, message)
+                result["api"] = {"elapsed_ms": round((time.perf_counter() - started) * 1000, 2)}
+                _write_json(self, 200 if result.get("ok") else 400, result)
+                return
+            if path == "/api/outreach/send":
+                # One approved owner-outreach message. Requires the admin
+                # secret on top of basic auth; every send is journaled and
+                # rate-limited per contact via chat_governor.
+                admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
+                if not admin or (payload.get("admin_secret") or self.headers.get("X-AIOS-Admin-Secret") or "").strip() != admin:
+                    _write_json(self, 403, {"ok": False, "error": "admin_secret_required"})
+                    return
+                import owner_outreach as _oo
+                ref = str(payload.get("restricted_ref") or "").strip()
+                message = str(payload.get("message") or "").strip()
+                if not ref or not message:
+                    _write_json(self, 400, {"ok": False, "error": "restricted_ref and message required"})
+                    return
+                mobile = _oo.resolve_mobile(ref)
+                if not mobile:
+                    _write_json(self, 404, {"ok": False, "error": "unknown restricted_ref"})
+                    return
+                allowed, rate_detail = True, "no_governor"
+                try:
+                    import chat_governor as _cg
+                    if hasattr(_cg, "allow_reply"):
+                        allowed, rate_detail = _cg.allow_reply(mobile)
+                except Exception:
+                    pass
+                if not allowed:
+                    _write_json(self, 429, {"ok": False, "error": f"rate_limited:{rate_detail}"})
+                    return
+                sent, detail = _send_whatsapp_reply(mobile, message)
+                _oo.journal_send(ref, mobile, message, sent, detail)
+                _write_json(self, 200 if sent else 502,
+                            {"ok": sent, "detail": detail, "mobile_masked": _oo._mask(mobile)})
+                return
             if path == "/api/whatsapp/hosted-test":
                 result = evaluate_whatsapp_hosted_test(payload)
             else:
@@ -1050,6 +2428,22 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
 
 def run_server(host: str = DEFAULT_HOST, port: int = DEFAULT_PORT) -> int:
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    # Health alerting: WhatsApp Omar when a department goes red (gated on
+    # AIOS_HEALTH_ALERTS_ENABLED + AIOS_ALERT_PHONE; never blocks serving).
+    try:
+        import health_alerts as _ha
+        if _ha.start_monitor(lambda: get_deep_health(check_brain=False), _send_whatsapp_reply):
+            logger.info("health alert monitor started (every %s min)", _ha.INTERVAL_MIN)
+    except Exception as _ha_exc:  # pragma: no cover - defensive
+        logger.warning("health alert monitor failed to start: %s", _ha_exc)
+    # Daily CEO brief: one WhatsApp digest every morning (gated on
+    # AIOS_DAILY_BRIEF_ENABLED + AIOS_ALERT_PHONE).
+    try:
+        import daily_brief as _db
+        if _db.start_monitor(lambda: get_deep_health(check_brain=False), _send_whatsapp_reply):
+            logger.info("daily brief scheduled for %02d:00 Dubai", _db.BRIEF_HOUR)
+    except Exception as _db_exc:  # pragma: no cover - defensive
+        logger.warning("daily brief failed to start: %s", _db_exc)
     server = ThreadingHTTPServer((host, port), AIOSLiveAPIHandler)
     print(f"AIOS Runtime serving {AIOS_ROOT} at http://{host}:{port}")
     try:

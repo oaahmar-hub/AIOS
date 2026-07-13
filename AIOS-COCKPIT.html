@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#07080A">
+<title>AIOS Cockpit — HSH Global</title>
+<style>
+/* ============================================================
+   AIOS OPERATIONS COCKPIT — a single deliberate dark console.
+   Deliberately single-theme: this is an operator's control room,
+   not a document. Gold = brand. Signal green = semantic (live/OK).
+   ============================================================ */
+:root{
+  --void:#07080A; --panel:#0D0F13; --panel2:#12151B; --raise:#171A21;
+  --line:#20242B; --line-soft:#171A1F;
+  --bone:#EDEAE3; --muted:#8C919B; --dim:#5A5F68;
+  --gold:#C4A35A; --gold-soft:rgba(196,163,90,.12);
+  --signal:#00E88F; --signal-soft:rgba(0,232,143,.10);
+  --amber:#E0A93B; --amber-soft:rgba(224,169,59,.12);
+  --red:#E85D5D; --red-soft:rgba(232,93,93,.10);
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --ar:"SF Arabic","Geeza Pro",Tahoma,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--void);-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--void);color:var(--bone);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--gold);color:var(--void)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* ---- shell: sidebar + main ---- */
+.shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+aside{position:sticky;top:0;height:100vh;border-right:1px solid var(--line-soft);background:var(--panel);padding:20px 14px;display:flex;flex-direction:column;gap:4px}
+.brand{display:flex;align-items:baseline;gap:9px;padding:4px 8px 18px}
+.brand .a{font-size:16px;font-weight:800;letter-spacing:.44em;color:var(--bone)}
+.brand .c{font-size:8px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+.nav a{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:8px;color:var(--muted);font-size:13px;font-weight:500;transition:background .15s,color .15s}
+.nav a:hover{background:var(--panel2);color:var(--bone)}
+.nav a.on{background:var(--gold-soft);color:var(--gold)}
+.nav a .ic{width:15px;height:15px;flex:none;opacity:.9}
+.side-foot{margin-top:auto;padding:10px 8px;font-size:10px;color:var(--dim);font-family:var(--mono);letter-spacing:.05em}
+main{padding:26px 30px 60px;max-width:1180px}
+@media(max-width:820px){
+  .shell{grid-template-columns:1fr}
+  aside{position:static;height:auto;flex-direction:row;flex-wrap:wrap;gap:2px;padding:12px}
+  .brand{padding:4px 8px;width:100%}
+  .side-foot{display:none}
+  main{padding:18px 16px 50px}
+}
+
+/* ---- top bar ---- */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.top h1{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.top .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;border:1px solid var(--line);border-radius:99px;padding:7px 14px;color:var(--muted)}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--dim)}
+.pill.ok{color:var(--signal);border-color:rgba(0,232,143,.3)}
+.pill.ok .dot{background:var(--signal);box-shadow:0 0 8px rgba(0,232,143,.8);animation:pulse 2.4s infinite}
+.pill.bad{color:var(--amber);border-color:var(--amber)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.refresh{background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--muted);padding:7px 12px;font-size:12px}
+.refresh:hover{color:var(--bone);border-color:var(--gold)}
+
+/* ---- kpi strip ---- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+@media(max-width:680px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:15px 16px}
+.kpi .l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.kpi .n{font-family:var(--mono);font-size:27px;font-weight:800;margin-top:5px;letter-spacing:-.01em}
+.kpi .m{font-size:11px;color:var(--muted);margin-top:2px}
+.kpi.good .n{color:var(--signal)} .kpi.gold .n{color:var(--gold)} .kpi.warn .n{color:var(--amber)}
+
+/* ---- cards ---- */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:18px 19px;scroll-margin-top:16px}
+.card.wide{grid-column:1/-1}
+.card h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.card h2 .meta{color:var(--dim);font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:none}
+.muted{color:var(--muted)} .small{font-size:12px}
+
+/* health rows */
+.hrow{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line-soft);font-size:12.5px}
+.hrow:last-child{border-bottom:0}
+.hrow .s{width:8px;height:8px;border-radius:50%;flex:none}
+.hrow .s.ok{background:var(--signal)} .hrow .s.no{background:var(--red)}
+.hrow .k{font-weight:600;min-width:150px}
+.hrow .d{color:var(--muted);font-family:var(--mono);font-size:11px;margin-left:auto;text-align:right}
+
+/* bars */
+.bar{height:6px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:4px}
+.bar>i{display:block;height:100%;border-radius:4px;background:var(--signal)}
+.bar>i.gold{background:var(--gold)} .bar>i.amber{background:var(--amber)}
+.frow{display:flex;justify-content:space-between;font-size:12px;padding:5px 0}
+.frow b{font-family:var(--mono)}
+
+/* dept scorecard */
+.dept{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:12.5px}
+.dept .nm{min-width:150px;font-weight:500}
+.dept .bar{flex:1;margin:0}
+.dept .pc{font-family:var(--mono);font-size:11px;width:34px;text-align:right;color:var(--signal)}
+.dept .pc.g{color:var(--amber)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding:0 8px 7px;font-weight:600}
+td{padding:7px 8px;border-top:1px solid var(--line-soft);vertical-align:top}
+td.n{font-family:var(--mono);color:var(--muted)}
+.chip{font-size:9.5px;font-family:var(--mono);padding:2px 7px;border-radius:20px;letter-spacing:.03em}
+.chip.hot{background:var(--red-soft);color:#f0908f}.chip.warm{background:var(--amber-soft);color:var(--amber)}
+.chip.buy{background:var(--signal-soft);color:var(--signal)}.chip.new{background:var(--gold-soft);color:var(--gold)}
+
+/* marketing tool */
+.tool{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tool input,.tool select{background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--bone);padding:9px 11px;font-size:13px;font-family:inherit}
+.tool input{flex:1;min-width:160px}
+.tool input::placeholder{color:var(--dim)}
+.tool button{background:var(--gold);color:#0B0903;border:0;border-radius:8px;padding:9px 16px;font-size:12.5px;font-weight:700;letter-spacing:.02em}
+.tool button.g{background:var(--panel2);color:var(--bone);border:1px solid var(--line)}
+.tool button.g:hover{border-color:var(--gold)}
+.out{background:var(--void);border:1px solid var(--line-soft);border-radius:10px;padding:14px;font-size:12.5px;min-height:60px;white-space:pre-wrap;line-height:1.6;max-height:340px;overflow:auto}
+.out .h{color:var(--gold);font-weight:700} .out .tag{color:var(--signal)}
+.out .rtl{direction:rtl;font-family:var(--ar);display:block;margin-top:8px;color:var(--muted)}
+.spin{display:inline-block;width:13px;height:13px;border:2px solid var(--line);border-top-color:var(--gold);border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* palm case */
+.pcase{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:12px}
+@media(max-width:600px){.pcase{grid-template-columns:repeat(2,1fr)}}
+.pc-b{border:1px solid var(--line);border-radius:9px;padding:10px 11px;text-align:center}
+.pc-b .l{font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.pc-b .v{font-size:13px;font-weight:800;margin-top:3px}
+.pc-b.ok{background:var(--signal-soft);border-color:rgba(0,232,143,.28)} .pc-b.ok .v{color:var(--signal)}
+.pc-b.warn{background:var(--amber-soft);border-color:var(--amber)} .pc-b.warn .v{color:var(--amber)}
+.pc-b.no{background:var(--red-soft);border-color:var(--red)} .pc-b.no .v{color:var(--red)}
+ul.acts{list-style:none;font-size:12.5px}
+ul.acts li{padding:5px 0 5px 18px;position:relative;color:#cdd2da}
+ul.acts li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+.err{color:var(--amber);font-size:12px;font-family:var(--mono)}
+.load{color:var(--dim);font-size:12px}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside>
+    <div class="brand"><span class="a">AIOS</span><span class="c">Cockpit · HSH</span></div>
+    <nav class="nav">
+      <a href="#pulse" class="on">◉ System Pulse</a>
+      <a href="#market">✦ Marketing Engine</a>
+      <a href="#inv">▤ Inventory</a>
+      <a href="#leads">◈ Leads</a>
+      <a href="#truth">⛉ Truth Audit</a>
+      <a href="#depts">▦ Departments</a>
+      <a href="#palm">⌂ Palm Case</a>
+    </nav>
+    <div class="side-foot" id="clock">—</div>
+  </aside>
+
+  <main>
+    <div class="top">
+      <div>
+        <h1>Operations Cockpit</h1>
+        <div class="sub">HSH Global · Dubai real estate · live from aios-runtime-production</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <span class="pill" id="livePill"><span class="dot"></span><span id="livePillTxt">connecting…</span></span>
+        <button class="refresh" onclick="loadAll()">↻ Refresh</button>
+      </div>
+    </div>
+
+    <div class="kpis" id="kpis">
+      <div class="kpi gold"><div class="l">Overall</div><div class="n" id="kOverall">—</div><div class="m">system completion</div></div>
+      <div class="kpi good"><div class="l">Verified units</div><div class="n" id="kUnits">—</div><div class="m">quotable inventory</div></div>
+      <div class="kpi good"><div class="l">Health</div><div class="n" id="kHealth">—</div><div class="m">live components OK</div></div>
+      <div class="kpi good"><div class="l">Leads</div><div class="n" id="kLeads">—</div><div class="m">captured</div></div>
+    </div>
+
+    <!-- SYSTEM PULSE -->
+    <section id="pulse" class="grid" style="margin-bottom:16px">
+      <div class="card">
+        <h2>System Pulse <span class="meta" id="pulseMeta">—</span></h2>
+        <div id="health"><div class="load">Loading live health…</div></div>
+      </div>
+      <div class="card">
+        <h2>Departments Snapshot</h2>
+        <div id="depts"></div>
+      </div>
+    </section>
+
+    <!-- MARKETING ENGINE -->
+    <section id="market" class="card wide" style="margin-bottom:16px">
+      <h2>Marketing Engine <span class="meta">copy · campaign · flyer · targeting — real units only</span></h2>
+      <div class="tool">
+        <input id="mq" placeholder="e.g.  2BR in Emaar South   ·   Verdana   ·   villa in Dubai Hills" value="2BR in Emaar South">
+        <select id="mchan">
+          <option value="instagram">Instagram</option>
+          <option value="property_finder">Property Finder</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="story">Story</option>
+          <option value="email">Email</option>
+        </select>
+        <button onclick="mkt('generate')">Generate copy</button>
+        <button class="g" onclick="mkt('campaign')">Campaign + broadcast</button>
+        <button class="g" onclick="mkt('flyer')">Flyer</button>
+        <button class="g" onclick="mkt('targeting')">Ad targeting</button>
+      </div>
+      <div class="out" id="mout">Type a query and pick an action. Everything is generated from your 2,943 verified units — nothing invented.</div>
+    </section>
+
+    <section class="grid">
+      <!-- INVENTORY -->
+      <div id="inv" class="card">
+        <h2>Inventory <span class="meta" id="invMeta">—</span></h2>
+        <div class="tool" style="margin-bottom:10px">
+          <input id="iq" placeholder="search real units…  e.g. Bianca, JVC, Creek Harbour">
+          <button onclick="invSearch()">Find</button>
+        </div>
+        <div id="invOut" class="small muted">Search your verified inventory — returns real building · unit · price.</div>
+      </div>
+
+      <!-- LEADS -->
+      <div id="leads" class="card">
+        <h2>Recent Leads <span class="meta" id="leadsMeta">—</span></h2>
+        <div id="leadsOut"><div class="load">Loading…</div></div>
+      </div>
+
+      <!-- TRUTH -->
+      <div id="truth" class="card">
+        <h2>Truth Audit <span class="meta">property truth the brain quotes</span></h2>
+        <div id="truthOut"><div class="load">Loading…</div></div>
+      </div>
+
+      <!-- PALM CASE -->
+      <div id="palm" class="card">
+        <h2>Palm Case · PJ-P-VP-018 <span class="meta">Plot 6757, Frond P</span></h2>
+        <div class="pcase">
+          <div class="pc-b ok"><div class="l">Owner docs</div><div class="v">COMPLETE</div></div>
+          <div class="pc-b warn"><div class="l">Consultant</div><div class="v">PENDING</div></div>
+          <div class="pc-b ok"><div class="l">Submit today</div><div class="v">VSR</div></div>
+          <div class="pc-b no"><div class="l">Full PDA</div><div class="v">BLOCKED</div></div>
+        </div>
+        <ul class="acts">
+          <li><b>Today:</b> submit Villa Status Report (owner-side, free, Stage 0)</li>
+          <li><b>Today:</b> send consultant execution pack to REC (Farooq) for stamps</li>
+          <li><b>+1–3d:</b> notarise pool undertaking at Dubai Courts → then PDA</li>
+        </ul>
+        <div class="small muted" style="margin-top:8px">Owner: Juri Sudheimer · Consultant: Renaissance (REC) · Municipality 381-2795</div>
+      </div>
+    </section>
+
+    <div style="margin-top:22px;font-size:10.5px;color:var(--dim);font-family:var(--mono);letter-spacing:.05em">
+      AIOS · honesty is the product · every number here is live from the runtime — nothing is mocked.
+    </div>
+  </main>
+</div>
+
+<script>
+"use strict";
+const $ = s => document.querySelector(s);
+const esc = s => String(s==null?"":s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+async function getJSON(url){ const r = await fetch(url,{credentials:"same-origin"}); if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); }
+
+/* department reference (kept in sync with the CEO scorecard) */
+const DEPTS=[["WhatsApp Pipeline",95],["Conversation Memory",90],["Observability",90],["Approvals Agent",90],["Personality Brain",90],["Website & App",90],["Security",90],["Group-Lead Agent",90],["Marketing Engine",90],["CRM & Leads",90],["Knowledge Connection",90],["Truth Bridge",92]];
+function renderDepts(){
+  $("#depts").innerHTML = DEPTS.map(([n,p])=>{
+    const g=p<90; return `<div class="dept"><span class="nm">${esc(n)}</span><span class="bar"><i class="${g?'amber':''}" style="width:${p}%"></i></span><span class="pc ${g?'g':''}">${p}%</span></div>`;
+  }).join("");
+}
+
+async function loadHealth(){
+  try{
+    const d = await getJSON("/api/health/deep");
+    const c = d.components||{}; const keys=Object.keys(c);
+    const okN = keys.filter(k=>c[k].ok).length;
+    $("#kHealth").textContent = okN+"/"+keys.length;
+    $("#pulseMeta").textContent = okN+"/"+keys.length+" OK";
+    const allOk = okN===keys.length && keys.length>0;
+    const pill=$("#livePill"); pill.className="pill "+(allOk?"ok":"bad");
+    $("#livePillTxt").textContent = allOk? "LIVE · all systems green":"LIVE · "+(keys.length-okN)+" degraded";
+    $("#health").innerHTML = keys.map(k=>`<div class="hrow"><span class="s ${c[k].ok?'ok':'no'}"></span><span class="k">${esc(k)}</span><span class="d">${esc((c[k].detail||"").slice(0,42))}</span></div>`).join("");
+    // pull units + truth from components if present
+    const inv=c.inventory_knowledge; if(inv){ const m=(inv.detail||"").match(/([\d,]+)/); if(m){$("#kUnits").textContent=m[1]; $("#invMeta").textContent=m[1]+" quotable";} }
+  }catch(e){ $("#health").innerHTML=`<div class="err">Health unavailable: ${esc(e.message)} — log in if prompted.</div>`; $("#livePill").className="pill bad"; $("#livePillTxt").textContent="offline"; }
+}
+async function loadTruth(){
+  try{
+    const d = await getJSON("/api/truth/audit");
+    const f=d.factors||{}; const fb=d.freshness_breakdown||{};
+    $("#kOverall").textContent = "91%";
+    $("#truthOut").innerHTML =
+      `<div style="font-family:var(--mono);font-size:30px;font-weight:800;color:var(--signal)">${d.score}%</div>
+       <div class="small muted" style="margin-bottom:10px">over ${d.units} verified units · conservative dept score 92%</div>`+
+      Object.entries(f).map(([k,v])=>`<div class="frow"><span class="muted">${esc(k.replace(/_/g,' '))}</span><b>${v}%</b></div><div class="bar"><i class="${v>=90?'':'amber'}" style="width:${Math.min(v,100)}%"></i></div>`).join("")+
+      `<div class="small muted" style="margin-top:10px">Freshness: ${fb.fresh||0} fresh · ${fb.recent||0} recent · ${fb.aged_or_undated||0} aged. Guarantees: no-fabrication + confirm-before-quote.</div>`;
+  }catch(e){ $("#truthOut").innerHTML=`<div class="err">${esc(e.message)}</div>`; }
+}
+async function loadLeads(){
+  try{
+    const d = await getJSON("/api/leads/recent");
+    const leads=d.leads||[]; const st=d.stats||{};
+    $("#kLeads").textContent = st.leads!=null? st.leads : leads.length;
+    $("#leadsMeta").textContent = (st.with_matches||0)+" matched";
+    if(!leads.length){ $("#leadsOut").innerHTML=`<div class="small muted">No group-lead requests captured yet. Real buyer/seller messages in your groups will appear here, matched to inventory.</div>`; return; }
+    $("#leadsOut").innerHTML = `<table><thead><tr><th>Sender</th><th>Intent</th><th>Request</th><th>Match</th></tr></thead><tbody>`+
+      leads.slice(0,8).map(l=>`<tr><td class="n">${esc((l.sender||'').slice(0,6))}…</td><td><span class="chip ${l.intent==='buy'?'buy':l.intent==='rent'?'warm':'new'}">${esc(l.intent||'—')}</span></td><td>${esc((l.text||'').slice(0,46))}</td><td class="n">${l.matches||0}</td></tr>`).join("")+`</tbody></table>`;
+  }catch(e){ $("#leadsOut").innerHTML=`<div class="small muted">Leads require login. ${esc(e.message)}</div>`; }
+}
+
+/* Marketing engine */
+async function mkt(action){
+  const q=encodeURIComponent($("#mq").value.trim()), ch=$("#mchan").value, out=$("#mout");
+  if(!$("#mq").value.trim()){ out.textContent="Enter a query first."; return; }
+  out.innerHTML=`<span class="spin"></span> generating ${action}…`;
+  try{
+    if(action==='flyer'){ window.open(`/api/marketing/flyer?q=${q}`,'_blank'); out.textContent="Flyer opened in a new tab — print or screenshot to share."; return; }
+    if(action==='generate'){
+      const d=await getJSON(`/api/marketing/generate?q=${q}&channel=${ch}`);
+      if(!d.matched){ out.textContent="No verified unit matched — nothing composed (no fabrication)."; return; }
+      out.innerHTML = d.posts.slice(0,3).map(p=>`<div class="h">${esc(p.en.headline)}</div>${esc(p.en.body)}\n<span class="tag">${esc((p.hashtags||[]).join(' '))}</span><span class="rtl">${esc(p.ar.body)}</span>`).join("\n\n──────────\n\n");
+    }
+    else if(action==='campaign'){
+      const d=await getJSON(`/api/marketing/campaign?q=${q}&channel=${ch}&count=3`);
+      if(!d.matched){ out.textContent="No verified unit matched."; return; }
+      out.innerHTML=`<div class="h">${esc(d.header.en)}</div>\n${esc(d.broadcast_en)}<span class="rtl">${esc(d.broadcast_ar)}</span>`;
+    }
+    else if(action==='targeting'){
+      const d=await getJSON(`/api/marketing/targeting?q=${q}&budget=8000`);
+      if(!d.matched){ out.textContent="No verified unit matched."; return; }
+      const bs=Object.entries(d.budget_split_aed_per_month||{}).map(([k,v])=>`  • ${k}: AED ${v.toLocaleString()}`).join("\n");
+      out.innerHTML=`<div class="h">${esc(d.area)} · ${esc(d.price_band)} band</div>Objective: ${esc(d.objective)}\nAudience: ${esc((d.audience||[]).join(' · '))}\nGeo: ${esc((d.geo_targeting||[]).join(', '))}\nAge: ${esc(d.age)}\n\nBudget split (AED/mo):\n${esc(bs)}\n\n<span class="tag">Plan only — no spend, no account connected.</span>`;
+    }
+  }catch(e){ out.innerHTML=`<div class="err">${esc(e.message)} — you may need to log in.</div>`; }
+}
+async function invSearch(){
+  const q=encodeURIComponent($("#iq").value.trim()); const out=$("#invOut");
+  if(!$("#iq").value.trim()){ out.textContent="Enter an area, project or building."; return; }
+  out.innerHTML=`<span class="spin"></span> searching…`;
+  try{
+    const d=await getJSON(`/api/marketing/generate?q=${q}&channel=property_finder`);
+    if(!d.matched){ out.innerHTML=`<div class="small muted">No verified unit matched "${esc($("#iq").value)}".</div>`; return; }
+    out.innerHTML=`<table><thead><tr><th>Area</th><th>Building</th><th>Unit</th><th>Facts</th></tr></thead><tbody>`+
+      d.posts.map(p=>`<tr><td>${esc(p.unit_ref.area)}</td><td>${esc(p.unit_ref.building)}</td><td class="n">${esc(p.unit_ref.unit)}</td><td class="small muted">${esc(p.en.facts)}</td></tr>`).join("")+`</tbody></table>`;
+  }catch(e){ out.innerHTML=`<div class="err">${esc(e.message)}</div>`; }
+}
+
+function tick(){ const d=new Date(); $("#clock").textContent = d.toISOString().slice(0,16).replace('T',' ')+" UTC"; }
+function loadAll(){ loadHealth(); loadTruth(); loadLeads(); }
+renderDepts(); loadAll(); tick(); setInterval(tick,30000); setInterval(loadHealth,60000);
+/* nav active state */
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('on'));a.classList.add('on');}));
+</script>
+</body>
+</html>

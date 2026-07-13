@@ -7,10 +7,11 @@ import csv
 import json
 from collections import Counter, defaultdict
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 
 
-ROOT = Path("/Users/hassanka/Downloads/AIOS")
+ROOT = Path(__file__).resolve().parents[2]
 RESOLVER_DIR = ROOT / "KnowledgeBase" / "resolver"
 PROPERTY_GRAPH_DIR = ROOT / "KnowledgeBase" / "PropertyGraph"
 MASTER_CSV = PROPERTY_GRAPH_DIR / "listing_bridge_master.csv"
@@ -122,8 +123,17 @@ def pct(count: int, total: int) -> float:
     return round((count / total * 100.0), 1) if total else 0.0
 
 
+def relative_source(source_path: str) -> str:
+    try:
+        return str(Path(source_path).resolve().relative_to(ROOT))
+    except ValueError:
+        return source_path
+
+
 def main() -> None:
     source_path, rows = load_rows()
+    source_path = relative_source(source_path)
+    generated_on = date.today().isoformat()
     total_rows = len(rows)
     bucket_counts: Counter[str] = Counter()
     status_counts: Counter[str] = Counter()
@@ -174,7 +184,7 @@ def main() -> None:
     ranked_sources.sort(key=lambda item: (item["uplift_score"], item["exact"]), reverse=True)
 
     result = {
-        "generated_on": "2026-06-27",
+        "generated_on": generated_on,
         "source_csv": source_path,
         "total_bridge_rows": total_rows,
         "public_reference_rows": public_candidate_rows,
@@ -229,7 +239,7 @@ def main() -> None:
         [
             "# Truth Bridge Quality Report",
             "",
-            "Date: 2026-06-27",
+            f"Date: {generated_on}",
             f"Source CSV: `{source_path}`",
             "",
             "## Architecture Terminology",
