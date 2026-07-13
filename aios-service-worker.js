@@ -1,64 +1,29 @@
-const AIOS_CACHE = "aios-presence-v87";
-const AIOS_SHELL = [
-  "/aios.webmanifest",
-  "/offline.html",
-  "/assets/aios-icon-192.png",
-  "/assets/aios-icon-512.png",
-  "/assets/aios-icon-maskable-512.png"
-];
-const AIOS_PROTECTED_PATHS = new Set([
-  "/AIOS-DASHBOARD.html",
-  "/AIOS-MOBILE-APP.html",
-  "/AIOS-RUNTIME-STATUS.html"
-]);
-
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(AIOS_CACHE)
-      .then(cache => cache.addAll(AIOS_SHELL))
-      .then(() => self.skipWaiting())
-  );
-});
+// AIOS service worker — KILL SWITCH.
+// A previous cached build could get stuck and serve users a blank/broken shell
+// that survived normal refreshes. This version deliberately caches NOTHING:
+// on activate it deletes every cache and unregisters itself, then reloads any
+// open windows so every device drops the poison and loads fresh from the
+// network. After this runs once, there is no service worker caching at all —
+// the app is always fetched live.
+self.addEventListener("install", () => self.skipWaiting());
 
 self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(keys.filter(key => key !== AIOS_CACHE).map(key => caches.delete(key))))
-      .then(() => self.clients.claim())
-  );
+  event.waitUntil((async () => {
+    try {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    } catch (e) {}
+    try { await self.registration.unregister(); } catch (e) {}
+    try {
+      const wins = await self.clients.matchAll({ type: "window" });
+      for (const w of wins) {
+        try { w.navigate(w.url); } catch (e) {}
+      }
+    } catch (e) {}
+  })());
 });
 
+// Never serve from cache — always go straight to the network.
 self.addEventListener("fetch", event => {
-  const request = event.request;
-  const url = new URL(request.url);
-  if (request.method !== "GET" || url.pathname.startsWith("/api/")) return;
-
-  if (request.mode === "navigate") {
-    event.respondWith(
-      fetch(request)
-        .then(response => {
-          if (response.ok && !AIOS_PROTECTED_PATHS.has(url.pathname)) {
-            const copy = response.clone();
-            caches.open(AIOS_CACHE).then(cache => cache.put(request, copy));
-          }
-          return response;
-        })
-        .catch(() => caches.match(request).then(cached => cached || caches.match("/offline.html")))
-    );
-    return;
-  }
-
-  event.respondWith(
-    caches.match(request).then(cached => cached || fetch(request).then(response => {
-      if (
-        response.ok &&
-        !AIOS_PROTECTED_PATHS.has(url.pathname) &&
-        !url.pathname.startsWith("/assets/aios-eye-cinematic-loop-")
-      ) {
-        const copy = response.clone();
-        caches.open(AIOS_CACHE).then(cache => cache.put(request, copy));
-      }
-      return response;
-    }))
-  );
+  event.respondWith(fetch(event.request).catch(() => new Response("", { status: 504 })));
 });
