@@ -1836,6 +1836,19 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         cookie = self.headers.get("Cookie", "")
         if _SESSION_TOKEN and ("aios_session=" + _SESSION_TOKEN) in cookie:
             return True
+        # Accept the app's login password sent explicitly (header or ?admin_secret=),
+        # so the app signs in reliably where the session cookie is dropped — e.g. a
+        # Home-Screen PWA or private mode. Requires the real password → no PII
+        # exposure; this is a login, not a bypass.
+        pw = (self.headers.get("X-AIOS-Admin-Secret", "") or "").strip()
+        if not pw and "admin_secret=" in (self.path or ""):
+            try:
+                from urllib.parse import urlsplit, parse_qs
+                pw = (parse_qs(urlsplit(self.path).query).get("admin_secret", [""])[0]).strip()
+            except Exception:
+                pw = ""
+        if pw and AUTH_PASSWORD and pw == AUTH_PASSWORD:
+            return True
         return False
 
     def _require_auth(self) -> bool:
@@ -1843,7 +1856,9 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             return True
         self._aios_skip_cache_header = True
         self.send_response(401)
-        self.send_header("WWW-Authenticate", 'Basic realm="AIOS"')
+        # No WWW-Authenticate header on purpose: it makes the browser pop a
+        # native Basic-Auth "Sign in" dialog the user can't get past. The app
+        # authenticates via cookie/password, not that dialog.
         self.send_header("Cache-Control", "no-store")
         self.end_headers()
         return False

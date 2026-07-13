@@ -121,7 +121,17 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const TABS=['home','units','owners','market','renew','leads','eng','health'];
 function show(t){for(const x of TABS){const s=$('tab-'+x),b=$('tb-'+x);if(s)s.classList.toggle('hide',x!==t);if(b)b.classList.toggle('on',x===t);}if(t==='market')loadMarket();if(t==='home')loadHome();}
-async function api(p){const r=await fetch(p,{headers:{'Accept':'application/json'}});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
+async function api(p){
+ const hdrs=()=>{const h={'Accept':'application/json'};const k=localStorage.getItem('aios_admin_key');if(k)h['X-AIOS-Admin-Secret']=k;return h;};
+ let r=await fetch(p,{headers:hdrs(),credentials:'same-origin'});
+ if(r.status===401){
+  // Session cookie was dropped (e.g. Home-Screen app). Ask for the password
+  // once — a clean in-app prompt, not the browser's dead-end sign-in dialog.
+  const pw=prompt('Sign in — enter your app password (one time, remembered on this device):');
+  if(pw){localStorage.setItem('aios_admin_key',pw.trim());r=await fetch(p,{headers:hdrs(),credentials:'same-origin'});}
+ }
+ if(!r.ok)throw new Error('HTTP '+r.status);return r.json();
+}
 const DEPT={runtime:['⚙️','Server'],resolver_db:['🗄️','Resolver DB'],webhook_auth:['🔐','Webhook'],reply_mode:['💬','Reply mode'],wasender_send:['📤','WhatsApp send'],brain_n8n_openai:['🧠','Reply brain'],fallback_reply:['🛟','Fallback'],conversation_memory:['🧵','Memory'],group_leads:['🎯','Group leads'],content_studio:['🎨','Marketing'],truth_bridge:['🔗','Truth bridge'],crm_leads:['📇','CRM'],inventory_knowledge:['🏢','Unit finder'],reply_humanizer:['🫧','Humanizer'],media_vault:['🖼️','Media'],voice_notes:['🎙️','Voice'],design_compliance:['🏗️','Engineering'],dubai_pulse:['🏛️','DLD prices'],market_index:['📈','Market'],renewal_agent:['🔁','Renewals'],owner_lookup:['👤','Owner lookup'],deal_agent:['🤝','Deal agent'],daily_brief:['🌅','Daily brief'],owner_outreach:['✉️','Outreach'],health_alerts:['🚨','Alerts'],chat_governor:['🎛️','Chat governor']};
 // The real client-facing tools only (backend plumbing stays hidden).
 // [health-key, icon, name, live-description, setup-reason-if-not-live]
