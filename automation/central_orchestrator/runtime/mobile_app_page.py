@@ -125,16 +125,16 @@ async function api(p){const r=await fetch(p,{headers:{'Accept':'application/json
 const DEPT={runtime:['⚙️','Server'],resolver_db:['🗄️','Resolver DB'],webhook_auth:['🔐','Webhook'],reply_mode:['💬','Reply mode'],wasender_send:['📤','WhatsApp send'],brain_n8n_openai:['🧠','Reply brain'],fallback_reply:['🛟','Fallback'],conversation_memory:['🧵','Memory'],group_leads:['🎯','Group leads'],content_studio:['🎨','Marketing'],truth_bridge:['🔗','Truth bridge'],crm_leads:['📇','CRM'],inventory_knowledge:['🏢','Unit finder'],reply_humanizer:['🫧','Humanizer'],media_vault:['🖼️','Media'],voice_notes:['🎙️','Voice'],design_compliance:['🏗️','Engineering'],dubai_pulse:['🏛️','DLD prices'],market_index:['📈','Market'],renewal_agent:['🔁','Renewals'],owner_lookup:['👤','Owner lookup'],deal_agent:['🤝','Deal agent'],daily_brief:['🌅','Daily brief'],owner_outreach:['✉️','Outreach'],health_alerts:['🚨','Alerts'],chat_governor:['🎛️','Chat governor']};
 // The real client-facing tools only (backend plumbing stays hidden).
 // [health-key, icon, name, live-description, setup-reason-if-not-live]
+// One card per tappable tab — nothing shown that you can't actually open.
 const TOOLS=[
- ['owner_lookup','👤','Owner lookup','Building, area, or a Bayut/PF link → the real owner + phone',null],
- ['inventory_knowledge','🏢','Unit finder','Every registered unit across 46 Dubai areas',null],
- ['market_index','📈','Market','Live DLD prices + trend, and asking-vs-market on any link',null],
- ['design_compliance','🏗️','Permit check','Plot / GFA / floors checked against real building rules',null],
- ['content_studio','🎨','Marketing','Listing copy, campaigns & flyers, EN + AR',null],
- ['crm_leads','📇','CRM','Your contacts & leads',null],
- ['renewal_agent','🔁','Renewals',null,'Add your rentals list (building · unit · end date) — then it lights up'],
- ['group_leads','🎯','Lead hunting',null,"Connect the agent's own WhatsApp number to hunt group requests"],
+ ['owner_lookup','👤','Owner lookup','Owners tab → building, area, or a Bayut/PF link → the real owner + phone',null],
+ ['inventory_knowledge','🏢','Unit finder','Units tab → every registered unit across 46 Dubai areas',null],
+ ['market_index','📈','Market','Market tab → live DLD prices + trend, and asking-vs-market on any link',null],
+ ['design_compliance','🏗️','Permit check','Check tab → plot / GFA / floors checked against real building rules',null],
+ ['renewal_agent','🔁','Renewals',null,'Renew tab — add your rentals list (building · unit · end date) and it lights up'],
+ ['group_leads','🎯','Lead hunting',null,"Leads tab — connect the agent's own WhatsApp number to hunt group requests"],
 ];
+// Also running behind the scenes (used via WhatsApp, no tab): Marketing copy + CRM.
 async function loadHome(){
  try{const h=await api('/api/health/deep');const c=h.components||{};
   let liveRows='',setupRows='',nLive=0,nSetup=0;
