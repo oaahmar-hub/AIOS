@@ -315,7 +315,7 @@ def lookup(building: str = "", unit: str = "", property_number: str = "",
     area name ("Meydan", "Business Bay") finds owners there, not just buildings.
     """
     try:
-        if not any([building.strip(), unit.strip(), property_number.strip(), q.strip()]):
+        if not any([building.strip(), unit.strip(), property_number.strip(), q.strip(), area.strip()]):
             return {"ok": False, "error": "need building, area, unit, or property_number"}
         con = _connect()
         try:

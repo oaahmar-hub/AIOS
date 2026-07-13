@@ -2161,7 +2161,10 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             def _q(n): return (qs.get(n) or [""])[0]
             admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
             provided = (_q("admin_secret") or self.headers.get("X-AIOS-Admin-Secret") or "").strip()
-            reveal = bool(admin and provided == admin)
+            # Reveal on the admin secret OR the app's own login password, so the
+            # operator unmasks phones with the password they already have — no
+            # separate key to set. The auto-granted session cookie is NOT enough.
+            reveal = bool((admin and provided == admin) or (AUTH_PASSWORD and provided == AUTH_PASSWORD))
             try:
                 import owner_lookup as _ol
                 building = _q("building")
@@ -2192,7 +2195,10 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             url = (qs.get("url") or [""])[0]
             admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
             provided = (qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0].strip()
-            reveal = bool(admin and provided == admin)
+            # Reveal on the admin secret OR the app's own login password, so the
+            # operator unmasks phones with the password they already have — no
+            # separate key to set. The auto-granted session cookie is NOT enough.
+            reveal = bool((admin and provided == admin) or (AUTH_PASSWORD and provided == AUTH_PASSWORD))
             if not url.strip():
                 _write_json(self, 400, {"ok": False, "error": "missing url= param"})
                 return
@@ -2248,7 +2254,10 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             qs = parse_qs(urlparse(self.path).query)
             admin = os.getenv("AIOS_ADMIN_SECRET", "").strip()
             provided = ((qs.get("admin_secret") or [self.headers.get("X-AIOS-Admin-Secret", "")])[0]).strip()
-            reveal = bool(admin and provided == admin)
+            # Reveal on the admin secret OR the app's own login password, so the
+            # operator unmasks phones with the password they already have — no
+            # separate key to set. The auto-granted session cookie is NOT enough.
+            reveal = bool((admin and provided == admin) or (AUTH_PASSWORD and provided == AUTH_PASSWORD))
             try:
                 days = int((qs.get("days") or ["60"])[0])
             except Exception:

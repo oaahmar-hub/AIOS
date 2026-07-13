@@ -177,7 +177,7 @@ async function findUnits(){const q=$('uq').value.trim();if(!q)return;$('ur').inn
    <div class="dim">src: ${esc(r.source||'')}</div></div>`).join('');
  }catch(e){$('ur').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
 function adminKey(){let k=localStorage.getItem('aios_admin_key')||'';return k?('&admin_secret='+encodeURIComponent(k)):'';}
-function setAdminKey(){const k=prompt('Enter your AIOS admin secret to reveal real owner phone numbers:');if(k){localStorage.setItem('aios_admin_key',k.trim());findOwners();}}
+function setAdminKey(){const k=prompt('Enter your app password to reveal the real phone numbers (one time — it is remembered on this device):');if(k){localStorage.setItem('aios_admin_key',k.trim());findOwners();}}
 async function findOwners(){const q=$('oq').value.trim();if(!q)return;$('or').innerHTML='<div class="loading">searching real DLD owners…</div>';
  try{
   // A pasted Bayut/PF/Dubizzle link -> owner via the listing; else building/unit search.
@@ -191,7 +191,7 @@ async function findOwners(){const q=$('oq').value.trim();if(!q)return;$('or').in
       ?"That link isn't a property listing. Paste a <b>Bayut / Property Finder / Dubizzle</b> listing link, or just type a <b>building</b> or <b>area</b> name (e.g. Marina, Business Bay, Palm)."
       :"No match for \""+esc(q)+"\". Try the exact <b>building</b> or <b>area</b> name (e.g. Princess Tower, Marina, Downtown). 786k owners across 46 Dubai areas are loaded.";
     $('or').innerHTML='<div class="item">'+msg+'</div>';return;}
-  const note=d.revealed?'':'<div class="warnbox" onclick="setAdminKey()" style="cursor:pointer">Phones masked — tap here to enter your admin key and reveal real numbers.</div>';
+  const note=d.revealed?'':'<div class="warnbox" onclick="setAdminKey()" style="cursor:pointer">Phones masked — tap here and enter your app password to reveal the real numbers.</div>';
   $('or').innerHTML=note+owners.map(r=>`<div class="item"><b>${esc(r.name||'Owner')} · ${esc(r.phone)}</b>
    <span class="dim">${esc([r.building,r.unit&&('unit '+r.unit),r.property_number&&('permit '+r.property_number),r.country].filter(Boolean).join(' · '))}</span></div>`).join('');
  }catch(e){$('or').innerHTML='<div class="item">error: '+esc(e.message)+'</div>';}}
