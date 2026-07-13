@@ -123,21 +123,30 @@ const TABS=['home','units','owners','market','renew','leads','eng','health'];
 function show(t){for(const x of TABS){const s=$('tab-'+x),b=$('tb-'+x);if(s)s.classList.toggle('hide',x!==t);if(b)b.classList.toggle('on',x===t);}if(t==='market')loadMarket();if(t==='home')loadHome();}
 async function api(p){const r=await fetch(p,{headers:{'Accept':'application/json'}});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
 const DEPT={runtime:['⚙️','Server'],resolver_db:['🗄️','Resolver DB'],webhook_auth:['🔐','Webhook'],reply_mode:['💬','Reply mode'],wasender_send:['📤','WhatsApp send'],brain_n8n_openai:['🧠','Reply brain'],fallback_reply:['🛟','Fallback'],conversation_memory:['🧵','Memory'],group_leads:['🎯','Group leads'],content_studio:['🎨','Marketing'],truth_bridge:['🔗','Truth bridge'],crm_leads:['📇','CRM'],inventory_knowledge:['🏢','Unit finder'],reply_humanizer:['🫧','Humanizer'],media_vault:['🖼️','Media'],voice_notes:['🎙️','Voice'],design_compliance:['🏗️','Engineering'],dubai_pulse:['🏛️','DLD prices'],market_index:['📈','Market'],renewal_agent:['🔁','Renewals'],owner_lookup:['👤','Owner lookup'],deal_agent:['🤝','Deal agent'],daily_brief:['🌅','Daily brief'],owner_outreach:['✉️','Outreach'],health_alerts:['🚨','Alerts'],chat_governor:['🎛️','Chat governor']};
+// The real client-facing tools only (backend plumbing stays hidden).
+// [health-key, icon, name, live-description, setup-reason-if-not-live]
+const TOOLS=[
+ ['owner_lookup','👤','Owner lookup','Building, area, or a Bayut/PF link → the real owner + phone',null],
+ ['inventory_knowledge','🏢','Unit finder','Every registered unit across 46 Dubai areas',null],
+ ['market_index','📈','Market','Live DLD prices + trend, and asking-vs-market on any link',null],
+ ['design_compliance','🏗️','Permit check','Plot / GFA / floors checked against real building rules',null],
+ ['content_studio','🎨','Marketing','Listing copy, campaigns & flyers, EN + AR',null],
+ ['crm_leads','📇','CRM','Your contacts & leads',null],
+ ['renewal_agent','🔁','Renewals',null,'Add your rentals list (building · unit · end date) — then it lights up'],
+ ['group_leads','🎯','Lead hunting',null,"Connect the agent's own WhatsApp number to hunt group requests"],
+];
 async function loadHome(){
  try{const h=await api('/api/health/deep');const c=h.components||{};
-  const ent=Object.entries(c);
-  const live=ent.filter(([k,v])=>v.ok===true);
-  const pending=ent.filter(([k,v])=>v.ok!==true&&v.ok!==false);
-  const failing=ent.filter(([k,v])=>v.ok===false);
-  $('status').textContent=failing.length?(failing.length+' need attention'):(live.length+' tools live');
-  $('hero').innerHTML=`<div class="item"><b style="font-size:19px">${live.length} tools live${pending.length?(' · '+pending.length+' need setup'):''}${failing.length?(' · '+failing.length+' down'):''}</b>
-   <div class="dim">the live tools below are ready to use — the rest are hidden from clients until set up</div></div>`;
-  const nm=k=>{const d=DEPT[k]||['•',k];return d[0]+' '+d[1];};
-  const row=(k,v,pill)=>`<div class="item"><b>${esc(nm(k))}</b> ${pill}<div class="dim">${esc(v.detail||v.value||'')}</div></div>`;
-  let html='<div class="card"><b>✅ Live now — ready to show</b>'+(live.map(([k,v])=>row(k,v,'<span class="pill ok">live</span>')).join('')||'<div class="dim">—</div>')+'</div>';
-  if(failing.length)html+='<div class="card"><b>⚠ Needs attention</b>'+failing.map(([k,v])=>row(k,v,'<span class="pill bad">down</span>')).join('')+'</div>';
-  if(pending.length)html+='<div class="card"><b>🔒 Not live yet — needs your setup</b>'+pending.map(([k,v])=>row(k,v,'<span class="pill na">needs setup</span>')).join('')+'</div>';
-  $('depts').innerHTML=html;
+  let liveRows='',setupRows='',nLive=0,nSetup=0;
+  for(const t of TOOLS){const key=t[0],ic=t[1],nm=t[2],desc=t[3],setup=t[4];const v=c[key]||{};
+   const isLive=!setup&&v.ok!==false;
+   if(isLive){nLive++;liveRows+=`<div class="item"><b>${ic} ${esc(nm)}</b> <span class="pill ok">live</span><div class="dim">${esc(desc||v.detail||'')}</div></div>`;}
+   else{nSetup++;setupRows+=`<div class="item"><b>${ic} ${esc(nm)}</b> <span class="pill na">needs setup</span><div class="dim">${esc(setup||v.detail||'')}</div></div>`;}}
+  $('status').textContent=nLive+' tools live';
+  $('hero').innerHTML=`<div class="item"><b style="font-size:19px">${nLive} tools live${nSetup?(' · '+nSetup+' need your setup'):''}</b>
+   <div class="dim">tap a tab below to use a live tool — only live tools ever show to a client</div></div>`;
+  $('depts').innerHTML='<div class="card"><b>✅ Live now — ready to show</b>'+liveRows+'</div>'
+   +(setupRows?'<div class="card"><b>🔒 Not live yet — needs your setup</b>'+setupRows+'</div>':'');
  }catch(e){$('hero').innerHTML='<div class="item">cannot reach system — pull down to refresh</div>';$('status').textContent='cannot reach system';}}
 async function loadMarket(){if($('mkt').dataset.done)return;
  try{const d=await api('/api/market');
