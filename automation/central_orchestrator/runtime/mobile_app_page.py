@@ -17,7 +17,7 @@ APP_HTML = r"""<!doctype html>
 <style>
 :root{--bg:#0b1220;--card:#121a2c;--line:#22304d;--txt:#e8eefc;--dim:#8fa3c8;--acc:#4fd1c5;--warn:#f6ad55;--bad:#fc8181;--ok:#68d391}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{background:var(--bg);color:var(--txt);font:16px/1.45 -apple-system,system-ui,sans-serif;padding-bottom:84px}
+body{background:var(--bg);color:var(--txt);font:16px/1.45 -apple-system,system-ui,sans-serif;padding-bottom:84px;overflow-x:hidden}
 header{padding:18px 16px 10px}h1{font-size:22px}h1 span{color:var(--acc)}
 #status{font-size:13px;color:var(--dim);margin-top:2px}
 .tabs{position:fixed;bottom:0;left:0;right:0;display:flex;background:#0e1626;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
@@ -26,7 +26,7 @@ header{padding:18px 16px 10px}h1{font-size:22px}h1 span{color:var(--acc)}
 main{padding:8px 14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
 .row{display:flex;gap:8px;margin:10px 0}
-input,select{flex:1;background:#0e1626;border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:12px;font-size:16px}
+input,select{flex:1;min-width:0;background:#0e1626;border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:12px;font-size:16px}
 .btn{background:var(--acc);color:#04222b;border:0;border-radius:10px;padding:12px 16px;font-weight:700;font-size:15px;cursor:pointer}
 .btn:disabled{opacity:.5}
 .item{border-bottom:1px solid var(--line);padding:10px 0;font-size:14px}
