@@ -124,6 +124,7 @@ PUBLIC_STATIC_PATHS = {
     "/aios-service-worker.js",
     "/aios.webmanifest",
     "/offline.html",
+    "/app",
     "/app/",
     "/app/index.html",
     "/site",
