@@ -279,12 +279,21 @@ def ingest_dld_xlsx(path: str, area: str = "") -> dict:
         bi, ui, pni, pli = _col(hm, "building"), _col(hm, "unit"), _col(hm, "pnum"), _col(hm, "plot")
         ri, ci = _col(hm, "role"), _col(hm, "country")
         phone_idx = [hm[a] for a in _ALIAS["phone"] if a in hm]
+        # Community / project column — villas (Golf Place, etc.) have no building
+        # name; they're identified by their community, so capture it and use it
+        # as the searchable "building" when BuildingNameEn is blank.
+        proj_i = None
+        for cand in ("project", "project name en", "project name", "project_name_en",
+                     "master project", "master_project_en", "master project en", "community"):
+            if cand in hm:
+                proj_i = hm[cand]; break
         out = []
         for r in rows:
             name = gv(r, ni)
             if not name:
                 continue
             bldg, unit = gv(r, bi), gv(r, ui)
+            proj = gv(r, proj_i) if proj_i is not None else ""
             pnum = gv(r, pni)
             if not bldg or not unit:  # join from the property sheet
                 for k in (pnum, gv(r, pli)):
@@ -293,9 +302,13 @@ def ingest_dld_xlsx(path: str, area: str = "") -> dict:
                         bldg = bldg or jb
                         unit = unit or ju
                         break
+            # Villa/community fallback: no real building -> make the community the
+            # searchable/displayed building (villas carry "null" or blank here).
+            if (not bldg or str(bldg).strip().lower() in ("null", "none")) and proj:
+                bldg = proj
             phone = _first_phone(*[gv(r, i) for i in phone_idx])
             out.append({
-                "area": area, "building": bldg, "unit": unit, "project": "",
+                "area": area, "building": bldg, "unit": unit, "project": proj,
                 "property_number": pnum, "role": gv(r, ri) or "Owner",
                 "name": name, "phone": phone, "country": gv(r, ci),
             })
@@ -323,11 +336,11 @@ def lookup(building: str = "", unit: str = "", property_number: str = "",
             clauses, params = [], []
             _filler = {"the", "of", "at", "by", "and", "dubai"}
             if q.strip():
-                # each token must appear in building OR area
+                # each token must appear in building OR area OR project/community
                 for t in [t for t in re.split(r"[^a-z0-9]+", q.strip().lower())
                           if len(t) > 1 and t not in _filler]:
-                    clauses.append("(lower(building) LIKE ? OR lower(area) LIKE ?)")
-                    params += [f"%{t}%", f"%{t}%"]
+                    clauses.append("(lower(building) LIKE ? OR lower(area) LIKE ? OR lower(project) LIKE ?)")
+                    params += [f"%{t}%", f"%{t}%", f"%{t}%"]
             if property_number.strip():
                 clauses.append("lower(property_number) = ?"); params.append(property_number.strip().lower())
             if building.strip():
@@ -340,7 +353,8 @@ def lookup(building: str = "", unit: str = "", property_number: str = "",
                         if len(t) > 1]
                 core = [t for t in toks if t not in _filler] or toks
                 for t in core:
-                    clauses.append("lower(building) LIKE ?"); params.append(f"%{t}%")
+                    clauses.append("(lower(building) LIKE ? OR lower(project) LIKE ?)")
+                    params += [f"%{t}%", f"%{t}%"]
             if unit.strip():
                 clauses.append("lower(unit) = ?"); params.append(unit.strip().lower())
             if area.strip():
