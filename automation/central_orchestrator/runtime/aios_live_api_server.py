@@ -135,6 +135,9 @@ PUBLIC_STATIC_PATHS = {
     "/peter/",
     "/peter-ar",
     "/peter-ar/",
+    "/hsh-hero.jpg",
+    "/hsh-logo.png",
+    "/hsh-brand.jpg",
 }
 # NOTE: a blanket ".html" suffix here previously made EVERY html file public,
 # including AIOS-DASHBOARD.html (the command center). Public pages must be
@@ -2105,6 +2108,21 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
                 _write_json(self, 200, _dc.evaluate(community, proposal))
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
+            return
+        if path in ("/hsh-hero.jpg", "/hsh-logo.png", "/hsh-brand.jpg"):
+            # PUBLIC brand assets (HSH GLOBAL hero + monogram) used by /peter.
+            try:
+                fp = RUNTIME_DIR / "pages" / path.lstrip("/")
+                body = fp.read_bytes()
+                ct = "image/png" if path.endswith(".png") else "image/jpeg"
+                self.send_response(200)
+                self.send_header("Content-Type", ct)
+                self.send_header("Cache-Control", "public, max-age=86400")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            except Exception:
+                self.send_response(404); self.end_headers()
             return
         if path in ("/map", "/map/", "/deck", "/deck/", "/site", "/site/", "/pitch", "/pitch/", "/peter", "/peter/", "/peter-ar", "/peter-ar/"):
             # Serve the visual pages from the AIOS server itself. /map and /deck
