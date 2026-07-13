@@ -173,7 +173,11 @@ async function findOwners(){const q=$('oq').value.trim();if(!q)return;$('or').in
                  :('/api/owner/lookup?building='+encodeURIComponent(q)+adminKey());
   const d=await api(url);
   const owners=d.owners||[];
-  if(!owners.length){$('or').innerHTML='<div class="item">No owner on file for that yet. (DLD area data must be ingested — JVC is loaded.)</div>';return;}
+  if(!owners.length){
+    const msg=isUrl
+      ?"That link isn't a property listing. Paste a <b>Bayut / Property Finder / Dubizzle</b> listing link, or just type a <b>building</b> or <b>area</b> name (e.g. Marina, Business Bay, Palm)."
+      :"No match for \""+esc(q)+"\". Try the exact <b>building</b> or <b>area</b> name (e.g. Princess Tower, Marina, Downtown). 786k owners across 46 Dubai areas are loaded.";
+    $('or').innerHTML='<div class="item">'+msg+'</div>';return;}
   const note=d.revealed?'':'<div class="warnbox" onclick="setAdminKey()" style="cursor:pointer">Phones masked — tap here to enter your admin key and reveal real numbers.</div>';
   $('or').innerHTML=note+owners.map(r=>`<div class="item"><b>${esc(r.name||'Owner')} · ${esc(r.phone)}</b>
    <span class="dim">${esc([r.building,r.unit&&('unit '+r.unit),r.property_number&&('permit '+r.property_number),r.country].filter(Boolean).join(' · '))}</span></div>`).join('');
