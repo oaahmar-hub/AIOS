@@ -49,10 +49,21 @@ def _agent_token() -> str:
     return os.getenv("AIOS_AGENT_WASENDER_TOKEN", "").strip()
 
 
+def _twilio_wa_ready() -> bool:
+    try:
+        import twilio_whatsapp as _tw
+        return _tw.is_configured()
+    except Exception:
+        return False
+
+
 def is_armed() -> bool:
-    """Live only when explicitly enabled AND the agent has its own send channel."""
+    """Live when enabled AND the agent has a send channel — its own Twilio
+    WhatsApp number (one-number-both) OR its own Wasender session."""
     if not AUTOCLOSE_ENABLED:
         return False
+    if _twilio_wa_ready():
+        return True
     try:
         import agent_identity as _ai
         return bool(_agent_token() and _ai.INDEPENDENT)
@@ -73,10 +84,19 @@ def _cooled_down(contact: str) -> bool:
 
 
 def send(to: str, text: str) -> tuple[bool, str]:
-    """Send a WhatsApp message FROM the agent's own number (its own token).
+    """Send a WhatsApp message FROM the agent's own number.
 
-    Scrubs the real brand out first. No-op if the agent channel isn't set.
+    Prefers the agent's Twilio WhatsApp number (one number for chat + calls);
+    falls back to its own Wasender session. Brand is scrubbed before sending.
     """
+    # Channel 1: the agent's own Twilio WhatsApp number (one-number-both).
+    if _twilio_wa_ready():
+        try:
+            import twilio_whatsapp as _tw
+            return _tw.send(to, text)
+        except Exception as exc:  # pragma: no cover - defensive
+            return False, f"twilio_wa_error:{exc}"
+    # Channel 2: the agent's own Wasender session.
     token = _agent_token()
     if not token:
         return False, "agent_channel_not_configured"

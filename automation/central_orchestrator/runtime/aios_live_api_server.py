@@ -66,6 +66,8 @@ _SESSION_TOKEN = hmac.new(
     hashlib.sha256,
 ).hexdigest() if AUTH_USER else ""
 WHATSAPP_WEBHOOK_PATH = "/webhook/whatsapp/provider/gateway"
+# Inbound WhatsApp for the INDEPENDENT agent via its own Twilio number.
+TWILIO_WA_WEBHOOK_PATH = "/webhook/twilio-whatsapp"
 WHATSAPP_REPLY_MODE = os.getenv("AIOS_WHATSAPP_REPLY_MODE", "hold").strip().lower()
 WHATSAPP_VERIFY_TOKEN = os.getenv("AIOS_WHATSAPP_VERIFY_TOKEN", "").strip()
 # Wasender delivers inbound events with a shared secret in the
@@ -654,6 +656,15 @@ def get_deep_health(check_brain: bool = False) -> dict[str, Any]:
         }
     except Exception as exc:  # pragma: no cover - defensive
         components["agent_closer"] = _ok(False, f"error:{exc}")
+    try:
+        import twilio_whatsapp as _tw_health
+        _twh = _tw_health.health()
+        components["twilio_whatsapp"] = {
+            "ok": None if _twh["status"] == "not_configured" else True,
+            "detail": _twh["status"] + ("·1number" if _twh.get("one_number_both") else ""),
+        }
+    except Exception as exc:  # pragma: no cover - defensive
+        components["twilio_whatsapp"] = _ok(False, f"error:{exc}")
 
     try:
         import renewal_agent as _ra_health
@@ -1799,6 +1810,10 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
         path = _path(self.path)
         if path == WHATSAPP_WEBHOOK_PATH and self._webhook_authorized():
             return True
+        if path == TWILIO_WA_WEBHOOK_PATH:
+            # Twilio posts inbound WhatsApp here unauthenticated (it signs the
+            # request instead). Public route; the handler validates config.
+            return True
         if AUTH_MODE != "basic":
             return True
         if path in {"/api/health", "/api/health/deep", "/api/runtime/status", "/api/deployment/status", "/api/launch/readiness", "/api/client/config"}:
@@ -2340,11 +2355,50 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             "/api/unit/enrich",
             "/api/outreach/send",
             "/api/voice/call",
+            TWILIO_WA_WEBHOOK_PATH,
         }:
             _write_json(self, 404, {"ok": False, "error": "unknown_api_route", "path": path})
             return
         try:
             payload = _read_request_body(self)
+            if path == TWILIO_WA_WEBHOOK_PATH:
+                # Inbound WhatsApp to the independent agent's own Twilio number.
+                # Parse -> record lead -> reply in-persona via TwiML (from its own
+                # number). Always 200 with TwiML so Twilio is happy.
+                reply_text = ""
+                try:
+                    import twilio_whatsapp as _tw, agent_identity as _ai
+                    inb = _tw.parse_inbound(payload)
+                    msg, frm = inb.get("text", ""), inb.get("from", "")
+                    if msg:
+                        cards = []
+                        try:
+                            import group_leads as _gl
+                            lead = _gl.detect(frm, msg, source="direct")
+                            cards = (lead or {}).get("cards", []) if lead else []
+                        except Exception:
+                            cards = []
+                        sysp = _ai.persona_system_prompt(
+                            "ar" if any("؀" <= c <= "ۿ" for c in msg) else "en")
+                        ctx = msg + ("\n\n[Matching units you can offer]:\n" +
+                                     "\n".join(f"- {str(c)[:160]}" for c in cards[:3]) if cards else "")
+                        reply_text, _ = _generate_reply_direct(ctx, "", sysp)
+                        reply_text = _ai.scrub(reply_text or "")
+                except Exception as _tw_exc:
+                    logger.warning("twilio-wa inbound failed: %s", _tw_exc)
+                    reply_text = ""
+                twiml = '<?xml version="1.0" encoding="UTF-8"?><Response>'
+                if reply_text:
+                    twiml += "<Message>" + (reply_text.replace("&", "&amp;")
+                                            .replace("<", "&lt;").replace(">", "&gt;")) + "</Message>"
+                twiml += "</Response>"
+                body = twiml.encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "text/xml; charset=utf-8")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+                return
             if path == "/api/permission/evaluate":
                 decision = evaluate_permission_api(payload)
                 decision["api"]["elapsed_ms"] = round((time.perf_counter() - started) * 1000, 2)
