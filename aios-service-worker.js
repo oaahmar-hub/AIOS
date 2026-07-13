@@ -1,6 +1,5 @@
-const AIOS_CACHE = "aios-presence-v86";
+const AIOS_CACHE = "aios-presence-v87";
 const AIOS_SHELL = [
-  "/AIOS-WEBSITE.html",
   "/aios.webmanifest",
   "/offline.html",
   "/assets/aios-icon-192.png",

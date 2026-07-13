@@ -1872,6 +1872,15 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:
         path = _path(self.path)
+        # Old Home-Screen / PWA entry points (baked into already-installed icons)
+        # → bounce to the current working app so a stale installed icon still lands
+        # on the live /app instead of an old, dead page.
+        if path in ("/AIOS-MOBILE-APP.html", "/AIOS-DASHBOARD.html", "/AIOS-WEBSITE.html"):
+            self.send_response(302)
+            self.send_header("Location", "/app")
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            return
         if path == "/":
             # Root (and the eyriq.com domain) serves the public investor site.
             path = "/site"

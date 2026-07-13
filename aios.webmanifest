@@ -2,8 +2,8 @@
   "name": "AIOS Business Operating System",
   "short_name": "AIOS",
   "description": "Home Sweet Home operating presence for command, property intelligence, operations, and mobile execution.",
-  "id": "/AIOS-MOBILE-APP.html",
-  "start_url": "/AIOS-MOBILE-APP.html",
+  "id": "/app",
+  "start_url": "/app",
   "scope": "/",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
@@ -33,16 +33,16 @@
   ],
   "shortcuts": [
     {
-      "name": "Command Center",
-      "short_name": "Command",
-      "url": "/AIOS-DASHBOARD.html?screen=eye",
-      "description": "Open AIOS Mission Control."
+      "name": "Owners",
+      "short_name": "Owners",
+      "url": "/app",
+      "description": "Look up the real owner of any Dubai building or unit."
     },
     {
-      "name": "Mobile Console",
-      "short_name": "Mobile",
-      "url": "/AIOS-MOBILE-APP.html",
-      "description": "Open the AIOS mobile operating console."
+      "name": "Command Center",
+      "short_name": "Command",
+      "url": "/app",
+      "description": "Open the AIOS command app."
     }
   ]
 }
