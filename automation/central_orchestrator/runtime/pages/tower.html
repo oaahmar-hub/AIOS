@@ -5,25 +5,26 @@
  --serif:"Didot","Bodoni 72","Hoefler Text",Garamond,serif;--disp:-apple-system,"SF Pro Display","Helvetica Neue",Inter,Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace;}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;background:var(--bg);color:var(--txt);font-family:var(--disp);overflow:hidden;-webkit-font-smoothing:antialiased}
-#c{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none}
+/* fallback (no-WebGL): premium static scene so the page is NEVER blank/stuck */
+#scene{position:fixed;inset:0;z-index:0;background:
+ radial-gradient(120% 90% at 50% 0,rgba(203,169,106,.14),transparent 55%),
+ linear-gradient(180deg,rgba(7,10,13,.35) 0%,rgba(7,10,13,.2) 45%,rgba(7,10,13,.9) 100%),
+ url(/hsh-hero.jpg) center 22%/cover no-repeat, #070a0d}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;z-index:1;background:transparent}
 .load{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:50;transition:opacity .8s;text-align:center}
 .load.hide{opacity:0;pointer-events:none}
 .load .lg{font-family:var(--serif);font-size:40px;color:var(--gold2);letter-spacing:.06em}
 .load .bar{width:180px;height:2px;background:var(--line);margin:20px auto 0;border-radius:2px;overflow:hidden}
 .load .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .3s}
 .load small{display:block;margin-top:12px;font:600 10px/1 var(--mono);letter-spacing:.3em;color:var(--faint)}
-/* top bar */
-.top{position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;z-index:20;
- background:linear-gradient(180deg,rgba(7,10,13,.9),transparent)}
+.top{position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;z-index:20;background:linear-gradient(180deg,rgba(7,10,13,.9),transparent)}
 .brand{display:flex;align-items:center;gap:10px;font:700 13px/1 var(--disp);letter-spacing:.22em;color:var(--gold2)}
 .brand img{width:30px;height:30px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(203,169,106,.4))}
 .status{font:600 10px/1 var(--mono);letter-spacing:.2em;color:var(--dim);display:flex;align-items:center;gap:7px}
 .status .d{width:8px;height:8px;border-radius:50%;background:#5fd08a;box-shadow:0 0 10px #5fd08a;animation:pulse 2s infinite}
 @keyframes pulse{50%{opacity:.4}}
-/* unit info card */
 .card{position:fixed;left:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:20;width:min(340px,calc(100% - 44px));
- background:var(--ink);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:18px;padding:22px;
- transform:translateY(0);transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .6s;opacity:0}
+ background:var(--ink);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:18px;padding:22px;opacity:0;transition:opacity .6s}
 .card.in{opacity:1}
 .card .k{font:600 10px/1 var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
 .card h1{font-family:var(--serif);font-size:34px;font-weight:500;letter-spacing:.02em;margin:10px 0 2px}
@@ -33,9 +34,8 @@ html,body{height:100%;background:var(--bg);color:var(--txt);font-family:var(--di
 .card .specs div b{font-family:var(--serif);font-size:19px;font-weight:500;color:var(--txt);letter-spacing:.01em}
 .card .price{font-family:var(--serif);font-size:26px;color:var(--gold2);font-weight:500;margin-bottom:4px}
 .card .avail{display:inline-flex;align-items:center;gap:6px;font:600 11px/1 var(--mono);letter-spacing:.14em;color:#7fd39a;text-transform:uppercase}
-/* CTA */
 .cta{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:20;display:flex;flex-direction:column;gap:11px;align-items:flex-end}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:14px;font:700 14px/1 var(--disp);letter-spacing:.02em;cursor:pointer;border:none;text-decoration:none;transition:transform .15s,box-shadow .2s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:14px;font:700 14px/1 var(--disp);letter-spacing:.02em;cursor:pointer;border:none;text-decoration:none;transition:transform .15s;white-space:nowrap}
 .btn:active{transform:scale(.97)}
 .wa{background:#25D366;color:#053b1e;box-shadow:0 8px 30px rgba(37,211,102,.35)}
 .wa svg{width:20px;height:20px}
@@ -48,17 +48,18 @@ html,body{height:100%;background:var(--bg);color:var(--txt);font-family:var(--di
  .cta{left:14px;right:14px;flex-direction:row}.btn{flex:1;justify-content:center;padding:14px}.hint{display:none}}
 </style>
 
+<div id="scene"></div>
+<canvas id="c"></canvas>
+
 <div class="load" id="load"><div>
   <div class="lg">HSH GLOBAL</div>
   <div class="bar"><i id="bar"></i></div>
   <small>RENDERING RESIDENCE 6805</small>
 </div></div>
 
-<canvas id="c"></canvas>
-
 <div class="top">
   <div class="brand"><img src="/hsh-logo.png" alt="HSH">HSH&nbsp;GLOBAL</div>
-  <div class="status"><span class="d"></span>LIVE 3D · WEBGL</div>
+  <div class="status"><span class="d"></span><span id="mode">LIVE 3D · WEBGL</span></div>
 </div>
 
 <div class="hint" id="hint">◇ Drag to explore · pinch to zoom</div>
@@ -91,102 +92,78 @@ html,body{height:100%;background:var(--bg);color:var(--txt);font-family:var(--di
 {"imports":{"three":"https://esm.sh/three@0.160.0","three/addons/":"https://esm.sh/three@0.160.0/examples/jsm/"}}
 </script>
 <script type="module">
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+const bar=document.getElementById('bar'),load=document.getElementById('load'),card=document.getElementById('card'),hint=document.getElementById('hint');
+let p=0;const tick=setInterval(()=>{p=Math.min(92,p+9);bar.style.width=p+'%';},110);
+let revealed=false;
+function reveal(delay){if(revealed)return;revealed=true;clearInterval(tick);bar.style.width='100%';
+ setTimeout(()=>{load.classList.add('hide');card.classList.add('in');},delay||400);}
+function fallback(){document.getElementById('mode').textContent='CINEMATIC';if(hint)hint.style.display='none';reveal(200);}
 
-const bar=document.getElementById('bar');let p=0;const tick=setInterval(()=>{p=Math.min(92,p+8);bar.style.width=p+'%';},120);
-const canvas=document.getElementById('c');
-const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
-renderer.setPixelRatio(Math.min(2,devicePixelRatio));renderer.setSize(innerWidth,innerHeight);
-renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
-
-const scene=new THREE.Scene();
-scene.background=new THREE.Color('#0a0d12');
-scene.fog=new THREE.FogExp2('#0a0d12',0.012);
-
-const camera=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,.1,400);
-camera.position.set(28,20,34);
-
-// ---- window facade texture (procedural: warm lit windows on dark glass) ----
-function facade(){const c=document.createElement('canvas');c.width=256;c.height=512;const x=c.getContext('2d');
- x.fillStyle='#0c0f14';x.fillRect(0,0,256,512);
- for(let row=0;row<40;row++)for(let col=0;col<16;col++){
-   const on=Math.abs(Math.sin(row*12.9+col*4.7))>.45;
-   x.fillStyle=on?`rgba(${230+Math.random()*20|0},${180+Math.random()*40|0},${110+Math.random()*40|0},${.7+Math.random()*.3})`:'#0e1218';
-   x.fillRect(col*16+2,row*12.6+2,12,9);
- }
- const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;return t;}
-const winTex=facade();
-
-// ---- the tower (tapered stacked glass, gold-lit) ----
-const tower=new THREE.Group();
-const tiers=[[9,0,18],[7.6,18,16],[6.2,34,14],[4.8,48,11]];
-let yb=0;
-tiers.forEach(([w,y0,h],i)=>{
- const tx=winTex.clone();tx.needsUpdate=true;tx.repeat.set(w/2.2,h/3.2);
- const glass=new THREE.MeshStandardMaterial({color:'#10151c',metalness:.9,roughness:.22,emissive:new THREE.Color('#3a2c12'),emissiveMap:tx,emissiveIntensity:1.5});
- const box=new THREE.Mesh(new THREE.BoxGeometry(w,h,w),glass);box.position.y=yb+h/2;tower.add(box);
- // gold trim ring
- const trim=new THREE.Mesh(new THREE.BoxGeometry(w+.3,.4,w+.3),new THREE.MeshStandardMaterial({color:'#e1b879',metalness:1,roughness:.25,emissive:'#cba96a',emissiveIntensity:.5}));
- trim.position.y=yb+h;tower.add(trim);
- yb+=h;
-});
-// crown
-const crown=new THREE.Mesh(new THREE.ConeGeometry(3.4,7,4),new THREE.MeshStandardMaterial({color:'#e1b879',metalness:1,roughness:.2,emissive:'#cba96a',emissiveIntensity:.7}));
-crown.position.y=yb+3.5;crown.rotation.y=Math.PI/4;tower.add(crown);
-tower.position.y=0;scene.add(tower);
-
-// surrounding lower towers (skyline depth)
-const skylineMat=new THREE.MeshStandardMaterial({color:'#0d1219',metalness:.85,roughness:.35,emissive:'#221a0c',emissiveMap:winTex,emissiveIntensity:.9});
-for(let i=0;i<26;i++){const a=Math.random()*Math.PI*2,r=40+Math.random()*70,h=8+Math.random()*40,w=4+Math.random()*7;
- const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,w),skylineMat);m.position.set(Math.cos(a)*r,h/2,Math.sin(a)*r);scene.add(m);}
-
-// ---- ground: dark reflective plaza ----
-const ground=new THREE.Mesh(new THREE.CircleGeometry(220,64),new THREE.MeshStandardMaterial({color:'#080a0d',metalness:.9,roughness:.4}));
-ground.rotation.x=-Math.PI/2;ground.position.y=-.02;scene.add(ground);
-
-// ---- lighting: golden hour ----
-scene.add(new THREE.HemisphereLight('#2a2a3a','#0a0a0e',.5));
-const key=new THREE.DirectionalLight('#ffcf8a',2.2);key.position.set(-60,50,30);scene.add(key);
-const rim=new THREE.DirectionalLight('#8fb4ff',.5);rim.position.set(50,30,-40);scene.add(rim);
-const glow=new THREE.PointLight('#e1b879',3,120,2);glow.position.set(0,10,0);scene.add(glow);
-// gradient sky dome
-const sky=new THREE.Mesh(new THREE.SphereGeometry(300,32,16),new THREE.ShaderMaterial({side:THREE.BackSide,uniforms:{},
- vertexShader:'varying vec3 p;void main(){p=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
- fragmentShader:'varying vec3 p;void main(){float h=normalize(p).y*.5+.5;vec3 top=vec3(.04,.05,.08);vec3 hor=vec3(.55,.34,.16);vec3 c=mix(hor,top,smoothstep(.12,.6,h));gl_FragColor=vec4(c,1.);}'}));
-scene.add(sky);
-
-const controls=new OrbitControls(camera,canvas);
-controls.enableDamping=true;controls.dampingFactor=.06;controls.target.set(0,22,0);
-controls.minDistance=22;controls.maxDistance=90;controls.maxPolarAngle=Math.PI*.49;controls.autoRotate=true;controls.autoRotateSpeed=.6;
-
-const composer=new EffectComposer(renderer);
-composer.addPass(new RenderPass(scene,camera));
-const bloom=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.9,.6,.72);
-composer.addPass(bloom);
-
-addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight);});
-let started=false;const hint=document.getElementById('hint');
-controls.addEventListener('start',()=>{controls.autoRotate=false;if(hint)hint.style.opacity=0;});
-function loop(){requestAnimationFrame(loop);controls.update();composer.render();}
-loop();
-
-// reveal once first frame is up
-setTimeout(()=>{clearInterval(tick);bar.style.width='100%';
- setTimeout(()=>{document.getElementById('load').classList.add('hide');document.getElementById('card').classList.add('in');},400);
-},900);
-
-// ---- WhatsApp + lead capture ----
-const NUM='971500000000'; // TODO: HSH / Hassan Mesrabi number
-const msg=encodeURIComponent('Hello HSH Global — I am interested in Unit 6805 (The Oasis, 5BR waterfront mansion, AED 13.9M). Please share the details.');
-document.getElementById('wa').href=`https://wa.me/${NUM}?text=${msg}`;
+// ---- WhatsApp + lead (always runs, WebGL or not) ----
+const NUM='971500000000'; // TODO: set HSH / Hassan Mesrabi WhatsApp number
+document.getElementById('wa').href='https://wa.me/'+NUM+'?text='+encodeURIComponent('Hello HSH Global — I am interested in Unit 6805 (The Oasis, 5BR waterfront mansion, AED 13.9M). Please share the details.');
 function toast(html){const t=document.getElementById('toast');t.innerHTML=html;t.classList.add('in');setTimeout(()=>t.classList.remove('in'),4200);}
 document.getElementById('book').addEventListener('click',async()=>{
  toast('Request received — <b>HSH will confirm on WhatsApp.</b>');
- try{await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({unit:'6805',project:'The Oasis by Emaar',source:'3d-showroom',ua:navigator.userAgent,ts:Date.now()})});}catch(e){}
- setTimeout(()=>{window.open(`https://wa.me/${NUM}?text=`+encodeURIComponent('Hello HSH Global — I would like to SCHEDULE A VIEWING for Unit 6805 (The Oasis).'),'_blank');},700);
+ try{await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({unit:'6805',project:'The Oasis by Emaar',source:'3d-showroom',ts:Date.now()})});}catch(e){}
+ setTimeout(()=>{window.open('https://wa.me/'+NUM+'?text='+encodeURIComponent('Hello HSH Global — I would like to SCHEDULE A VIEWING for Unit 6805 (The Oasis).'),'_blank');},700);
 });
+
+// ---- 3D (progressive enhancement; falls back gracefully) ----
+(async()=>{
+ try{
+  const THREE=await import('three');
+  const {OrbitControls}=await import('three/addons/controls/OrbitControls.js');
+  const {EffectComposer}=await import('three/addons/postprocessing/EffectComposer.js');
+  const {RenderPass}=await import('three/addons/postprocessing/RenderPass.js');
+  const {UnrealBloomPass}=await import('three/addons/postprocessing/UnrealBloomPass.js');
+  const canvas=document.getElementById('c');
+  const gl=canvas.getContext('webgl2')||canvas.getContext('webgl');
+  if(!gl) throw new Error('no-webgl');
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+  renderer.setPixelRatio(Math.min(2,devicePixelRatio));renderer.setSize(innerWidth,innerHeight);
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+  const scene=new THREE.Scene();scene.background=new THREE.Color('#0a0d12');scene.fog=new THREE.FogExp2('#0a0d12',0.012);
+  const camera=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,.1,400);camera.position.set(28,20,34);
+  function facade(){const c=document.createElement('canvas');c.width=256;c.height=512;const x=c.getContext('2d');
+   x.fillStyle='#0c0f14';x.fillRect(0,0,256,512);
+   for(let r=0;r<40;r++)for(let col=0;col<16;col++){const on=Math.abs(Math.sin(r*12.9+col*4.7))>.45;
+    x.fillStyle=on?'rgba('+(230+(Math.random()*20|0))+','+(180+(Math.random()*40|0))+','+(110+(Math.random()*40|0))+','+(.7+Math.random()*.3)+')':'#0e1218';
+    x.fillRect(col*16+2,r*12.6+2,12,9);}
+   const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;return t;}
+  const winTex=facade();
+  const tower=new THREE.Group();let yb=0;
+  [[9,18],[7.6,16],[6.2,14],[4.8,11]].forEach(([w,h])=>{
+   const tx=winTex.clone();tx.needsUpdate=true;tx.repeat.set(w/2.2,h/3.2);
+   const glass=new THREE.MeshStandardMaterial({color:'#10151c',metalness:.9,roughness:.22,emissive:new THREE.Color('#3a2c12'),emissiveMap:tx,emissiveIntensity:1.5});
+   const box=new THREE.Mesh(new THREE.BoxGeometry(w,h,w),glass);box.position.y=yb+h/2;tower.add(box);
+   const trim=new THREE.Mesh(new THREE.BoxGeometry(w+.3,.4,w+.3),new THREE.MeshStandardMaterial({color:'#e1b879',metalness:1,roughness:.25,emissive:'#cba96a',emissiveIntensity:.5}));
+   trim.position.y=yb+h;tower.add(trim);yb+=h;});
+  const crown=new THREE.Mesh(new THREE.ConeGeometry(3.4,7,4),new THREE.MeshStandardMaterial({color:'#e1b879',metalness:1,roughness:.2,emissive:'#cba96a',emissiveIntensity:.7}));
+  crown.position.y=yb+3.5;crown.rotation.y=Math.PI/4;tower.add(crown);scene.add(tower);
+  const skyMat=new THREE.MeshStandardMaterial({color:'#0d1219',metalness:.85,roughness:.35,emissive:'#221a0c',emissiveMap:winTex,emissiveIntensity:.9});
+  for(let i=0;i<24;i++){const a=Math.random()*6.28,r=40+Math.random()*70,h=8+Math.random()*40,w=4+Math.random()*7;
+   const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,w),skyMat);m.position.set(Math.cos(a)*r,h/2,Math.sin(a)*r);scene.add(m);}
+  const ground=new THREE.Mesh(new THREE.CircleGeometry(220,64),new THREE.MeshStandardMaterial({color:'#080a0d',metalness:.9,roughness:.4}));
+  ground.rotation.x=-Math.PI/2;ground.position.y=-.02;scene.add(ground);
+  scene.add(new THREE.HemisphereLight('#2a2a3a','#0a0a0e',.5));
+  const key=new THREE.DirectionalLight('#ffcf8a',2.2);key.position.set(-60,50,30);scene.add(key);
+  const rim=new THREE.DirectionalLight('#8fb4ff',.5);rim.position.set(50,30,-40);scene.add(rim);
+  scene.add(Object.assign(new THREE.PointLight('#e1b879',3,120,2),{position:new THREE.Vector3(0,10,0)}));
+  const sky=new THREE.Mesh(new THREE.SphereGeometry(300,32,16),new THREE.ShaderMaterial({side:THREE.BackSide,
+   vertexShader:'varying vec3 p;void main(){p=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+   fragmentShader:'varying vec3 p;void main(){float h=normalize(p).y*.5+.5;vec3 c=mix(vec3(.55,.34,.16),vec3(.04,.05,.08),smoothstep(.12,.6,h));gl_FragColor=vec4(c,1.);}'}));
+  scene.add(sky);
+  const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.06;
+  controls.target.set(0,22,0);controls.minDistance=22;controls.maxDistance=90;controls.maxPolarAngle=Math.PI*.49;controls.autoRotate=true;controls.autoRotateSpeed=.6;
+  controls.addEventListener('start',()=>{controls.autoRotate=false;if(hint)hint.style.opacity=0;});
+  const composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));
+  composer.addPass(new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.9,.6,.72));
+  addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight);});
+  function loop(){requestAnimationFrame(loop);controls.update();composer.render();}
+  loop();
+  document.getElementById('scene').style.opacity='0'; // 3D covers it
+  reveal(700);
+ }catch(err){ console.warn('3D unavailable, cinematic fallback:',err&&err.message); fallback(); }
+})();
 </script>
