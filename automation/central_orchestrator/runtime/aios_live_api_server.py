@@ -133,6 +133,8 @@ PUBLIC_STATIC_PATHS = {
     "/pitch/",
     "/peter",
     "/peter/",
+    "/peter-ar",
+    "/peter-ar/",
 }
 # NOTE: a blanket ".html" suffix here previously made EVERY html file public,
 # including AIOS-DASHBOARD.html (the command center). Public pages must be
@@ -2104,10 +2106,11 @@ class AIOSLiveAPIHandler(SimpleHTTPRequestHandler):
             except Exception as exc:
                 _write_json(self, 500, {"ok": False, "error": str(exc)})
             return
-        if path in ("/map", "/map/", "/deck", "/deck/", "/site", "/site/", "/pitch", "/pitch/", "/peter", "/peter/"):
+        if path in ("/map", "/map/", "/deck", "/deck/", "/site", "/site/", "/pitch", "/pitch/", "/peter", "/peter/", "/peter-ar", "/peter-ar/"):
             # Serve the visual pages from the AIOS server itself. /map and /deck
-            # sit behind auth; /site, /pitch, /peter are PUBLIC (allowlisted).
-            fname = ("peter.html" if path.startswith("/peter")
+            # sit behind auth; /site, /pitch, /peter, /peter-ar are PUBLIC.
+            fname = ("peter-ar.html" if path.startswith("/peter-ar")
+                     else "peter.html" if path.startswith("/peter")
                      else "pitch.html" if path.startswith("/pitch")
                      else "site.html" if path.startswith("/site")
                      else "map.html" if path.startswith("/map") else "deck.html")
